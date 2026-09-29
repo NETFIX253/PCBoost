@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="App_Chart_AccessibleName" xml:space="preserve"><value>Graphique {0}</value></data>
+  <data name="App_Common_Loading" xml:space="preserve"><value>Chargement…</value></data>
+  <data name="App_Dialog_Details" xml:space="preserve"><value>Détails</value></data>
+  <data name="App_Dialog_Ok" xml:space="preserve"><value>OK</value></data>
+  <data name="App_Dialog_TechnicalDetail" xml:space="preserve"><value>Détail technique : {0}</value></data>
+  <data name="App_Error_Retry" xml:space="preserve"><value>Réessayer avec autorisation</value></data>
+  <data name="App_Factor_Points" xml:space="preserve"><value>points</value></data>
+  <data name="App_Gaming_SessionBand_Active" xml:space="preserve"><value>Session en cours</value></data>
+  <data name="App_Gaming_SessionBand_Inactive" xml:space="preserve"><value>Mode Gaming inactif</value></data>
+  <data name="App_Home_Heading" xml:space="preserve"><value>État de votre PC</value></data>
+  <data name="App_Home_OptimizeHint" xml:space="preserve"><value>Vous verrez chaque modification avant qu'elle soit appliquée.</value></data>
+  <data name="App_Home_ScoreOutOf" xml:space="preserve"><value>/ 100</value></data>
+  <data name="App_Nav_Back" xml:space="preserve"><value>Retour</value></data>
+  <data name="App_Notify_StillRunning_Body" xml:space="preserve"><value>PCBoost continue de surveiller votre PC dans la zone de notification. Clic droit sur l'icône pour quitter.</value></data>
+  <data name="App_Notify_StillRunning_Title" xml:space="preserve"><value>PCBoost reste actif</value></data>
+  <data name="App_OldPc_Link" xml:space="preserve"><value>Optimiser un ancien PC</value></data>
+  <data name="App_Score_Of" xml:space="preserve"><value>sur 100</value></data>
+  <data name="App_Section_More" xml:space="preserve"><value>Plus d'outils</value></data>
+  <data name="App_Startup_Error_Message" xml:space="preserve"><value>Une erreur inattendue s'est produite au démarrage. Les détails ont été enregistrés dans le journal de l'application.</value></data>
+  <data name="App_Startup_Error_Title" xml:space="preserve"><value>PCBoost n'a pas pu démarrer correctement</value></data>
+  <data name="App_Storage_Link" xml:space="preserve"><value>Voir la répartition du stockage</value></data>
+  <data name="App_Tray_Exit" xml:space="preserve"><value>Quitter</value></data>
+  <data name="App_Tray_Gaming" xml:space="preserve"><value>Mode Gaming</value></data>
+  <data name="App_Tray_Open" xml:space="preserve"><value>Ouvrir PCBoost</value></data>
+  <data name="App_Tray_Optimize" xml:space="preserve"><value>Optimiser</value></data>
+  <data name="App_Tray_PauseMonitoring" xml:space="preserve"><value>Suspendre la surveillance</value></data>
+  <data name="App_Tray_ResumeMonitoring" xml:space="preserve"><value>Reprendre la surveillance</value></data>
+  <data name="App_Tray_Settings" xml:space="preserve"><value>Paramètres</value></data>
+  <data name="App_Tray_ToolTip" xml:space="preserve"><value>PCBoost — surveillance légère active</value></data>
+  <data name="App_Tray_ToolTipPaused" xml:space="preserve"><value>PCBoost — surveillance en pause</value></data>
+  <data name="App_Unsupported_Message" xml:space="preserve"><value>PCBoost nécessite Windows 10 version 1809 (build 17763) ou ultérieure. Cette version (build {0}) n'est pas prise en charge : l'analyse reste possible mais aucune modification ne sera appliquée.</value></data>
+  <data name="App_Unsupported_Title" xml:space="preserve"><value>Version de Windows non prise en charge</value></data>
+  <data name="App_Welcome_Heading" xml:space="preserve"><value>Bienvenue dans {0}</value></data>
+  <data name="App_WindowTitle" xml:space="preserve"><value>PCBoost</value></data>
+</root>

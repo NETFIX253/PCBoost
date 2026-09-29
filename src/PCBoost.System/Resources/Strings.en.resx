@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Sys_AutoStartUnavailable" xml:space="preserve"><value>The application's location could not be determined, so it cannot start with Windows.</value></data>
+  <data name="Sys_CommandNotAllowed" xml:space="preserve"><value>This system command is not allowed.</value></data>
+  <data name="Sys_CommandTimedOut" xml:space="preserve"><value>The system command took too long and was stopped.</value></data>
+  <data name="Sys_EfficiencyModeNotSupported" xml:space="preserve"><value>Efficiency mode requires Windows 11.</value></data>
+  <data name="Sys_ElevatedCleanupPartial" xml:space="preserve"><value>Some items could not be cleaned.</value></data>
+  <data name="Sys_ElevatedInvalidParameters" xml:space="preserve"><value>The administrator request contains invalid parameters. Nothing was changed.</value></data>
+  <data name="Sys_ElevatedOperationRefused" xml:space="preserve"><value>This administrator operation is not allowed. Nothing was changed.</value></data>
+  <data name="Sys_ElevationCancelled" xml:space="preserve"><value>Administrator permission was declined. Nothing was changed.</value></data>
+  <data name="Sys_ElevationFailed" xml:space="preserve"><value>The administrator operation could not be run.</value></data>
+  <data name="Sys_ElevationNoResult" xml:space="preserve"><value>The administrator operation ended without returning a result (code {0}).</value></data>
+  <data name="Sys_ElevatorMissing" xml:space="preserve"><value>The administrator component is missing. Reinstall the application to restore it.</value></data>
+  <data name="Sys_FileInUse" xml:space="preserve"><value>The file is in use by another program; it was left in place.</value></data>
+  <data name="Sys_FileReadOnly" xml:space="preserve"><value>The file is read-only; it was left in place.</value></data>
+  <data name="Sys_FrameCaptureCancelled" xml:space="preserve"><value>Frame rate measurement needs administrator permission, which was declined.</value></data>
+  <data name="Sys_FrameCaptureSessionFailed" xml:space="preserve"><value>Windows did not allow the frame rate measurement to start.</value></data>
+  <data name="Sys_FrameCaptureStopped" xml:space="preserve"><value>Frame rate measurement stopped.</value></data>
+  <data name="Sys_FrameCaptureTargetExited" xml:space="preserve"><value>The game is no longer running.</value></data>
+  <data name="Sys_FrameCaptureTimeout" xml:space="preserve"><value>Frame rate measurement could not start in time.</value></data>
+  <data name="Sys_FrameCaptureUnavailable" xml:space="preserve"><value>Frame rate measurement is not available on this PC.</value></data>
+  <data name="Sys_MicrosoftTaskBlocked" xml:space="preserve"><value>Windows scheduled tasks cannot be changed.</value></data>
+  <data name="Sys_PathNotFound" xml:space="preserve"><value>The location could not be found.</value></data>
+  <data name="Sys_PowerSchemeNotFound" xml:space="preserve"><value>This power plan does not exist on this PC.</value></data>
+  <data name="Sys_ProcessAccessDenied" xml:space="preserve"><value>Windows does not allow this action on this program.</value></data>
+  <data name="Sys_ProcessNoWindow" xml:space="preserve"><value>This program has no window to close.</value></data>
+  <data name="Sys_ProcessNotFound" xml:space="preserve"><value>This program is no longer running.</value></data>
+  <data name="Sys_ProtectedTarget" xml:space="preserve"><value>This item is protected and cannot be changed.</value></data>
+  <data name="Sys_RealTimePriorityBlocked" xml:space="preserve"><value>The "Realtime" priority is not offered: it can make Windows unstable.</value></data>
+  <data name="Sys_UriNotAllowed" xml:space="preserve"><value>Only web links (http or https) can be opened.</value></data>
+  <data name="Sys_VisualEffectsPartial" xml:space="preserve"><value>Some visual effects could not be changed.</value></data>
+</root>

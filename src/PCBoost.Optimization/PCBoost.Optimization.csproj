@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>PCBoost.Optimization</RootNamespace>
+    <Description>Moteur d'optimisation modulaire, validation de sûreté, restauration (rollback), nettoyage sûr, démarrage, processus, profils, récupération.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PCBoost.Core\PCBoost.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="PCBoost.Optimization.Tests" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Strings.i18n.json" />
+  </ItemGroup>
+</Project>

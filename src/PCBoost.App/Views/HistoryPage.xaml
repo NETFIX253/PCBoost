@@ -1,0 +1,133 @@
+<local:ViewPage
+    x:Class="PCBoost.App.Views.HistoryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PCBoost.App.Views"
+    xmlns:h="using:PCBoost.App.Helpers"
+    xmlns:controls="using:PCBoost.App.Controls"
+    xmlns:vm="using:PCBoost.Presentation.ViewModels">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel MaxWidth="{StaticResource ContentMaxWidth}" Padding="{StaticResource PagePadding}" Spacing="20">
+            <Grid ColumnSpacing="16">
+                <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                <StackPanel Spacing="6">
+                    <TextBlock Text="{h:Str Key=History_Title}" Style="{StaticResource PageTitleTextStyle}" />
+                    <TextBlock Text="{h:Str Key=History_Subtitle}" Style="{StaticResource PageSubtitleTextStyle}" />
+                </StackPanel>
+                <Button Grid.Column="1" VerticalAlignment="Top" Style="{StaticResource SecondaryButtonStyle}" Command="{x:Bind ViewModel.RefreshCommand}">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xE72C;" FontSize="14" />
+                        <TextBlock Text="{h:Str Key=Common_Action_Refresh}" />
+                    </StackPanel>
+                </Button>
+            </Grid>
+
+            <SelectorBar x:Name="Tabs" SelectionChanged="OnTabChanged">
+                <SelectorBarItem x:Name="SessionsItem" Text="{h:Str Key=History_Tab_Sessions}">
+                    <SelectorBarItem.Icon><FontIcon Glyph="&#xE81C;" /></SelectorBarItem.Icon>
+                </SelectorBarItem>
+                <SelectorBarItem x:Name="JournalItem" Text="{h:Str Key=History_Tab_Journal}">
+                    <SelectorBarItem.Icon><FontIcon Glyph="&#xE8A5;" /></SelectorBarItem.Icon>
+                </SelectorBarItem>
+            </SelectorBar>
+
+            <InfoBar Severity="Error" h:InfoBarHelper.IsShown="{x:Bind ViewModel.HasError, Mode=OneWay}" Message="{x:Bind ViewModel.ErrorText, Mode=OneWay}"
+                     Title="{h:Str Key=Common_Label_ErrorTitle}" CloseButtonCommand="{x:Bind ViewModel.DismissErrorCommand}" />
+            <InfoBar Severity="Success" h:InfoBarHelper.IsShown="{x:Bind ViewModel.HasStatusMessage, Mode=OneWay}" Message="{x:Bind ViewModel.StatusMessage, Mode=OneWay}"
+                     CloseButtonCommand="{x:Bind ViewModel.DismissStatusCommand}" />
+
+            <!-- Sessions d'optimisation -->
+            <StackPanel x:Name="SessionsPanel" Spacing="10">
+                <ProgressBar IsIndeterminate="True" Visibility="{x:Bind h:Ui.Show(ViewModel.IsBusy), Mode=OneWay}" />
+                <controls:EmptyState Text="{h:Str Key=History_Empty}" Glyph="&#xE81C;" Visibility="{x:Bind h:Ui.Show(ViewModel.ShowEmpty), Mode=OneWay}" />
+                <ItemsControl ItemsSource="{x:Bind ViewModel.Sessions}" IsTabStop="False">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="vm:SessionItemViewModel">
+                            <Border Style="{StaticResource CardStyle}" Padding="0" Margin="0,0,0,10">
+                                <StackPanel>
+                                    <Grid Padding="20,14,20,14" ColumnSpacing="16" AutomationProperties.Name="{x:Bind AccessibleName, Mode=OneWay}">
+                                        <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                        <FontIcon Glyph="{x:Bind StatusGlyph, Mode=OneWay}" FontSize="18" VerticalAlignment="Top" Margin="0,3,0,0" Foreground="{ThemeResource BrandAccentTextBrush}" />
+                                        <StackPanel Grid.Column="1" Spacing="3">
+                                            <TextBlock Text="{x:Bind Title}" Style="{StaticResource GroupHeaderTextStyle}" TextWrapping="WrapWholeWords" />
+                                            <TextBlock Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap">
+                                                <Run Text="{x:Bind TypeText}" /><Run Text=" · " /><Run Text="{x:Bind DateText}" /><Run Text=" · " /><Run Text="{x:Bind ChangeCountText}" />
+                                            </TextBlock>
+                                            <StackPanel Orientation="Horizontal" Spacing="6" Margin="0,4,0,0">
+                                                <controls:StatusBadge Text="{x:Bind StatusText, Mode=OneWay}" Kind="Info" />
+                                                <controls:StatusBadge Text="{x:Bind BytesFreedText}" Kind="Success" Visibility="{x:Bind h:Ui.Show(HasBytesFreed)}" />
+                                                <controls:StatusBadge Text="{x:Bind RestartText}" Kind="Caution" Visibility="{x:Bind h:Ui.Show(RequiresRestart)}" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="8" VerticalAlignment="Top">
+                                            <Button Style="{StaticResource SecondaryButtonStyle}" Command="{x:Bind RestoreCommand}" Visibility="{x:Bind h:Ui.Show(CanRestore), Mode=OneWay}">
+                                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                                    <FontIcon Glyph="&#xE7A7;" FontSize="14" />
+                                                    <TextBlock Text="{x:Bind RestoreLabel}" />
+                                                </StackPanel>
+                                            </Button>
+                                            <ProgressRing IsActive="{x:Bind IsRestoring, Mode=OneWay}" Width="20" Height="20" Visibility="{x:Bind h:Ui.Show(IsRestoring), Mode=OneWay}" />
+                                            <Button Style="{StaticResource QuietButtonStyle}" Command="{x:Bind ToggleExpandedCommand}" Padding="8"
+                                                    AutomationProperties.Name="{h:Str Key=History_Session_Details}" ToolTipService.ToolTip="{h:Str Key=History_Session_Details}">
+                                                <FontIcon Glyph="{x:Bind h:Ui.Chevron(IsExpanded), Mode=OneWay}" FontSize="12" />
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+                                    <StackPanel Visibility="{x:Bind h:Ui.Show(IsExpanded), Mode=OneWay}" BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}" BorderThickness="0,1,0,0"
+                                                Padding="54,4,20,10">
+                                        <ItemsControl ItemsSource="{x:Bind Changes}" IsTabStop="False">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate x:DataType="vm:ChangeItemViewModel">
+                                                    <Grid ColumnSpacing="12" Padding="0,10,0,10" AutomationProperties.Name="{x:Bind AccessibleName, Mode=OneWay}">
+                                                        <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                                        <FontIcon Glyph="{x:Bind StatusGlyph, Mode=OneWay}" FontSize="14" VerticalAlignment="Top" Margin="0,2,0,0" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                                                        <StackPanel Grid.Column="1" Spacing="2">
+                                                            <TextBlock Text="{x:Bind Description}" TextWrapping="Wrap" />
+                                                            <TextBlock Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap">
+                                                                <Run Text="{h:Str Key=History_Change_TargetLabel}" /><Run Text=" " /><Run Text="{x:Bind Target}" />
+                                                            </TextBlock>
+                                                            <TextBlock Style="{StaticResource CaptionSecondaryTextStyle}">
+                                                                <Run Text="{x:Bind StatusText, Mode=OneWay}" /><Run Text=" · " /><Run Text="{x:Bind ReversibleText}" /><Run Text=" · " /><Run Text="{x:Bind TimeText}" />
+                                                            </TextBlock>
+                                                        </StackPanel>
+                                                        <Button Grid.Column="2" Style="{StaticResource QuietButtonStyle}" Content="{x:Bind UndoLabel}" Command="{x:Bind UndoCommand}"
+                                                                VerticalAlignment="Top" Visibility="{x:Bind h:Ui.Show(CanUndo), Mode=OneWay}" />
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+
+            <!-- Journal d'activité -->
+            <StackPanel x:Name="JournalPanel" Spacing="10" Visibility="Collapsed">
+                <TextBlock Text="{h:Str Key=Journal_Subtitle}" Style="{StaticResource SecondaryTextStyle}" />
+                <controls:EmptyState Text="{h:Str Key=Journal_Empty}" Glyph="&#xE8A5;" Visibility="{x:Bind h:Ui.Show(ViewModel.Journal.ShowEmpty), Mode=OneWay}" />
+                <Border Style="{StaticResource CardStyle}" Padding="20,4,20,4" Visibility="{x:Bind h:Ui.Hide(ViewModel.Journal.ShowEmpty), Mode=OneWay}">
+                    <ItemsControl h:ListDividers.HideLast="True" ItemsSource="{x:Bind ViewModel.Journal.Entries}" IsTabStop="False">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="vm:JournalEntryItemViewModel">
+                                <Grid ColumnSpacing="14" Padding="0,10,0,10" BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}" BorderThickness="0,0,0,1"
+                                      AutomationProperties.Name="{x:Bind AccessibleName}">
+                                    <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                    <FontIcon Glyph="{x:Bind IconGlyph}" FontSize="15" VerticalAlignment="Top" Margin="0,2,0,0" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                                    <StackPanel Grid.Column="1" Spacing="2">
+                                        <TextBlock Text="{x:Bind Message}" TextWrapping="Wrap" />
+                                        <TextBlock Text="{x:Bind KindText}" Style="{StaticResource CaptionSecondaryTextStyle}" />
+                                    </StackPanel>
+                                    <TextBlock Grid.Column="2" Text="{x:Bind TimeText}" Style="{StaticResource CaptionSecondaryTextStyle}" ToolTipService.ToolTip="{x:Bind RelativeTimeText}" />
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</local:ViewPage>

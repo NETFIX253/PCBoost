@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Game_AlreadyActive" xml:space="preserve"><value>Le mode Gaming est déjà actif.</value></data>
+  <data name="Game_AutoActivated_Body" xml:space="preserve"><value>Activé pour {0}. Vos paramètres seront restaurés à la fermeture du jeu.</value></data>
+  <data name="Game_AutoActivated_Title" xml:space="preserve"><value>Mode Gaming activé</value></data>
+  <data name="Game_Background_Applied" xml:space="preserve"><value>{0} {0:plural:programme d'arrière-plan ralenti|programmes d'arrière-plan ralentis} temporairement.</value></data>
+  <data name="Game_Background_ChangeEfficiency" xml:space="preserve"><value>Mode efficacité pour {0} pendant la partie.</value></data>
+  <data name="Game_Background_ChangePriority" xml:space="preserve"><value>Priorité « Inférieure à la normale » pour {0} pendant la partie.</value></data>
+  <data name="Game_Background_Failed" xml:space="preserve"><value>{0} {0:plural:programme n'a pas pu être ralenti|programmes n'ont pas pu être ralentis}.</value></data>
+  <data name="Game_Background_NothingToDo" xml:space="preserve"><value>Aucun programme d'arrière-plan à ralentir.</value></data>
+  <data name="Game_Background_Skipped" xml:space="preserve"><value>{0} {0:plural:programme ignoré (fermé, protégé ou passé au premier plan)|programmes ignorés (fermés, protégés ou passés au premier plan)}.</value></data>
+  <data name="Game_Deactivated_Body" xml:space="preserve"><value>Paramètres précédents restaurés.</value></data>
+  <data name="Game_Deactivated_PartialBody" xml:space="preserve"><value>Paramètres restaurés, sauf {0} {0:plural:élément|éléments}. Consultez l'historique pour réessayer.</value></data>
+  <data name="Game_Deactivated_Title" xml:space="preserve"><value>Mode Gaming désactivé</value></data>
+  <data name="Game_Detected_Action" xml:space="preserve"><value>Activer</value></data>
+  <data name="Game_Detected_Body" xml:space="preserve"><value>{0} est en cours. Le mode Gaming peut réduire les tâches de fond pendant la partie ; tout sera restauré à la fermeture du jeu.</value></data>
+  <data name="Game_Detected_Title" xml:space="preserve"><value>Jeu détecté : lancement du mode Gaming ?</value></data>
+  <data name="Game_Frames_Available" xml:space="preserve"><value>Mesure des images active.</value></data>
+  <data name="Game_Frames_Disabled" xml:space="preserve"><value>Mesure des FPS désactivée dans les paramètres.</value></data>
+  <data name="Game_Frames_NotSupported" xml:space="preserve"><value>FPS non disponibles pour ce jeu.</value></data>
+  <data name="Game_Frames_RequiresElevation" xml:space="preserve"><value>FPS non disponibles : la mesure nécessite une autorisation administrateur ponctuelle.</value></data>
+  <data name="Game_Frames_Unavailable" xml:space="preserve"><value>La mesure des images par seconde n'est pas disponible.</value></data>
+  <data name="Game_Gpu_AlreadySet" xml:space="preserve"><value>Le jeu utilise déjà la carte graphique hautes performances.</value></data>
+  <data name="Game_Gpu_Applied" xml:space="preserve"><value>{0} utilisera la carte graphique hautes performances à son prochain lancement.</value></data>
+  <data name="Game_Gpu_Change" xml:space="preserve"><value>Utiliser la carte graphique hautes performances pour {0} (au prochain lancement).</value></data>
+  <data name="Game_Gpu_Failed" xml:space="preserve"><value>La préférence graphique n'a pas pu être enregistrée.</value></data>
+  <data name="Game_Gpu_NoGamePath" xml:space="preserve"><value>L'emplacement du jeu est inconnu.</value></data>
+  <data name="Game_Gpu_NotSelected" xml:space="preserve"><value>Non sélectionné : la préférence graphique n'a pas été modifiée.</value></data>
+  <data name="Game_Gpu_SingleGpu" xml:space="preserve"><value>Ce PC n'a qu'une seule carte graphique utilisable : aucun réglage nécessaire.</value></data>
+  <data name="Game_Journal_Activated" xml:space="preserve"><value>Mode Gaming activé pour {0}.</value></data>
+  <data name="Game_Journal_ActivatedNoGame" xml:space="preserve"><value>Mode Gaming activé.</value></data>
+  <data name="Game_Journal_RestoreFailed" xml:space="preserve"><value>Mode Gaming désactivé : {0} {0:plural:modification n'a pas pu être restaurée|modifications n'ont pas pu être restaurées}.</value></data>
+  <data name="Game_Journal_Restored" xml:space="preserve"><value>Mode Gaming désactivé : {0} {0:plural:modification restaurée|modifications restaurées}.</value></data>
+  <data name="Game_Metric_AverageFps" xml:space="preserve"><value>FPS moyens</value></data>
+  <data name="Game_Metric_AverageFrameTimeMs" xml:space="preserve"><value>Temps d'image moyen (ms)</value></data>
+  <data name="Game_Metric_CpuAveragePercent" xml:space="preserve"><value>Processeur moyen (%)</value></data>
+  <data name="Game_Metric_CpuMaxPercent" xml:space="preserve"><value>Processeur maximal (%)</value></data>
+  <data name="Game_Metric_DiskActiveAveragePercent" xml:space="preserve"><value>Activité disque moyenne (%)</value></data>
+  <data name="Game_Metric_GpuAveragePercent" xml:space="preserve"><value>Carte graphique moyenne (%)</value></data>
+  <data name="Game_Metric_GpuMaxPercent" xml:space="preserve"><value>Carte graphique maximale (%)</value></data>
+  <data name="Game_Metric_NotAvailable" xml:space="preserve"><value>Non disponible</value></data>
+  <data name="Game_Metric_OnePercentLowFps" xml:space="preserve"><value>1 % low</value></data>
+  <data name="Game_Metric_P99FrameTimeMs" xml:space="preserve"><value>Temps d'image 99e centile (ms)</value></data>
+  <data name="Game_Metric_PointOnePercentLowFps" xml:space="preserve"><value>0,1 % low</value></data>
+  <data name="Game_Metric_RamAveragePercent" xml:space="preserve"><value>Mémoire moyenne (%)</value></data>
+  <data name="Game_NotRunning" xml:space="preserve"><value>{0} n'est plus en cours d'exécution : le mode Gaming n'a pas été activé.</value></data>
+  <data name="Game_NotSelected" xml:space="preserve"><value>Non sélectionné : rien n'a été modifié.</value></data>
+  <data name="Game_Opt_Background_Description" xml:space="preserve"><value>Ralentit temporairement les programmes non essentiels (synchronisation, mises à jour, navigateurs en arrière-plan). Rien n'est fermé. Discord, OBS, Spotify, les pilotes et l'anti-triche ne sont jamais touchés.</value></data>
+  <data name="Game_Opt_Background_Name" xml:space="preserve"><value>Applications en arrière-plan</value></data>
+  <data name="Game_Opt_ChangeCount" xml:space="preserve"><value>{0} {0:plural:modification prévue|modifications prévues}.</value></data>
+  <data name="Game_Opt_DisabledInSettings" xml:space="preserve"><value>Désactivé dans les paramètres du mode Gaming.</value></data>
+  <data name="Game_Opt_Failed" xml:space="preserve"><value>Cette optimisation n'a pas pu être préparée. Rien n'a été modifié.</value></data>
+  <data name="Game_Opt_Gpu_Description" xml:space="preserve"><value>Demande à Windows d'utiliser la carte graphique dédiée pour ce jeu (réglage de Paramètres › Affichage › Graphiques). Prend effet au prochain lancement du jeu.</value></data>
+  <data name="Game_Opt_Gpu_Name" xml:space="preserve"><value>Carte graphique hautes performances</value></data>
+  <data name="Game_Opt_NotSelectedByDefault" xml:space="preserve"><value>Proposé, mais non sélectionné par défaut.</value></data>
+  <data name="Game_Opt_Power_Description" xml:space="preserve"><value>Active le mode « Performances optimales » ou « Performances élevées » pendant la partie, puis rétablit votre mode habituel.</value></data>
+  <data name="Game_Opt_Power_Name" xml:space="preserve"><value>Mode d'alimentation performances</value></data>
+  <data name="Game_Opt_Priority_Description" xml:space="preserve"><value>Donne au jeu la priorité « Supérieure à la normale » (jamais « Haute » ni « Temps réel »), puis la rétablit à la fin.</value></data>
+  <data name="Game_Opt_Priority_Name" xml:space="preserve"><value>Priorité du jeu</value></data>
+  <data name="Game_Power_AlreadyActive" xml:space="preserve"><value>Le mode « {0} » est déjà actif.</value></data>
+  <data name="Game_Power_Applied" xml:space="preserve"><value>Mode d'alimentation « {0} » activé.</value></data>
+  <data name="Game_Power_Change" xml:space="preserve"><value>Passer du mode « {0} » au mode « {1} » pendant la partie.</value></data>
+  <data name="Game_Power_ChangeOnBattery" xml:space="preserve"><value>Passer du mode « {0} » au mode « {1} ». Attention : l'ordinateur est sur batterie, l'autonomie diminuera.</value></data>
+  <data name="Game_Power_Failed" xml:space="preserve"><value>Le mode d'alimentation n'a pas pu être changé.</value></data>
+  <data name="Game_Power_NoPerformancePlan" xml:space="preserve"><value>Aucun mode d'alimentation « performances » n'est disponible sur ce PC.</value></data>
+  <data name="Game_Power_NotApplicable" xml:space="preserve"><value>Aucun changement du mode d'alimentation n'est nécessaire.</value></data>
+  <data name="Game_Power_OnBatteryNotSelected" xml:space="preserve"><value>Non appliqué : l'ordinateur est sur batterie.</value></data>
+  <data name="Game_Power_Unknown" xml:space="preserve"><value>Le mode d'alimentation actuel n'a pas pu être lu.</value></data>
+  <data name="Game_Priority_AlreadyHigh" xml:space="preserve"><value>{0} a déjà une priorité supérieure à la normale.</value></data>
+  <data name="Game_Priority_Applied" xml:space="preserve"><value>{0} fonctionne avec la priorité « Supérieure à la normale ».</value></data>
+  <data name="Game_Priority_Change" xml:space="preserve"><value>Priorité « Supérieure à la normale » pour {0}.</value></data>
+  <data name="Game_Priority_Failed" xml:space="preserve"><value>La priorité de {0} n'a pas pu être modifiée.</value></data>
+  <data name="Game_Priority_GameNotRunning" xml:space="preserve"><value>Le jeu n'est plus en cours d'exécution.</value></data>
+  <data name="Game_Priority_NoGame" xml:space="preserve"><value>Aucun jeu en cours n'a été détecté.</value></data>
+  <data name="Game_Priority_Protected" xml:space="preserve"><value>{0} est protégé (souvent par son anti-triche) : sa priorité n'est pas modifiée.</value></data>
+  <data name="Game_Priority_Unreadable" xml:space="preserve"><value>La priorité de {0} n'a pas pu être lue.</value></data>
+  <data name="Game_Restore_Cancelled" xml:space="preserve"><value>Restauration annulée avant de commencer.</value></data>
+  <data name="Game_Restore_Failed" xml:space="preserve"><value>La restauration des paramètres n'a pas pu être effectuée. Vous pouvez la relancer depuis l'historique.</value></data>
+  <data name="Game_RollbackUnavailable" xml:space="preserve"><value>Le journal de restauration n'est pas disponible.</value></data>
+  <data name="Game_SessionTitle" xml:space="preserve"><value>Mode Gaming — {0}</value></data>
+  <data name="Game_SessionTitle_NoGame" xml:space="preserve"><value>Mode Gaming</value></data>
+  <data name="Game_Setting_AlreadyOk" xml:space="preserve"><value>Ce paramètre est déjà dans l'état recommandé.</value></data>
+  <data name="Game_Setting_Blocked" xml:space="preserve"><value>Ce paramètre est protégé : PCBoost ne le modifie pas.</value></data>
+  <data name="Game_Setting_GameMode" xml:space="preserve"><value>Mode Jeu de Windows</value></data>
+  <data name="Game_Setting_GameMode_Off" xml:space="preserve"><value>Désactivé. Vous pouvez le réactiver ; ce changement est annulable.</value></data>
+  <data name="Game_Setting_GameMode_On" xml:space="preserve"><value>Activé. Windows donne la priorité au jeu au premier plan.</value></data>
+  <data name="Game_Setting_Gpu" xml:space="preserve"><value>Carte graphique utilisée par le jeu</value></data>
+  <data name="Game_Setting_Gpu_NoPath" xml:space="preserve"><value>L'emplacement de {0} est inconnu : la préférence ne peut pas être vérifiée.</value></data>
+  <data name="Game_Setting_Gpu_Off" xml:space="preserve"><value>{0} n'a pas de préférence : Windows peut choisir la carte graphique intégrée. Changement annulable, effectif au prochain lancement.</value></data>
+  <data name="Game_Setting_Gpu_On" xml:space="preserve"><value>{0} utilise la carte graphique hautes performances.</value></data>
+  <data name="Game_Setting_Gpu_Single" xml:space="preserve"><value>Une seule carte graphique utilisable : aucun réglage nécessaire.</value></data>
+  <data name="Game_Setting_Hags" xml:space="preserve"><value>Planification GPU à accélération matérielle</value></data>
+  <data name="Game_Setting_Hags_Off" xml:space="preserve"><value>Désactivée. Si votre carte graphique la prend en charge, vous pouvez l'activer dans Paramètres › Système › Écran › Graphiques (redémarrage nécessaire). PCBoost ne modifie pas ce réglage.</value></data>
+  <data name="Game_Setting_Hags_On" xml:space="preserve"><value>Activée.</value></data>
+  <data name="Game_Setting_Hags_Unknown" xml:space="preserve"><value>Non disponible sur ce PC ou non configurée : aucune action nécessaire.</value></data>
+  <data name="Game_Setting_ManualOnly" xml:space="preserve"><value>Ce paramètre se règle dans les Paramètres de Windows.</value></data>
+  <data name="Game_Setting_NotFound" xml:space="preserve"><value>Ce paramètre n'est pas disponible sur ce PC.</value></data>
+  <data name="Game_Setting_SessionTitle" xml:space="preserve"><value>Paramètres de jeu Windows</value></data>
+  <data name="Game_Setting_Windowed" xml:space="preserve"><value>Optimisations pour les jeux fenêtrés</value></data>
+  <data name="Game_Setting_Windowed_Off" xml:space="preserve"><value>Non activées. Elles peuvent réduire la latence des jeux en mode fenêtré ; ce changement est annulable.</value></data>
+  <data name="Game_Setting_Windowed_On" xml:space="preserve"><value>Activées.</value></data>
+  <data name="Game_Source_BattleNet" xml:space="preserve"><value>Battle.net</value></data>
+  <data name="Game_Source_Custom" xml:space="preserve"><value>Ajouté manuellement</value></data>
+  <data name="Game_Source_EA" xml:space="preserve"><value>Application EA</value></data>
+  <data name="Game_Source_EpicGames" xml:space="preserve"><value>Epic Games</value></data>
+  <data name="Game_Source_Gog" xml:space="preserve"><value>GOG</value></data>
+  <data name="Game_Source_Riot" xml:space="preserve"><value>Riot Games</value></data>
+  <data name="Game_Source_Signature" xml:space="preserve"><value>Jeu connu</value></data>
+  <data name="Game_Source_Steam" xml:space="preserve"><value>Steam</value></data>
+  <data name="Game_Source_Ubisoft" xml:space="preserve"><value>Ubisoft Connect</value></data>
+  <data name="Game_Source_Unknown" xml:space="preserve"><value>Inconnu</value></data>
+  <data name="Game_Source_WindowsGameConfig" xml:space="preserve"><value>Reconnu par Windows</value></data>
+  <data name="Game_Source_Xbox" xml:space="preserve"><value>Xbox / Microsoft Store</value></data>
+</root>

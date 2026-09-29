@@ -1,0 +1,107 @@
+<!--
+  PCBoost — jetons de couleur. Point unique pour changer l'identité visuelle :
+  - "Fluide" (accent de marque) : actions principales, sélection, remplissage du score.
+  - "Session" : bande du mode Gaming (seul aplat saturé de l'application).
+  Les états (réussite, attention, critique) reprennent les couleurs sémantiques Fluent et sont
+  toujours accompagnés d'un glyphe et d'un texte (jamais la couleur seule).
+-->
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Rampe de l'accent de marque : remplace l'accent Windows dans toute l'application
+         (boutons d'accent, bascules, barres de progression, indicateur de navigation). -->
+    <Color x:Key="SystemAccentColor">#FF11919A</Color>
+    <Color x:Key="SystemAccentColorLight1">#FF3FB3BA</Color>
+    <Color x:Key="SystemAccentColorLight2">#FF6CCBD0</Color>
+    <Color x:Key="SystemAccentColorLight3">#FFA2E1E4</Color>
+    <Color x:Key="SystemAccentColorDark1">#FF0B6E75</Color>
+    <Color x:Key="SystemAccentColorDark2">#FF07525A</Color>
+    <Color x:Key="SystemAccentColorDark3">#FF053A40</Color>
+
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <Color x:Key="BrandAccentColor">#FF0B6E75</Color>
+            <SolidColorBrush x:Key="BrandAccentBrush" Color="#FF0B6E75" />
+            <SolidColorBrush x:Key="BrandAccentTextBrush" Color="#FF07525A" />
+            <SolidColorBrush x:Key="BrandAccentSubtleBrush" Color="#140B6E75" />
+            <SolidColorBrush x:Key="BrandAccentTrackBrush" Color="#1F0B6E75" />
+            <SolidColorBrush x:Key="ChartLineBrush" Color="#FF0B6E75" />
+            <SolidColorBrush x:Key="ChartFillBrush" Color="#1A0B6E75" />
+            <SolidColorBrush x:Key="ChartGridBrush" Color="#14000000" />
+
+            <SolidColorBrush x:Key="SessionBandBrush" Color="#FF34318A" />
+            <SolidColorBrush x:Key="SessionForegroundBrush" Color="#FFFFFFFF" />
+            <SolidColorBrush x:Key="SessionSecondaryForegroundBrush" Color="#FFD9D7FF" />
+            <SolidColorBrush x:Key="SessionDividerBrush" Color="#40FFFFFF" />
+            <SolidColorBrush x:Key="SessionAccentTextBrush" Color="#FF34318A" />
+            <SolidColorBrush x:Key="SessionChartLineBrush" Color="#FF34318A" />
+            <SolidColorBrush x:Key="SessionButtonBackground" Color="#FFFFFFFF" />
+            <SolidColorBrush x:Key="SessionButtonBackgroundPointerOver" Color="#FFEDEDFA" />
+            <SolidColorBrush x:Key="SessionButtonBackgroundPressed" Color="#FFDCDAF5" />
+            <SolidColorBrush x:Key="SessionButtonForeground" Color="#FF2A2780" />
+            <SolidColorBrush x:Key="SessionSecondaryButtonBackgroundPointerOver" Color="#1FFFFFFF" />
+            <SolidColorBrush x:Key="SessionSecondaryButtonBackgroundPressed" Color="#33FFFFFF" />
+
+            <SolidColorBrush x:Key="DangerButtonBackground" Color="#FFC42B1C" />
+            <SolidColorBrush x:Key="DangerButtonBackgroundPointerOver" Color="#FFB02718" />
+            <SolidColorBrush x:Key="DangerButtonBackgroundPressed" Color="#FF9A2215" />
+            <SolidColorBrush x:Key="DangerButtonForeground" Color="#FFFFFFFF" />
+        </ResourceDictionary>
+
+        <ResourceDictionary x:Key="Dark">
+            <Color x:Key="BrandAccentColor">#FF5FC4C9</Color>
+            <SolidColorBrush x:Key="BrandAccentBrush" Color="#FF5FC4C9" />
+            <SolidColorBrush x:Key="BrandAccentTextBrush" Color="#FF8FD9DD" />
+            <SolidColorBrush x:Key="BrandAccentSubtleBrush" Color="#1F5FC4C9" />
+            <SolidColorBrush x:Key="BrandAccentTrackBrush" Color="#2E5FC4C9" />
+            <SolidColorBrush x:Key="ChartLineBrush" Color="#FF5FC4C9" />
+            <SolidColorBrush x:Key="ChartFillBrush" Color="#245FC4C9" />
+            <SolidColorBrush x:Key="ChartGridBrush" Color="#1AFFFFFF" />
+
+            <SolidColorBrush x:Key="SessionBandBrush" Color="#FF2D2A80" />
+            <SolidColorBrush x:Key="SessionForegroundBrush" Color="#FFFFFFFF" />
+            <SolidColorBrush x:Key="SessionSecondaryForegroundBrush" Color="#FFCFCDFF" />
+            <SolidColorBrush x:Key="SessionDividerBrush" Color="#33FFFFFF" />
+            <SolidColorBrush x:Key="SessionAccentTextBrush" Color="#FFB5B3FA" />
+            <SolidColorBrush x:Key="SessionChartLineBrush" Color="#FFA9A6F7" />
+            <SolidColorBrush x:Key="SessionButtonBackground" Color="#FFECEBFF" />
+            <SolidColorBrush x:Key="SessionButtonBackgroundPointerOver" Color="#FFDCDAFF" />
+            <SolidColorBrush x:Key="SessionButtonBackgroundPressed" Color="#FFC9C7FF" />
+            <SolidColorBrush x:Key="SessionButtonForeground" Color="#FF1F1C66" />
+            <SolidColorBrush x:Key="SessionSecondaryButtonBackgroundPointerOver" Color="#1FFFFFFF" />
+            <SolidColorBrush x:Key="SessionSecondaryButtonBackgroundPressed" Color="#33FFFFFF" />
+
+            <SolidColorBrush x:Key="DangerButtonBackground" Color="#FFD13438" />
+            <SolidColorBrush x:Key="DangerButtonBackgroundPointerOver" Color="#FFBF2E32" />
+            <SolidColorBrush x:Key="DangerButtonBackgroundPressed" Color="#FFA8282B" />
+            <SolidColorBrush x:Key="DangerButtonForeground" Color="#FFFFFFFF" />
+        </ResourceDictionary>
+
+        <ResourceDictionary x:Key="HighContrast">
+            <SolidColorBrush x:Key="BrandAccentBrush" Color="{ThemeResource SystemColorHighlightColor}" />
+            <SolidColorBrush x:Key="BrandAccentTextBrush" Color="{ThemeResource SystemColorWindowTextColor}" />
+            <SolidColorBrush x:Key="BrandAccentSubtleBrush" Color="{ThemeResource SystemColorWindowColor}" />
+            <SolidColorBrush x:Key="BrandAccentTrackBrush" Color="{ThemeResource SystemColorGrayTextColor}" />
+            <SolidColorBrush x:Key="ChartLineBrush" Color="{ThemeResource SystemColorHighlightColor}" />
+            <SolidColorBrush x:Key="ChartFillBrush" Color="Transparent" />
+            <SolidColorBrush x:Key="ChartGridBrush" Color="{ThemeResource SystemColorGrayTextColor}" />
+            <SolidColorBrush x:Key="SessionBandBrush" Color="{ThemeResource SystemColorWindowColor}" />
+            <SolidColorBrush x:Key="SessionForegroundBrush" Color="{ThemeResource SystemColorWindowTextColor}" />
+            <SolidColorBrush x:Key="SessionSecondaryForegroundBrush" Color="{ThemeResource SystemColorWindowTextColor}" />
+            <SolidColorBrush x:Key="SessionDividerBrush" Color="{ThemeResource SystemColorWindowTextColor}" />
+            <SolidColorBrush x:Key="SessionAccentTextBrush" Color="{ThemeResource SystemColorHighlightColor}" />
+            <SolidColorBrush x:Key="SessionChartLineBrush" Color="{ThemeResource SystemColorHighlightColor}" />
+            <SolidColorBrush x:Key="SessionButtonBackground" Color="{ThemeResource SystemColorButtonFaceColor}" />
+            <SolidColorBrush x:Key="SessionButtonBackgroundPointerOver" Color="{ThemeResource SystemColorHighlightColor}" />
+            <SolidColorBrush x:Key="SessionButtonBackgroundPressed" Color="{ThemeResource SystemColorHighlightColor}" />
+            <SolidColorBrush x:Key="SessionButtonForeground" Color="{ThemeResource SystemColorButtonTextColor}" />
+            <SolidColorBrush x:Key="SessionSecondaryButtonBackgroundPointerOver" Color="{ThemeResource SystemColorHighlightColor}" />
+            <SolidColorBrush x:Key="SessionSecondaryButtonBackgroundPressed" Color="{ThemeResource SystemColorHighlightColor}" />
+            <SolidColorBrush x:Key="DangerButtonBackground" Color="{ThemeResource SystemColorButtonFaceColor}" />
+            <SolidColorBrush x:Key="DangerButtonBackgroundPointerOver" Color="{ThemeResource SystemColorHighlightColor}" />
+            <SolidColorBrush x:Key="DangerButtonBackgroundPressed" Color="{ThemeResource SystemColorHighlightColor}" />
+            <SolidColorBrush x:Key="DangerButtonForeground" Color="{ThemeResource SystemColorButtonTextColor}" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+</ResourceDictionary>

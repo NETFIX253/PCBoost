@@ -1,0 +1,16 @@
+<Project>
+  <!--
+    PCBoost — identité produit centralisée.
+    Pour renommer le produit : modifier ces valeurs, puis
+    src/PCBoost.App/Assets/Branding/branding.json (slogan, liens) et les images du même dossier.
+    Le nom et l'éditeur doivent être identiques dans branding.json (vérifié par BrandingConsistencyTests).
+  -->
+  <PropertyGroup>
+    <BrandProductName>PCBoost</BrandProductName>
+    <BrandPublisher>Mohamed ABDOURAHMAN (DSI)</BrandPublisher>
+    <BrandCopyright>© 2026 Mohamed ABDOURAHMAN (DSI)</BrandCopyright>
+    <BrandVersion>1.0.0</BrandVersion>
+    <!-- Identifiant stable de mise à niveau MSI : ne jamais changer après une première publication. -->
+    <BrandUpgradeCode>6A1B7F3E-5C2D-4E8A-9B7F-2D4C6E8A0B13</BrandUpgradeCode>
+  </PropertyGroup>
+</Project>

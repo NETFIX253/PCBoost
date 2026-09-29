@@ -1,0 +1,119 @@
+{
+  "$comment": "Textes du module PCBoost.System (espace de noms PCBoost.Platform). Générer les .resx : python3 build/tools/i18n.py src/PCBoost.System/Resources/Strings.i18n.json",
+  "Sys_AutoStartUnavailable": {
+    "fr": "Impossible de déterminer l'emplacement de l'application pour la lancer avec Windows.",
+    "en": "The application's location could not be determined, so it cannot start with Windows."
+  },
+  "Sys_CommandNotAllowed": {
+    "fr": "Cette commande système n'est pas autorisée.",
+    "en": "This system command is not allowed."
+  },
+  "Sys_CommandTimedOut": {
+    "fr": "La commande système a dépassé le délai prévu et a été arrêtée.",
+    "en": "The system command took too long and was stopped."
+  },
+  "Sys_EfficiencyModeNotSupported": {
+    "fr": "Le mode efficacité nécessite Windows 11.",
+    "en": "Efficiency mode requires Windows 11."
+  },
+  "Sys_ElevatedInvalidParameters": {
+    "fr": "La demande d'autorisation administrateur contient des paramètres invalides. Aucune modification n'a été faite.",
+    "en": "The administrator request contains invalid parameters. Nothing was changed."
+  },
+  "Sys_ElevatedOperationRefused": {
+    "fr": "Cette opération administrateur n'est pas autorisée. Aucune modification n'a été faite.",
+    "en": "This administrator operation is not allowed. Nothing was changed."
+  },
+  "Sys_ElevatedCleanupPartial": {
+    "fr": "Certains éléments n'ont pas pu être nettoyés.",
+    "en": "Some items could not be cleaned."
+  },
+  "Sys_ElevationCancelled": {
+    "fr": "L'autorisation administrateur a été refusée. Aucune modification n'a été faite.",
+    "en": "Administrator permission was declined. Nothing was changed."
+  },
+  "Sys_ElevationFailed": {
+    "fr": "L'opération administrateur n'a pas pu être exécutée.",
+    "en": "The administrator operation could not be run."
+  },
+  "Sys_ElevationNoResult": {
+    "fr": "L'opération administrateur s'est terminée sans renvoyer de résultat (code {0}).",
+    "en": "The administrator operation ended without returning a result (code {0})."
+  },
+  "Sys_ElevatorMissing": {
+    "fr": "Le composant d'autorisation administrateur est introuvable. Réinstallez l'application pour le restaurer.",
+    "en": "The administrator component is missing. Reinstall the application to restore it."
+  },
+  "Sys_FileInUse": {
+    "fr": "Le fichier est utilisé par un autre programme ; il a été laissé en place.",
+    "en": "The file is in use by another program; it was left in place."
+  },
+  "Sys_FileReadOnly": {
+    "fr": "Le fichier est en lecture seule ; il a été laissé en place.",
+    "en": "The file is read-only; it was left in place."
+  },
+  "Sys_FrameCaptureCancelled": {
+    "fr": "La mesure des images par seconde nécessite une autorisation administrateur, qui a été refusée.",
+    "en": "Frame rate measurement needs administrator permission, which was declined."
+  },
+  "Sys_FrameCaptureSessionFailed": {
+    "fr": "Windows n'a pas permis de démarrer la mesure des images par seconde.",
+    "en": "Windows did not allow the frame rate measurement to start."
+  },
+  "Sys_FrameCaptureStopped": {
+    "fr": "La mesure des images par seconde s'est arrêtée.",
+    "en": "Frame rate measurement stopped."
+  },
+  "Sys_FrameCaptureTargetExited": {
+    "fr": "Le jeu n'est plus en cours d'exécution.",
+    "en": "The game is no longer running."
+  },
+  "Sys_FrameCaptureTimeout": {
+    "fr": "La mesure des images par seconde n'a pas pu démarrer à temps.",
+    "en": "Frame rate measurement could not start in time."
+  },
+  "Sys_FrameCaptureUnavailable": {
+    "fr": "La mesure des images par seconde n'est pas disponible sur ce PC.",
+    "en": "Frame rate measurement is not available on this PC."
+  },
+  "Sys_MicrosoftTaskBlocked": {
+    "fr": "Les tâches planifiées de Windows ne peuvent pas être modifiées.",
+    "en": "Windows scheduled tasks cannot be changed."
+  },
+  "Sys_PathNotFound": {
+    "fr": "L'emplacement est introuvable.",
+    "en": "The location could not be found."
+  },
+  "Sys_PowerSchemeNotFound": {
+    "fr": "Ce mode d'alimentation n'existe pas sur ce PC.",
+    "en": "This power plan does not exist on this PC."
+  },
+  "Sys_ProcessAccessDenied": {
+    "fr": "Windows n'autorise pas cette action sur ce programme.",
+    "en": "Windows does not allow this action on this program."
+  },
+  "Sys_ProcessNoWindow": {
+    "fr": "Ce programme n'a pas de fenêtre à fermer.",
+    "en": "This program has no window to close."
+  },
+  "Sys_ProcessNotFound": {
+    "fr": "Ce programme n'est plus en cours d'exécution.",
+    "en": "This program is no longer running."
+  },
+  "Sys_ProtectedTarget": {
+    "fr": "Cet élément est protégé et ne peut pas être modifié.",
+    "en": "This item is protected and cannot be changed."
+  },
+  "Sys_RealTimePriorityBlocked": {
+    "fr": "La priorité « Temps réel » n'est pas proposée : elle peut rendre Windows instable.",
+    "en": "The \"Realtime\" priority is not offered: it can make Windows unstable."
+  },
+  "Sys_UriNotAllowed": {
+    "fr": "Seuls les liens web (http ou https) peuvent être ouverts.",
+    "en": "Only web links (http or https) can be opened."
+  },
+  "Sys_VisualEffectsPartial": {
+    "fr": "Certains effets visuels n'ont pas pu être modifiés.",
+    "en": "Some visual effects could not be changed."
+  }
+}

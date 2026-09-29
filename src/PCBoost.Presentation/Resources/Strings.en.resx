@@ -1,0 +1,1024 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="About_Action_Support" xml:space="preserve"><value>Support</value></data>
+  <data name="About_Action_Website" xml:space="preserve"><value>Website</value></data>
+  <data name="About_Description" xml:space="preserve"><value>Local app for analyzing and optimizing Windows performance.</value></data>
+  <data name="About_DotNet" xml:space="preserve"><value>.NET version</value></data>
+  <data name="About_Honesty_Note" xml:space="preserve"><value>PCBoost only shows measured values; an unavailable measurement is shown as "Not available".</value></data>
+  <data name="About_License" xml:space="preserve"><value>License</value></data>
+  <data name="About_Publisher" xml:space="preserve"><value>Publisher</value></data>
+  <data name="About_Title" xml:space="preserve"><value>About</value></data>
+  <data name="About_Version" xml:space="preserve"><value>Version {0}</value></data>
+  <data name="About_WindowsAppSdk" xml:space="preserve"><value>Windows App SDK</value></data>
+  <data name="Analysis_Action_Diagnosis" xml:space="preserve"><value>Why is my PC slow?</value></data>
+  <data name="Analysis_Action_ManageDismissed" xml:space="preserve"><value>Manage in Settings</value></data>
+  <data name="Analysis_Action_Optimize" xml:space="preserve"><value>Optimize my PC</value></data>
+  <data name="Analysis_Action_Restart" xml:space="preserve"><value>Run analysis again</value></data>
+  <data name="Analysis_Action_Start" xml:space="preserve"><value>Start analysis</value></data>
+  <data name="Analysis_Action_Storage" xml:space="preserve"><value>See storage details</value></data>
+  <data name="Analysis_Advice_Disclaimer" xml:space="preserve"><value>This advice is factual and based on measurements: PCBoost does not sell any hardware.</value></data>
+  <data name="Analysis_Advice_Empty" xml:space="preserve"><value>No particular hardware advice.</value></data>
+  <data name="Analysis_Analyzing_Title" xml:space="preserve"><value>Analyzing…</value></data>
+  <data name="Analysis_Arch_Arm64" xml:space="preserve"><value>64-bit ARM</value></data>
+  <data name="Analysis_Arch_Unknown" xml:space="preserve"><value>Unknown</value></data>
+  <data name="Analysis_Arch_X64" xml:space="preserve"><value>64-bit (x64)</value></data>
+  <data name="Analysis_Arch_X86" xml:space="preserve"><value>32-bit (x86)</value></data>
+  <data name="Analysis_Bus_Nvme" xml:space="preserve"><value>NVMe</value></data>
+  <data name="Analysis_Bus_Other" xml:space="preserve"><value>Other</value></data>
+  <data name="Analysis_Bus_Raid" xml:space="preserve"><value>RAID</value></data>
+  <data name="Analysis_Bus_Sas" xml:space="preserve"><value>SAS</value></data>
+  <data name="Analysis_Bus_Sata" xml:space="preserve"><value>SATA</value></data>
+  <data name="Analysis_Bus_Unknown" xml:space="preserve"><value>Unknown</value></data>
+  <data name="Analysis_Bus_Usb" xml:space="preserve"><value>USB</value></data>
+  <data name="Analysis_Bus_Virtual" xml:space="preserve"><value>Virtual</value></data>
+  <data name="Analysis_Card_Findings" xml:space="preserve"><value>{0} findings</value></data>
+  <data name="Analysis_Card_NoFinding" xml:space="preserve"><value>No findings</value></data>
+  <data name="Analysis_Card_OneFinding" xml:space="preserve"><value>1 finding</value></data>
+  <data name="Analysis_Category_Cpu" xml:space="preserve"><value>Processor</value></data>
+  <data name="Analysis_Category_Memory" xml:space="preserve"><value>Memory</value></data>
+  <data name="Analysis_Category_NoIssue" xml:space="preserve"><value>No performance issue matching this category was identified.</value></data>
+  <data name="Analysis_Category_Other" xml:space="preserve"><value>Other</value></data>
+  <data name="Analysis_Category_Power" xml:space="preserve"><value>Power</value></data>
+  <data name="Analysis_Category_Processes" xml:space="preserve"><value>Processes</value></data>
+  <data name="Analysis_Category_Security" xml:space="preserve"><value>Security</value></data>
+  <data name="Analysis_Category_Startup" xml:space="preserve"><value>Startup</value></data>
+  <data name="Analysis_Category_Storage" xml:space="preserve"><value>Storage</value></data>
+  <data name="Analysis_Category_System" xml:space="preserve"><value>Windows</value></data>
+  <data name="Analysis_Category_Temperature" xml:space="preserve"><value>Temperatures</value></data>
+  <data name="Analysis_Column_Name" xml:space="preserve"><value>Name</value></data>
+  <data name="Analysis_Column_Usage" xml:space="preserve"><value>Usage</value></data>
+  <data name="Analysis_Component_Battery" xml:space="preserve"><value>Battery</value></data>
+  <data name="Analysis_Component_Cooling" xml:space="preserve"><value>Cooling</value></data>
+  <data name="Analysis_Component_Cpu" xml:space="preserve"><value>Processor</value></data>
+  <data name="Analysis_Component_Gpu" xml:space="preserve"><value>Graphics card</value></data>
+  <data name="Analysis_Component_Memory" xml:space="preserve"><value>Memory</value></data>
+  <data name="Analysis_Component_Network" xml:space="preserve"><value>Network</value></data>
+  <data name="Analysis_Component_Other" xml:space="preserve"><value>Hardware</value></data>
+  <data name="Analysis_Component_Storage" xml:space="preserve"><value>Storage</value></data>
+  <data name="Analysis_Date" xml:space="preserve"><value>Analysis run {0}</value></data>
+  <data name="Analysis_Drive_Free" xml:space="preserve"><value>{0} free of {1}</value></data>
+  <data name="Analysis_Drive_System" xml:space="preserve"><value>System drive</value></data>
+  <data name="Analysis_Findings_CleanCategories" xml:space="preserve"><value>No findings for: {0}.</value></data>
+  <data name="Analysis_Findings_Many" xml:space="preserve"><value>{0} points of attention</value></data>
+  <data name="Analysis_Findings_None" xml:space="preserve"><value>No points of attention</value></data>
+  <data name="Analysis_Findings_One" xml:space="preserve"><value>1 point of attention</value></data>
+  <data name="Analysis_Gpu_Driver" xml:space="preserve"><value>Driver {0}</value></data>
+  <data name="Analysis_Gpu_Integrated" xml:space="preserve"><value>Integrated graphics (shared memory)</value></data>
+  <data name="Analysis_Gpu_Vram" xml:space="preserve"><value>{0} of video memory</value></data>
+  <data name="Analysis_Hw_Architecture" xml:space="preserve"><value>Architecture</value></data>
+  <data name="Analysis_Hw_Cores" xml:space="preserve"><value>Cores / threads</value></data>
+  <data name="Analysis_Hw_CoresValue" xml:space="preserve"><value>{0} cores / {1} threads</value></data>
+  <data name="Analysis_Hw_Cpu" xml:space="preserve"><value>Processor</value></data>
+  <data name="Analysis_Hw_Frequency" xml:space="preserve"><value>Clock speed</value></data>
+  <data name="Analysis_Hw_FrequencyRange" xml:space="preserve"><value>{0} (up to {1})</value></data>
+  <data name="Analysis_Hw_Gpu" xml:space="preserve"><value>Graphics card</value></data>
+  <data name="Analysis_Hw_Memory" xml:space="preserve"><value>Memory (RAM)</value></data>
+  <data name="Analysis_Hw_MemoryAvailable" xml:space="preserve"><value>{0} available</value></data>
+  <data name="Analysis_Hw_MemoryDetails" xml:space="preserve"><value>Memory modules</value></data>
+  <data name="Analysis_Hw_Modules" xml:space="preserve"><value>{0} modules</value></data>
+  <data name="Analysis_Hw_OneModule" xml:space="preserve"><value>1 module</value></data>
+  <data name="Analysis_Hw_Power" xml:space="preserve"><value>Power</value></data>
+  <data name="Analysis_Hw_PowerScheme" xml:space="preserve"><value>Power plan: {0}</value></data>
+  <data name="Analysis_Hw_Uptime" xml:space="preserve"><value>On for</value></data>
+  <data name="Analysis_Hw_Windows" xml:space="preserve"><value>Windows</value></data>
+  <data name="Analysis_Media_Hdd" xml:space="preserve"><value>Hard disk (HDD)</value></data>
+  <data name="Analysis_Media_Scm" xml:space="preserve"><value>Storage-class memory (SCM)</value></data>
+  <data name="Analysis_Media_Ssd" xml:space="preserve"><value>SSD</value></data>
+  <data name="Analysis_Media_Unknown" xml:space="preserve"><value>Unknown type</value></data>
+  <data name="Analysis_NotStarted_Message" xml:space="preserve"><value>Start the analysis to get a full report on your PC.</value></data>
+  <data name="Analysis_NotStarted_Title" xml:space="preserve"><value>No analysis</value></data>
+  <data name="Analysis_Power_Ac" xml:space="preserve"><value>Plugged in</value></data>
+  <data name="Analysis_Power_AcBattery" xml:space="preserve"><value>Plugged in (battery at {0})</value></data>
+  <data name="Analysis_Power_Battery" xml:space="preserve"><value>On battery ({0})</value></data>
+  <data name="Analysis_Power_BatteryUnknown" xml:space="preserve"><value>On battery</value></data>
+  <data name="Analysis_Recommendation_Dismiss" xml:space="preserve"><value>Hide</value></data>
+  <data name="Analysis_Recommendation_KindPossibility" xml:space="preserve"><value>Possibility</value></data>
+  <data name="Analysis_Recommendation_KindRecommendation" xml:space="preserve"><value>Recommendation</value></data>
+  <data name="Analysis_Recommendation_Why" xml:space="preserve"><value>Why</value></data>
+  <data name="Analysis_Recommendations_Dismissed" xml:space="preserve"><value>{0} hidden recommendations (can be shown again in Settings).</value></data>
+  <data name="Analysis_Recommendations_Empty" xml:space="preserve"><value>No recommendations: no area for improvement was identified.</value></data>
+  <data name="Analysis_Recommendations_OneDismissed" xml:space="preserve"><value>1 hidden recommendation (can be shown again in Settings).</value></data>
+  <data name="Analysis_Section_Advice" xml:space="preserve"><value>Hardware advice</value></data>
+  <data name="Analysis_Section_Findings" xml:space="preserve"><value>Findings</value></data>
+  <data name="Analysis_Section_Gpu" xml:space="preserve"><value>Graphics</value></data>
+  <data name="Analysis_Section_Hardware" xml:space="preserve"><value>Hardware</value></data>
+  <data name="Analysis_Section_Profile" xml:space="preserve"><value>Hardware profile</value></data>
+  <data name="Analysis_Section_Recommendations" xml:space="preserve"><value>Recommendations</value></data>
+  <data name="Analysis_Section_Software" xml:space="preserve"><value>Software</value></data>
+  <data name="Analysis_Section_Storage" xml:space="preserve"><value>Storage</value></data>
+  <data name="Analysis_Section_Temperatures" xml:space="preserve"><value>Temperatures</value></data>
+  <data name="Analysis_Section_TopCpu" xml:space="preserve"><value>Top processor users</value></data>
+  <data name="Analysis_Section_TopMemory" xml:space="preserve"><value>Top memory users</value></data>
+  <data name="Analysis_StepRunning_Processes" xml:space="preserve"><value>Analyzing processes…</value></data>
+  <data name="Analysis_StepRunning_Results" xml:space="preserve"><value>Preparing results…</value></data>
+  <data name="Analysis_StepRunning_Startup" xml:space="preserve"><value>Analyzing startup programs…</value></data>
+  <data name="Analysis_StepRunning_Storage" xml:space="preserve"><value>Analyzing storage…</value></data>
+  <data name="Analysis_StepRunning_System" xml:space="preserve"><value>Analyzing the system…</value></data>
+  <data name="Analysis_Step_Processes" xml:space="preserve"><value>Processes</value></data>
+  <data name="Analysis_Step_Results" xml:space="preserve"><value>Results</value></data>
+  <data name="Analysis_Step_Startup" xml:space="preserve"><value>Startup programs</value></data>
+  <data name="Analysis_Step_Storage" xml:space="preserve"><value>Storage</value></data>
+  <data name="Analysis_Step_System" xml:space="preserve"><value>System analysis</value></data>
+  <data name="Analysis_Subtitle" xml:space="preserve"><value>A full, read-only report on your PC: nothing is changed.</value></data>
+  <data name="Analysis_Sw_Background" xml:space="preserve"><value>Background processes</value></data>
+  <data name="Analysis_Sw_Cleanable" xml:space="preserve"><value>Recoverable temporary files</value></data>
+  <data name="Analysis_Sw_CpuLoad" xml:space="preserve"><value>Processor load</value></data>
+  <data name="Analysis_Sw_CpuLoadValue" xml:space="preserve"><value>Average {0} — max {1}</value></data>
+  <data name="Analysis_Sw_DiskLoad" xml:space="preserve"><value>Disk activity</value></data>
+  <data name="Analysis_Sw_GpuLoad" xml:space="preserve"><value>Graphics load</value></data>
+  <data name="Analysis_Sw_InstalledPrograms" xml:space="preserve"><value>Installed programs</value></data>
+  <data name="Analysis_Sw_MemoryLoad" xml:space="preserve"><value>Memory in use</value></data>
+  <data name="Analysis_Sw_NotAnalyzed" xml:space="preserve"><value>Not analyzed</value></data>
+  <data name="Analysis_Sw_Processes" xml:space="preserve"><value>Running processes</value></data>
+  <data name="Analysis_Sw_Sampling" xml:space="preserve"><value>Measured over {0}</value></data>
+  <data name="Analysis_Sw_Startup" xml:space="preserve"><value>Startup programs</value></data>
+  <data name="Analysis_Sw_StartupValue" xml:space="preserve"><value>{0} enabled of {1}</value></data>
+  <data name="Analysis_TierDescription_Entry" xml:space="preserve"><value>Suited to everyday use (office, browsing, video).</value></data>
+  <data name="Analysis_TierDescription_HighEnd" xml:space="preserve"><value>Your hardware has plenty of headroom.</value></data>
+  <data name="Analysis_TierDescription_LegacyLowResource" xml:space="preserve"><value>Lightweight settings are advised to keep things smooth.</value></data>
+  <data name="Analysis_TierDescription_LowEnd" xml:space="preserve"><value>Demanding games and applications may need lower settings.</value></data>
+  <data name="Analysis_TierDescription_MidRange" xml:space="preserve"><value>Suited to most uses, including many games.</value></data>
+  <data name="Analysis_TierDescription_Unknown" xml:space="preserve"><value>The hardware profile could not be determined.</value></data>
+  <data name="Analysis_Tier_Entry" xml:space="preserve"><value>Entry-level configuration</value></data>
+  <data name="Analysis_Tier_HighEnd" xml:space="preserve"><value>High-performance configuration</value></data>
+  <data name="Analysis_Tier_LegacyLowResource" xml:space="preserve"><value>Older PC with limited resources</value></data>
+  <data name="Analysis_Tier_LowEnd" xml:space="preserve"><value>Modest configuration</value></data>
+  <data name="Analysis_Tier_MidRange" xml:space="preserve"><value>Mid-range configuration</value></data>
+  <data name="Analysis_Tier_Unknown" xml:space="preserve"><value>Undetermined</value></data>
+  <data name="Analysis_Title" xml:space="preserve"><value>System analysis</value></data>
+  <data name="Benchmark_Action_After" xml:space="preserve"><value>Measure AFTER</value></data>
+  <data name="Benchmark_Action_Before" xml:space="preserve"><value>Measure BEFORE</value></data>
+  <data name="Benchmark_Action_Cancel" xml:space="preserve"><value>Stop measurement</value></data>
+  <data name="Benchmark_Action_DetectGame" xml:space="preserve"><value>Look for a game</value></data>
+  <data name="Benchmark_Action_Reset" xml:space="preserve"><value>New comparison</value></data>
+  <data name="Benchmark_Action_ShowComparison" xml:space="preserve"><value>View comparison</value></data>
+  <data name="Benchmark_After_Header" xml:space="preserve"><value>After</value></data>
+  <data name="Benchmark_BeforeDone" xml:space="preserve"><value>BEFORE measurement saved. Apply your changes, then start the AFTER measurement.</value></data>
+  <data name="Benchmark_Before_Header" xml:space="preserve"><value>Before</value></data>
+  <data name="Benchmark_Column_After" xml:space="preserve"><value>After</value></data>
+  <data name="Benchmark_Column_Before" xml:space="preserve"><value>Before</value></data>
+  <data name="Benchmark_Column_Difference" xml:space="preserve"><value>Difference</value></data>
+  <data name="Benchmark_Column_Metric" xml:space="preserve"><value>Metric</value></data>
+  <data name="Benchmark_Column_Verdict" xml:space="preserve"><value>Result</value></data>
+  <data name="Benchmark_Comparison_Header" xml:space="preserve"><value>Comparison</value></data>
+  <data name="Benchmark_Delta_Points" xml:space="preserve"><value>{0} pts</value></data>
+  <data name="Benchmark_Duration_Label" xml:space="preserve"><value>Measurement duration</value></data>
+  <data name="Benchmark_History_Empty" xml:space="preserve"><value>No measurements saved.</value></data>
+  <data name="Benchmark_History_Header" xml:space="preserve"><value>Measurement history</value></data>
+  <data name="Benchmark_Label_Label" xml:space="preserve"><value>Label (optional)</value></data>
+  <data name="Benchmark_Label_Placeholder" xml:space="preserve"><value>E.g. same scene, same settings</value></data>
+  <data name="Benchmark_Metric_AverageFps" xml:space="preserve"><value>Average FPS</value></data>
+  <data name="Benchmark_Metric_AverageFrameTimeMs" xml:space="preserve"><value>Average frame time</value></data>
+  <data name="Benchmark_Metric_CpuAveragePercent" xml:space="preserve"><value>Processor (average)</value></data>
+  <data name="Benchmark_Metric_CpuMaxPercent" xml:space="preserve"><value>Processor (maximum)</value></data>
+  <data name="Benchmark_Metric_DiskActiveAveragePercent" xml:space="preserve"><value>Disk activity (average)</value></data>
+  <data name="Benchmark_Metric_GpuAveragePercent" xml:space="preserve"><value>Graphics card (average)</value></data>
+  <data name="Benchmark_Metric_GpuMaxPercent" xml:space="preserve"><value>Graphics card (maximum)</value></data>
+  <data name="Benchmark_Metric_OnePercentLowFps" xml:space="preserve"><value>1% low</value></data>
+  <data name="Benchmark_Metric_P99FrameTimeMs" xml:space="preserve"><value>Frame time (99th percentile)</value></data>
+  <data name="Benchmark_Metric_PointOnePercentLowFps" xml:space="preserve"><value>0.1% low</value></data>
+  <data name="Benchmark_Metric_RamAveragePercent" xml:space="preserve"><value>Memory (average)</value></data>
+  <data name="Benchmark_NoGame" xml:space="preserve"><value>No game</value></data>
+  <data name="Benchmark_NoGameDetected" xml:space="preserve"><value>No game detected: only system measurements will be recorded.</value></data>
+  <data name="Benchmark_NoLabel" xml:space="preserve"><value>Unlabeled measurement</value></data>
+  <data name="Benchmark_NotComparable" xml:space="preserve"><value>Not comparable</value></data>
+  <data name="Benchmark_Notice_Duration" xml:space="preserve"><value>The two measurements have different durations.</value></data>
+  <data name="Benchmark_Notice_Game" xml:space="preserve"><value>The two measurements are not for the same game.</value></data>
+  <data name="Benchmark_PairMissing" xml:space="preserve"><value>The matching BEFORE measurement is no longer available.</value></data>
+  <data name="Benchmark_Phase_After" xml:space="preserve"><value>After</value></data>
+  <data name="Benchmark_Phase_Before" xml:space="preserve"><value>Before</value></data>
+  <data name="Benchmark_Phase_Standalone" xml:space="preserve"><value>Single measurement</value></data>
+  <data name="Benchmark_Progress_After" xml:space="preserve"><value>Measuring AFTER…</value></data>
+  <data name="Benchmark_Progress_Before" xml:space="preserve"><value>Measuring BEFORE…</value></data>
+  <data name="Benchmark_Run_Cpu" xml:space="preserve"><value>Average {0} — max {1}</value></data>
+  <data name="Benchmark_Run_CpuLabel" xml:space="preserve"><value>Processor</value></data>
+  <data name="Benchmark_Run_DiskLabel" xml:space="preserve"><value>Disk</value></data>
+  <data name="Benchmark_Run_FpsLabel" xml:space="preserve"><value>Average FPS</value></data>
+  <data name="Benchmark_Run_GpuLabel" xml:space="preserve"><value>Graphics card</value></data>
+  <data name="Benchmark_Run_OnePercentLowLabel" xml:space="preserve"><value>1% low</value></data>
+  <data name="Benchmark_Run_RamLabel" xml:space="preserve"><value>Memory</value></data>
+  <data name="Benchmark_Run_Samples" xml:space="preserve"><value>{0} samples</value></data>
+  <data name="Benchmark_Subtitle" xml:space="preserve"><value>Measure performance before and after a change. Only differences that were actually measured are shown.</value></data>
+  <data name="Benchmark_Tip" xml:space="preserve"><value>For a reliable comparison, keep the same duration and activity (same game, same scene).</value></data>
+  <data name="Benchmark_Title" xml:space="preserve"><value>Before / after measurement</value></data>
+  <data name="Benchmark_TrackGame_Label" xml:space="preserve"><value>Track the detected game</value></data>
+  <data name="Benchmark_TrackedGame" xml:space="preserve"><value>Tracked game: {0}</value></data>
+  <data name="Benchmark_Verdict_Better" xml:space="preserve"><value>Better</value></data>
+  <data name="Benchmark_Verdict_NotComparable" xml:space="preserve"><value>Not comparable (missing measurement)</value></data>
+  <data name="Benchmark_Verdict_Same" xml:space="preserve"><value>Same</value></data>
+  <data name="Benchmark_Verdict_Worse" xml:space="preserve"><value>Worse</value></data>
+  <data name="Cleanup_Page_Action_Clean" xml:space="preserve"><value>Clean up</value></data>
+  <data name="Cleanup_Page_Action_Scan" xml:space="preserve"><value>Scan</value></data>
+  <data name="Cleanup_Page_Action_ScanAgain" xml:space="preserve"><value>Scan again</value></data>
+  <data name="Cleanup_Page_Action_SelectSafe" xml:space="preserve"><value>Recommended selection</value></data>
+  <data name="Cleanup_Page_Action_Storage" xml:space="preserve"><value>View storage</value></data>
+  <data name="Cleanup_Page_AdminBadge" xml:space="preserve"><value>Administrator</value></data>
+  <data name="Cleanup_Page_Cleaning" xml:space="preserve"><value>Cleaning up…</value></data>
+  <data name="Cleanup_Page_Confirm_Item" xml:space="preserve"><value>{0} — {1} ({2})</value></data>
+  <data name="Cleanup_Page_Confirm_Message" xml:space="preserve"><value>About {0} of temporary files will be permanently deleted. This cannot be undone.</value></data>
+  <data name="Cleanup_Page_Confirm_MessageAdvanced" xml:space="preserve"><value>About {0} will be permanently deleted, including categories that call for caution. This cannot be undone.</value></data>
+  <data name="Cleanup_Page_Confirm_Title" xml:space="preserve"><value>Delete these files?</value></data>
+  <data name="Cleanup_Page_Files" xml:space="preserve"><value>{0} files</value></data>
+  <data name="Cleanup_Page_IrreversibleNotice" xml:space="preserve"><value>Cleanup permanently deletes files: it cannot be undone.</value></data>
+  <data name="Cleanup_Page_NotScanned" xml:space="preserve"><value>Not scanned</value></data>
+  <data name="Cleanup_Page_OneFile" xml:space="preserve"><value>1 file</value></data>
+  <data name="Cleanup_Page_Result_Category" xml:space="preserve"><value>{0} recovered ({1} files)</value></data>
+  <data name="Cleanup_Page_Result_CategorySkipped" xml:space="preserve"><value>{0} skipped.</value></data>
+  <data name="Cleanup_Page_Result_Files" xml:space="preserve"><value>{0} files deleted</value></data>
+  <data name="Cleanup_Page_Result_Freed" xml:space="preserve"><value>{0} recovered</value></data>
+  <data name="Cleanup_Page_Result_Header" xml:space="preserve"><value>Cleanup result</value></data>
+  <data name="Cleanup_Page_Result_OneFile" xml:space="preserve"><value>1 file deleted</value></data>
+  <data name="Cleanup_Page_Result_OneSkipped" xml:space="preserve"><value>1 file skipped because an app is using it.</value></data>
+  <data name="Cleanup_Page_Result_Skipped" xml:space="preserve"><value>{0} files skipped because an app is using them.</value></data>
+  <data name="Cleanup_Page_SafetyDescription_Advanced" xml:space="preserve"><value>For experienced users: may temporarily slow some apps while they rebuild their caches.</value></data>
+  <data name="Cleanup_Page_SafetyDescription_Caution" xml:space="preserve"><value>Harmless to Windows, but may erase content you might want to keep (Recycle Bin, browser caches).</value></data>
+  <data name="Cleanup_Page_SafetyDescription_Safe" xml:space="preserve"><value>Files that are recreated automatically if needed. Selected by default.</value></data>
+  <data name="Cleanup_Page_SafetyLegend_Header" xml:space="preserve"><value>Safety levels</value></data>
+  <data name="Cleanup_Page_Safety_Advanced" xml:space="preserve"><value>Advanced</value></data>
+  <data name="Cleanup_Page_Safety_Caution" xml:space="preserve"><value>Caution</value></data>
+  <data name="Cleanup_Page_Safety_Safe" xml:space="preserve"><value>Safe</value></data>
+  <data name="Cleanup_Page_ScannedTotal" xml:space="preserve"><value>Recoverable space: {0}</value></data>
+  <data name="Cleanup_Page_Scanning" xml:space="preserve"><value>Scanning…</value></data>
+  <data name="Cleanup_Page_Selected_Label" xml:space="preserve"><value>Selection</value></data>
+  <data name="Cleanup_Page_Selection_Many" xml:space="preserve"><value>{0} categories selected — {1}</value></data>
+  <data name="Cleanup_Page_Selection_None" xml:space="preserve"><value>No category selected</value></data>
+  <data name="Cleanup_Page_Selection_One" xml:space="preserve"><value>1 category selected — {0}</value></data>
+  <data name="Cleanup_Page_SizeNeedsAdmin" xml:space="preserve"><value>Can't be measured without administrator rights</value></data>
+  <data name="Cleanup_Page_Subtitle" xml:space="preserve"><value>Free up space by removing temporary files. Your documents, pictures, videos and downloads are never affected.</value></data>
+  <data name="Cleanup_Page_Title" xml:space="preserve"><value>Cleanup</value></data>
+  <data name="Cleanup_Page_Unavailable" xml:space="preserve"><value>Unavailable</value></data>
+  <data name="Common_Action_Activate" xml:space="preserve"><value>Turn on</value></data>
+  <data name="Common_Action_Apply" xml:space="preserve"><value>Apply</value></data>
+  <data name="Common_Action_Back" xml:space="preserve"><value>Back</value></data>
+  <data name="Common_Action_Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Common_Action_Close" xml:space="preserve"><value>Close</value></data>
+  <data name="Common_Action_CloseMessage" xml:space="preserve"><value>Close message</value></data>
+  <data name="Common_Action_Continue" xml:space="preserve"><value>Continue</value></data>
+  <data name="Common_Action_Deactivate" xml:space="preserve"><value>Turn off</value></data>
+  <data name="Common_Action_Dismiss" xml:space="preserve"><value>Hide</value></data>
+  <data name="Common_Action_Done" xml:space="preserve"><value>Done</value></data>
+  <data name="Common_Action_HideDetails" xml:space="preserve"><value>Hide details</value></data>
+  <data name="Common_Action_Ignore" xml:space="preserve"><value>Ignore</value></data>
+  <data name="Common_Action_Keep" xml:space="preserve"><value>Keep</value></data>
+  <data name="Common_Action_Open" xml:space="preserve"><value>Open</value></data>
+  <data name="Common_Action_OpenFolder" xml:space="preserve"><value>Open folder</value></data>
+  <data name="Common_Action_Refresh" xml:space="preserve"><value>Refresh</value></data>
+  <data name="Common_Action_Restore" xml:space="preserve"><value>Restore</value></data>
+  <data name="Common_Action_Retry" xml:space="preserve"><value>Try again</value></data>
+  <data name="Common_Action_Save" xml:space="preserve"><value>Save</value></data>
+  <data name="Common_Action_Search" xml:space="preserve"><value>Search</value></data>
+  <data name="Common_Action_SelectAll" xml:space="preserve"><value>Select all</value></data>
+  <data name="Common_Action_SelectNone" xml:space="preserve"><value>Clear selection</value></data>
+  <data name="Common_Action_SelectRecommended" xml:space="preserve"><value>Recommended selection</value></data>
+  <data name="Common_Action_ShowDetails" xml:space="preserve"><value>Show details</value></data>
+  <data name="Common_Action_Stop" xml:space="preserve"><value>Stop</value></data>
+  <data name="Common_Format_Bytes" xml:space="preserve"><value>{0} B</value></data>
+  <data name="Common_Format_DaysHours" xml:space="preserve"><value>{0} d {1} h</value></data>
+  <data name="Common_Format_Fps" xml:space="preserve"><value>{0} FPS</value></data>
+  <data name="Common_Format_GB" xml:space="preserve"><value>{0} GB</value></data>
+  <data name="Common_Format_GHz" xml:space="preserve"><value>{0} GHz</value></data>
+  <data name="Common_Format_HoursAgo" xml:space="preserve"><value>{0} h ago</value></data>
+  <data name="Common_Format_HoursMinutes" xml:space="preserve"><value>{0} h {1} min</value></data>
+  <data name="Common_Format_JustNow" xml:space="preserve"><value>just now</value></data>
+  <data name="Common_Format_KB" xml:space="preserve"><value>{0} KB</value></data>
+  <data name="Common_Format_MB" xml:space="preserve"><value>{0} MB</value></data>
+  <data name="Common_Format_MHz" xml:space="preserve"><value>{0} MHz</value></data>
+  <data name="Common_Format_MTs" xml:space="preserve"><value>{0} MT/s</value></data>
+  <data name="Common_Format_Milliseconds" xml:space="preserve"><value>{0} ms</value></data>
+  <data name="Common_Format_Minutes" xml:space="preserve"><value>{0} min</value></data>
+  <data name="Common_Format_MinutesAgo" xml:space="preserve"><value>{0} min ago</value></data>
+  <data name="Common_Format_Percent" xml:space="preserve"><value>{0}%</value></data>
+  <data name="Common_Format_Rate" xml:space="preserve"><value>{0}/s</value></data>
+  <data name="Common_Format_Seconds" xml:space="preserve"><value>{0} s</value></data>
+  <data name="Common_Format_TB" xml:space="preserve"><value>{0} TB</value></data>
+  <data name="Common_Format_Temperature" xml:space="preserve"><value>{0} °C</value></data>
+  <data name="Common_Format_YesterdayAt" xml:space="preserve"><value>yesterday at {0}</value></data>
+  <data name="Common_Label_AdminRequired" xml:space="preserve"><value>Administrator permission required</value></data>
+  <data name="Common_Label_Availability_Available" xml:space="preserve"><value>Not measured yet</value></data>
+  <data name="Common_Label_Availability_NoSensor" xml:space="preserve"><value>No accessible sensor</value></data>
+  <data name="Common_Label_Availability_NotSupported" xml:space="preserve"><value>Not supported by this hardware</value></data>
+  <data name="Common_Label_Availability_RequiresElevation" xml:space="preserve"><value>Administrator permission required for this measurement</value></data>
+  <data name="Common_Label_Availability_Unavailable" xml:space="preserve"><value>Measurement unavailable</value></data>
+  <data name="Common_Label_Confidence_High" xml:space="preserve"><value>High confidence</value></data>
+  <data name="Common_Label_Confidence_Low" xml:space="preserve"><value>Low confidence</value></data>
+  <data name="Common_Label_Confidence_Medium" xml:space="preserve"><value>Medium confidence</value></data>
+  <data name="Common_Label_ErrorTitle" xml:space="preserve"><value>Something went wrong</value></data>
+  <data name="Common_Label_Impact_High" xml:space="preserve"><value>High impact</value></data>
+  <data name="Common_Label_Impact_Low" xml:space="preserve"><value>Low impact</value></data>
+  <data name="Common_Label_Impact_Medium" xml:space="preserve"><value>Medium impact</value></data>
+  <data name="Common_Label_InfoTitle" xml:space="preserve"><value>Information</value></data>
+  <data name="Common_Label_Irreversible" xml:space="preserve"><value>Cannot be undone</value></data>
+  <data name="Common_Label_Loading" xml:space="preserve"><value>Loading…</value></data>
+  <data name="Common_Label_No" xml:space="preserve"><value>No</value></data>
+  <data name="Common_Label_RestartRequired" xml:space="preserve"><value>Restart required</value></data>
+  <data name="Common_Label_Reversible" xml:space="preserve"><value>Reversible</value></data>
+  <data name="Common_Label_Risk_High" xml:space="preserve"><value>High risk</value></data>
+  <data name="Common_Label_Risk_Low" xml:space="preserve"><value>Low risk</value></data>
+  <data name="Common_Label_Risk_Medium" xml:space="preserve"><value>Moderate risk</value></data>
+  <data name="Common_Label_SearchPlaceholder" xml:space="preserve"><value>Search</value></data>
+  <data name="Common_Label_Severity_Critical" xml:space="preserve"><value>Critical</value></data>
+  <data name="Common_Label_Severity_High" xml:space="preserve"><value>High</value></data>
+  <data name="Common_Label_Severity_Info" xml:space="preserve"><value>Information</value></data>
+  <data name="Common_Label_Severity_Low" xml:space="preserve"><value>Low</value></data>
+  <data name="Common_Label_Severity_Medium" xml:space="preserve"><value>Medium</value></data>
+  <data name="Common_Label_Signature_NotChecked" xml:space="preserve"><value>Signature not checked</value></data>
+  <data name="Common_Label_Step_Done" xml:space="preserve"><value>Done</value></data>
+  <data name="Common_Label_Step_Failed" xml:space="preserve"><value>Failed</value></data>
+  <data name="Common_Label_Step_Pending" xml:space="preserve"><value>Waiting</value></data>
+  <data name="Common_Label_Step_Running" xml:space="preserve"><value>In progress</value></data>
+  <data name="Common_Label_SuccessTitle" xml:space="preserve"><value>Done</value></data>
+  <data name="Common_Label_Trust_Invalid" xml:space="preserve"><value>Invalid signature — worth checking</value></data>
+  <data name="Common_Label_Trust_Microsoft" xml:space="preserve"><value>Signed by Microsoft</value></data>
+  <data name="Common_Label_Trust_Signed" xml:space="preserve"><value>Signed</value></data>
+  <data name="Common_Label_Trust_SignedBy" xml:space="preserve"><value>Signed by {0}</value></data>
+  <data name="Common_Label_Trust_Unknown" xml:space="preserve"><value>Unknown</value></data>
+  <data name="Common_Label_Trust_Unsigned" xml:space="preserve"><value>Not signed</value></data>
+  <data name="Common_Label_Working" xml:space="preserve"><value>Working…</value></data>
+  <data name="Common_Label_Yes" xml:space="preserve"><value>Yes</value></data>
+  <data name="Diagnosis_Action_Refresh" xml:space="preserve"><value>Run diagnosis again</value></data>
+  <data name="Diagnosis_Date" xml:space="preserve"><value>Diagnosis run {0}</value></data>
+  <data name="Diagnosis_Diagnosing" xml:space="preserve"><value>Diagnosing…</value></data>
+  <data name="Diagnosis_Evidence" xml:space="preserve"><value>Observation</value></data>
+  <data name="Diagnosis_Impact" xml:space="preserve"><value>Estimated impact</value></data>
+  <data name="Diagnosis_Intro" xml:space="preserve"><value>The factors currently observed are:</value></data>
+  <data name="Diagnosis_NoFactor_Message" xml:space="preserve"><value>No significant slowdown factor has been observed for now. If your PC feels slow at a specific moment, run this diagnosis again at that time.</value></data>
+  <data name="Diagnosis_NoFactor_Title" xml:space="preserve"><value>No significant factor observed</value></data>
+  <data name="Diagnosis_Title" xml:space="preserve"><value>Why is my PC slow?</value></data>
+  <data name="Diagnosis_WhatToDo" xml:space="preserve"><value>What can be done?</value></data>
+  <data name="Diagnosis_Why" xml:space="preserve"><value>Why?</value></data>
+  <data name="Expert_Action_OpenLogs" xml:space="preserve"><value>Open log folder</value></data>
+  <data name="Expert_Change_After" xml:space="preserve"><value>After state</value></data>
+  <data name="Expert_Change_Before" xml:space="preserve"><value>Before state</value></data>
+  <data name="Expert_Change_Error" xml:space="preserve"><value>Error</value></data>
+  <data name="Expert_Change_Kind" xml:space="preserve"><value>Kind</value></data>
+  <data name="Expert_Change_Optimization" xml:space="preserve"><value>Optimization</value></data>
+  <data name="Expert_Change_RecordedAt" xml:space="preserve"><value>Recorded</value></data>
+  <data name="Expert_Change_RolledBackAt" xml:space="preserve"><value>Undone</value></data>
+  <data name="Expert_Change_Status" xml:space="preserve"><value>Status</value></data>
+  <data name="Expert_Change_Target" xml:space="preserve"><value>Target</value></data>
+  <data name="Expert_Errors_Empty" xml:space="preserve"><value>No technical errors recorded.</value></data>
+  <data name="Expert_Log_File" xml:space="preserve"><value>File</value></data>
+  <data name="Expert_Log_Folder" xml:space="preserve"><value>Log folder</value></data>
+  <data name="Expert_Log_None" xml:space="preserve"><value>No log file found.</value></data>
+  <data name="Expert_Session_Header" xml:space="preserve"><value>{0} · {1} · {2} · {3} {3:plural:change|changes}</value></data>
+  <data name="Expert_Sessions_Empty" xml:space="preserve"><value>No sessions recorded.</value></data>
+  <data name="Expert_Subtitle" xml:space="preserve"><value>Technical details for advanced users.</value></data>
+  <data name="Expert_Tab_Errors" xml:space="preserve"><value>Technical errors</value></data>
+  <data name="Expert_Tab_Log" xml:space="preserve"><value>Application log</value></data>
+  <data name="Expert_Tab_Sessions" xml:space="preserve"><value>Sessions and changes</value></data>
+  <data name="Expert_Title" xml:space="preserve"><value>Expert mode</value></data>
+  <data name="Gaming_Action_Activate" xml:space="preserve"><value>Turn on Gaming mode</value></data>
+  <data name="Gaming_Action_Benchmark" xml:space="preserve"><value>Measure before / after</value></data>
+  <data name="Gaming_Action_Deactivate" xml:space="preserve"><value>Turn off and restore</value></data>
+  <data name="Gaming_Action_Detect" xml:space="preserve"><value>Look for a game</value></data>
+  <data name="Gaming_Action_FpsSettings" xml:space="preserve"><value>Measurement settings</value></data>
+  <data name="Gaming_Action_RefreshGames" xml:space="preserve"><value>Refresh list</value></data>
+  <data name="Gaming_Activated" xml:space="preserve"><value>Gaming mode is on: {0} optimizations applied.</value></data>
+  <data name="Gaming_Activated_One" xml:space="preserve"><value>Gaming mode is on: 1 optimization applied.</value></data>
+  <data name="Gaming_Active_Header" xml:space="preserve"><value>Active optimizations</value></data>
+  <data name="Gaming_AutoActivation_Description" xml:space="preserve"><value>What to do when a game is detected?</value></data>
+  <data name="Gaming_AutoActivation_Header" xml:space="preserve"><value>Automatic activation</value></data>
+  <data name="Gaming_Capture_Available" xml:space="preserve"><value>Frame measurement available.</value></data>
+  <data name="Gaming_Capture_Disabled" xml:space="preserve"><value>FPS measurement is turned off (Settings &gt; Gaming).</value></data>
+  <data name="Gaming_Capture_Inactive" xml:space="preserve"><value>Turn on Gaming mode with a game running to measure frames.</value></data>
+  <data name="Gaming_Capture_NotSupported" xml:space="preserve"><value>Frame measurement is not supported for this game or PC.</value></data>
+  <data name="Gaming_Capture_RequiresElevation" xml:space="preserve"><value>Administrator permission is required to measure frames.</value></data>
+  <data name="Gaming_Capture_Waiting" xml:space="preserve"><value>Waiting for the first frames…</value></data>
+  <data name="Gaming_Check_Ok" xml:space="preserve"><value>OK</value></data>
+  <data name="Gaming_Check_OpenSettings" xml:space="preserve"><value>Open Windows settings</value></data>
+  <data name="Gaming_Check_ToReview" xml:space="preserve"><value>Worth checking</value></data>
+  <data name="Gaming_Checks_Header" xml:space="preserve"><value>Windows graphics settings</value></data>
+  <data name="Gaming_Games_Header" xml:space="preserve"><value>Installed games detected</value></data>
+  <data name="Gaming_Games_Many" xml:space="preserve"><value>{0} games detected</value></data>
+  <data name="Gaming_Games_None" xml:space="preserve"><value>No installed games were detected.</value></data>
+  <data name="Gaming_Games_One" xml:space="preserve"><value>1 game detected</value></data>
+  <data name="Gaming_Metric_Cpu" xml:space="preserve"><value>Processor</value></data>
+  <data name="Gaming_Metric_CpuTemperature" xml:space="preserve"><value>Processor temperature</value></data>
+  <data name="Gaming_Metric_Fps" xml:space="preserve"><value>Frames per second</value></data>
+  <data name="Gaming_Metric_FrameTime" xml:space="preserve"><value>Frame time</value></data>
+  <data name="Gaming_Metric_FrameTimeP99" xml:space="preserve"><value>99th percentile: {0}</value></data>
+  <data name="Gaming_Metric_Gpu" xml:space="preserve"><value>Graphics card</value></data>
+  <data name="Gaming_Metric_GpuTemperature" xml:space="preserve"><value>Graphics card temperature</value></data>
+  <data name="Gaming_Metric_OnePercentLow" xml:space="preserve"><value>1% low</value></data>
+  <data name="Gaming_Metric_PointOnePercentLow" xml:space="preserve"><value>0.1% low</value></data>
+  <data name="Gaming_Metric_Ram" xml:space="preserve"><value>Memory</value></data>
+  <data name="Gaming_Metric_Vram" xml:space="preserve"><value>Video memory</value></data>
+  <data name="Gaming_Metrics_Header" xml:space="preserve"><value>Live measurements</value></data>
+  <data name="Gaming_NoGame" xml:space="preserve"><value>No game detected</value></data>
+  <data name="Gaming_Optimization_Applied" xml:space="preserve"><value>Applied</value></data>
+  <data name="Gaming_Optimization_NotApplicable" xml:space="preserve"><value>Not applicable</value></data>
+  <data name="Gaming_Optimization_Planned" xml:space="preserve"><value>Planned</value></data>
+  <data name="Gaming_Optimization_Skipped" xml:space="preserve"><value>Skipped</value></data>
+  <data name="Gaming_Planned_Description" xml:space="preserve"><value>Preview: nothing is changed until you turn it on.</value></data>
+  <data name="Gaming_Planned_Header" xml:space="preserve"><value>Planned optimizations</value></data>
+  <data name="Gaming_Restored" xml:space="preserve"><value>Gaming mode is off: {0} settings restored.</value></data>
+  <data name="Gaming_Restored_One" xml:space="preserve"><value>Gaming mode is off: 1 setting restored.</value></data>
+  <data name="Gaming_Restored_Partial" xml:space="preserve"><value>Gaming mode is off: {0} settings restored, {1} could not be. See History.</value></data>
+  <data name="Gaming_Source_BattleNet" xml:space="preserve"><value>Battle.net</value></data>
+  <data name="Gaming_Source_Custom" xml:space="preserve"><value>Added manually</value></data>
+  <data name="Gaming_Source_EA" xml:space="preserve"><value>EA app</value></data>
+  <data name="Gaming_Source_EpicGames" xml:space="preserve"><value>Epic Games</value></data>
+  <data name="Gaming_Source_Gog" xml:space="preserve"><value>GOG Galaxy</value></data>
+  <data name="Gaming_Source_Riot" xml:space="preserve"><value>Riot Games</value></data>
+  <data name="Gaming_Source_Signature" xml:space="preserve"><value>Recognized by PCBoost</value></data>
+  <data name="Gaming_Source_Steam" xml:space="preserve"><value>Steam</value></data>
+  <data name="Gaming_Source_Ubisoft" xml:space="preserve"><value>Ubisoft Connect</value></data>
+  <data name="Gaming_Source_Unknown" xml:space="preserve"><value>Unknown source</value></data>
+  <data name="Gaming_Source_WindowsGameConfig" xml:space="preserve"><value>Recognized by Windows</value></data>
+  <data name="Gaming_Source_Xbox" xml:space="preserve"><value>Xbox</value></data>
+  <data name="Gaming_State_Activating" xml:space="preserve"><value>Turning on…</value></data>
+  <data name="Gaming_State_Active" xml:space="preserve"><value>On</value></data>
+  <data name="Gaming_State_Inactive" xml:space="preserve"><value>Off</value></data>
+  <data name="Gaming_State_Restoring" xml:space="preserve"><value>Restoring…</value></data>
+  <data name="Gaming_Status_Label" xml:space="preserve"><value>Status</value></data>
+  <data name="Gaming_Subtitle" xml:space="preserve"><value>Temporary settings while you play, restored automatically afterwards.</value></data>
+  <data name="Gaming_Title" xml:space="preserve"><value>Gaming mode</value></data>
+  <data name="History_BytesFreed" xml:space="preserve"><value>{0} freed</value></data>
+  <data name="History_ChangeStatus_Applied" xml:space="preserve"><value>Applied</value></data>
+  <data name="History_ChangeStatus_Failed" xml:space="preserve"><value>Failed</value></data>
+  <data name="History_ChangeStatus_Irreversible" xml:space="preserve"><value>Cannot be undone</value></data>
+  <data name="History_ChangeStatus_Pending" xml:space="preserve"><value>Pending</value></data>
+  <data name="History_ChangeStatus_RollbackFailed" xml:space="preserve"><value>Undo failed</value></data>
+  <data name="History_ChangeStatus_RolledBack" xml:space="preserve"><value>Undone</value></data>
+  <data name="History_Change_StatusLabel" xml:space="preserve"><value>Status</value></data>
+  <data name="History_Change_TargetLabel" xml:space="preserve"><value>Target</value></data>
+  <data name="History_Change_Undo" xml:space="preserve"><value>Undo this change</value></data>
+  <data name="History_Change_Undone" xml:space="preserve"><value>Change undone: {0}</value></data>
+  <data name="History_Changes" xml:space="preserve"><value>{0} changes</value></data>
+  <data name="History_Empty" xml:space="preserve"><value>No changes have been made yet.</value></data>
+  <data name="History_OneChange" xml:space="preserve"><value>1 change</value></data>
+  <data name="History_RequiresRestart" xml:space="preserve"><value>Restart required</value></data>
+  <data name="History_Restore_ConfirmMessage" xml:space="preserve"><value>The reversible changes from "{0}" ({1}) will be undone. Deleted files cannot be recovered.</value></data>
+  <data name="History_Restore_ConfirmTitle" xml:space="preserve"><value>Restore this session?</value></data>
+  <data name="History_Restore_Failed" xml:space="preserve"><value>{0} could not be restored.</value></data>
+  <data name="History_Restore_Irreversible" xml:space="preserve"><value>{0} irreversible actions (deleted files) remain unchanged.</value></data>
+  <data name="History_Restore_OneRestored" xml:space="preserve"><value>1 change restored.</value></data>
+  <data name="History_Restore_Restored" xml:space="preserve"><value>{0} changes restored.</value></data>
+  <data name="History_Session_Details" xml:space="preserve"><value>Details</value></data>
+  <data name="History_Status_Completed" xml:space="preserve"><value>Completed</value></data>
+  <data name="History_Status_Dismissed" xml:space="preserve"><value>Kept after interruption</value></data>
+  <data name="History_Status_Failed" xml:space="preserve"><value>Failed</value></data>
+  <data name="History_Status_InProgress" xml:space="preserve"><value>In progress</value></data>
+  <data name="History_Status_Interrupted" xml:space="preserve"><value>Interrupted</value></data>
+  <data name="History_Status_PartiallyCompleted" xml:space="preserve"><value>Partially completed</value></data>
+  <data name="History_Status_PartiallyRolledBack" xml:space="preserve"><value>Partially restored</value></data>
+  <data name="History_Status_RolledBack" xml:space="preserve"><value>Restored</value></data>
+  <data name="History_Subtitle" xml:space="preserve"><value>Every change made by PCBoost, with the option to undo it.</value></data>
+  <data name="History_Tab_Journal" xml:space="preserve"><value>Change log</value></data>
+  <data name="History_Tab_Sessions" xml:space="preserve"><value>Sessions</value></data>
+  <data name="History_Title" xml:space="preserve"><value>History</value></data>
+  <data name="History_Type_Automatic" xml:space="preserve"><value>Automatic optimization</value></data>
+  <data name="History_Type_Cleanup" xml:space="preserve"><value>Cleanup</value></data>
+  <data name="History_Type_Gaming" xml:space="preserve"><value>Gaming mode</value></data>
+  <data name="History_Type_Manual" xml:space="preserve"><value>Manual optimization</value></data>
+  <data name="History_Type_OldPcAssistant" xml:space="preserve"><value>Older PC assistant</value></data>
+  <data name="History_Type_OneClick" xml:space="preserve"><value>One-click optimization</value></data>
+  <data name="History_Type_Profile" xml:space="preserve"><value>Profile</value></data>
+  <data name="History_Type_Startup" xml:space="preserve"><value>Startup</value></data>
+  <data name="Home_Action_Analyze" xml:space="preserve"><value>Analyze</value></data>
+  <data name="Home_Action_Cleanup" xml:space="preserve"><value>Clean up</value></data>
+  <data name="Home_Action_Gaming" xml:space="preserve"><value>Gaming mode</value></data>
+  <data name="Home_Action_Optimize" xml:space="preserve"><value>Optimize</value></data>
+  <data name="Home_Action_Performance" xml:space="preserve"><value>Performance</value></data>
+  <data name="Home_Analyzing" xml:space="preserve"><value>Analyzing…</value></data>
+  <data name="Home_BackgroundProcesses" xml:space="preserve"><value>{0} processes</value></data>
+  <data name="Home_BackgroundProcesses_Label" xml:space="preserve"><value>Background processes</value></data>
+  <data name="Home_Empty_Message" xml:space="preserve"><value>Run an analysis to get your PC's score and recommendations.</value></data>
+  <data name="Home_Empty_Title" xml:space="preserve"><value>No analysis yet</value></data>
+  <data name="Home_FactorStatus_Fair" xml:space="preserve"><value>Fair</value></data>
+  <data name="Home_FactorStatus_Good" xml:space="preserve"><value>Good</value></data>
+  <data name="Home_FactorStatus_Poor" xml:space="preserve"><value>Needs improvement</value></data>
+  <data name="Home_FactorStatus_Unknown" xml:space="preserve"><value>Not measured</value></data>
+  <data name="Home_Factor_Accessible" xml:space="preserve"><value>{0}: {1} points, {2}. {3}</value></data>
+  <data name="Home_Factor_Action" xml:space="preserve"><value>View</value></data>
+  <data name="Home_Factor_Points" xml:space="preserve"><value>{0} / {1}</value></data>
+  <data name="Home_Factors_Header" xml:space="preserve"><value>Score breakdown</value></data>
+  <data name="Home_LastAnalysis" xml:space="preserve"><value>Last analysis: {0}</value></data>
+  <data name="Home_LastAnalysis_Never" xml:space="preserve"><value>No analysis yet</value></data>
+  <data name="Home_Live_Header" xml:space="preserve"><value>Right now</value></data>
+  <data name="Home_QuickActions_Header" xml:space="preserve"><value>Quick actions</value></data>
+  <data name="Home_Recommendations_Empty" xml:space="preserve"><value>No recommendations right now.</value></data>
+  <data name="Home_Recommendations_Header" xml:space="preserve"><value>Top recommendations</value></data>
+  <data name="Home_Recommendations_SeeAll" xml:space="preserve"><value>See all recommendations</value></data>
+  <data name="Home_RunningProcesses" xml:space="preserve"><value>{0} running processes</value></data>
+  <data name="Home_ScoreLevel_Fair" xml:space="preserve"><value>Fair condition</value></data>
+  <data name="Home_ScoreLevel_Good" xml:space="preserve"><value>Good condition</value></data>
+  <data name="Home_ScoreLevel_Poor" xml:space="preserve"><value>Needs improvement</value></data>
+  <data name="Home_Score_Accessible" xml:space="preserve"><value>Performance score: {0} out of 100, {1}</value></data>
+  <data name="Home_Score_Explanation" xml:space="preserve"><value>Each point comes from a factor measured on your PC. Select a factor to act on it.</value></data>
+  <data name="Home_Score_Header" xml:space="preserve"><value>Performance score</value></data>
+  <data name="Home_Score_HowComputed" xml:space="preserve"><value>How is this score calculated?</value></data>
+  <data name="Home_Score_Max" xml:space="preserve"><value>/100</value></data>
+  <data name="Home_StartupApps" xml:space="preserve"><value>{0} apps</value></data>
+  <data name="Home_StartupApps_Label" xml:space="preserve"><value>Startup apps</value></data>
+  <data name="Home_StartupApps_One" xml:space="preserve"><value>1 app</value></data>
+  <data name="Home_Status_Improvable" xml:space="preserve"><value>{0} points can be improved.</value></data>
+  <data name="Home_Status_Normal" xml:space="preserve"><value>Your PC is currently in normal condition.</value></data>
+  <data name="Home_Status_OneImprovable" xml:space="preserve"><value>1 point can be improved.</value></data>
+  <data name="Home_SystemDrive_Detail" xml:space="preserve"><value>of {0} — {1}</value></data>
+  <data name="Home_SystemDrive_Free" xml:space="preserve"><value>{0} free</value></data>
+  <data name="Home_SystemDrive_Label" xml:space="preserve"><value>System drive</value></data>
+  <data name="Home_System_Header" xml:space="preserve"><value>Your system</value></data>
+  <data name="Home_Temperature_Cpu" xml:space="preserve"><value>Processor</value></data>
+  <data name="Home_Temperature_Gpu" xml:space="preserve"><value>Graphics card</value></data>
+  <data name="Home_Temperature_Storage" xml:space="preserve"><value>Storage</value></data>
+  <data name="Home_Temperatures_Header" xml:space="preserve"><value>Temperatures</value></data>
+  <data name="Home_Temperatures_None" xml:space="preserve"><value>Temperatures are not available on this PC.</value></data>
+  <data name="Home_Tile_Cpu" xml:space="preserve"><value>Processor</value></data>
+  <data name="Home_Tile_Disk" xml:space="preserve"><value>Disk</value></data>
+  <data name="Home_Tile_DiskDetail" xml:space="preserve"><value>Read {0} · Write {1}</value></data>
+  <data name="Home_Tile_Gpu" xml:space="preserve"><value>Graphics card</value></data>
+  <data name="Home_Tile_GpuDetail" xml:space="preserve"><value>Video memory used: {0}</value></data>
+  <data name="Home_Tile_Memory" xml:space="preserve"><value>Memory</value></data>
+  <data name="Home_Tile_MemoryDetail" xml:space="preserve"><value>{0} of {1}</value></data>
+  <data name="Home_Title" xml:space="preserve"><value>Home</value></data>
+  <data name="Home_WhySlow" xml:space="preserve"><value>Why is my PC slow?</value></data>
+  <data name="Home_WhySlow_Description" xml:space="preserve"><value>See the slowdown factors currently observed.</value></data>
+  <data name="Home_Windows_Build" xml:space="preserve"><value>Build {0}</value></data>
+  <data name="Home_Windows_Label" xml:space="preserve"><value>Windows</value></data>
+  <data name="Home_Windows_Unsupported" xml:space="preserve"><value>This version of Windows is not supported (Windows 10 version 1809 or later required).</value></data>
+  <data name="Home_Windows_Uptime" xml:space="preserve"><value>On for {0}</value></data>
+  <data name="Home_Windows_Version" xml:space="preserve"><value>Version {0} (build {1})</value></data>
+  <data name="Journal_Empty" xml:space="preserve"><value>The log is empty.</value></data>
+  <data name="Journal_Kind_Analysis" xml:space="preserve"><value>Analysis</value></data>
+  <data name="Journal_Kind_Cleanup" xml:space="preserve"><value>Cleanup</value></data>
+  <data name="Journal_Kind_Error" xml:space="preserve"><value>Error</value></data>
+  <data name="Journal_Kind_Gaming" xml:space="preserve"><value>Gaming</value></data>
+  <data name="Journal_Kind_Info" xml:space="preserve"><value>Information</value></data>
+  <data name="Journal_Kind_Optimization" xml:space="preserve"><value>Optimization</value></data>
+  <data name="Journal_Kind_Rollback" xml:space="preserve"><value>Restore</value></data>
+  <data name="Journal_Kind_Startup" xml:space="preserve"><value>Startup</value></data>
+  <data name="Journal_Kind_Warning" xml:space="preserve"><value>Warning</value></data>
+  <data name="Journal_Subtitle" xml:space="preserve"><value>What PCBoost has done, most recent first.</value></data>
+  <data name="Journal_Title" xml:space="preserve"><value>Change log</value></data>
+  <data name="Nav_AccessibleName" xml:space="preserve"><value>Main navigation</value></data>
+  <data name="Nav_Analysis" xml:space="preserve"><value>Analysis</value></data>
+  <data name="Nav_Analysis_ToolTip" xml:space="preserve"><value>Full hardware and software report</value></data>
+  <data name="Nav_Cleanup" xml:space="preserve"><value>Cleanup</value></data>
+  <data name="Nav_Cleanup_ToolTip" xml:space="preserve"><value>Remove temporary files</value></data>
+  <data name="Nav_Expert" xml:space="preserve"><value>Expert mode</value></data>
+  <data name="Nav_Expert_ToolTip" xml:space="preserve"><value>Technical details</value></data>
+  <data name="Nav_Gaming" xml:space="preserve"><value>Gaming</value></data>
+  <data name="Nav_Gaming_ToolTip" xml:space="preserve"><value>Gaming mode and in-game measurements</value></data>
+  <data name="Nav_History" xml:space="preserve"><value>History</value></data>
+  <data name="Nav_History_ToolTip" xml:space="preserve"><value>Changes made and restore</value></data>
+  <data name="Nav_Home" xml:space="preserve"><value>Home</value></data>
+  <data name="Nav_Home_ToolTip" xml:space="preserve"><value>Dashboard and your PC's score</value></data>
+  <data name="Nav_Optimization" xml:space="preserve"><value>Optimization</value></data>
+  <data name="Nav_Optimization_ToolTip" xml:space="preserve"><value>Optimize my PC, profiles, older PC</value></data>
+  <data name="Nav_Performance" xml:space="preserve"><value>Performance</value></data>
+  <data name="Nav_Performance_ToolTip" xml:space="preserve"><value>Real-time charts and history</value></data>
+  <data name="Nav_Processes" xml:space="preserve"><value>Processes</value></data>
+  <data name="Nav_Processes_ToolTip" xml:space="preserve"><value>Running programs</value></data>
+  <data name="Nav_Settings" xml:space="preserve"><value>Settings</value></data>
+  <data name="Nav_Settings_ToolTip" xml:space="preserve"><value>PCBoost preferences</value></data>
+  <data name="Nav_Startup" xml:space="preserve"><value>Startup</value></data>
+  <data name="Nav_Startup_ToolTip" xml:space="preserve"><value>Programs launched at sign-in</value></data>
+  <data name="OldPc_Action_Apply" xml:space="preserve"><value>Apply this level</value></data>
+  <data name="OldPc_Action_Assess" xml:space="preserve"><value>Assess my PC</value></data>
+  <data name="OldPc_Action_BackToLevels" xml:space="preserve"><value>Back to levels</value></data>
+  <data name="OldPc_Action_ChooseLevel" xml:space="preserve"><value>See changes</value></data>
+  <data name="OldPc_Assessing" xml:space="preserve"><value>Assessing…</value></data>
+  <data name="OldPc_Confirm_AdvancedMessage" xml:space="preserve"><value>{0} Advanced-level {0:plural:change|changes} will be applied. Check the list below before confirming.</value></data>
+  <data name="OldPc_Confirm_AdvancedTitle" xml:space="preserve"><value>Apply the Advanced level?</value></data>
+  <data name="OldPc_Indicator_Background" xml:space="preserve"><value>Many background processes</value></data>
+  <data name="OldPc_Indicator_Detected" xml:space="preserve"><value>Observed</value></data>
+  <data name="OldPc_Indicator_Hdd" xml:space="preserve"><value>Mechanical system drive (HDD)</value></data>
+  <data name="OldPc_Indicator_HeavyStartup" xml:space="preserve"><value>Heavy startup</value></data>
+  <data name="OldPc_Indicator_LowDisk" xml:space="preserve"><value>Low free space</value></data>
+  <data name="OldPc_Indicator_LowMemory" xml:space="preserve"><value>Limited memory</value></data>
+  <data name="OldPc_Indicator_NotDetected" xml:space="preserve"><value>Not observed</value></data>
+  <data name="OldPc_Indicator_WeakCpu" xml:space="preserve"><value>Older or low-power processor</value></data>
+  <data name="OldPc_Level_AdvancedNotice" xml:space="preserve"><value>Advanced level: read the planned changes carefully.</value></data>
+  <data name="OldPc_Level_Advanced_Description" xml:space="preserve"><value>The Standard level, plus deeper settings. Confirmation is always required.</value></data>
+  <data name="OldPc_Level_Advanced_Name" xml:space="preserve"><value>Advanced</value></data>
+  <data name="OldPc_Level_Essential_Description" xml:space="preserve"><value>The safest, low-risk settings.</value></data>
+  <data name="OldPc_Level_Essential_Name" xml:space="preserve"><value>Essential</value></data>
+  <data name="OldPc_Level_OneOptimization" xml:space="preserve"><value>1 optimization</value></data>
+  <data name="OldPc_Level_Optimizations" xml:space="preserve"><value>{0} optimizations</value></data>
+  <data name="OldPc_Level_Standard_Description" xml:space="preserve"><value>The Essential level, plus other settings suited to modest configurations.</value></data>
+  <data name="OldPc_Level_Standard_Name" xml:space="preserve"><value>Standard</value></data>
+  <data name="OldPc_Section_Assessment" xml:space="preserve"><value>Assessment</value></data>
+  <data name="OldPc_Section_Findings" xml:space="preserve"><value>Findings</value></data>
+  <data name="OldPc_Section_Levels" xml:space="preserve"><value>Optimization levels</value></data>
+  <data name="OldPc_Subtitle" xml:space="preserve"><value>Settings suited to modest configurations, by level. Each level is previewed before it is applied.</value></data>
+  <data name="OldPc_Summary_Many" xml:space="preserve"><value>This PC shows {0} signs of a modest configuration.</value></data>
+  <data name="OldPc_Summary_None" xml:space="preserve"><value>This PC shows no sign of a modest configuration.</value></data>
+  <data name="OldPc_Summary_One" xml:space="preserve"><value>This PC shows 1 sign of a modest configuration.</value></data>
+  <data name="OldPc_Title" xml:space="preserve"><value>Optimize an older PC</value></data>
+  <data name="Optimization_Action_Apply" xml:space="preserve"><value>Apply changes</value></data>
+  <data name="Optimization_Action_BackToStart" xml:space="preserve"><value>Done</value></data>
+  <data name="Optimization_Action_CancelPreview" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Optimization_Action_History" xml:space="preserve"><value>View history</value></data>
+  <data name="Optimization_Action_Restore" xml:space="preserve"><value>Restore previous settings</value></data>
+  <data name="Optimization_Action_Scan" xml:space="preserve"><value>Optimize my PC</value></data>
+  <data name="Optimization_Applying_Message" xml:space="preserve"><value>Every change is recorded before it is applied, so it can be undone.</value></data>
+  <data name="Optimization_Applying_Title" xml:space="preserve"><value>Optimizing…</value></data>
+  <data name="Optimization_Confirm_HighRiskItem" xml:space="preserve"><value>High risk: {0}</value></data>
+  <data name="Optimization_Confirm_HighRiskMessage" xml:space="preserve"><value>{0} {0:plural:change|changes} will be applied, {0:plural:which carries a high risk|some of which carry a high risk}:</value></data>
+  <data name="Optimization_Confirm_IrreversibleItem" xml:space="preserve"><value>Cannot be undone: {0}</value></data>
+  <data name="Optimization_Confirm_IrreversibleMessage" xml:space="preserve"><value>{0} {0:plural:change|changes} will be applied, {0:plural:which cannot be undone|some of which cannot be undone}:</value></data>
+  <data name="Optimization_Confirm_Message" xml:space="preserve"><value>{0} {0:plural:change|changes} will be applied. Reversible changes can be undone from History.</value></data>
+  <data name="Optimization_Confirm_Title" xml:space="preserve"><value>Apply the changes?</value></data>
+  <data name="Optimization_Idle_Message" xml:space="preserve"><value>PCBoost analyzes your PC and shows you the planned changes before applying them. Reversible changes can be undone at any time.</value></data>
+  <data name="Optimization_Idle_Title" xml:space="preserve"><value>Optimize my PC</value></data>
+  <data name="Optimization_Preview_Cancelled" xml:space="preserve"><value>Preview discarded: no changes were made.</value></data>
+  <data name="Optimization_Preview_ChangesHeader" xml:space="preserve"><value>Changes</value></data>
+  <data name="Optimization_Preview_Empty" xml:space="preserve"><value>No changes are needed right now.</value></data>
+  <data name="Optimization_Preview_EstimatedTotal" xml:space="preserve"><value>Estimated recoverable space: {0}</value></data>
+  <data name="Optimization_Preview_NotApplicableHeader" xml:space="preserve"><value>Not applicable on this PC</value></data>
+  <data name="Optimization_Preview_NoticeElevation" xml:space="preserve"><value>Windows will ask for administrator permission for some actions.</value></data>
+  <data name="Optimization_Preview_NoticeIrreversible" xml:space="preserve"><value>Some selected actions cannot be undone.</value></data>
+  <data name="Optimization_Preview_NoticeRestart" xml:space="preserve"><value>A restart will be needed to finish some changes.</value></data>
+  <data name="Optimization_Preview_RequiresElevation" xml:space="preserve"><value>Administrator permission required</value></data>
+  <data name="Optimization_Preview_RequiresRestart" xml:space="preserve"><value>Restart required</value></data>
+  <data name="Optimization_Preview_SelectedTotal" xml:space="preserve"><value>{0} of {1} {1:plural:change|changes} selected</value></data>
+  <data name="Optimization_Preview_SelectionSummary" xml:space="preserve"><value>{0} of {1} {1:plural:change|changes}</value></data>
+  <data name="Optimization_Preview_Subtitle" xml:space="preserve"><value>Uncheck anything you don't want to change. Nothing is applied until you confirm.</value></data>
+  <data name="Optimization_Preview_Target" xml:space="preserve"><value>Target</value></data>
+  <data name="Optimization_Preview_Title" xml:space="preserve"><value>Here are the planned changes</value></data>
+  <data name="Optimization_Report_Actions" xml:space="preserve"><value>Actions performed</value></data>
+  <data name="Optimization_Report_Failed" xml:space="preserve"><value>The optimization could not be completed.</value></data>
+  <data name="Optimization_Report_Failures" xml:space="preserve"><value>Failed actions</value></data>
+  <data name="Optimization_Report_NothingDone" xml:space="preserve"><value>No changes were needed.</value></data>
+  <data name="Optimization_Report_Partial" xml:space="preserve"><value>Optimization finished, but some actions could not be completed.</value></data>
+  <data name="Optimization_Report_Processes" xml:space="preserve"><value>Processes adjusted</value></data>
+  <data name="Optimization_Report_Profile" xml:space="preserve"><value>Profile</value></data>
+  <data name="Optimization_Report_Ready" xml:space="preserve"><value>Your PC is ready.</value></data>
+  <data name="Optimization_Report_Restart" xml:space="preserve"><value>Restart required</value></data>
+  <data name="Optimization_Report_RestartNotice" xml:space="preserve"><value>Restart your PC to finish some changes.</value></data>
+  <data name="Optimization_Report_RestoreHint" xml:space="preserve"><value>You can undo these changes at any time from History.</value></data>
+  <data name="Optimization_Report_ResultMany" xml:space="preserve"><value>{0} changes applied</value></data>
+  <data name="Optimization_Report_ResultOne" xml:space="preserve"><value>1 change applied</value></data>
+  <data name="Optimization_Report_ResultPartial" xml:space="preserve"><value>{0} applied, {1} failed</value></data>
+  <data name="Optimization_Report_ResultsHeader" xml:space="preserve"><value>Details by optimization</value></data>
+  <data name="Optimization_Report_Skipped" xml:space="preserve"><value>Not needed</value></data>
+  <data name="Optimization_Report_SpaceFreed" xml:space="preserve"><value>Space recovered</value></data>
+  <data name="Optimization_Report_Startup" xml:space="preserve"><value>Startup</value></data>
+  <data name="Optimization_Report_StartupValue" xml:space="preserve"><value>−{0} {0:plural:app|apps}</value></data>
+  <data name="Optimization_Report_Title" xml:space="preserve"><value>Report</value></data>
+  <data name="Optimization_Report_WarningsHeader" xml:space="preserve"><value>Warnings</value></data>
+  <data name="Optimization_Restore_ConfirmMessage" xml:space="preserve"><value>The reversible changes from this optimization will be undone. Deleted files cannot be recovered.</value></data>
+  <data name="Optimization_Restore_ConfirmTitle" xml:space="preserve"><value>Restore previous settings?</value></data>
+  <data name="Optimization_Scan_Analyzing" xml:space="preserve"><value>Analyzing your PC…</value></data>
+  <data name="Optimization_Scan_Preparing" xml:space="preserve"><value>Preparing the preview…</value></data>
+  <data name="Optimization_Section_OldPc" xml:space="preserve"><value>Older PC</value></data>
+  <data name="Optimization_Section_OneClick" xml:space="preserve"><value>Optimize my PC</value></data>
+  <data name="Optimization_Section_Profiles" xml:space="preserve"><value>Profiles</value></data>
+  <data name="Optimization_StepRunning_Analysis" xml:space="preserve"><value>Analyzing…</value></data>
+  <data name="Optimization_StepRunning_Backup" xml:space="preserve"><value>Saving the current state…</value></data>
+  <data name="Optimization_StepRunning_Completed" xml:space="preserve"><value>Done</value></data>
+  <data name="Optimization_StepRunning_Optimization" xml:space="preserve"><value>Applying changes…</value></data>
+  <data name="Optimization_StepRunning_Preparation" xml:space="preserve"><value>Preparing…</value></data>
+  <data name="Optimization_StepRunning_Verification" xml:space="preserve"><value>Verifying…</value></data>
+  <data name="Optimization_Step_Analysis" xml:space="preserve"><value>Analysis</value></data>
+  <data name="Optimization_Step_Backup" xml:space="preserve"><value>Backup</value></data>
+  <data name="Optimization_Step_Completed" xml:space="preserve"><value>Done</value></data>
+  <data name="Optimization_Step_Optimization" xml:space="preserve"><value>Optimization</value></data>
+  <data name="Optimization_Step_Preparation" xml:space="preserve"><value>Preparation</value></data>
+  <data name="Optimization_Step_Verification" xml:space="preserve"><value>Verification</value></data>
+  <data name="Optimization_Steps_AccessibleName" xml:space="preserve"><value>Optimization steps</value></data>
+  <data name="Optimization_Title" xml:space="preserve"><value>Optimization</value></data>
+  <data name="Performance_Average" xml:space="preserve"><value>Average</value></data>
+  <data name="Performance_AxisEnd" xml:space="preserve"><value>Now</value></data>
+  <data name="Performance_AxisStart_24h" xml:space="preserve"><value>24 h ago</value></data>
+  <data name="Performance_AxisStart_30m" xml:space="preserve"><value>30 min ago</value></data>
+  <data name="Performance_AxisStart_30s" xml:space="preserve"><value>30 s ago</value></data>
+  <data name="Performance_AxisStart_5m" xml:space="preserve"><value>5 min ago</value></data>
+  <data name="Performance_AxisStart_7d" xml:space="preserve"><value>7 days ago</value></data>
+  <data name="Performance_Current" xml:space="preserve"><value>Current</value></data>
+  <data name="Performance_Interval" xml:space="preserve"><value>Measurement interval: {0}</value></data>
+  <data name="Performance_Maximum" xml:space="preserve"><value>Maximum</value></data>
+  <data name="Performance_Metric_Cpu" xml:space="preserve"><value>Processor</value></data>
+  <data name="Performance_Metric_CpuTemperature" xml:space="preserve"><value>Processor</value></data>
+  <data name="Performance_Metric_Disk" xml:space="preserve"><value>Disk</value></data>
+  <data name="Performance_Metric_Gpu" xml:space="preserve"><value>Graphics card</value></data>
+  <data name="Performance_Metric_GpuTemperature" xml:space="preserve"><value>Graphics card</value></data>
+  <data name="Performance_Metric_Memory" xml:space="preserve"><value>Memory</value></data>
+  <data name="Performance_Metric_NetworkReceive" xml:space="preserve"><value>Download</value></data>
+  <data name="Performance_Metric_NetworkSend" xml:space="preserve"><value>Upload</value></data>
+  <data name="Performance_NoHistory" xml:space="preserve"><value>No history recorded for this period.</value></data>
+  <data name="Performance_Paused" xml:space="preserve"><value>Monitoring is paused: charts are no longer updated.</value></data>
+  <data name="Performance_Period_24h" xml:space="preserve"><value>24 h</value></data>
+  <data name="Performance_Period_30m" xml:space="preserve"><value>30 min</value></data>
+  <data name="Performance_Period_30s" xml:space="preserve"><value>30 s</value></data>
+  <data name="Performance_Period_5m" xml:space="preserve"><value>5 min</value></data>
+  <data name="Performance_Period_7d" xml:space="preserve"><value>7 days</value></data>
+  <data name="Performance_Period_Label" xml:space="preserve"><value>Period</value></data>
+  <data name="Performance_Scale_Max" xml:space="preserve"><value>Max: {0}</value></data>
+  <data name="Performance_Scale_Percent" xml:space="preserve"><value>0 – 100%</value></data>
+  <data name="Performance_Scale_Temperature" xml:space="preserve"><value>0 – 100 °C</value></data>
+  <data name="Performance_Section_Network" xml:space="preserve"><value>Network</value></data>
+  <data name="Performance_Section_Temperatures" xml:space="preserve"><value>Temperatures</value></data>
+  <data name="Performance_Section_Usage" xml:space="preserve"><value>Usage</value></data>
+  <data name="Performance_Subtitle" xml:space="preserve"><value>Your PC's load in real time and over time.</value></data>
+  <data name="Performance_Title" xml:space="preserve"><value>Performance</value></data>
+  <data name="Performance_Unavailable_History" xml:space="preserve"><value>No measurements recorded for this period</value></data>
+  <data name="Performance_Unavailable_Live" xml:space="preserve"><value>Not available on this PC</value></data>
+  <data name="Performance_Unavailable_NotRecorded" xml:space="preserve"><value>Not recorded in history</value></data>
+  <data name="Privacy_Action_OpenData" xml:space="preserve"><value>Open data folder</value></data>
+  <data name="Privacy_Action_OpenLogs" xml:space="preserve"><value>Open log folder</value></data>
+  <data name="Privacy_Deletion_Note" xml:space="preserve"><value>To erase everything, uninstall PCBoost and then delete this folder.</value></data>
+  <data name="Privacy_Headline" xml:space="preserve"><value>Your data stays on your computer.</value></data>
+  <data name="Privacy_Intro" xml:space="preserve"><value>PCBoost works offline. It sends no data, uses no account and includes no telemetry.</value></data>
+  <data name="Privacy_Location_Label" xml:space="preserve"><value>Data location</value></data>
+  <data name="Privacy_NotCollected_Account" xml:space="preserve"><value>An account, email address or identifier</value></data>
+  <data name="Privacy_NotCollected_Browsing" xml:space="preserve"><value>Your browsing history</value></data>
+  <data name="Privacy_NotCollected_Files" xml:space="preserve"><value>The content of your files and documents</value></data>
+  <data name="Privacy_NotCollected_Header" xml:space="preserve"><value>What PCBoost never collects</value></data>
+  <data name="Privacy_NotCollected_Telemetry" xml:space="preserve"><value>Usage statistics or telemetry</value></data>
+  <data name="Privacy_Stored_Benchmarks" xml:space="preserve"><value>Before / after measurements</value></data>
+  <data name="Privacy_Stored_BenchmarksDetail" xml:space="preserve"><value>Results of the measurements you started.</value></data>
+  <data name="Privacy_Stored_Header" xml:space="preserve"><value>What is stored on this PC</value></data>
+  <data name="Privacy_Stored_History" xml:space="preserve"><value>Change history</value></data>
+  <data name="Privacy_Stored_HistoryDetail" xml:space="preserve"><value>Changes made and their original state, so they can be undone.</value></data>
+  <data name="Privacy_Stored_Journal" xml:space="preserve"><value>Change log</value></data>
+  <data name="Privacy_Stored_JournalDetail" xml:space="preserve"><value>Chronological list of PCBoost's actions.</value></data>
+  <data name="Privacy_Stored_Logs" xml:space="preserve"><value>Technical logs</value></data>
+  <data name="Privacy_Stored_LogsDetail" xml:space="preserve"><value>Diagnostic files, without personal data: {0}</value></data>
+  <data name="Privacy_Stored_Performance" xml:space="preserve"><value>Performance history</value></data>
+  <data name="Privacy_Stored_PerformanceDetail" xml:space="preserve"><value>Processor, memory, disk load and temperatures, for the charts.</value></data>
+  <data name="Privacy_Stored_Scans" xml:space="preserve"><value>Analysis results</value></data>
+  <data name="Privacy_Stored_ScansDetail" xml:space="preserve"><value>Score and number of findings from each analysis.</value></data>
+  <data name="Privacy_Stored_Settings" xml:space="preserve"><value>Preferences</value></data>
+  <data name="Privacy_Stored_SettingsDetail" xml:space="preserve"><value>Language, theme and options chosen in Settings.</value></data>
+  <data name="Privacy_Telemetry_Label" xml:space="preserve"><value>Telemetry</value></data>
+  <data name="Privacy_Telemetry_Value" xml:space="preserve"><value>Off: PCBoost contains none.</value></data>
+  <data name="Privacy_Title" xml:space="preserve"><value>Privacy</value></data>
+  <data name="Processes_Action_Close" xml:space="preserve"><value>Close app</value></data>
+  <data name="Processes_Action_Close_ToolTip" xml:space="preserve"><value>Asks the app to close normally (it may offer to save).</value></data>
+  <data name="Processes_Action_OpenLocation" xml:space="preserve"><value>Open file location</value></data>
+  <data name="Processes_Action_Properties" xml:space="preserve"><value>Properties</value></data>
+  <data name="Processes_Action_SearchOnline" xml:space="preserve"><value>Search online</value></data>
+  <data name="Processes_Action_SearchOnline_ToolTip" xml:space="preserve"><value>Opens a web search for the process name in your browser.</value></data>
+  <data name="Processes_Action_Terminate" xml:space="preserve"><value>End process</value></data>
+  <data name="Processes_Action_Terminate_ToolTip" xml:space="preserve"><value>Stops the process immediately: unsaved data is lost.</value></data>
+  <data name="Processes_AutoRefresh" xml:space="preserve"><value>List refreshed every 2 seconds.</value></data>
+  <data name="Processes_Badge_Critical" xml:space="preserve"><value>Protected</value></data>
+  <data name="Processes_Badge_Sensitive" xml:space="preserve"><value>System</value></data>
+  <data name="Processes_Closed" xml:space="preserve"><value>Close request sent to {0}.</value></data>
+  <data name="Processes_Column_Cpu" xml:space="preserve"><value>CPU</value></data>
+  <data name="Processes_Column_Disk" xml:space="preserve"><value>Disk</value></data>
+  <data name="Processes_Column_Memory" xml:space="preserve"><value>Memory</value></data>
+  <data name="Processes_Column_Name" xml:space="preserve"><value>Name</value></data>
+  <data name="Processes_Column_Pid" xml:space="preserve"><value>PID</value></data>
+  <data name="Processes_Column_Publisher" xml:space="preserve"><value>Publisher</value></data>
+  <data name="Processes_Column_Trust" xml:space="preserve"><value>Signature</value></data>
+  <data name="Processes_Count" xml:space="preserve"><value>{0} processes</value></data>
+  <data name="Processes_Critical_Message" xml:space="preserve"><value>{0} is an essential Windows process. Ending it could make the system unstable, so PCBoost does not allow it.</value></data>
+  <data name="Processes_Critical_Title" xml:space="preserve"><value>Protected process</value></data>
+  <data name="Processes_Detail_Description" xml:space="preserve"><value>Description</value></data>
+  <data name="Processes_Detail_Header" xml:space="preserve"><value>Details</value></data>
+  <data name="Processes_Detail_Path" xml:space="preserve"><value>Location</value></data>
+  <data name="Processes_Detail_Protection" xml:space="preserve"><value>Protection</value></data>
+  <data name="Processes_Detail_StartTime" xml:space="preserve"><value>Started</value></data>
+  <data name="Processes_Detail_Trust" xml:space="preserve"><value>Signature</value></data>
+  <data name="Processes_Hint_Select" xml:space="preserve"><value>Select a process to see its details and available actions.</value></data>
+  <data name="Processes_PathUnavailable" xml:space="preserve"><value>Location not accessible</value></data>
+  <data name="Processes_Paused" xml:space="preserve"><value>Refresh paused during the current action.</value></data>
+  <data name="Processes_Protection_Critical" xml:space="preserve"><value>Essential Windows process: protected</value></data>
+  <data name="Processes_Protection_None" xml:space="preserve"><value>No special protection</value></data>
+  <data name="Processes_Protection_Sensitive" xml:space="preserve"><value>System component: handle with care</value></data>
+  <data name="Processes_Search_Placeholder" xml:space="preserve"><value>Search for a process</value></data>
+  <data name="Processes_Sort_ToolTip" xml:space="preserve"><value>Sort by this column</value></data>
+  <data name="Processes_Subtitle" xml:space="preserve"><value>Programs currently running. Essential Windows processes are protected.</value></data>
+  <data name="Processes_Terminate_ConfirmMessage" xml:space="preserve"><value>{0} will be stopped immediately. Unsaved data will be lost.</value></data>
+  <data name="Processes_Terminate_ConfirmSensitive" xml:space="preserve"><value>{0} is a system component. Stopping it may disrupt Windows until the next restart. Unsaved data will be lost.</value></data>
+  <data name="Processes_Terminate_ConfirmTitle" xml:space="preserve"><value>End this process?</value></data>
+  <data name="Processes_Terminated" xml:space="preserve"><value>{0} was stopped.</value></data>
+  <data name="Processes_Title" xml:space="preserve"><value>Processes</value></data>
+  <data name="Processes_UnknownPublisher" xml:space="preserve"><value>Unknown publisher</value></data>
+  <data name="Profiles_Action_Activate" xml:space="preserve"><value>Turn on profile</value></data>
+  <data name="Profiles_Action_BackToList" xml:space="preserve"><value>Back to profiles</value></data>
+  <data name="Profiles_Action_Deactivate" xml:space="preserve"><value>Return to the state before the profile</value></data>
+  <data name="Profiles_Action_EditCustom" xml:space="preserve"><value>Customize</value></data>
+  <data name="Profiles_Action_Preview" xml:space="preserve"><value>See changes</value></data>
+  <data name="Profiles_Action_SaveCustom" xml:space="preserve"><value>Save custom profile</value></data>
+  <data name="Profiles_Activated" xml:space="preserve"><value>{0} profile is on.</value></data>
+  <data name="Profiles_ActivatedAt" xml:space="preserve"><value>Turned on {0}</value></data>
+  <data name="Profiles_Active" xml:space="preserve"><value>Active profile: {0}</value></data>
+  <data name="Profiles_ActiveBadge" xml:space="preserve"><value>Active</value></data>
+  <data name="Profiles_Applying" xml:space="preserve"><value>Applying profile…</value></data>
+  <data name="Profiles_Category_Background" xml:space="preserve"><value>Background</value></data>
+  <data name="Profiles_Category_Cleanup" xml:space="preserve"><value>Cleanup</value></data>
+  <data name="Profiles_Category_Cpu" xml:space="preserve"><value>Processor</value></data>
+  <data name="Profiles_Category_Gpu" xml:space="preserve"><value>Graphics</value></data>
+  <data name="Profiles_Category_Memory" xml:space="preserve"><value>Memory</value></data>
+  <data name="Profiles_Category_Network" xml:space="preserve"><value>Network</value></data>
+  <data name="Profiles_Category_Power" xml:space="preserve"><value>Power</value></data>
+  <data name="Profiles_Category_Startup" xml:space="preserve"><value>Startup</value></data>
+  <data name="Profiles_Category_Storage" xml:space="preserve"><value>Storage</value></data>
+  <data name="Profiles_Category_Visual" xml:space="preserve"><value>Visual effects</value></data>
+  <data name="Profiles_Category_Windows" xml:space="preserve"><value>Windows</value></data>
+  <data name="Profiles_Confirm_Message" xml:space="preserve"><value>The {0} profile will be turned on. The previous profile will be restored first.</value></data>
+  <data name="Profiles_Confirm_Title" xml:space="preserve"><value>Turn on this profile?</value></data>
+  <data name="Profiles_CustomSaved" xml:space="preserve"><value>Custom profile saved.</value></data>
+  <data name="Profiles_Custom_Description" xml:space="preserve"><value>Choose the optimizations to include. They will be previewed before each activation.</value></data>
+  <data name="Profiles_Custom_Header" xml:space="preserve"><value>Custom profile</value></data>
+  <data name="Profiles_Deactivate_ConfirmMessage" xml:space="preserve"><value>The settings from before the profile was turned on will be restored.</value></data>
+  <data name="Profiles_Deactivate_ConfirmTitle" xml:space="preserve"><value>Turn off the profile?</value></data>
+  <data name="Profiles_Deactivated" xml:space="preserve"><value>Profile turned off.</value></data>
+  <data name="Profiles_NoActive" xml:space="preserve"><value>No active profile</value></data>
+  <data name="Profiles_OneOptimization" xml:space="preserve"><value>1 optimization</value></data>
+  <data name="Profiles_Optimizations" xml:space="preserve"><value>{0} optimizations</value></data>
+  <data name="Profiles_PreviewTitle" xml:space="preserve"><value>Here are the planned changes for the {0} profile</value></data>
+  <data name="Profiles_Previewing" xml:space="preserve"><value>Preparing the preview…</value></data>
+  <data name="Profiles_Subtitle" xml:space="preserve"><value>A profile groups settings suited to a use. The previous profile is restored before another is turned on.</value></data>
+  <data name="Profiles_Title" xml:space="preserve"><value>Profiles</value></data>
+  <data name="Settings_Action_About" xml:space="preserve"><value>About PCBoost</value></data>
+  <data name="Settings_Action_CheckUpdates" xml:space="preserve"><value>Check for updates</value></data>
+  <data name="Settings_Action_DownloadUpdate" xml:space="preserve"><value>Download</value></data>
+  <data name="Settings_Action_InstallUpdate" xml:space="preserve"><value>Install</value></data>
+  <data name="Settings_Action_OpenLogs" xml:space="preserve"><value>Open log folder</value></data>
+  <data name="Settings_Action_Privacy" xml:space="preserve"><value>Privacy</value></data>
+  <data name="Settings_Action_RestoreRecommendations" xml:space="preserve"><value>Show again</value></data>
+  <data name="Settings_AutoGaming_Ask" xml:space="preserve"><value>Ask</value></data>
+  <data name="Settings_AutoGaming_Automatic" xml:space="preserve"><value>Automatic</value></data>
+  <data name="Settings_AutoGaming_Label" xml:space="preserve"><value>Automatic Gaming mode</value></data>
+  <data name="Settings_AutoGaming_Off" xml:space="preserve"><value>Off</value></data>
+  <data name="Settings_AutoOptimizations_Description" xml:space="preserve"><value>Allow PCBoost to apply low-risk, reversible optimizations on its own. They remain visible in History.</value></data>
+  <data name="Settings_AutoOptimizations_Label" xml:space="preserve"><value>Safe automatic optimizations</value></data>
+  <data name="Settings_AutoRestore_Label" xml:space="preserve"><value>Restore automatically when the game closes</value></data>
+  <data name="Settings_BackgroundApps_Label" xml:space="preserve"><value>Reduce background app activity</value></data>
+  <data name="Settings_ConfirmSensitive_Description" xml:space="preserve"><value>Irreversible or high-risk actions are always confirmed.</value></data>
+  <data name="Settings_ConfirmSensitive_Label" xml:space="preserve"><value>Ask for confirmation before sensitive operations</value></data>
+  <data name="Settings_ExpertMode_Description" xml:space="preserve"><value>Show technical details (targets, before/after states, logs).</value></data>
+  <data name="Settings_ExpertMode_Label" xml:space="preserve"><value>Expert mode</value></data>
+  <data name="Settings_Language_Description" xml:space="preserve"><value>The change applies immediately.</value></data>
+  <data name="Settings_Language_Label" xml:space="preserve"><value>Language</value></data>
+  <data name="Settings_Language_System" xml:space="preserve"><value>System language</value></data>
+  <data name="Settings_LaunchAtStartup_Label" xml:space="preserve"><value>Start PCBoost with Windows</value></data>
+  <data name="Settings_Logs_Label" xml:space="preserve"><value>Application logs</value></data>
+  <data name="Settings_MeasureFps_Description" xml:space="preserve"><value>Requires one-time administrator permission when measurement starts. Nothing is injected into the game.</value></data>
+  <data name="Settings_MeasureFps_Label" xml:space="preserve"><value>Measure FPS</value></data>
+  <data name="Settings_MinimizeToTray_Description" xml:space="preserve"><value>Closing the window keeps PCBoost running in the notification area.</value></data>
+  <data name="Settings_MinimizeToTray_Label" xml:space="preserve"><value>Minimize to the notification area</value></data>
+  <data name="Settings_MonitorSession_Label" xml:space="preserve"><value>Monitor during the game session</value></data>
+  <data name="Settings_Monitoring_Description" xml:space="preserve"><value>Lightweight load measurement for history and alerts.</value></data>
+  <data name="Settings_Monitoring_Label" xml:space="preserve"><value>Background monitoring</value></data>
+  <data name="Settings_Notifications_Description" xml:space="preserve"><value>Show Windows notifications (analysis finished, game detected…).</value></data>
+  <data name="Settings_Notifications_Label" xml:space="preserve"><value>Notifications</value></data>
+  <data name="Settings_PowerPlan_Label" xml:space="preserve"><value>Switch power plan while gaming</value></data>
+  <data name="Settings_PreferredGame_Label" xml:space="preserve"><value>Preferred game</value></data>
+  <data name="Settings_PreferredGame_None" xml:space="preserve"><value>None</value></data>
+  <data name="Settings_Priority_Label" xml:space="preserve"><value>Raise the game's priority</value></data>
+  <data name="Settings_Recommendations_Dismissed" xml:space="preserve"><value>{0} hidden recommendations</value></data>
+  <data name="Settings_Recommendations_Label" xml:space="preserve"><value>Hidden recommendations</value></data>
+  <data name="Settings_Recommendations_NoneDismissed" xml:space="preserve"><value>No hidden recommendations</value></data>
+  <data name="Settings_Recommendations_OneDismissed" xml:space="preserve"><value>1 hidden recommendation</value></data>
+  <data name="Settings_Recommendations_Restored" xml:space="preserve"><value>Hidden recommendations will be shown again.</value></data>
+  <data name="Settings_Retention_Days" xml:space="preserve"><value>{0} days</value></data>
+  <data name="Settings_Retention_Label" xml:space="preserve"><value>Keep history for</value></data>
+  <data name="Settings_Section_About" xml:space="preserve"><value>About</value></data>
+  <data name="Settings_Section_Diagnostic" xml:space="preserve"><value>Diagnostics</value></data>
+  <data name="Settings_Section_Gaming" xml:space="preserve"><value>Gaming</value></data>
+  <data name="Settings_Section_General" xml:space="preserve"><value>General</value></data>
+  <data name="Settings_Section_Security" xml:space="preserve"><value>Security</value></data>
+  <data name="Settings_Section_Updates" xml:space="preserve"><value>Updates</value></data>
+  <data name="Settings_Theme_Dark" xml:space="preserve"><value>Dark</value></data>
+  <data name="Settings_Theme_Label" xml:space="preserve"><value>Theme</value></data>
+  <data name="Settings_Theme_Light" xml:space="preserve"><value>Light</value></data>
+  <data name="Settings_Theme_System" xml:space="preserve"><value>Use Windows setting</value></data>
+  <data name="Settings_Title" xml:space="preserve"><value>Settings</value></data>
+  <data name="Settings_Update_Available" xml:space="preserve"><value>Version {0} is available.</value></data>
+  <data name="Settings_Update_Checking" xml:space="preserve"><value>Checking for updates…</value></data>
+  <data name="Settings_Update_CurrentVersion" xml:space="preserve"><value>Installed version: {0}</value></data>
+  <data name="Settings_Update_DownloadFailed" xml:space="preserve"><value>Downloading or verifying the update failed. Nothing was installed.</value></data>
+  <data name="Settings_Update_Failed" xml:space="preserve"><value>The update check did not succeed.</value></data>
+  <data name="Settings_Update_Integrity" xml:space="preserve"><value>The file's integrity is verified (SHA-256) before installation.</value></data>
+  <data name="Settings_Update_NotChecked" xml:space="preserve"><value>No check performed yet.</value></data>
+  <data name="Settings_Update_NotConfigured" xml:space="preserve"><value>Automatic updates are not configured for this version.</value></data>
+  <data name="Settings_Update_Ready" xml:space="preserve"><value>Version {0} is ready to install.</value></data>
+  <data name="Settings_Update_ReleaseNotes" xml:space="preserve"><value>What's new</value></data>
+  <data name="Settings_Update_UpToDate" xml:space="preserve"><value>You are using the latest version.</value></data>
+  <data name="Settings_VerboseLogging_Description" xml:space="preserve"><value>Useful for support; no personal data is recorded.</value></data>
+  <data name="Settings_VerboseLogging_Label" xml:space="preserve"><value>Detailed logging</value></data>
+  <data name="Shell_About" xml:space="preserve"><value>About</value></data>
+  <data name="Shell_ActiveProfile" xml:space="preserve"><value>Profile: {0}</value></data>
+  <data name="Shell_ActiveProfile_ToolTip" xml:space="preserve"><value>Active usage profile</value></data>
+  <data name="Shell_Back_ToolTip" xml:space="preserve"><value>Back</value></data>
+  <data name="Shell_GameBanner_Activate" xml:space="preserve"><value>Turn on Gaming mode</value></data>
+  <data name="Shell_GameBanner_Activated" xml:space="preserve"><value>Gaming mode is on.</value></data>
+  <data name="Shell_GameBanner_Ignore" xml:space="preserve"><value>Ignore</value></data>
+  <data name="Shell_GameBanner_Message" xml:space="preserve"><value>Turn on Gaming mode for this session? Everything will be restored when the game closes.</value></data>
+  <data name="Shell_GameBanner_Title" xml:space="preserve"><value>Game detected: {0}</value></data>
+  <data name="Shell_Gaming_Active" xml:space="preserve"><value>Gaming mode on</value></data>
+  <data name="Shell_Gaming_ActiveWithGame" xml:space="preserve"><value>Gaming mode on — {0}</value></data>
+  <data name="Shell_Gaming_ToolTip" xml:space="preserve"><value>Open Gaming mode</value></data>
+  <data name="Shell_Journal" xml:space="preserve"><value>Log</value></data>
+  <data name="Shell_Privacy" xml:space="preserve"><value>Privacy</value></data>
+  <data name="Shell_Protection_Changes" xml:space="preserve"><value>{0} reversible changes in effect</value></data>
+  <data name="Shell_Protection_Enabled" xml:space="preserve"><value>Restore enabled</value></data>
+  <data name="Shell_Protection_GamingActive" xml:space="preserve"><value>Gaming mode temporary settings in effect</value></data>
+  <data name="Shell_Protection_NoChanges" xml:space="preserve"><value>No changes in effect</value></data>
+  <data name="Shell_Protection_OneChange" xml:space="preserve"><value>1 reversible change in effect</value></data>
+  <data name="Shell_Protection_ToolTip" xml:space="preserve"><value>Every reversible change can be undone from History.</value></data>
+  <data name="Shell_Recovery_Done" xml:space="preserve"><value>Previous settings restored ({0} changes undone).</value></data>
+  <data name="Shell_Recovery_Keep" xml:space="preserve"><value>Keep</value></data>
+  <data name="Shell_Recovery_Kept" xml:space="preserve"><value>The changes were kept. You can undo them from History.</value></data>
+  <data name="Shell_Recovery_Message" xml:space="preserve"><value>An optimization was not completed. Restore the previous settings?</value></data>
+  <data name="Shell_Recovery_Partial" xml:space="preserve"><value>{0} changes undone, {1} could not be. See History.</value></data>
+  <data name="Shell_Recovery_Restore" xml:space="preserve"><value>Restore</value></data>
+  <data name="Shell_Recovery_SessionLine" xml:space="preserve"><value>{1} — started on {0}</value></data>
+  <data name="Shell_Recovery_Title" xml:space="preserve"><value>Optimization interrupted</value></data>
+  <data name="Shell_Support" xml:space="preserve"><value>Support</value></data>
+  <data name="Shell_Version" xml:space="preserve"><value>Version {0}</value></data>
+  <data name="Startup_Action_History" xml:space="preserve"><value>Restore from history</value></data>
+  <data name="Startup_AdminBadge" xml:space="preserve"><value>Administrator</value></data>
+  <data name="Startup_Badge_Locked" xml:space="preserve"><value>Protected</value></data>
+  <data name="Startup_Column_Name" xml:space="preserve"><value>Program</value></data>
+  <data name="Startup_Column_Publisher" xml:space="preserve"><value>Publisher</value></data>
+  <data name="Startup_Column_Status" xml:space="preserve"><value>Status</value></data>
+  <data name="Startup_Detail_Command" xml:space="preserve"><value>Command</value></data>
+  <data name="Startup_Detail_Evidence" xml:space="preserve"><value>Measurement</value></data>
+  <data name="Startup_Detail_Location" xml:space="preserve"><value>Location</value></data>
+  <data name="Startup_Detail_Recommendation" xml:space="preserve"><value>Recommendation</value></data>
+  <data name="Startup_Detail_Signature" xml:space="preserve"><value>Signature</value></data>
+  <data name="Startup_Disabled" xml:space="preserve"><value>{0} will no longer launch at startup.</value></data>
+  <data name="Startup_Empty_Filter" xml:space="preserve"><value>No programs match this filter.</value></data>
+  <data name="Startup_Empty_None" xml:space="preserve"><value>No programs launch at startup.</value></data>
+  <data name="Startup_Enabled" xml:space="preserve"><value>{0} will launch at startup.</value></data>
+  <data name="Startup_Error_ElevationCancelled" xml:space="preserve"><value>Administrator permission was declined: {0} was not changed.</value></data>
+  <data name="Startup_Error_Toggle" xml:space="preserve"><value>{0} could not be changed. {1}</value></data>
+  <data name="Startup_Evidence_Cpu" xml:space="preserve"><value>{0} of processor time</value></data>
+  <data name="Startup_Evidence_Disk" xml:space="preserve"><value>{0} read from disk</value></data>
+  <data name="Startup_Evidence_Measured" xml:space="preserve"><value>Measured: {0}</value></data>
+  <data name="Startup_Evidence_Memory" xml:space="preserve"><value>{0} of memory</value></data>
+  <data name="Startup_Evidence_NotMeasured" xml:space="preserve"><value>Not measured</value></data>
+  <data name="Startup_Evidence_NotRunning" xml:space="preserve"><value>Not measured: program not currently running</value></data>
+  <data name="Startup_Filter_All" xml:space="preserve"><value>All</value></data>
+  <data name="Startup_Filter_Enabled" xml:space="preserve"><value>Enabled</value></data>
+  <data name="Startup_Filter_Label" xml:space="preserve"><value>Show</value></data>
+  <data name="Startup_Filter_Recommended" xml:space="preserve"><value>Recommended to disable</value></data>
+  <data name="Startup_Impact_High" xml:space="preserve"><value>High impact</value></data>
+  <data name="Startup_Impact_Low" xml:space="preserve"><value>Low impact</value></data>
+  <data name="Startup_Impact_Medium" xml:space="preserve"><value>Medium impact</value></data>
+  <data name="Startup_Impact_None" xml:space="preserve"><value>No measured impact</value></data>
+  <data name="Startup_Impact_NotMeasured" xml:space="preserve"><value>Impact not measured</value></data>
+  <data name="Startup_Location_RegistryRunMachine" xml:space="preserve"><value>Registry (all users)</value></data>
+  <data name="Startup_Location_RegistryRunMachine32" xml:space="preserve"><value>Registry (all users, 32-bit)</value></data>
+  <data name="Startup_Location_RegistryRunUser" xml:space="preserve"><value>Registry (user)</value></data>
+  <data name="Startup_Location_ScheduledTaskLogon" xml:space="preserve"><value>Scheduled task at sign-in</value></data>
+  <data name="Startup_Location_StartupFolderCommon" xml:space="preserve"><value>Startup folder (all users)</value></data>
+  <data name="Startup_Location_StartupFolderUser" xml:space="preserve"><value>Startup folder (user)</value></data>
+  <data name="Startup_MissingExecutable" xml:space="preserve"><value>The associated program cannot be found.</value></data>
+  <data name="Startup_Recommendation_CanDisable" xml:space="preserve"><value>Can be disabled</value></data>
+  <data name="Startup_Recommendation_Keep" xml:space="preserve"><value>Keep</value></data>
+  <data name="Startup_Recommendation_Optional" xml:space="preserve"><value>Optional</value></data>
+  <data name="Startup_Recommendation_Review" xml:space="preserve"><value>Worth reviewing</value></data>
+  <data name="Startup_Search_Placeholder" xml:space="preserve"><value>Search for a program</value></data>
+  <data name="Startup_SecurityNotice" xml:space="preserve"><value>Security software: PCBoost does not disable it.</value></data>
+  <data name="Startup_State_Disabled" xml:space="preserve"><value>Disabled</value></data>
+  <data name="Startup_State_Enabled" xml:space="preserve"><value>Enabled</value></data>
+  <data name="Startup_Subtitle" xml:space="preserve"><value>Choose the programs launched at sign-in. Disabling is reversible and visible in Task Manager.</value></data>
+  <data name="Startup_Summary" xml:space="preserve"><value>{0} of {1} {1:plural:program launches|programs launch} at startup.</value></data>
+  <data name="Startup_Title" xml:space="preserve"><value>Startup</value></data>
+  <data name="Startup_Toggle_AccessibleName" xml:space="preserve"><value>Launch at startup</value></data>
+  <data name="Startup_UnknownPublisher" xml:space="preserve"><value>Unknown publisher</value></data>
+  <data name="Storage_Action_Analyze" xml:space="preserve"><value>Analyze again</value></data>
+  <data name="Storage_Action_Cleanup" xml:space="preserve"><value>Clean up temporary files</value></data>
+  <data name="Storage_Action_Open" xml:space="preserve"><value>Open</value></data>
+  <data name="Storage_Analyzing" xml:space="preserve"><value>Analyzing storage…</value></data>
+  <data name="Storage_Categories_Header" xml:space="preserve"><value>Categories</value></data>
+  <data name="Storage_Category_Applications" xml:space="preserve"><value>Applications</value></data>
+  <data name="Storage_Category_Desktop" xml:space="preserve"><value>Desktop</value></data>
+  <data name="Storage_Category_Documents" xml:space="preserve"><value>Documents</value></data>
+  <data name="Storage_Category_Downloads" xml:space="preserve"><value>Downloads</value></data>
+  <data name="Storage_Category_Music" xml:space="preserve"><value>Music</value></data>
+  <data name="Storage_Category_Other" xml:space="preserve"><value>Other</value></data>
+  <data name="Storage_Category_Pictures" xml:space="preserve"><value>Pictures</value></data>
+  <data name="Storage_Category_System" xml:space="preserve"><value>System</value></data>
+  <data name="Storage_Category_Temporary" xml:space="preserve"><value>Temporary files</value></data>
+  <data name="Storage_Category_Videos" xml:space="preserve"><value>Videos</value></data>
+  <data name="Storage_Date" xml:space="preserve"><value>Analysis run {0}</value></data>
+  <data name="Storage_Free_Label" xml:space="preserve"><value>Free</value></data>
+  <data name="Storage_LargestFolders_Header" xml:space="preserve"><value>Largest folders</value></data>
+  <data name="Storage_NotMeasured" xml:space="preserve"><value>Not measured</value></data>
+  <data name="Storage_Reminder" xml:space="preserve"><value>PCBoost never deletes your personal files.</value></data>
+  <data name="Storage_Subtitle" xml:space="preserve"><value>How the system drive's space is used.</value></data>
+  <data name="Storage_SystemDrive" xml:space="preserve"><value>System drive ({0})</value></data>
+  <data name="Storage_Title" xml:space="preserve"><value>Storage</value></data>
+  <data name="Storage_Total_Label" xml:space="preserve"><value>Total</value></data>
+  <data name="Storage_Unavailable" xml:space="preserve"><value>Storage analysis is not available.</value></data>
+  <data name="Storage_Used_Label" xml:space="preserve"><value>Used</value></data>
+  <data name="Welcome_Action_Finish" xml:space="preserve"><value>Go to the dashboard</value></data>
+  <data name="Welcome_Action_Optimize" xml:space="preserve"><value>Optimize my PC</value></data>
+  <data name="Welcome_Action_Skip" xml:space="preserve"><value>Skip</value></data>
+  <data name="Welcome_Action_Start" xml:space="preserve"><value>Analyze my PC</value></data>
+  <data name="Welcome_Analyzing_Subtitle" xml:space="preserve"><value>You can keep using your PC during the analysis.</value></data>
+  <data name="Welcome_Analyzing_Title" xml:space="preserve"><value>Analyzing…</value></data>
+  <data name="Welcome_Intro_Local" xml:space="preserve"><value>The analysis is local: no data leaves your computer.</value></data>
+  <data name="Welcome_Intro_Preview" xml:space="preserve"><value>No change is made until you have seen and accepted it.</value></data>
+  <data name="Welcome_Intro_Undo" xml:space="preserve"><value>Every reversible change can be undone in one click.</value></data>
+  <data name="Welcome_Results_NoneSubtitle" xml:space="preserve"><value>Your PC is ready. You can check the dashboard at any time.</value></data>
+  <data name="Welcome_Results_NoneTitle" xml:space="preserve"><value>No significant source of slowdown was identified.</value></data>
+  <data name="Welcome_Results_Subtitle" xml:space="preserve"><value>You will see the details and proposed changes before anything is applied.</value></data>
+  <data name="Welcome_Results_Title" xml:space="preserve"><value>Here are the main potential sources of slowdown</value></data>
+  <data name="Welcome_Steps_AccessibleName" xml:space="preserve"><value>Analysis steps</value></data>
+  <data name="Welcome_Subtitle" xml:space="preserve"><value>PCBoost will analyze your PC to find what may be slowing it down. Nothing is changed during the analysis.</value></data>
+  <data name="Welcome_Title" xml:space="preserve"><value>Welcome</value></data>
+</root>

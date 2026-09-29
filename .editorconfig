@@ -1,0 +1,21 @@
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{xml,xaml,csproj,props,targets,wxs,wixproj,json,resx}]
+indent_size = 2
+
+[*.cs]
+csharp_style_namespace_declarations = file_scoped:warning
+csharp_prefer_braces = when_multiline:suggestion
+dotnet_sort_system_directives_first = true
+# Bruit des analyseurs jugé non pertinent pour une application de bureau
+dotnet_diagnostic.CA1848.severity = none
+dotnet_diagnostic.CA2254.severity = suggestion
+dotnet_diagnostic.CA1873.severity = none
+dotnet_diagnostic.CA1416.severity = warning

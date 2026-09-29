@@ -1,0 +1,138 @@
+{
+  "App_WindowTitle": {
+    "fr": "PCBoost",
+    "en": "PCBoost"
+  },
+  "App_Tray_ToolTip": {
+    "fr": "PCBoost — surveillance légère active",
+    "en": "PCBoost — light monitoring on"
+  },
+  "App_Tray_ToolTipPaused": {
+    "fr": "PCBoost — surveillance en pause",
+    "en": "PCBoost — monitoring paused"
+  },
+  "App_Tray_Open": {
+    "fr": "Ouvrir PCBoost",
+    "en": "Open PCBoost"
+  },
+  "App_Tray_Gaming": {
+    "fr": "Mode Gaming",
+    "en": "Gaming mode"
+  },
+  "App_Tray_Optimize": {
+    "fr": "Optimiser",
+    "en": "Optimize"
+  },
+  "App_Tray_PauseMonitoring": {
+    "fr": "Suspendre la surveillance",
+    "en": "Pause monitoring"
+  },
+  "App_Tray_ResumeMonitoring": {
+    "fr": "Reprendre la surveillance",
+    "en": "Resume monitoring"
+  },
+  "App_Tray_Settings": {
+    "fr": "Paramètres",
+    "en": "Settings"
+  },
+  "App_Tray_Exit": {
+    "fr": "Quitter",
+    "en": "Exit"
+  },
+  "App_Notify_StillRunning_Title": {
+    "fr": "PCBoost reste actif",
+    "en": "PCBoost is still running"
+  },
+  "App_Notify_StillRunning_Body": {
+    "fr": "PCBoost continue de surveiller votre PC dans la zone de notification. Clic droit sur l'icône pour quitter.",
+    "en": "PCBoost keeps watching your PC from the notification area. Right-click its icon to exit."
+  },
+  "App_Unsupported_Title": {
+    "fr": "Version de Windows non prise en charge",
+    "en": "Unsupported Windows version"
+  },
+  "App_Unsupported_Message": {
+    "fr": "PCBoost nécessite Windows 10 version 1809 (build 17763) ou ultérieure. Cette version (build {0}) n'est pas prise en charge : l'analyse reste possible mais aucune modification ne sera appliquée.",
+    "en": "PCBoost requires Windows 10 version 1809 (build 17763) or later. This version (build {0}) is not supported: analysis still works but no change will be applied."
+  },
+  "App_Startup_Error_Title": {
+    "fr": "PCBoost n'a pas pu démarrer correctement",
+    "en": "PCBoost could not start properly"
+  },
+  "App_Startup_Error_Message": {
+    "fr": "Une erreur inattendue s'est produite au démarrage. Les détails ont été enregistrés dans le journal de l'application.",
+    "en": "An unexpected error occurred at startup. Details were saved to the application log."
+  },
+  "App_Dialog_Ok": {
+    "fr": "OK",
+    "en": "OK"
+  },
+  "App_Dialog_Details": {
+    "fr": "Détails",
+    "en": "Details"
+  },
+  "App_Dialog_TechnicalDetail": {
+    "fr": "Détail technique : {0}",
+    "en": "Technical detail: {0}"
+  },
+  "App_Error_Retry": {
+    "fr": "Réessayer avec autorisation",
+    "en": "Retry with permission"
+  },
+  "App_Score_Of": {
+    "fr": "sur 100",
+    "en": "out of 100"
+  },
+  "App_Chart_AccessibleName": {
+    "fr": "Graphique {0}",
+    "en": "{0} chart"
+  },
+  "App_Gaming_SessionBand_Inactive": {
+    "fr": "Mode Gaming inactif",
+    "en": "Gaming mode off"
+  },
+  "App_Gaming_SessionBand_Active": {
+    "fr": "Session en cours",
+    "en": "Session running"
+  },
+  "App_Common_Loading": {
+    "fr": "Chargement…",
+    "en": "Loading…"
+  },
+  "App_Nav_Back": {
+    "fr": "Retour",
+    "en": "Back"
+  },
+  "App_Home_Heading": {
+    "fr": "État de votre PC",
+    "en": "Your PC's condition"
+  },
+  "App_Home_ScoreOutOf": {
+    "fr": "/ 100",
+    "en": "/ 100"
+  },
+  "App_Home_OptimizeHint": {
+    "fr": "Vous verrez chaque modification avant qu'elle soit appliquée.",
+    "en": "You'll see every change before it's applied."
+  },
+  "App_Factor_Points": {
+    "fr": "points",
+    "en": "points"
+  },
+  "App_Section_More": {
+    "fr": "Plus d'outils",
+    "en": "More tools"
+  },
+  "App_Storage_Link": {
+    "fr": "Voir la répartition du stockage",
+    "en": "See storage breakdown"
+  },
+  "App_OldPc_Link": {
+    "fr": "Optimiser un ancien PC",
+    "en": "Optimize an older PC"
+  },
+  "App_Welcome_Heading": {
+    "fr": "Bienvenue dans {0}",
+    "en": "Welcome to {0}"
+  }
+}

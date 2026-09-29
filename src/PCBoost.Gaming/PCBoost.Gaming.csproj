@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>PCBoost.Gaming</RootNamespace>
+    <Description>Détection des jeux, mode Gaming avec restauration automatique, métriques d'images (FPS/1 % low), benchmark avant/après.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PCBoost.Core\PCBoost.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\game-signatures.json" LogicalName="PCBoost.Gaming.Data.game-signatures.json" />
+    <None Include="Resources\Strings.i18n.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="PCBoost.Gaming.Tests" />
+  </ItemGroup>
+</Project>

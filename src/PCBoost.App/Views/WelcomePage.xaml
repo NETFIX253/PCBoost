@@ -1,0 +1,92 @@
+<local:ViewPage
+    x:Class="PCBoost.App.Views.WelcomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PCBoost.App.Views"
+    xmlns:h="using:PCBoost.App.Helpers"
+    xmlns:controls="using:PCBoost.App.Controls"
+    xmlns:vm="using:PCBoost.Presentation.ViewModels">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel MaxWidth="720" Padding="40,48,40,48" Spacing="28" HorizontalAlignment="Center">
+            <StackPanel Spacing="14">
+                <Image Width="56" Height="56" HorizontalAlignment="Left" AutomationProperties.AccessibilityView="Raw">
+                    <Image.Source>
+                        <BitmapImage UriSource="ms-appx:///Assets/Branding/logo-256.png" DecodePixelWidth="56" DecodePixelType="Logical" />
+                    </Image.Source>
+                </Image>
+                <TextBlock Text="{x:Bind Heading}" Style="{StaticResource TitleLargeTextBlockStyle}" TextWrapping="WrapWholeWords" />
+                <TextBlock Text="{h:Str Key=Welcome_Subtitle}" Style="{StaticResource PageSubtitleTextStyle}" FontSize="16" />
+            </StackPanel>
+
+            <!-- Introduction -->
+            <StackPanel Spacing="24" Visibility="{x:Bind h:Ui.Show(ViewModel.IsIntro), Mode=OneWay}">
+                <Border Style="{StaticResource CardStyle}" Padding="24,20,24,20">
+                    <StackPanel Spacing="16">
+                        <Grid ColumnSpacing="14">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                            <FontIcon Glyph="&#xE72E;" FontSize="18" Foreground="{ThemeResource BrandAccentTextBrush}" VerticalAlignment="Top" />
+                            <TextBlock Grid.Column="1" Text="{h:Str Key=Welcome_Intro_Local}" TextWrapping="Wrap" />
+                        </Grid>
+                        <Grid ColumnSpacing="14">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                            <FontIcon Glyph="&#xE890;" FontSize="18" Foreground="{ThemeResource BrandAccentTextBrush}" VerticalAlignment="Top" />
+                            <TextBlock Grid.Column="1" Text="{h:Str Key=Welcome_Intro_Preview}" TextWrapping="Wrap" />
+                        </Grid>
+                        <Grid ColumnSpacing="14">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                            <FontIcon Glyph="&#xE7A7;" FontSize="18" Foreground="{ThemeResource BrandAccentTextBrush}" VerticalAlignment="Top" />
+                            <TextBlock Grid.Column="1" Text="{h:Str Key=Welcome_Intro_Undo}" TextWrapping="Wrap" />
+                        </Grid>
+                    </StackPanel>
+                </Border>
+                <StackPanel Orientation="Horizontal" Spacing="12">
+                    <Button Style="{StaticResource HeroButtonStyle}" Content="{h:Str Key=Welcome_Action_Start}" Command="{x:Bind ViewModel.StartCommand}" />
+                    <Button Style="{StaticResource HeroSecondaryButtonStyle}" Content="{h:Str Key=Welcome_Action_Skip}" Command="{x:Bind ViewModel.SkipCommand}" />
+                </StackPanel>
+            </StackPanel>
+
+            <!-- Analyse -->
+            <StackPanel Spacing="16" Visibility="{x:Bind h:Ui.Show(ViewModel.IsAnalyzing), Mode=OneWay}">
+                <controls:ProgressCard Title="{h:Str Key=Welcome_Analyzing_Title}" Message="{h:Str Key=Welcome_Analyzing_Subtitle}"
+                                       Percent="{x:Bind ViewModel.ProgressPercent, Mode=OneWay}"
+                                       CurrentText="{x:Bind ViewModel.CurrentStepText, Mode=OneWay}"
+                                       Steps="{x:Bind ViewModel.Steps}"
+                                       StepsAccessibleName="{h:Str Key=Welcome_Steps_AccessibleName}" />
+                <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Common_Action_Cancel}" Command="{x:Bind ViewModel.StartCancelCommand}" />
+            </StackPanel>
+
+            <!-- Résultats -->
+            <StackPanel Spacing="18" Visibility="{x:Bind h:Ui.Show(ViewModel.IsResults), Mode=OneWay}">
+                <StackPanel Spacing="6">
+                    <TextBlock Text="{x:Bind ViewModel.ResultsTitle, Mode=OneWay}" Style="{StaticResource SectionHeaderTextStyle}" FontSize="22" />
+                    <TextBlock Text="{x:Bind ViewModel.ResultsSubtitle, Mode=OneWay}" Style="{StaticResource SecondaryTextStyle}" />
+                </StackPanel>
+                <Border Style="{StaticResource CardStyle}" Padding="20,4,20,4" Visibility="{x:Bind h:Ui.Show(ViewModel.HasFindings), Mode=OneWay}">
+                    <ItemsControl h:ListDividers.HideLast="True" ItemsSource="{x:Bind ViewModel.MainFindings}" IsTabStop="False">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="vm:FindingItemViewModel">
+                                <Grid ColumnSpacing="14" Padding="0,14,0,14" AutomationProperties.Name="{x:Bind AccessibleName}"
+                                      BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}" BorderThickness="0,0,0,1">
+                                    <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                                    <controls:StatusBadge Text="{x:Bind SeverityText}" Glyph="{x:Bind IconGlyph}" Kind="{x:Bind h:Ui.SeverityKind(Severity)}" VerticalAlignment="Top" />
+                                    <StackPanel Grid.Column="1" Spacing="3">
+                                        <TextBlock Text="{x:Bind Title}" Style="{StaticResource GroupHeaderTextStyle}" />
+                                        <TextBlock Text="{x:Bind Detail}" Style="{StaticResource SecondaryTextStyle}" />
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Border>
+                <StackPanel Orientation="Horizontal" Spacing="12">
+                    <Button Style="{StaticResource HeroButtonStyle}" Content="{h:Str Key=Welcome_Action_Optimize}" Command="{x:Bind ViewModel.OptimizeNowCommand}" />
+                    <Button Style="{StaticResource HeroSecondaryButtonStyle}" Content="{h:Str Key=Welcome_Action_Finish}" Command="{x:Bind ViewModel.FinishCommand}" />
+                </StackPanel>
+            </StackPanel>
+
+            <InfoBar Severity="Error" h:InfoBarHelper.IsShown="{x:Bind ViewModel.HasError, Mode=OneWay}" Message="{x:Bind ViewModel.ErrorText, Mode=OneWay}"
+                     Title="{h:Str Key=Common_Label_ErrorTitle}" CloseButtonCommand="{x:Bind ViewModel.DismissErrorCommand}" />
+        </StackPanel>
+    </ScrollViewer>
+</local:ViewPage>

@@ -1,0 +1,23 @@
+{
+  "solution": {
+    "path": "PCBoost.sln",
+    "projects": [
+      "src\\PCBoost.Core\\PCBoost.Core.csproj",
+      "src\\PCBoost.Persistence\\PCBoost.Persistence.csproj",
+      "src\\PCBoost.Infrastructure\\PCBoost.Infrastructure.csproj",
+      "src\\PCBoost.System\\PCBoost.System.csproj",
+      "src\\PCBoost.Diagnostics\\PCBoost.Diagnostics.csproj",
+      "src\\PCBoost.Optimization\\PCBoost.Optimization.csproj",
+      "src\\PCBoost.Gaming\\PCBoost.Gaming.csproj",
+      "src\\PCBoost.Presentation\\PCBoost.Presentation.csproj",
+      "src\\PCBoost.Elevator\\PCBoost.Elevator.csproj",
+      "tests\\PCBoost.TestUtilities\\PCBoost.TestUtilities.csproj",
+      "tests\\PCBoost.Core.Tests\\PCBoost.Core.Tests.csproj",
+      "tests\\PCBoost.Diagnostics.Tests\\PCBoost.Diagnostics.Tests.csproj",
+      "tests\\PCBoost.Optimization.Tests\\PCBoost.Optimization.Tests.csproj",
+      "tests\\PCBoost.Gaming.Tests\\PCBoost.Gaming.Tests.csproj",
+      "tests\\PCBoost.System.Tests\\PCBoost.System.Tests.csproj",
+      "tests\\PCBoost.Presentation.Tests\\PCBoost.Presentation.Tests.csproj"
+    ]
+  }
+}

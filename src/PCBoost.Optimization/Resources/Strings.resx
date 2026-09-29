@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Cleanup_browser-chrome_Description" xml:space="preserve"><value>Fichiers mis en cache par Google Chrome (pages, scripts, cache graphique). Prudence : vos favoris, mots de passe et historique ne sont pas touchés, mais les sites se chargeront un peu plus lentement au début. Chrome doit être fermé.</value></data>
+  <data name="Cleanup_browser-chrome_Name" xml:space="preserve"><value>Cache de Google Chrome</value></data>
+  <data name="Cleanup_browser-edge_Description" xml:space="preserve"><value>Fichiers mis en cache par Microsoft Edge (pages, scripts, cache graphique). Prudence : vos favoris, mots de passe et historique ne sont pas touchés, mais les sites se chargeront un peu plus lentement au début. Edge doit être fermé.</value></data>
+  <data name="Cleanup_browser-edge_Name" xml:space="preserve"><value>Cache de Microsoft Edge</value></data>
+  <data name="Cleanup_browser-firefox_Description" xml:space="preserve"><value>Fichiers mis en cache par Firefox. Prudence : vos favoris, mots de passe et historique ne sont pas touchés, mais les sites se chargeront un peu plus lentement au début. Firefox doit être fermé.</value></data>
+  <data name="Cleanup_browser-firefox_Name" xml:space="preserve"><value>Cache de Mozilla Firefox</value></data>
+  <data name="Cleanup_directx-shader-cache_Description" xml:space="preserve"><value>Programmes graphiques précompilés pour les jeux et applications 3D. Avancé : sûr, mais les jeux peuvent saccader le temps que ce cache soit reconstruit. Fichiers de plus d'un jour uniquement.</value></data>
+  <data name="Cleanup_directx-shader-cache_Name" xml:space="preserve"><value>Cache des shaders DirectX</value></data>
+  <data name="Cleanup_internet-cache_Description" xml:space="preserve"><value>Copies de pages et d'images téléchargées par les composants web de Windows. Sûr : elles sont retéléchargées si nécessaire. Fichiers de plus d'un jour uniquement.</value></data>
+  <data name="Cleanup_internet-cache_Name" xml:space="preserve"><value>Cache Internet de Windows</value></data>
+  <data name="Cleanup_recycle-bin_Description" xml:space="preserve"><value>Fichiers que vous avez supprimés vous-même. Prudence : une fois la corbeille vidée, ils ne peuvent plus être récupérés.</value></data>
+  <data name="Cleanup_recycle-bin_Name" xml:space="preserve"><value>Corbeille</value></data>
+  <data name="Cleanup_system-crash-dumps_Description" xml:space="preserve"><value>Fichiers créés lors d'un écran bleu (Minidump, MEMORY.DMP). Prudence : un technicien peut en avoir besoin pour diagnostiquer un problème récurrent. Nécessite l'autorisation administrateur.</value></data>
+  <data name="Cleanup_system-crash-dumps_Name" xml:space="preserve"><value>Images mémoire du système</value></data>
+  <data name="Cleanup_system-error-reports_Description" xml:space="preserve"><value>Rapports de problèmes enregistrés par Windows pour tous les utilisateurs. Sûr : rapports de plus d'une semaine uniquement. Nécessite l'autorisation administrateur.</value></data>
+  <data name="Cleanup_system-error-reports_Name" xml:space="preserve"><value>Rapports d'erreurs (système)</value></data>
+  <data name="Cleanup_thumbnail-cache_Description" xml:space="preserve"><value>Aperçus d'images et de vidéos affichés dans l'Explorateur. Prudence : sûr, mais les dossiers de photos s'afficheront plus lentement le temps que Windows les recrée.</value></data>
+  <data name="Cleanup_thumbnail-cache_Name" xml:space="preserve"><value>Miniatures de l'Explorateur</value></data>
+  <data name="Cleanup_user-crash-dumps_Description" xml:space="preserve"><value>Copies de la mémoire enregistrées lors du plantage d'une application (.dmp). Sûr : fichiers de plus d'une semaine ; utiles seulement pour un diagnostic avancé.</value></data>
+  <data name="Cleanup_user-crash-dumps_Name" xml:space="preserve"><value>Fichiers d'image mémoire des applications</value></data>
+  <data name="Cleanup_user-error-reports_Description" xml:space="preserve"><value>Rapports de plantage d'applications déjà traités ou en attente d'envoi. Sûr : rapports de plus d'une semaine uniquement ; aucun effet sur vos applications.</value></data>
+  <data name="Cleanup_user-error-reports_Name" xml:space="preserve"><value>Rapports d'erreurs (utilisateur)</value></data>
+  <data name="Cleanup_user-temp_Description" xml:space="preserve"><value>Fichiers laissés par les applications dans votre dossier temporaire. Sûr : seuls les fichiers de plus d'un jour sont supprimés ; les fichiers en cours d'utilisation sont conservés.</value></data>
+  <data name="Cleanup_user-temp_Name" xml:space="preserve"><value>Fichiers temporaires de l'utilisateur</value></data>
+  <data name="Cleanup_windows-temp_Description" xml:space="preserve"><value>Fichiers temporaires créés par Windows et les installations. Sûr : fichiers de plus d'un jour uniquement, fichiers verrouillés conservés. Nécessite l'autorisation administrateur.</value></data>
+  <data name="Cleanup_windows-temp_Name" xml:space="preserve"><value>Fichiers temporaires de Windows</value></data>
+  <data name="Opt_BackgroundApps_NothingToDo" xml:space="preserve"><value>Aucune application d'arrière-plan à ralentir pour le moment.</value></data>
+  <data name="Opt_BackgroundApps_ThrottleKnown" xml:space="preserve"><value>Ralentir {0}, application connue pour solliciter le PC en arrière-plan</value></data>
+  <data name="Opt_BackgroundApps_ThrottleMeasured" xml:space="preserve"><value>Ralentir {0}, qui utilise {1:N1} % du processeur sans fenêtre</value></data>
+  <data name="Opt_Change_EfficiencyMode" xml:space="preserve"><value>Mode efficacité pour {0}</value></data>
+  <data name="Opt_Change_LowerPriority" xml:space="preserve"><value>Priorité réduite pour {0}</value></data>
+  <data name="Opt_Change_StartupDisable" xml:space="preserve"><value>Lancement automatique de {0} désactivé</value></data>
+  <data name="Opt_Change_StartupEnable" xml:space="preserve"><value>Lancement automatique de {0} réactivé</value></data>
+  <data name="Opt_Cleanup_Cancelled" xml:space="preserve"><value>Nettoyage interrompu : cette catégorie n'a pas été traitée, ou seulement en partie.</value></data>
+  <data name="Opt_Cleanup_CloseApp" xml:space="preserve"><value>Fermez {0} pour nettoyer ce cache.</value></data>
+  <data name="Opt_Cleanup_Failed" xml:space="preserve"><value>Cette catégorie n'a pas pu être nettoyée.</value></data>
+  <data name="Opt_Cleanup_RecycleBinUnavailable" xml:space="preserve"><value>La corbeille n'a pas pu être lue ou vidée.</value></data>
+  <data name="Opt_Cleanup_ScanFailed" xml:space="preserve"><value>Cette catégorie n'a pas pu être analysée.</value></data>
+  <data name="Opt_Elevation_NotAllowed" xml:space="preserve"><value>Cette modification administrateur n'est pas autorisée par PCBoost.</value></data>
+  <data name="Opt_Error_AccessDenied" xml:space="preserve"><value>Accès refusé : Windows n'a pas autorisé cette modification.</value></data>
+  <data name="Opt_Error_ElevationCancelled" xml:space="preserve"><value>L'autorisation administrateur a été refusée : rien n'a été modifié.</value></data>
+  <data name="Opt_Error_JournalUnavailable" xml:space="preserve"><value>Le journal de restauration est indisponible : par précaution, rien n'a été modifié.</value></data>
+  <data name="Opt_Journal_AutomaticCleanup" xml:space="preserve"><value>Nettoyage automatique : {0:N1} Mo libérés, {1} {1:plural:fichier supprimé|fichiers supprimés}.</value></data>
+  <data name="Opt_Journal_ChangeUndoFailed" xml:space="preserve"><value>Une modification n'a pas pu être annulée.</value></data>
+  <data name="Opt_Journal_ChangeUndone" xml:space="preserve"><value>Une modification a été annulée.</value></data>
+  <data name="Opt_Journal_CleanupDone" xml:space="preserve"><value>Nettoyage : {0:N1} Mo libérés, {1} {1:plural:fichier supprimé|fichiers supprimés}.</value></data>
+  <data name="Opt_Journal_ProcessActionFailed" xml:space="preserve"><value>L'action sur {0} n'a pas abouti.</value></data>
+  <data name="Opt_Journal_ProcessCloseRequested" xml:space="preserve"><value>Fermeture demandée à {0}.</value></data>
+  <data name="Opt_Journal_ProcessTerminated" xml:space="preserve"><value>{0} a été arrêté à votre demande.</value></data>
+  <data name="Opt_Journal_ProfileActivated_balanced" xml:space="preserve"><value>Profil « Équilibré » activé.</value></data>
+  <data name="Opt_Journal_ProfileActivated_custom" xml:space="preserve"><value>Profil personnalisé activé.</value></data>
+  <data name="Opt_Journal_ProfileActivated_gaming" xml:space="preserve"><value>Profil « Jeu » activé.</value></data>
+  <data name="Opt_Journal_ProfileActivated_power-saver" xml:space="preserve"><value>Profil « Économie d'énergie » activé.</value></data>
+  <data name="Opt_Journal_ProfileActivated_productivity" xml:space="preserve"><value>Profil « Productivité » activé.</value></data>
+  <data name="Opt_Journal_ProfileDeactivated" xml:space="preserve"><value>Profil désactivé : {0} {0:plural:réglage rétabli|réglages rétablis}.</value></data>
+  <data name="Opt_Journal_RunCompleted" xml:space="preserve"><value>Optimisation : {0} {0:plural:action effectuée|actions effectuées}, {1} {1:plural:échec|échecs}, {2:N1} Mo libérés.</value></data>
+  <data name="Opt_Journal_SessionCompleted" xml:space="preserve"><value>Optimisation terminée : {0} {0:plural:modification appliquée|modifications appliquées}, {1} {1:plural:échec|échecs}.</value></data>
+  <data name="Opt_Journal_SessionDismissed" xml:space="preserve"><value>Session interrompue conservée telle quelle à votre demande.</value></data>
+  <data name="Opt_Journal_SessionInterrupted" xml:space="preserve"><value>Une optimisation a été interrompue (arrêt inattendu). Vous pouvez la restaurer.</value></data>
+  <data name="Opt_Journal_SessionRecovered" xml:space="preserve"><value>Récupération : {0} {0:plural:modification annulée|modifications annulées}, {1} {1:plural:échec|échecs}.</value></data>
+  <data name="Opt_Journal_SessionRestored" xml:space="preserve"><value>Restauration : {0} {0:plural:modification annulée|modifications annulées}, {1} {1:plural:échec|échecs}, {2} {2:plural:action définitive non annulable|actions définitives non annulables}.</value></data>
+  <data name="Opt_Journal_StartupChangeFailed" xml:space="preserve"><value>Le démarrage de {0} n'a pas pu être modifié.</value></data>
+  <data name="Opt_Journal_StartupDisabled" xml:space="preserve"><value>{0} ne se lancera plus au démarrage.</value></data>
+  <data name="Opt_Journal_StartupEnabled" xml:space="preserve"><value>{0} se lancera de nouveau au démarrage.</value></data>
+  <data name="Opt_Module_BackgroundApps_Description" xml:space="preserve"><value>Ralentit les applications qui travaillent en arrière-plan (mode efficacité ou priorité réduite) sans les fermer. L'effet dure jusqu'à leur fermeture et peut être annulé.</value></data>
+  <data name="Opt_Module_BackgroundApps_Name" xml:space="preserve"><value>Applications en arrière-plan</value></data>
+  <data name="Opt_Module_PowerPlan_Description" xml:space="preserve"><value>Sélectionne le mode d'alimentation Windows adapté à l'usage choisi. Le mode précédent peut être rétabli.</value></data>
+  <data name="Opt_Module_PowerPlan_Name" xml:space="preserve"><value>Mode d'alimentation</value></data>
+  <data name="Opt_Module_StartupApps_Description" xml:space="preserve"><value>Désactive le lancement automatique d'applications non essentielles, comme le Gestionnaire des tâches. Les applications restent installées et utilisables ; réactivation possible à tout moment.</value></data>
+  <data name="Opt_Module_StartupApps_Name" xml:space="preserve"><value>Applications au démarrage</value></data>
+  <data name="Opt_Module_TempFiles_Description" xml:space="preserve"><value>Supprime les fichiers temporaires et rapports d'erreurs anciens des catégories sûres. Action définitive : vos documents, images et téléchargements ne sont jamais concernés.</value></data>
+  <data name="Opt_Module_TempFiles_Name" xml:space="preserve"><value>Fichiers temporaires</value></data>
+  <data name="Opt_Module_VisualEffects_Description" xml:space="preserve"><value>Réduit les animations, ombres, défilement fluide et transparence pour soulager un PC modeste. Réglages d'origine restaurables.</value></data>
+  <data name="Opt_Module_VisualEffects_Name" xml:space="preserve"><value>Effets visuels</value></data>
+  <data name="Opt_OldPc_Finding_Cpu" xml:space="preserve"><value>Processeur modeste : {0} {0:plural:cœur|cœurs}, {1} {1:plural:thread|threads}.</value></data>
+  <data name="Opt_OldPc_Finding_DiskSpace" xml:space="preserve"><value>Peu d'espace libre sur le disque système : {0:N0} % ({1:N1} Go).</value></data>
+  <data name="Opt_OldPc_Finding_Hdd" xml:space="preserve"><value>Windows est installé sur un disque dur mécanique, plus lent qu'un SSD.</value></data>
+  <data name="Opt_OldPc_Finding_Memory" xml:space="preserve"><value>Mémoire limitée : {0:N1} Go au total, {1:N0} % utilisés.</value></data>
+  <data name="Opt_OldPc_Finding_None" xml:space="preserve"><value>Aucune limite matérielle marquée n'a été mesurée.</value></data>
+  <data name="Opt_OldPc_Finding_Processes" xml:space="preserve"><value>{0} processus tournent en arrière-plan.</value></data>
+  <data name="Opt_OldPc_Finding_Startup" xml:space="preserve"><value>{0} applications se lancent au démarrage.</value></data>
+  <data name="Opt_PowerPlan_ActiveUnknown" xml:space="preserve"><value>Le mode d'alimentation actuel n'a pas pu être lu : aucun changement, pour pouvoir le rétablir.</value></data>
+  <data name="Opt_PowerPlan_AlreadyActive" xml:space="preserve"><value>Le mode « {0} » est déjà actif.</value></data>
+  <data name="Opt_PowerPlan_AlreadySuitable" xml:space="preserve"><value>Le mode d'alimentation actuel convient déjà.</value></data>
+  <data name="Opt_PowerPlan_NoPerformanceScheme" xml:space="preserve"><value>Aucun mode « Performances élevées » n'est disponible sur ce PC (fréquent sur les PC récents à veille moderne). Le mode actuel est conservé.</value></data>
+  <data name="Opt_PowerPlan_OnBattery" xml:space="preserve"><value>Le PC fonctionne sur batterie : le mode Économie d'énergie est conservé.</value></data>
+  <data name="Opt_PowerPlan_PowerSourceUnknown" xml:space="preserve"><value>La source d'alimentation n'a pas pu être déterminée : aucun changement.</value></data>
+  <data name="Opt_PowerPlan_SchemeMissing" xml:space="preserve"><value>Ce mode d'alimentation n'existe pas sur ce PC.</value></data>
+  <data name="Opt_PowerPlan_Switch" xml:space="preserve"><value>Passer du mode « {0} » au mode « {1} »</value></data>
+  <data name="Opt_PowerPlan_SwitchTo" xml:space="preserve"><value>Activer le mode d'alimentation « {0} »</value></data>
+  <data name="Opt_Preview_Failed" xml:space="preserve"><value>L'analyse de cette optimisation a échoué : elle ne sera pas appliquée.</value></data>
+  <data name="Opt_Process_NotFound" xml:space="preserve"><value>Ce processus n'est plus en cours d'exécution.</value></data>
+  <data name="Opt_Process_Protected" xml:space="preserve"><value>Ce processus est protégé : PCBoost ne le ferme pas, car Windows en a besoin pour fonctionner.</value></data>
+  <data name="Opt_Profile_Balanced_Description" xml:space="preserve"><value>Utilisation normale : mode d'alimentation « Utilisation normale » de Windows, le meilleur compromis entre réactivité, consommation et bruit.</value></data>
+  <data name="Opt_Profile_Balanced_Name" xml:space="preserve"><value>Équilibré</value></data>
+  <data name="Opt_Profile_Custom_Description" xml:space="preserve"><value>Vos propres choix parmi les optimisations disponibles.</value></data>
+  <data name="Opt_Profile_Custom_Name" xml:space="preserve"><value>Personnalisé</value></data>
+  <data name="Opt_Profile_Gaming_Description" xml:space="preserve"><value>Jeu : mode d'alimentation le plus performant disponible (Performances optimales ou élevées) et applications d'arrière-plan ralenties. Consomme davantage.</value></data>
+  <data name="Opt_Profile_Gaming_Name" xml:space="preserve"><value>Jeu</value></data>
+  <data name="Opt_Profile_PowerSaver_Description" xml:space="preserve"><value>Autonomie : mode « Économie d'énergie », applications d'arrière-plan ralenties et effets visuels réduits. Le PC peut être moins réactif.</value></data>
+  <data name="Opt_Profile_PowerSaver_Name" xml:space="preserve"><value>Économie d'énergie</value></data>
+  <data name="Opt_Profile_PreviousRestorePartial" xml:space="preserve"><value>Le profil précédent n'a pas pu être entièrement annulé ({0} {0:plural:réglage non restauré|réglages non restaurés}).</value></data>
+  <data name="Opt_Profile_Productivity_Description" xml:space="preserve"><value>Travail de bureau : mode « Utilisation normale », applications d'arrière-plan ralenties et, sur un PC modeste, effets visuels réduits.</value></data>
+  <data name="Opt_Profile_Productivity_Name" xml:space="preserve"><value>Productivité</value></data>
+  <data name="Opt_Profile_Unknown" xml:space="preserve"><value>Ce profil est inconnu : rien n'a été modifié.</value></data>
+  <data name="Opt_Result_Failed" xml:space="preserve"><value>Cette optimisation n'a pas pu être appliquée.</value></data>
+  <data name="Opt_Result_NothingSelected" xml:space="preserve"><value>Aucune modification sélectionnée.</value></data>
+  <data name="Opt_Result_Partial" xml:space="preserve"><value>{0} {0:plural:modification appliquée|modifications appliquées}, {1} {1:plural:impossible|impossibles}.</value></data>
+  <data name="Opt_Rollback_ChangeNotFound" xml:space="preserve"><value>Cette modification est introuvable dans l'historique.</value></data>
+  <data name="Opt_Rollback_SessionNotFound" xml:space="preserve"><value>Cette session de restauration est introuvable (elle a peut-être été supprimée de l'historique).</value></data>
+  <data name="Opt_Safety_ForbiddenTarget" xml:space="preserve"><value>Modification refusée : elle concerne une protection ou un composant essentiel de Windows.</value></data>
+  <data name="Opt_Safety_HighRiskNotConfirmed" xml:space="preserve"><value>Cette action comporte un risque élevé : elle nécessite votre confirmation explicite.</value></data>
+  <data name="Opt_Safety_IrreversibleNotConfirmed" xml:space="preserve"><value>Cette action est définitive (elle ne pourra pas être annulée) : elle nécessite votre confirmation explicite.</value></data>
+  <data name="Opt_Safety_MicrosoftTask" xml:space="preserve"><value>Les tâches planifiées de Microsoft ne sont jamais modifiées.</value></data>
+  <data name="Opt_Safety_MissingBeforeState" xml:space="preserve"><value>Modification refusée : l'état d'origine n'a pas pu être enregistré, elle ne pourrait pas être annulée.</value></data>
+  <data name="Opt_Safety_NotApplicable" xml:space="preserve"><value>Cette optimisation ne s'applique pas à ce PC.</value></data>
+  <data name="Opt_Safety_PreviewMismatch" xml:space="preserve"><value>L'aperçu ne correspond pas à cette optimisation : rien n'a été appliqué.</value></data>
+  <data name="Opt_Safety_UnknownKind" xml:space="preserve"><value>Modification refusée : type de modification inconnu.</value></data>
+  <data name="Opt_Safety_WindowsTooOld" xml:space="preserve"><value>Cette optimisation nécessite une version plus récente de Windows (build {0} minimum, build actuel : {1}).</value></data>
+  <data name="Opt_Session_Automatic" xml:space="preserve"><value>Nettoyage automatique</value></data>
+  <data name="Opt_Session_Cleanup" xml:space="preserve"><value>Nettoyage</value></data>
+  <data name="Opt_Session_Gaming" xml:space="preserve"><value>Mode Jeu</value></data>
+  <data name="Opt_Session_Manual" xml:space="preserve"><value>Optimisation manuelle</value></data>
+  <data name="Opt_Session_OldPc" xml:space="preserve"><value>Assistant ancien PC</value></data>
+  <data name="Opt_Session_OneClick" xml:space="preserve"><value>Optimisation en un clic</value></data>
+  <data name="Opt_Session_Profile_balanced" xml:space="preserve"><value>Profil Équilibré</value></data>
+  <data name="Opt_Session_Profile_custom" xml:space="preserve"><value>Profil personnalisé</value></data>
+  <data name="Opt_Session_Profile_gaming" xml:space="preserve"><value>Profil Jeu</value></data>
+  <data name="Opt_Session_Profile_power-saver" xml:space="preserve"><value>Profil Économie d'énergie</value></data>
+  <data name="Opt_Session_Profile_productivity" xml:space="preserve"><value>Profil Productivité</value></data>
+  <data name="Opt_Session_Startup" xml:space="preserve"><value>Démarrage</value></data>
+  <data name="Opt_Session_StartupDisable" xml:space="preserve"><value>Démarrage : {0} désactivé</value></data>
+  <data name="Opt_Session_StartupEnable" xml:space="preserve"><value>Démarrage : {0} réactivé</value></data>
+  <data name="Opt_Smart_AutoCleanAction" xml:space="preserve"><value>Voir l'historique</value></data>
+  <data name="Opt_Smart_AutoCleanBody" xml:space="preserve"><value>{0:N1} Mo de fichiers temporaires de plus de 7 jours ont été supprimés.</value></data>
+  <data name="Opt_Smart_AutoCleanTitle" xml:space="preserve"><value>Nettoyage automatique effectué</value></data>
+  <data name="Opt_Smart_CleanableAction" xml:space="preserve"><value>Nettoyer</value></data>
+  <data name="Opt_Smart_CleanableBody" xml:space="preserve"><value>{0:N1} Go peuvent être récupérés en supprimant des fichiers temporaires.</value></data>
+  <data name="Opt_Smart_CleanableTitle" xml:space="preserve"><value>Espace disque récupérable</value></data>
+  <data name="Opt_Smart_SlowAction" xml:space="preserve"><value>Voir pourquoi</value></data>
+  <data name="Opt_Smart_SlowBody" xml:space="preserve"><value>La mémoire est restée utilisée à plus de 90 % ces 5 dernières minutes (moyenne : {0} %).</value></data>
+  <data name="Opt_Smart_SlowTitle" xml:space="preserve"><value>Votre PC semble ralentir</value></data>
+  <data name="Opt_StartupApps_Disable" xml:space="preserve"><value>Désactiver le lancement automatique de {0}</value></data>
+  <data name="Opt_StartupApps_NothingToDisable" xml:space="preserve"><value>Aucune application de démarrage ne peut être désactivée sans risque pour le moment.</value></data>
+  <data name="Opt_StartupReason_BrowserHelper" xml:space="preserve"><value>Préchargement du navigateur : le navigateur fonctionne normalement sans lui.</value></data>
+  <data name="Opt_StartupReason_CloudSync" xml:space="preserve"><value>Synchronisation de fichiers : utile si vous voulez vos fichiers à jour dès l'ouverture de session, facultatif sinon.</value></data>
+  <data name="Opt_StartupReason_Communication" xml:space="preserve"><value>Application de communication : elle peut être ouverte manuellement quand vous en avez besoin.</value></data>
+  <data name="Opt_StartupReason_Driver" xml:space="preserve"><value>Utilitaire de pilote (son, pavé tactile, carte graphique) : à conserver pour que le matériel fonctionne correctement.</value></data>
+  <data name="Opt_StartupReason_FileMissing" xml:space="preserve"><value>Le fichier du programme est introuvable : l'entrée est probablement un reste d'une désinstallation. À examiner.</value></data>
+  <data name="Opt_StartupReason_GameLauncher" xml:space="preserve"><value>Lanceur de jeux : il peut être ouvert manuellement au moment de jouer.</value></data>
+  <data name="Opt_StartupReason_InvalidSignature" xml:space="preserve"><value>La signature de ce programme n'est pas valide. À examiner.</value></data>
+  <data name="Opt_StartupReason_Media" xml:space="preserve"><value>Application multimédia : elle peut être ouverte manuellement.</value></data>
+  <data name="Opt_StartupReason_Microsoft" xml:space="preserve"><value>Composant Microsoft : à conserver sauf si vous savez à quoi il sert.</value></data>
+  <data name="Opt_StartupReason_Security" xml:space="preserve"><value>Logiciel de sécurité : à conserver.</value></data>
+  <data name="Opt_StartupReason_SignedOptional" xml:space="preserve"><value>Application signée : à désactiver seulement si vous ne l'utilisez pas dès l'ouverture de session.</value></data>
+  <data name="Opt_StartupReason_UnknownPublisher" xml:space="preserve"><value>Éditeur inconnu. À examiner.</value></data>
+  <data name="Opt_StartupReason_Unsigned" xml:space="preserve"><value>Programme non signé : l'éditeur ne peut pas être vérifié. À examiner.</value></data>
+  <data name="Opt_StartupReason_Updater" xml:space="preserve"><value>Outil de mise à jour : l'application vérifie aussi ses mises à jour quand vous l'ouvrez.</value></data>
+  <data name="Opt_StartupReason_Utility" xml:space="preserve"><value>Utilitaire facultatif au démarrage : il peut être lancé manuellement.</value></data>
+  <data name="Opt_Startup_AlreadyInState" xml:space="preserve"><value>Aucune modification nécessaire.</value></data>
+  <data name="Opt_Startup_SecurityBlocked" xml:space="preserve"><value>Les logiciels de sécurité ne sont pas désactivés par PCBoost : ils protègent votre PC.</value></data>
+  <data name="Opt_TempFiles_ElevationCancelled" xml:space="preserve"><value>L'autorisation administrateur a été refusée : les fichiers système n'ont pas été nettoyés. Les autres catégories l'ont été.</value></data>
+  <data name="Opt_TempFiles_NothingToClean" xml:space="preserve"><value>Aucun fichier temporaire à supprimer pour le moment.</value></data>
+  <data name="Opt_Undo_AlreadyRestored" xml:space="preserve"><value>Déjà dans son état d'origine.</value></data>
+  <data name="Opt_Undo_InvalidState" xml:space="preserve"><value>L'état d'origine enregistré est illisible : restauration impossible.</value></data>
+  <data name="Opt_Undo_Irreversible" xml:space="preserve"><value>Cette action était définitive : elle ne peut pas être annulée.</value></data>
+  <data name="Opt_Undo_NoHandler" xml:space="preserve"><value>Aucune méthode de restauration n'est disponible pour cette modification.</value></data>
+  <data name="Opt_Undo_NothingToRestore" xml:space="preserve"><value>Cette modification n'avait pas été appliquée : rien à restaurer.</value></data>
+  <data name="Opt_Undo_PowerSchemeMissing" xml:space="preserve"><value>Le mode d'alimentation « {0} » n'existe plus : il n'a pas pu être rétabli.</value></data>
+  <data name="Opt_Undo_ProcessGone" xml:space="preserve"><value>L'application a été fermée depuis : son réglage a disparu avec elle, rien à restaurer.</value></data>
+  <data name="Opt_Undo_TaskGone" xml:space="preserve"><value>La tâche planifiée n'existe plus : rien à restaurer.</value></data>
+  <data name="Opt_VisualEffects_AlreadyReduced" xml:space="preserve"><value>Les effets visuels sont déjà réduits.</value></data>
+  <data name="Opt_VisualEffects_NotNeeded" xml:space="preserve"><value>Ce PC a assez de ressources : les effets visuels sont conservés.</value></data>
+  <data name="Opt_VisualEffects_Reduce" xml:space="preserve"><value>Désactiver les animations, ombres, défilement fluide et transparence</value></data>
+  <data name="Opt_VisualEffects_Unavailable" xml:space="preserve"><value>Les réglages d'effets visuels n'ont pas pu être lus.</value></data>
+  <data name="Opt_Warning_Cancelled" xml:space="preserve"><value>L'optimisation a été interrompue : les modifications déjà faites restent enregistrées et peuvent être annulées.</value></data>
+  <data name="Opt_Warning_ModuleFailed" xml:space="preserve"><value>Une optimisation ({0}) a rencontré une erreur ; les autres ont continué.</value></data>
+  <data name="Opt_Warning_UnknownOptimization" xml:space="preserve"><value>Une optimisation demandée est inconnue ({0}) : elle a été ignorée.</value></data>
+  <data name="Opt_Warning_VerifyPowerPlan" xml:space="preserve"><value>Le mode d'alimentation vérifié ne correspond pas à celui demandé (un autre programme l'a peut-être modifié).</value></data>
+  <data name="Opt_Warning_VerifyRegistry" xml:space="preserve"><value>Un réglage de démarrage vérifié ne correspond pas à celui demandé.</value></data>
+  <data name="Protection_Critical" xml:space="preserve"><value>Processus essentiel au fonctionnement de Windows : PCBoost ne le ferme pas et ne le modifie pas.</value></data>
+  <data name="Protection_Sensitive" xml:space="preserve"><value>Composant du système : il est déconseillé de le fermer.</value></data>
+  <data name="Protection_SystemDirectory" xml:space="preserve"><value>Programme situé dans le dossier système de Windows : il est déconseillé de le fermer.</value></data>
+</root>

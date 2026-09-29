@@ -1,0 +1,124 @@
+<local:ViewPage
+    x:Class="PCBoost.App.Views.BenchmarkPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PCBoost.App.Views"
+    xmlns:h="using:PCBoost.App.Helpers"
+    xmlns:controls="using:PCBoost.App.Controls"
+    xmlns:vm="using:PCBoost.Presentation.ViewModels">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel MaxWidth="{StaticResource ContentMaxWidth}" Padding="{StaticResource PagePadding}" Spacing="22">
+            <StackPanel Spacing="6">
+                <TextBlock Text="{h:Str Key=Benchmark_Title}" Style="{StaticResource PageTitleTextStyle}" />
+                <TextBlock Text="{h:Str Key=Benchmark_Subtitle}" Style="{StaticResource PageSubtitleTextStyle}" />
+            </StackPanel>
+
+            <InfoBar Severity="Error" h:InfoBarHelper.IsShown="{x:Bind ViewModel.HasError, Mode=OneWay}" Message="{x:Bind ViewModel.ErrorText, Mode=OneWay}"
+                     Title="{h:Str Key=Common_Label_ErrorTitle}" CloseButtonCommand="{x:Bind ViewModel.DismissErrorCommand}" />
+
+            <Border Style="{StaticResource CardStyle}" Padding="24,20,24,22">
+                <StackPanel Spacing="14">
+                    <Grid ColumnSpacing="16" RowSpacing="12">
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+                        <ComboBox Header="{h:Str Key=Benchmark_Duration_Label}" ItemsSource="{x:Bind ViewModel.DurationOptions}"
+                                  SelectedIndex="{x:Bind ViewModel.SelectedDurationIndex, Mode=TwoWay}" MinWidth="180" IsEnabled="{x:Bind ViewModel.IsNotBusy, Mode=OneWay}" />
+                        <TextBox Grid.Column="1" Header="{h:Str Key=Benchmark_Label_Label}" PlaceholderText="{h:Str Key=Benchmark_Label_Placeholder}"
+                                 Text="{x:Bind ViewModel.Label, Mode=TwoWay}" MaxWidth="420" HorizontalAlignment="Left" MinWidth="280" />
+                        <Grid Grid.Row="1" Grid.ColumnSpan="2" ColumnSpacing="12">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                            <CheckBox Content="{h:Str Key=Benchmark_TrackGame_Label}" IsChecked="{x:Bind ViewModel.TrackGame, Mode=TwoWay}" IsEnabled="{x:Bind ViewModel.HasDetectedGame, Mode=OneWay}" />
+                            <TextBlock Grid.Column="1" Text="{x:Bind ViewModel.DetectedGameText, Mode=OneWay}" VerticalAlignment="Center" Style="{StaticResource SecondaryTextStyle}" TextWrapping="Wrap" />
+                            <HyperlinkButton Grid.Column="2" Content="{h:Str Key=Benchmark_Action_DetectGame}" Command="{x:Bind ViewModel.DetectGameCommand}" VerticalAlignment="Center" />
+                        </Grid>
+                    </Grid>
+                    <TextBlock Text="{h:Str Key=Benchmark_Tip}" Style="{StaticResource CaptionSecondaryTextStyle}" />
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <Button Style="{StaticResource PrimaryButtonStyle}" Content="{h:Str Key=Benchmark_Action_Before}" Command="{x:Bind ViewModel.MeasureBeforeCommand}" />
+                        <Button Style="{StaticResource PrimaryButtonStyle}" Content="{h:Str Key=Benchmark_Action_After}" Command="{x:Bind ViewModel.MeasureAfterCommand}" />
+                        <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Benchmark_Action_Cancel}" Command="{x:Bind ViewModel.CancelMeasureCommand}"
+                                Visibility="{x:Bind h:Ui.Show(ViewModel.IsRunning), Mode=OneWay}" />
+                        <Button Style="{StaticResource QuietButtonStyle}" Content="{h:Str Key=Benchmark_Action_Reset}" Command="{x:Bind ViewModel.ResetCommand}" />
+                    </StackPanel>
+                    <StackPanel Spacing="6" Visibility="{x:Bind h:Ui.Show(ViewModel.IsRunning), Mode=OneWay}">
+                        <ProgressBar Value="{x:Bind ViewModel.ProgressPercent, Mode=OneWay}" Maximum="100" />
+                        <TextBlock Text="{x:Bind ViewModel.ProgressText, Mode=OneWay}" Style="{StaticResource CaptionSecondaryTextStyle}" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Comparaison -->
+            <StackPanel Spacing="12" Visibility="{x:Bind h:Ui.Show(ViewModel.HasComparison), Mode=OneWay}">
+                <TextBlock Text="{h:Str Key=Benchmark_Comparison_Header}" Style="{StaticResource SectionHeaderTextStyle}" />
+                <TextBlock Text="{x:Bind ViewModel.ComparisonNotice, Mode=OneWay}" Style="{StaticResource SecondaryTextStyle}" Visibility="{x:Bind h:Ui.ShowText(ViewModel.ComparisonNotice), Mode=OneWay}" />
+                <Border Style="{StaticResource CardStyle}" Padding="20,6,20,6">
+                    <StackPanel>
+                        <Grid ColumnSpacing="12" Padding="0,8,0,8" BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}" BorderThickness="0,0,0,1">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="2*" /><ColumnDefinition Width="*" /><ColumnDefinition Width="*" /><ColumnDefinition Width="*" /><ColumnDefinition Width="1.4*" /></Grid.ColumnDefinitions>
+                            <TextBlock Text="{h:Str Key=Benchmark_Column_Metric}" Style="{StaticResource FieldLabelTextStyle}" />
+                            <TextBlock Grid.Column="1" Text="{h:Str Key=Benchmark_Column_Before}" Style="{StaticResource FieldLabelTextStyle}" HorizontalAlignment="Right" />
+                            <TextBlock Grid.Column="2" Text="{h:Str Key=Benchmark_Column_After}" Style="{StaticResource FieldLabelTextStyle}" HorizontalAlignment="Right" />
+                            <TextBlock Grid.Column="3" Text="{h:Str Key=Benchmark_Column_Difference}" Style="{StaticResource FieldLabelTextStyle}" HorizontalAlignment="Right" />
+                            <TextBlock Grid.Column="4" Text="{h:Str Key=Benchmark_Column_Verdict}" Style="{StaticResource FieldLabelTextStyle}" HorizontalAlignment="Right" />
+                        </Grid>
+                        <ItemsControl ItemsSource="{x:Bind ViewModel.Comparison}" IsTabStop="False">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="vm:BenchmarkDeltaItemViewModel">
+                                    <Grid ColumnSpacing="12" Padding="0,8,0,8" AutomationProperties.Name="{x:Bind AccessibleName}">
+                                        <Grid.ColumnDefinitions><ColumnDefinition Width="2*" /><ColumnDefinition Width="*" /><ColumnDefinition Width="*" /><ColumnDefinition Width="*" /><ColumnDefinition Width="1.4*" /></Grid.ColumnDefinitions>
+                                        <TextBlock Text="{x:Bind MetricName}" />
+                                        <TextBlock Grid.Column="1" Text="{x:Bind BeforeText}" HorizontalAlignment="Right" />
+                                        <TextBlock Grid.Column="2" Text="{x:Bind AfterText}" HorizontalAlignment="Right" />
+                                        <TextBlock Grid.Column="3" Text="{x:Bind DifferenceText}" HorizontalAlignment="Right" Style="{StaticResource BodyStrongTextBlockStyle}" />
+                                        <StackPanel Grid.Column="4" Orientation="Horizontal" Spacing="6" HorizontalAlignment="Right">
+                                            <FontIcon Glyph="{x:Bind IconGlyph}" FontSize="12" />
+                                            <TextBlock Text="{x:Bind VerdictText}" FontSize="13" />
+                                        </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <!-- Historique -->
+            <StackPanel Spacing="12">
+                <TextBlock Text="{h:Str Key=Benchmark_History_Header}" Style="{StaticResource SectionHeaderTextStyle}" />
+                <controls:EmptyState Text="{h:Str Key=Benchmark_History_Empty}" Glyph="&#xE9D2;" Visibility="{x:Bind h:Ui.Hide(ViewModel.HasHistory), Mode=OneWay}" />
+                <ItemsControl ItemsSource="{x:Bind ViewModel.History}" IsTabStop="False">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="vm:BenchmarkRunItemViewModel">
+                            <Border Style="{StaticResource CardStyle}" Margin="0,0,0,10" Padding="20,14,20,14">
+                                <Grid ColumnSpacing="16" RowSpacing="8">
+                                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+                                    <StackPanel Spacing="2">
+                                        <TextBlock Text="{x:Bind Title}" Style="{StaticResource GroupHeaderTextStyle}" />
+                                        <TextBlock Text="{x:Bind DateText}" Style="{StaticResource CaptionSecondaryTextStyle}" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="6" VerticalAlignment="Top">
+                                        <controls:StatusBadge Text="{x:Bind PhaseText}" Kind="Info" />
+                                        <controls:StatusBadge Text="{x:Bind DurationText}" />
+                                        <Button Style="{StaticResource QuietButtonStyle}" Content="{x:Bind CompareLabel}" Command="{x:Bind CompareCommand}" Visibility="{x:Bind h:Ui.Show(CanCompare)}" />
+                                    </StackPanel>
+                                    <Grid Grid.Row="1" Grid.ColumnSpan="2" ColumnSpacing="16">
+                                        <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="*" /><ColumnDefinition Width="*" /><ColumnDefinition Width="*" /><ColumnDefinition Width="*" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                                        <StackPanel><TextBlock Text="{h:Str Key=Benchmark_Run_CpuLabel}" Style="{StaticResource FieldLabelTextStyle}" /><TextBlock Text="{x:Bind CpuText}" /></StackPanel>
+                                        <StackPanel Grid.Column="1"><TextBlock Text="{h:Str Key=Benchmark_Run_GpuLabel}" Style="{StaticResource FieldLabelTextStyle}" /><TextBlock Text="{x:Bind GpuText}" /></StackPanel>
+                                        <StackPanel Grid.Column="2"><TextBlock Text="{h:Str Key=Benchmark_Run_RamLabel}" Style="{StaticResource FieldLabelTextStyle}" /><TextBlock Text="{x:Bind RamText}" /></StackPanel>
+                                        <StackPanel Grid.Column="3"><TextBlock Text="{h:Str Key=Benchmark_Run_DiskLabel}" Style="{StaticResource FieldLabelTextStyle}" /><TextBlock Text="{x:Bind DiskText}" /></StackPanel>
+                                        <StackPanel Grid.Column="4"><TextBlock Text="{h:Str Key=Benchmark_Run_FpsLabel}" Style="{StaticResource FieldLabelTextStyle}" /><TextBlock Text="{x:Bind FpsText}" /></StackPanel>
+                                        <StackPanel Grid.Column="5"><TextBlock Text="{h:Str Key=Benchmark_Run_OnePercentLowLabel}" Style="{StaticResource FieldLabelTextStyle}" /><TextBlock Text="{x:Bind OnePercentLowText}" /></StackPanel>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <HyperlinkButton Content="{h:Str Key=Gaming_Title}" Command="{x:Bind ViewModel.OpenGamingCommand}" />
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</local:ViewPage>

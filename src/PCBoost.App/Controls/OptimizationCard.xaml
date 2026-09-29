@@ -1,0 +1,76 @@
+<UserControl
+    x:Class="PCBoost.App.Controls.OptimizationCard"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:h="using:PCBoost.App.Helpers"
+    xmlns:controls="using:PCBoost.App.Controls"
+    xmlns:vm="using:PCBoost.Presentation.ViewModels">
+    <StackPanel Padding="0,14,0,14" Spacing="10" AutomationProperties.Name="{x:Bind Item.AccessibleName, Mode=OneWay}">
+        <Grid ColumnSpacing="12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <CheckBox IsThreeState="False" MinWidth="0" VerticalAlignment="Top" Margin="0,-2,0,0"
+                      IsChecked="{x:Bind Item.SelectionState, Mode=TwoWay}"
+                      AutomationProperties.Name="{x:Bind Item.Name, Mode=OneWay}" />
+            <StackPanel Grid.Column="1" Spacing="4">
+                <TextBlock Text="{x:Bind Item.Name, Mode=OneWay}" Style="{StaticResource GroupHeaderTextStyle}" />
+                <TextBlock Text="{x:Bind Item.Description, Mode=OneWay}" Style="{StaticResource SecondaryTextStyle}"
+                           Visibility="{x:Bind h:Ui.Show(Item.HasDescription), Mode=OneWay}" />
+                <StackPanel Orientation="Horizontal" Spacing="6" Margin="0,4,0,0">
+                    <controls:StatusBadge Text="{x:Bind Item.RiskText, Mode=OneWay}" Glyph="{x:Bind Item.RiskGlyph, Mode=OneWay}"
+                                          Kind="{x:Bind RiskKind(Item.IsHighRisk), Mode=OneWay}" />
+                    <controls:StatusBadge Text="{x:Bind Item.ImpactText, Mode=OneWay}" Glyph="&#xE9D9;" />
+                    <controls:StatusBadge Text="{x:Bind Item.ReversibleText, Mode=OneWay}" Glyph="{x:Bind Item.ReversibleGlyph, Mode=OneWay}"
+                                          Kind="{x:Bind ReversibleKind(Item.IsReversible), Mode=OneWay}" />
+                    <controls:StatusBadge Text="{x:Bind Item.ElevationText, Mode=OneWay}" Glyph="&#xE7EF;" Kind="Info"
+                                          Visibility="{x:Bind h:Ui.Show(Item.RequiresElevation), Mode=OneWay}" />
+                    <controls:StatusBadge Text="{x:Bind Item.RestartText, Mode=OneWay}" Glyph="&#xE777;" Kind="Info"
+                                          Visibility="{x:Bind h:Ui.Show(Item.RequiresRestart), Mode=OneWay}" />
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Grid.Column="2" Spacing="4" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <TextBlock Text="{x:Bind Item.EstimatedBytesText, Mode=OneWay}" Style="{StaticResource GroupHeaderTextStyle}" HorizontalAlignment="Right"
+                           Visibility="{x:Bind h:Ui.Show(Item.HasEstimatedBytes), Mode=OneWay}" />
+                <TextBlock Text="{x:Bind Item.SelectionSummary, Mode=OneWay}" Style="{StaticResource CaptionSecondaryTextStyle}" HorizontalAlignment="Right" />
+                <ToggleButton Padding="8,4,8,5" HorizontalAlignment="Right"
+                              Background="Transparent" BorderThickness="0"
+                              IsChecked="{x:Bind Item.IsExpanded, Mode=TwoWay}"
+                              AutomationProperties.Name="{h:Str Key=Common_Action_ShowDetails}"
+                              ToolTipService.ToolTip="{h:Str Key=Common_Action_ShowDetails}">
+                    <StackPanel Orientation="Horizontal" Spacing="6">
+                        <TextBlock Text="{h:Str Key=Optimization_Preview_ChangesHeader}" FontSize="12" />
+                        <FontIcon Glyph="&#xE70D;" FontSize="10" />
+                    </StackPanel>
+                </ToggleButton>
+            </StackPanel>
+        </Grid>
+        <ItemsControl ItemsSource="{x:Bind Item.Changes, Mode=OneWay}" Margin="32,0,0,0" IsTabStop="False"
+                      Visibility="{x:Bind h:Ui.Show(Item.IsExpanded), Mode=OneWay}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="vm:PlannedChangeItemViewModel">
+                    <Grid ColumnSpacing="10" Padding="0,6,0,6" AutomationProperties.Name="{x:Bind AccessibleName}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <CheckBox MinWidth="0" VerticalAlignment="Top" Margin="0,-4,0,0" IsChecked="{x:Bind IsSelected, Mode=TwoWay}"
+                                  AutomationProperties.Name="{x:Bind Description}" />
+                        <StackPanel Grid.Column="1" Spacing="2">
+                            <TextBlock Text="{x:Bind Description}" TextWrapping="Wrap" />
+                            <TextBlock Text="{x:Bind Target}" Style="{StaticResource CaptionSecondaryTextStyle}" IsTextSelectionEnabled="True" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="2" Spacing="4" HorizontalAlignment="Right">
+                            <TextBlock Text="{x:Bind EstimatedBytesText}" FontSize="12" HorizontalAlignment="Right"
+                                       Visibility="{x:Bind h:Ui.Show(HasEstimatedBytes)}" />
+                            <TextBlock Text="{x:Bind ReversibleText}" Style="{StaticResource CaptionSecondaryTextStyle}" HorizontalAlignment="Right" />
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,137 @@
+<local:ViewPage
+    x:Class="PCBoost.App.Views.CleanupPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PCBoost.App.Views"
+    xmlns:h="using:PCBoost.App.Helpers"
+    xmlns:controls="using:PCBoost.App.Controls"
+    xmlns:common="using:PCBoost.Presentation.Common"
+    xmlns:vm="using:PCBoost.Presentation.ViewModels">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel MaxWidth="{StaticResource ContentMaxWidth}" Padding="{StaticResource PagePadding}" Spacing="22">
+            <StackPanel Spacing="6">
+                <TextBlock Text="{h:Str Key=Cleanup_Page_Title}" Style="{StaticResource PageTitleTextStyle}" />
+                <TextBlock Text="{h:Str Key=Cleanup_Page_Subtitle}" Style="{StaticResource PageSubtitleTextStyle}" />
+            </StackPanel>
+
+            <InfoBar Severity="Error" h:InfoBarHelper.IsShown="{x:Bind ViewModel.HasError, Mode=OneWay}" Message="{x:Bind ViewModel.ErrorText, Mode=OneWay}"
+                     Title="{h:Str Key=Common_Label_ErrorTitle}" CloseButtonCommand="{x:Bind ViewModel.DismissErrorCommand}" />
+
+            <!-- Barre d'action : total sélectionné + nettoyer -->
+            <Border Style="{StaticResource CardStyle}" Padding="24,18,24,18">
+                <Grid ColumnSpacing="20">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                    <StackPanel Spacing="4">
+                        <TextBlock Text="{h:Str Key=Cleanup_Page_Selected_Label}" Style="{StaticResource FieldLabelTextStyle}" />
+                        <TextBlock Text="{x:Bind ViewModel.SelectedTotalText, Mode=OneWay}" Style="{StaticResource MetricValueTextStyle}" />
+                        <TextBlock Text="{x:Bind ViewModel.SelectionSummary, Mode=OneWay}" Style="{StaticResource CaptionSecondaryTextStyle}" />
+                        <StackPanel Spacing="6" Margin="0,4,0,0" HorizontalAlignment="Left">
+                            <controls:StatusBadge Text="{h:Str Key=Common_Label_AdminRequired}" Glyph="&#xE7EF;" Kind="Info"
+                                                  Visibility="{x:Bind h:Ui.Show(ViewModel.SelectionRequiresElevation), Mode=OneWay}" />
+                            <controls:StatusBadge Text="{h:Str Key=Common_Label_Irreversible}" Glyph="&#xE7BA;" Kind="Caution" HorizontalAlignment="Left" />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Spacing="8" VerticalAlignment="Center" HorizontalAlignment="Right">
+                        <Button Style="{StaticResource HeroButtonStyle}" Content="{h:Str Key=Cleanup_Page_Action_Clean}" Command="{x:Bind ViewModel.CleanCommand}" HorizontalAlignment="Stretch" />
+                        <StackPanel Orientation="Horizontal" Spacing="4">
+                            <Button Style="{StaticResource QuietButtonStyle}" Content="{h:Str Key=Cleanup_Page_Action_SelectSafe}" Command="{x:Bind ViewModel.SelectSafeCommand}" />
+                            <Button Style="{StaticResource QuietButtonStyle}" Content="{h:Str Key=Common_Action_SelectNone}" Command="{x:Bind ViewModel.SelectNoneCommand}" />
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <TextBlock Text="{h:Str Key=Cleanup_Page_IrreversibleNotice}" Style="{StaticResource CaptionSecondaryTextStyle}" Margin="0,-10,0,0" />
+
+            <!-- Analyse / nettoyage en cours -->
+            <Border Style="{StaticResource CardStyle}" Visibility="{x:Bind h:Ui.ShowAny(ViewModel.IsScanning, ViewModel.IsCleaning), Mode=OneWay}">
+                <StackPanel Spacing="10">
+                    <TextBlock Text="{h:Str Key=Cleanup_Page_Scanning}" Style="{StaticResource GroupHeaderTextStyle}" Visibility="{x:Bind h:Ui.Show(ViewModel.IsScanning), Mode=OneWay}" />
+                    <TextBlock Text="{h:Str Key=Cleanup_Page_Cleaning}" Style="{StaticResource GroupHeaderTextStyle}" Visibility="{x:Bind h:Ui.Show(ViewModel.IsCleaning), Mode=OneWay}" />
+                    <ProgressBar IsIndeterminate="{x:Bind ViewModel.IsScanning, Mode=OneWay}" Value="{x:Bind ViewModel.CleanProgressPercent, Mode=OneWay}" Maximum="100" />
+                    <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Common_Action_Cancel}" Command="{x:Bind ViewModel.ScanCancelCommand}"
+                            Visibility="{x:Bind h:Ui.Show(ViewModel.IsScanning), Mode=OneWay}" />
+                </StackPanel>
+            </Border>
+
+            <!-- Résultat -->
+            <Border Style="{StaticResource CardStyle}" Padding="24,20,24,22" Visibility="{x:Bind h:Ui.Show(ViewModel.IsDone), Mode=OneWay}">
+                <StackPanel Spacing="10">
+                    <StackPanel Orientation="Horizontal" Spacing="12">
+                        <FontIcon Glyph="&#xE73E;" FontSize="22" Foreground="{ThemeResource SystemFillColorSuccessBrush}" />
+                        <TextBlock Text="{x:Bind ViewModel.ResultTitle, Mode=OneWay}" Style="{StaticResource SectionHeaderTextStyle}" FontSize="20" />
+                    </StackPanel>
+                    <TextBlock Text="{x:Bind ViewModel.ResultFilesText, Mode=OneWay}" Style="{StaticResource SecondaryTextStyle}" />
+                    <TextBlock Text="{x:Bind ViewModel.ResultSkippedText, Mode=OneWay}" Style="{StaticResource CaptionSecondaryTextStyle}"
+                               Visibility="{x:Bind h:Ui.Show(ViewModel.HasSkippedFiles), Mode=OneWay}" />
+                    <ItemsControl ItemsSource="{x:Bind ViewModel.ResultItems}" IsTabStop="False">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="common:TextItemViewModel">
+                                <Grid ColumnSpacing="10" Padding="0,3,0,3">
+                                    <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                                    <FontIcon Glyph="{x:Bind h:Ui.Glyph(IconGlyph)}" FontSize="13" VerticalAlignment="Top" Margin="0,3,0,0" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                                    <StackPanel Grid.Column="1">
+                                        <TextBlock Text="{x:Bind Text}" TextWrapping="Wrap" />
+                                        <TextBlock Text="{x:Bind Detail}" Style="{StaticResource CaptionSecondaryTextStyle}" Visibility="{x:Bind h:Ui.Show(HasDetail)}" />
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,6,0,0">
+                        <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Cleanup_Page_Action_ScanAgain}" Command="{x:Bind ViewModel.ScanAgainCommand}" />
+                        <HyperlinkButton Content="{h:Str Key=Optimization_Action_History}" Command="{x:Bind ViewModel.OpenHistoryCommand}" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Catégories -->
+            <StackPanel Spacing="12">
+                <Grid>
+                    <TextBlock Text="{x:Bind ViewModel.ScannedTotalText, Mode=OneWay}" Style="{StaticResource SectionHeaderTextStyle}" />
+                    <StackPanel Orientation="Horizontal" Spacing="6" HorizontalAlignment="Right">
+                        <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Cleanup_Page_Action_Scan}" Command="{x:Bind ViewModel.ScanCommand}"
+                                Visibility="{x:Bind h:Ui.Show(ViewModel.IsIdle), Mode=OneWay}" />
+                        <HyperlinkButton Content="{h:Str Key=Cleanup_Page_Action_Storage}" Command="{x:Bind ViewModel.OpenStorageCommand}" />
+                    </StackPanel>
+                </Grid>
+                <Border Style="{StaticResource CardStyle}" Padding="20,2,20,2">
+                    <ItemsControl h:ListDividers.HideLast="True" ItemsSource="{x:Bind ViewModel.Categories}" IsTabStop="False">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="vm:CleanupCategoryItemViewModel">
+                                <StackPanel Spacing="6" Padding="0,14,0,14" AutomationProperties.Name="{x:Bind AccessibleName}"
+                                            BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}" BorderThickness="0,0,0,1">
+                                <Grid ColumnSpacing="14" Opacity="{x:Bind h:Ui.Dim(IsUnavailable), Mode=OneWay}">
+                                    <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                    <CheckBox MinWidth="0" VerticalAlignment="Top" Margin="0,-4,0,0" IsChecked="{x:Bind IsSelected, Mode=TwoWay}"
+                                              IsEnabled="{x:Bind CanSelect, Mode=OneWay}" AutomationProperties.Name="{x:Bind Name}" />
+                                    <StackPanel Grid.Column="1" Spacing="4">
+                                        <TextBlock Text="{x:Bind Name}" Style="{StaticResource GroupHeaderTextStyle}" />
+                                        <TextBlock Text="{x:Bind Description}" Style="{StaticResource SecondaryTextStyle}" />
+                                        <StackPanel Orientation="Horizontal" Spacing="6" Margin="0,2,0,0">
+                                            <controls:StatusBadge Text="{x:Bind SafetyText}" Glyph="{x:Bind SafetyGlyph}" Kind="{x:Bind h:Ui.SafetyKind(Safety)}"
+                                                                  ToolTipService.ToolTip="{x:Bind SafetyDescription}" />
+                                            <controls:StatusBadge Text="{x:Bind AdminBadgeText}" Glyph="&#xE7EF;" Kind="Info" Visibility="{x:Bind h:Ui.Show(RequiresElevation)}" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2" Spacing="2" HorizontalAlignment="Right">
+                                        <TextBlock Text="{x:Bind SizeText, Mode=OneWay}" Style="{StaticResource GroupHeaderTextStyle}" HorizontalAlignment="Right" TextAlignment="Right" TextWrapping="WrapWholeWords" MaxWidth="150" />
+                                        <TextBlock Text="{x:Bind FileCountText, Mode=OneWay}" Style="{StaticResource CaptionSecondaryTextStyle}" HorizontalAlignment="Right" />
+                                    </StackPanel>
+                                </Grid>
+                                <!-- Hors de la zone atténuée : la seule consigne de la ligne reste pleinement lisible. -->
+                                <Grid ColumnSpacing="8" Margin="46,0,0,0" Visibility="{x:Bind h:Ui.Show(IsUnavailable), Mode=OneWay}">
+                                    <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                                    <FontIcon Glyph="&#xE7BA;" FontSize="13" VerticalAlignment="Top" Margin="0,2,0,0" Foreground="{ThemeResource SystemFillColorCautionBrush}" />
+                                    <TextBlock Grid.Column="1" Text="{x:Bind UnavailableReason, Mode=OneWay}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="Wrap"
+                                               Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                                </Grid>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</local:ViewPage>

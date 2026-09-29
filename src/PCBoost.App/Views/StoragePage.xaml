@@ -1,0 +1,112 @@
+<local:ViewPage
+    x:Class="PCBoost.App.Views.StoragePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PCBoost.App.Views"
+    xmlns:h="using:PCBoost.App.Helpers"
+    xmlns:vm="using:PCBoost.Presentation.ViewModels">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel MaxWidth="{StaticResource ContentMaxWidth}" Padding="{StaticResource PagePadding}" Spacing="22">
+            <Grid ColumnSpacing="16">
+                <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                <StackPanel Spacing="6">
+                    <TextBlock Text="{h:Str Key=Storage_Title}" Style="{StaticResource PageTitleTextStyle}" />
+                    <TextBlock Text="{h:Str Key=Storage_Subtitle}" Style="{StaticResource PageSubtitleTextStyle}" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8" VerticalAlignment="Top">
+                    <Button Style="{StaticResource SecondaryButtonStyle}" Command="{x:Bind ViewModel.AnalyzeCommand}">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <FontIcon Glyph="&#xE72C;" FontSize="14" />
+                            <TextBlock Text="{h:Str Key=Storage_Action_Analyze}" />
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{StaticResource PrimaryButtonStyle}" Content="{h:Str Key=Storage_Action_Cleanup}" Command="{x:Bind ViewModel.OpenCleanupCommand}" />
+                </StackPanel>
+            </Grid>
+
+            <InfoBar Severity="Error" h:InfoBarHelper.IsShown="{x:Bind ViewModel.HasError, Mode=OneWay}" Message="{x:Bind ViewModel.ErrorText, Mode=OneWay}"
+                     Title="{h:Str Key=Common_Label_ErrorTitle}" CloseButtonCommand="{x:Bind ViewModel.DismissErrorCommand}" />
+            <InfoBar Severity="Warning" h:InfoBarHelper.IsShown="{x:Bind ViewModel.ShowUnavailable, Mode=OneWay}" IsClosable="False" Message="{h:Str Key=Storage_Unavailable}" />
+
+            <StackPanel Spacing="8" Visibility="{x:Bind h:Ui.Show(ViewModel.IsAnalyzing), Mode=OneWay}">
+                <ProgressBar IsIndeterminate="True" />
+                <TextBlock Text="{h:Str Key=Storage_Analyzing}" Style="{StaticResource CaptionSecondaryTextStyle}" />
+            </StackPanel>
+
+            <Border Style="{StaticResource CardStyle}" Padding="24,20,24,22" Visibility="{x:Bind h:Ui.Show(ViewModel.HasData), Mode=OneWay}">
+                <StackPanel Spacing="14">
+                    <Grid ColumnSpacing="16">
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                        <StackPanel Spacing="2">
+                            <TextBlock Text="{x:Bind ViewModel.DriveName, Mode=OneWay}" Style="{StaticResource GroupHeaderTextStyle}" />
+                            <TextBlock Text="{x:Bind ViewModel.AnalysisDateText, Mode=OneWay}" Style="{StaticResource CaptionSecondaryTextStyle}" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" HorizontalAlignment="Right">
+                            <TextBlock Text="{h:Str Key=Storage_Used_Label}" Style="{StaticResource FieldLabelTextStyle}" HorizontalAlignment="Right" />
+                            <TextBlock Text="{x:Bind ViewModel.UsedPercentText, Mode=OneWay}" Style="{StaticResource MetricValueTextStyle}" HorizontalAlignment="Right" />
+                        </StackPanel>
+                    </Grid>
+                    <ProgressBar Value="{x:Bind ViewModel.UsedPercent, Mode=OneWay}" Maximum="100" Height="8" MinHeight="8" CornerRadius="4"
+                                 AutomationProperties.Name="{x:Bind ViewModel.UsedPercentText, Mode=OneWay}" />
+                    <Grid ColumnSpacing="16">
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="*" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                        <StackPanel><TextBlock Text="{h:Str Key=Storage_Used_Label}" Style="{StaticResource FieldLabelTextStyle}" /><TextBlock Text="{x:Bind ViewModel.UsedText, Mode=OneWay}" Style="{StaticResource BodyStrongTextBlockStyle}" /></StackPanel>
+                        <StackPanel Grid.Column="1"><TextBlock Text="{h:Str Key=Storage_Free_Label}" Style="{StaticResource FieldLabelTextStyle}" /><TextBlock Text="{x:Bind ViewModel.FreeText, Mode=OneWay}" Style="{StaticResource BodyStrongTextBlockStyle}" /></StackPanel>
+                        <StackPanel Grid.Column="2"><TextBlock Text="{h:Str Key=Storage_Total_Label}" Style="{StaticResource FieldLabelTextStyle}" /><TextBlock Text="{x:Bind ViewModel.TotalText, Mode=OneWay}" Style="{StaticResource BodyStrongTextBlockStyle}" /></StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <Grid ColumnSpacing="16" RowSpacing="16" Visibility="{x:Bind h:Ui.Show(ViewModel.HasData), Mode=OneWay}">
+                <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                <StackPanel Spacing="10">
+                    <TextBlock Text="{h:Str Key=Storage_Categories_Header}" Style="{StaticResource SectionHeaderTextStyle}" />
+                    <Border Style="{StaticResource CardStyle}" Padding="20,6,20,6">
+                        <ItemsControl ItemsSource="{x:Bind ViewModel.Categories}" IsTabStop="False">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="vm:StorageCategoryItemViewModel">
+                                    <Grid ColumnSpacing="12" RowSpacing="6" Padding="0,10,0,10" AutomationProperties.Name="{x:Bind AccessibleName}">
+                                        <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /><ColumnDefinition Width="40" /></Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+                                        <TextBlock Text="{x:Bind Name}" VerticalAlignment="Center" />
+                                        <TextBlock Grid.Column="1" Text="{x:Bind SizeText}" Style="{StaticResource BodyStrongTextBlockStyle}" VerticalAlignment="Center" />
+                                        <Button Grid.Column="2" Grid.RowSpan="2" Style="{StaticResource QuietButtonStyle}" Padding="8" Command="{x:Bind OpenCommand}"
+                                                Visibility="{x:Bind h:Ui.Show(CanOpen)}" AutomationProperties.Name="{h:Str Key=Storage_Action_Open}" ToolTipService.ToolTip="{h:Str Key=Storage_Action_Open}">
+                                            <FontIcon Glyph="&#xE838;" FontSize="14" />
+                                        </Button>
+                                        <ProgressBar Grid.Row="1" Grid.ColumnSpan="2" Value="{x:Bind Percent}" Maximum="100" Opacity="{x:Bind h:Ui.Opacity(IsMeasured)}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Border>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Spacing="10">
+                    <TextBlock Text="{h:Str Key=Storage_LargestFolders_Header}" Style="{StaticResource SectionHeaderTextStyle}" />
+                    <Border Style="{StaticResource CardStyle}" Padding="20,6,20,6">
+                        <ItemsControl ItemsSource="{x:Bind ViewModel.LargestFolders}" IsTabStop="False">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="vm:LargeFolderItemViewModel">
+                                    <Grid ColumnSpacing="12" RowSpacing="6" Padding="0,10,0,10" AutomationProperties.Name="{x:Bind AccessibleName}" ToolTipService.ToolTip="{x:Bind Path}">
+                                        <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /><ColumnDefinition Width="40" /></Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+                                        <TextBlock Text="{x:Bind Name}" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" />
+                                        <TextBlock Grid.Column="1" Text="{x:Bind SizeText}" Style="{StaticResource BodyStrongTextBlockStyle}" VerticalAlignment="Center" />
+                                        <Button Grid.Column="2" Grid.RowSpan="2" Style="{StaticResource QuietButtonStyle}" Padding="8" Command="{x:Bind OpenCommand}"
+                                                AutomationProperties.Name="{h:Str Key=Storage_Action_Open}" ToolTipService.ToolTip="{h:Str Key=Storage_Action_Open}">
+                                            <FontIcon Glyph="&#xE838;" FontSize="14" />
+                                        </Button>
+                                        <ProgressBar Grid.Row="1" Grid.ColumnSpan="2" Value="{x:Bind Percent}" Maximum="100" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Border>
+                </StackPanel>
+            </Grid>
+
+            <InfoBar Severity="Informational" IsOpen="True" IsClosable="False" Message="{h:Str Key=Storage_Reminder}" />
+        </StackPanel>
+    </ScrollViewer>
+</local:ViewPage>

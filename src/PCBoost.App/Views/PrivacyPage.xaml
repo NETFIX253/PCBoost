@@ -1,0 +1,82 @@
+<local:ViewPage
+    x:Class="PCBoost.App.Views.PrivacyPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PCBoost.App.Views"
+    xmlns:h="using:PCBoost.App.Helpers"
+    xmlns:controls="using:PCBoost.App.Controls"
+    xmlns:common="using:PCBoost.Presentation.Common">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel MaxWidth="880" Padding="{StaticResource PagePadding}" Spacing="24">
+            <StackPanel Spacing="10">
+                <TextBlock Text="{h:Str Key=Privacy_Title}" Style="{StaticResource PageTitleTextStyle}" />
+                <TextBlock Text="{h:Str Key=Privacy_Headline}" Style="{StaticResource SubtitleTextBlockStyle}" TextWrapping="WrapWholeWords" />
+                <TextBlock Text="{h:Str Key=Privacy_Intro}" Style="{StaticResource SecondaryTextStyle}" MaxWidth="720" HorizontalAlignment="Left" />
+            </StackPanel>
+
+            <Border Style="{StaticResource CardStyle}">
+                <Grid ColumnSpacing="16">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                    <FontIcon Glyph="&#xEA18;" FontSize="22" Foreground="{ThemeResource BrandAccentTextBrush}" VerticalAlignment="Center" />
+                    <StackPanel Grid.Column="1" Spacing="2" VerticalAlignment="Center">
+                        <TextBlock Text="{h:Str Key=Privacy_Telemetry_Label}" Style="{StaticResource GroupHeaderTextStyle}" />
+                        <TextBlock Text="{h:Str Key=Privacy_Telemetry_Value}" Style="{StaticResource SecondaryTextStyle}" />
+                    </StackPanel>
+                    <controls:StatusBadge Grid.Column="2" VerticalAlignment="Center" Glyph="&#xE73E;" Text="{h:Str Key=Privacy_Telemetry_Value}" Kind="Success"
+                                          Visibility="{x:Bind h:Ui.Hide(ViewModel.IsTelemetryEnabled)}" />
+                </Grid>
+            </Border>
+
+            <StackPanel Spacing="10">
+                <TextBlock Text="{h:Str Key=Privacy_Stored_Header}" Style="{StaticResource SectionHeaderTextStyle}" />
+                <Border Style="{StaticResource CardStyle}" Padding="20,8,20,12">
+                    <StackPanel>
+                        <ItemsControl ItemsSource="{x:Bind ViewModel.StoredData}" IsTabStop="False">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="common:InfoRowViewModel">
+                                    <controls:InfoRowView Row="{x:Bind}" LabelWidth="220" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <Border Style="{StaticResource RowDividerStyle}" Margin="0,6,0,0">
+                            <Grid ColumnSpacing="16" RowSpacing="10">
+                                <Grid.ColumnDefinitions><ColumnDefinition Width="220" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                                <TextBlock Text="{h:Str Key=Privacy_Location_Label}" Style="{StaticResource SecondaryTextStyle}" />
+                                <StackPanel Grid.Column="1" Spacing="10">
+                                    <TextBlock Text="{x:Bind ViewModel.DataDirectory}" Style="{StaticResource MonospaceDataTextStyle}" TextWrapping="Wrap" IsTextSelectionEnabled="True" />
+                                    <StackPanel Spacing="8" HorizontalAlignment="Left">
+                                        <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Privacy_Action_OpenData}" Command="{x:Bind ViewModel.OpenDataFolderCommand}" HorizontalAlignment="Stretch" />
+                                        <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Privacy_Action_OpenLogs}" Command="{x:Bind ViewModel.OpenLogFolderCommand}" HorizontalAlignment="Stretch" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Spacing="10">
+                <TextBlock Text="{h:Str Key=Privacy_NotCollected_Header}" Style="{StaticResource SectionHeaderTextStyle}" />
+                <Border Style="{StaticResource CardStyle}" Padding="20,10,20,10">
+                    <ItemsControl ItemsSource="{x:Bind ViewModel.NotCollected}" IsTabStop="False">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="common:TextItemViewModel">
+                                <Grid ColumnSpacing="12" Padding="0,8,0,8">
+                                    <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                                    <FontIcon Glyph="{x:Bind h:Ui.Glyph(IconGlyph)}" FontSize="15" VerticalAlignment="Top" Margin="0,2,0,0" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                                    <StackPanel Grid.Column="1" Spacing="2">
+                                        <TextBlock Text="{x:Bind Text}" TextWrapping="Wrap" />
+                                        <TextBlock Text="{x:Bind Detail}" Style="{StaticResource CaptionSecondaryTextStyle}" Visibility="{x:Bind h:Ui.Show(HasDetail)}" />
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Border>
+            </StackPanel>
+
+            <TextBlock Text="{h:Str Key=Privacy_Deletion_Note}" Style="{StaticResource CaptionSecondaryTextStyle}" MaxWidth="720" HorizontalAlignment="Left" />
+        </StackPanel>
+    </ScrollViewer>
+</local:ViewPage>

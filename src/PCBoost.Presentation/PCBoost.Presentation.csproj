@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>PCBoost.Presentation</RootNamespace>
+    <Description>ViewModels MVVM indépendants de WinUI (testables), abstractions de navigation, dialogues et thème.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PCBoost.Core\PCBoost.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="PCBoost.Core.Tests" />
+    <InternalsVisibleTo Include="PCBoost.Presentation.Tests" />
+  </ItemGroup>
+</Project>

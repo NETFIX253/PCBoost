@@ -1,0 +1,13 @@
+bin/
+obj/
+artifacts/
+dist/
+*.user
+.vs/
+*.suo
+TestResults/
+*.binlog
+_sync/
+.impeccable/
+__pycache__/
+*.pyc

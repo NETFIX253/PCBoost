@@ -1,0 +1,4071 @@
+{
+  "$comment": "Textes de PCBoost.Presentation (ViewModels et libellés statiques des vues). Générer les .resx : python3 build/tools/i18n.py src/PCBoost.Presentation/Resources/Strings.i18n.json. Liste des clés statiques destinées au XAML : docs/dev/UI_STRINGS.md.",
+  "Common_Action_Apply": {
+    "fr": "Appliquer",
+    "en": "Apply"
+  },
+  "Common_Action_Cancel": {
+    "fr": "Annuler",
+    "en": "Cancel"
+  },
+  "Common_Action_Restore": {
+    "fr": "Restaurer",
+    "en": "Restore"
+  },
+  "Common_Action_Close": {
+    "fr": "Fermer",
+    "en": "Close"
+  },
+  "Common_Action_Refresh": {
+    "fr": "Actualiser",
+    "en": "Refresh"
+  },
+  "Common_Action_Retry": {
+    "fr": "Réessayer",
+    "en": "Try again"
+  },
+  "Common_Action_Back": {
+    "fr": "Retour",
+    "en": "Back"
+  },
+  "Common_Action_Continue": {
+    "fr": "Continuer",
+    "en": "Continue"
+  },
+  "Common_Action_Open": {
+    "fr": "Ouvrir",
+    "en": "Open"
+  },
+  "Common_Action_OpenFolder": {
+    "fr": "Ouvrir le dossier",
+    "en": "Open folder"
+  },
+  "Common_Action_ShowDetails": {
+    "fr": "Afficher les détails",
+    "en": "Show details"
+  },
+  "Common_Action_HideDetails": {
+    "fr": "Masquer les détails",
+    "en": "Hide details"
+  },
+  "Common_Action_SelectAll": {
+    "fr": "Tout sélectionner",
+    "en": "Select all"
+  },
+  "Common_Action_SelectNone": {
+    "fr": "Tout désélectionner",
+    "en": "Clear selection"
+  },
+  "Common_Action_SelectRecommended": {
+    "fr": "Sélection recommandée",
+    "en": "Recommended selection"
+  },
+  "Common_Action_Dismiss": {
+    "fr": "Masquer",
+    "en": "Hide"
+  },
+  "Common_Action_Keep": {
+    "fr": "Conserver",
+    "en": "Keep"
+  },
+  "Common_Action_Ignore": {
+    "fr": "Ignorer",
+    "en": "Ignore"
+  },
+  "Common_Action_Activate": {
+    "fr": "Activer",
+    "en": "Turn on"
+  },
+  "Common_Action_Deactivate": {
+    "fr": "Désactiver",
+    "en": "Turn off"
+  },
+  "Common_Action_Stop": {
+    "fr": "Arrêter",
+    "en": "Stop"
+  },
+  "Common_Action_Save": {
+    "fr": "Enregistrer",
+    "en": "Save"
+  },
+  "Common_Action_Done": {
+    "fr": "Terminé",
+    "en": "Done"
+  },
+  "Common_Action_Search": {
+    "fr": "Rechercher",
+    "en": "Search"
+  },
+  "Common_Action_CloseMessage": {
+    "fr": "Fermer le message",
+    "en": "Close message"
+  },
+  "Common_Label_Loading": {
+    "fr": "Chargement…",
+    "en": "Loading…"
+  },
+  "Common_Label_Working": {
+    "fr": "Traitement en cours…",
+    "en": "Working…"
+  },
+  "Common_Label_ErrorTitle": {
+    "fr": "Un problème est survenu",
+    "en": "Something went wrong"
+  },
+  "Common_Label_SuccessTitle": {
+    "fr": "Terminé",
+    "en": "Done"
+  },
+  "Common_Label_InfoTitle": {
+    "fr": "Information",
+    "en": "Information"
+  },
+  "Common_Label_SearchPlaceholder": {
+    "fr": "Rechercher",
+    "en": "Search"
+  },
+  "Common_Label_AdminRequired": {
+    "fr": "Autorisation administrateur requise",
+    "en": "Administrator permission required"
+  },
+  "Common_Label_RestartRequired": {
+    "fr": "Redémarrage nécessaire",
+    "en": "Restart required"
+  },
+  "Common_Label_Yes": {
+    "fr": "Oui",
+    "en": "Yes"
+  },
+  "Common_Label_No": {
+    "fr": "Non",
+    "en": "No"
+  },
+  "Common_Label_Reversible": {
+    "fr": "Réversible",
+    "en": "Reversible"
+  },
+  "Common_Label_Irreversible": {
+    "fr": "Irréversible",
+    "en": "Cannot be undone"
+  },
+  "Common_Label_Severity_Info": {
+    "fr": "Information",
+    "en": "Information"
+  },
+  "Common_Label_Severity_Low": {
+    "fr": "Faible",
+    "en": "Low"
+  },
+  "Common_Label_Severity_Medium": {
+    "fr": "Moyenne",
+    "en": "Medium"
+  },
+  "Common_Label_Severity_High": {
+    "fr": "Élevée",
+    "en": "High"
+  },
+  "Common_Label_Severity_Critical": {
+    "fr": "Critique",
+    "en": "Critical"
+  },
+  "Common_Label_Risk_Low": {
+    "fr": "Risque faible",
+    "en": "Low risk"
+  },
+  "Common_Label_Risk_Medium": {
+    "fr": "Risque modéré",
+    "en": "Moderate risk"
+  },
+  "Common_Label_Risk_High": {
+    "fr": "Risque élevé",
+    "en": "High risk"
+  },
+  "Common_Label_Impact_Low": {
+    "fr": "Impact faible",
+    "en": "Low impact"
+  },
+  "Common_Label_Impact_Medium": {
+    "fr": "Impact moyen",
+    "en": "Medium impact"
+  },
+  "Common_Label_Impact_High": {
+    "fr": "Impact élevé",
+    "en": "High impact"
+  },
+  "Common_Label_Confidence_Low": {
+    "fr": "Confiance faible",
+    "en": "Low confidence"
+  },
+  "Common_Label_Confidence_Medium": {
+    "fr": "Confiance moyenne",
+    "en": "Medium confidence"
+  },
+  "Common_Label_Confidence_High": {
+    "fr": "Confiance élevée",
+    "en": "High confidence"
+  },
+  "Common_Label_Step_Pending": {
+    "fr": "En attente",
+    "en": "Waiting"
+  },
+  "Common_Label_Step_Running": {
+    "fr": "En cours",
+    "en": "In progress"
+  },
+  "Common_Label_Step_Done": {
+    "fr": "Terminé",
+    "en": "Done"
+  },
+  "Common_Label_Step_Failed": {
+    "fr": "Échec",
+    "en": "Failed"
+  },
+  "Common_Label_Availability_Available": {
+    "fr": "Non mesuré pour le moment",
+    "en": "Not measured yet"
+  },
+  "Common_Label_Availability_Unavailable": {
+    "fr": "Mesure indisponible",
+    "en": "Measurement unavailable"
+  },
+  "Common_Label_Availability_RequiresElevation": {
+    "fr": "Autorisation administrateur requise pour cette mesure",
+    "en": "Administrator permission required for this measurement"
+  },
+  "Common_Label_Availability_NotSupported": {
+    "fr": "Non pris en charge par ce matériel",
+    "en": "Not supported by this hardware"
+  },
+  "Common_Label_Availability_NoSensor": {
+    "fr": "Aucun capteur accessible",
+    "en": "No accessible sensor"
+  },
+  "Common_Label_Trust_Microsoft": {
+    "fr": "Signé par Microsoft",
+    "en": "Signed by Microsoft"
+  },
+  "Common_Label_Trust_SignedBy": {
+    "fr": "Signé par {0}",
+    "en": "Signed by {0}"
+  },
+  "Common_Label_Trust_Signed": {
+    "fr": "Signé",
+    "en": "Signed"
+  },
+  "Common_Label_Trust_Unsigned": {
+    "fr": "Non signé",
+    "en": "Not signed"
+  },
+  "Common_Label_Trust_Invalid": {
+    "fr": "Signature invalide — à examiner",
+    "en": "Invalid signature — worth checking"
+  },
+  "Common_Label_Trust_Unknown": {
+    "fr": "Inconnu",
+    "en": "Unknown"
+  },
+  "Common_Label_Signature_NotChecked": {
+    "fr": "Signature non vérifiée",
+    "en": "Signature not checked"
+  },
+  "Common_Format_Bytes": {
+    "fr": "{0} o",
+    "en": "{0} B"
+  },
+  "Common_Format_KB": {
+    "fr": "{0} Ko",
+    "en": "{0} KB"
+  },
+  "Common_Format_MB": {
+    "fr": "{0} Mo",
+    "en": "{0} MB"
+  },
+  "Common_Format_GB": {
+    "fr": "{0} Go",
+    "en": "{0} GB"
+  },
+  "Common_Format_TB": {
+    "fr": "{0} To",
+    "en": "{0} TB"
+  },
+  "Common_Format_Percent": {
+    "fr": "{0} %",
+    "en": "{0}%"
+  },
+  "Common_Format_Temperature": {
+    "fr": "{0} °C",
+    "en": "{0} °C"
+  },
+  "Common_Format_Milliseconds": {
+    "fr": "{0} ms",
+    "en": "{0} ms"
+  },
+  "Common_Format_Seconds": {
+    "fr": "{0} s",
+    "en": "{0} s"
+  },
+  "Common_Format_Minutes": {
+    "fr": "{0} min",
+    "en": "{0} min"
+  },
+  "Common_Format_HoursMinutes": {
+    "fr": "{0} h {1} min",
+    "en": "{0} h {1} min"
+  },
+  "Common_Format_DaysHours": {
+    "fr": "{0} j {1} h",
+    "en": "{0} d {1} h"
+  },
+  "Common_Format_JustNow": {
+    "fr": "à l'instant",
+    "en": "just now"
+  },
+  "Common_Format_MinutesAgo": {
+    "fr": "il y a {0} min",
+    "en": "{0} min ago"
+  },
+  "Common_Format_HoursAgo": {
+    "fr": "il y a {0} h",
+    "en": "{0} h ago"
+  },
+  "Common_Format_YesterdayAt": {
+    "fr": "hier à {0}",
+    "en": "yesterday at {0}"
+  },
+  "Common_Format_Rate": {
+    "fr": "{0}/s",
+    "en": "{0}/s"
+  },
+  "Common_Format_GHz": {
+    "fr": "{0} GHz",
+    "en": "{0} GHz"
+  },
+  "Common_Format_MHz": {
+    "fr": "{0} MHz",
+    "en": "{0} MHz"
+  },
+  "Common_Format_MTs": {
+    "fr": "{0} MT/s",
+    "en": "{0} MT/s"
+  },
+  "Common_Format_Fps": {
+    "fr": "{0} FPS",
+    "en": "{0} FPS"
+  },
+  "Nav_Home": {
+    "fr": "Accueil",
+    "en": "Home"
+  },
+  "Nav_Home_ToolTip": {
+    "fr": "Tableau de bord et score de votre PC",
+    "en": "Dashboard and your PC's score"
+  },
+  "Nav_Analysis": {
+    "fr": "Analyse",
+    "en": "Analysis"
+  },
+  "Nav_Analysis_ToolTip": {
+    "fr": "Bilan complet du matériel et des logiciels",
+    "en": "Full hardware and software report"
+  },
+  "Nav_Optimization": {
+    "fr": "Optimisation",
+    "en": "Optimization"
+  },
+  "Nav_Optimization_ToolTip": {
+    "fr": "Optimiser mon PC, profils, ancien PC",
+    "en": "Optimize my PC, profiles, older PC"
+  },
+  "Nav_Cleanup": {
+    "fr": "Nettoyage",
+    "en": "Cleanup"
+  },
+  "Nav_Cleanup_ToolTip": {
+    "fr": "Supprimer les fichiers temporaires",
+    "en": "Remove temporary files"
+  },
+  "Nav_Startup": {
+    "fr": "Démarrage",
+    "en": "Startup"
+  },
+  "Nav_Startup_ToolTip": {
+    "fr": "Programmes lancés à l'ouverture de session",
+    "en": "Programs launched at sign-in"
+  },
+  "Nav_Processes": {
+    "fr": "Processus",
+    "en": "Processes"
+  },
+  "Nav_Processes_ToolTip": {
+    "fr": "Programmes en cours d'exécution",
+    "en": "Running programs"
+  },
+  "Nav_Gaming": {
+    "fr": "Gaming",
+    "en": "Gaming"
+  },
+  "Nav_Gaming_ToolTip": {
+    "fr": "Mode Gaming et mesures en jeu",
+    "en": "Gaming mode and in-game measurements"
+  },
+  "Nav_Performance": {
+    "fr": "Performances",
+    "en": "Performance"
+  },
+  "Nav_Performance_ToolTip": {
+    "fr": "Graphiques en temps réel et historique",
+    "en": "Real-time charts and history"
+  },
+  "Nav_History": {
+    "fr": "Historique",
+    "en": "History"
+  },
+  "Nav_History_ToolTip": {
+    "fr": "Modifications effectuées et restauration",
+    "en": "Changes made and restore"
+  },
+  "Nav_Settings": {
+    "fr": "Paramètres",
+    "en": "Settings"
+  },
+  "Nav_Settings_ToolTip": {
+    "fr": "Préférences de PCBoost",
+    "en": "PCBoost preferences"
+  },
+  "Nav_Expert": {
+    "fr": "Mode Expert",
+    "en": "Expert mode"
+  },
+  "Nav_Expert_ToolTip": {
+    "fr": "Détails techniques",
+    "en": "Technical details"
+  },
+  "Nav_AccessibleName": {
+    "fr": "Navigation principale",
+    "en": "Main navigation"
+  },
+  "Shell_Version": {
+    "fr": "Version {0}",
+    "en": "Version {0}"
+  },
+  "Shell_Protection_Enabled": {
+    "fr": "Restauration activée",
+    "en": "Restore enabled"
+  },
+  "Shell_Protection_NoChanges": {
+    "fr": "Aucune modification en vigueur",
+    "en": "No changes in effect"
+  },
+  "Shell_Protection_GamingActive": {
+    "fr": "Réglages temporaires du mode Gaming en vigueur",
+    "en": "Gaming mode temporary settings in effect"
+  },
+  "Shell_Protection_OneChange": {
+    "fr": "1 modification réversible en vigueur",
+    "en": "1 reversible change in effect"
+  },
+  "Shell_Protection_Changes": {
+    "fr": "{0} modifications réversibles en vigueur",
+    "en": "{0} reversible changes in effect"
+  },
+  "Shell_Protection_ToolTip": {
+    "fr": "Chaque modification réversible peut être annulée depuis l'Historique.",
+    "en": "Every reversible change can be undone from History."
+  },
+  "Shell_Support": {
+    "fr": "Support",
+    "en": "Support"
+  },
+  "Shell_Journal": {
+    "fr": "Journal",
+    "en": "Log"
+  },
+  "Shell_Privacy": {
+    "fr": "Confidentialité",
+    "en": "Privacy"
+  },
+  "Shell_About": {
+    "fr": "À propos",
+    "en": "About"
+  },
+  "Shell_Back_ToolTip": {
+    "fr": "Retour",
+    "en": "Back"
+  },
+  "Shell_Recovery_Title": {
+    "fr": "Optimisation interrompue",
+    "en": "Optimization interrupted"
+  },
+  "Shell_Recovery_Message": {
+    "fr": "Une optimisation n'a pas été terminée. Restaurer les paramètres précédents ?",
+    "en": "An optimization was not completed. Restore the previous settings?"
+  },
+  "Shell_Recovery_SessionLine": {
+    "fr": "{1} — commencée le {0}",
+    "en": "{1} — started on {0}"
+  },
+  "Shell_Recovery_Restore": {
+    "fr": "Restaurer",
+    "en": "Restore"
+  },
+  "Shell_Recovery_Keep": {
+    "fr": "Conserver",
+    "en": "Keep"
+  },
+  "Shell_Recovery_Done": {
+    "fr": "Paramètres précédents restaurés ({0} modifications annulées).",
+    "en": "Previous settings restored ({0} changes undone)."
+  },
+  "Shell_Recovery_Partial": {
+    "fr": "{0} modifications annulées, {1} n'ont pas pu l'être. Voir l'Historique.",
+    "en": "{0} changes undone, {1} could not be. See History."
+  },
+  "Shell_Recovery_Kept": {
+    "fr": "Les modifications ont été conservées. Vous pouvez les annuler depuis l'Historique.",
+    "en": "The changes were kept. You can undo them from History."
+  },
+  "Shell_GameBanner_Title": {
+    "fr": "Jeu détecté : {0}",
+    "en": "Game detected: {0}"
+  },
+  "Shell_GameBanner_Message": {
+    "fr": "Activer le mode Gaming pour cette partie ? Tout sera restauré à la fermeture du jeu.",
+    "en": "Turn on Gaming mode for this session? Everything will be restored when the game closes."
+  },
+  "Shell_GameBanner_Activate": {
+    "fr": "Activer le mode Gaming",
+    "en": "Turn on Gaming mode"
+  },
+  "Shell_GameBanner_Ignore": {
+    "fr": "Ignorer",
+    "en": "Ignore"
+  },
+  "Shell_GameBanner_Activated": {
+    "fr": "Mode Gaming activé.",
+    "en": "Gaming mode is on."
+  },
+  "Shell_Gaming_Active": {
+    "fr": "Mode Gaming actif",
+    "en": "Gaming mode on"
+  },
+  "Shell_Gaming_ActiveWithGame": {
+    "fr": "Mode Gaming actif — {0}",
+    "en": "Gaming mode on — {0}"
+  },
+  "Shell_Gaming_ToolTip": {
+    "fr": "Ouvrir le mode Gaming",
+    "en": "Open Gaming mode"
+  },
+  "Shell_ActiveProfile": {
+    "fr": "Profil : {0}",
+    "en": "Profile: {0}"
+  },
+  "Shell_ActiveProfile_ToolTip": {
+    "fr": "Profil d'utilisation actif",
+    "en": "Active usage profile"
+  },
+  "Welcome_Title": {
+    "fr": "Bienvenue",
+    "en": "Welcome"
+  },
+  "Welcome_Subtitle": {
+    "fr": "PCBoost va analyser votre PC pour repérer ce qui peut le ralentir. Rien n'est modifié pendant l'analyse.",
+    "en": "PCBoost will analyze your PC to find what may be slowing it down. Nothing is changed during the analysis."
+  },
+  "Welcome_Intro_Local": {
+    "fr": "L'analyse est locale : aucune donnée ne quitte votre ordinateur.",
+    "en": "The analysis is local: no data leaves your computer."
+  },
+  "Welcome_Intro_Preview": {
+    "fr": "Aucune modification n'est faite sans que vous l'ayez vue et acceptée.",
+    "en": "No change is made until you have seen and accepted it."
+  },
+  "Welcome_Intro_Undo": {
+    "fr": "Chaque modification réversible peut être annulée en un clic.",
+    "en": "Every reversible change can be undone in one click."
+  },
+  "Welcome_Action_Start": {
+    "fr": "Analyser mon PC",
+    "en": "Analyze my PC"
+  },
+  "Welcome_Action_Skip": {
+    "fr": "Passer",
+    "en": "Skip"
+  },
+  "Welcome_Action_Finish": {
+    "fr": "Aller au tableau de bord",
+    "en": "Go to the dashboard"
+  },
+  "Welcome_Action_Optimize": {
+    "fr": "Optimiser mon PC",
+    "en": "Optimize my PC"
+  },
+  "Welcome_Analyzing_Title": {
+    "fr": "Analyse en cours…",
+    "en": "Analyzing…"
+  },
+  "Welcome_Analyzing_Subtitle": {
+    "fr": "Vous pouvez continuer à utiliser votre PC pendant l'analyse.",
+    "en": "You can keep using your PC during the analysis."
+  },
+  "Welcome_Steps_AccessibleName": {
+    "fr": "Étapes de l'analyse",
+    "en": "Analysis steps"
+  },
+  "Welcome_Results_Title": {
+    "fr": "Voici les principales sources potentielles de ralentissement",
+    "en": "Here are the main potential sources of slowdown"
+  },
+  "Welcome_Results_Subtitle": {
+    "fr": "Vous pourrez voir le détail et les modifications proposées avant d'appliquer quoi que ce soit.",
+    "en": "You will see the details and proposed changes before anything is applied."
+  },
+  "Welcome_Results_NoneTitle": {
+    "fr": "Aucune source importante de ralentissement n'a été identifiée.",
+    "en": "No significant source of slowdown was identified."
+  },
+  "Welcome_Results_NoneSubtitle": {
+    "fr": "Votre PC est prêt. Vous pouvez consulter le tableau de bord à tout moment.",
+    "en": "Your PC is ready. You can check the dashboard at any time."
+  },
+  "Home_Title": {
+    "fr": "Accueil",
+    "en": "Home"
+  },
+  "Home_Score_Header": {
+    "fr": "Score de performance",
+    "en": "Performance score"
+  },
+  "Home_Score_Max": {
+    "fr": "/100",
+    "en": "/100"
+  },
+  "Home_Score_HowComputed": {
+    "fr": "Comment ce score est-il calculé ?",
+    "en": "How is this score calculated?"
+  },
+  "Home_Score_Explanation": {
+    "fr": "Chaque point provient d'un facteur mesuré sur votre PC. Sélectionnez un facteur pour agir.",
+    "en": "Each point comes from a factor measured on your PC. Select a factor to act on it."
+  },
+  "Home_Score_Accessible": {
+    "fr": "Score de performance : {0} sur 100, {1}",
+    "en": "Performance score: {0} out of 100, {1}"
+  },
+  "Home_ScoreLevel_Good": {
+    "fr": "Bon état",
+    "en": "Good condition"
+  },
+  "Home_ScoreLevel_Fair": {
+    "fr": "État correct",
+    "en": "Fair condition"
+  },
+  "Home_ScoreLevel_Poor": {
+    "fr": "À améliorer",
+    "en": "Needs improvement"
+  },
+  "Home_Factors_Header": {
+    "fr": "Détail du score",
+    "en": "Score breakdown"
+  },
+  "Home_Factor_Points": {
+    "fr": "{0} / {1}",
+    "en": "{0} / {1}"
+  },
+  "Home_Factor_Action": {
+    "fr": "Voir",
+    "en": "View"
+  },
+  "Home_Factor_Accessible": {
+    "fr": "{0} : {1} points, {2}. {3}",
+    "en": "{0}: {1} points, {2}. {3}"
+  },
+  "Home_FactorStatus_Good": {
+    "fr": "Bon",
+    "en": "Good"
+  },
+  "Home_FactorStatus_Fair": {
+    "fr": "Correct",
+    "en": "Fair"
+  },
+  "Home_FactorStatus_Poor": {
+    "fr": "À améliorer",
+    "en": "Needs improvement"
+  },
+  "Home_FactorStatus_Unknown": {
+    "fr": "Non mesuré",
+    "en": "Not measured"
+  },
+  "Home_Status_Normal": {
+    "fr": "Votre PC est actuellement en état normal.",
+    "en": "Your PC is currently in normal condition."
+  },
+  "Home_Status_OneImprovable": {
+    "fr": "1 point peut être amélioré.",
+    "en": "1 point can be improved."
+  },
+  "Home_Status_Improvable": {
+    "fr": "{0} points peuvent être améliorés.",
+    "en": "{0} points can be improved."
+  },
+  "Home_Live_Header": {
+    "fr": "En ce moment",
+    "en": "Right now"
+  },
+  "Home_Tile_Cpu": {
+    "fr": "Processeur",
+    "en": "Processor"
+  },
+  "Home_Tile_Memory": {
+    "fr": "Mémoire",
+    "en": "Memory"
+  },
+  "Home_Tile_Disk": {
+    "fr": "Disque",
+    "en": "Disk"
+  },
+  "Home_Tile_Gpu": {
+    "fr": "Carte graphique",
+    "en": "Graphics card"
+  },
+  "Home_Tile_MemoryDetail": {
+    "fr": "{0} sur {1}",
+    "en": "{0} of {1}"
+  },
+  "Home_Tile_DiskDetail": {
+    "fr": "Lecture {0} · Écriture {1}",
+    "en": "Read {0} · Write {1}"
+  },
+  "Home_Tile_GpuDetail": {
+    "fr": "Mémoire vidéo utilisée : {0}",
+    "en": "Video memory used: {0}"
+  },
+  "Home_Temperatures_Header": {
+    "fr": "Températures",
+    "en": "Temperatures"
+  },
+  "Home_Temperatures_None": {
+    "fr": "Les températures ne sont pas disponibles sur ce PC.",
+    "en": "Temperatures are not available on this PC."
+  },
+  "Home_Temperature_Cpu": {
+    "fr": "Processeur",
+    "en": "Processor"
+  },
+  "Home_Temperature_Gpu": {
+    "fr": "Carte graphique",
+    "en": "Graphics card"
+  },
+  "Home_Temperature_Storage": {
+    "fr": "Stockage",
+    "en": "Storage"
+  },
+  "Home_System_Header": {
+    "fr": "Votre système",
+    "en": "Your system"
+  },
+  "Home_StartupApps_Label": {
+    "fr": "Applications au démarrage",
+    "en": "Startup apps"
+  },
+  "Home_StartupApps_One": {
+    "fr": "1 application",
+    "en": "1 app"
+  },
+  "Home_StartupApps": {
+    "fr": "{0} applications",
+    "en": "{0} apps"
+  },
+  "Home_SystemDrive_Label": {
+    "fr": "Disque système",
+    "en": "System drive"
+  },
+  "Home_SystemDrive_Free": {
+    "fr": "{0} libres",
+    "en": "{0} free"
+  },
+  "Home_SystemDrive_Detail": {
+    "fr": "sur {0} — {1}",
+    "en": "of {0} — {1}"
+  },
+  "Home_BackgroundProcesses_Label": {
+    "fr": "Processus en arrière-plan",
+    "en": "Background processes"
+  },
+  "Home_BackgroundProcesses": {
+    "fr": "{0} processus",
+    "en": "{0} processes"
+  },
+  "Home_RunningProcesses": {
+    "fr": "{0} processus en cours",
+    "en": "{0} running processes"
+  },
+  "Home_Windows_Label": {
+    "fr": "Windows",
+    "en": "Windows"
+  },
+  "Home_Windows_Version": {
+    "fr": "Version {0} (build {1})",
+    "en": "Version {0} (build {1})"
+  },
+  "Home_Windows_Build": {
+    "fr": "Build {0}",
+    "en": "Build {0}"
+  },
+  "Home_Windows_Uptime": {
+    "fr": "Allumé depuis {0}",
+    "en": "On for {0}"
+  },
+  "Home_Windows_Unsupported": {
+    "fr": "Cette version de Windows n'est pas prise en charge (Windows 10 version 1809 minimum).",
+    "en": "This version of Windows is not supported (Windows 10 version 1809 or later required)."
+  },
+  "Home_Recommendations_Header": {
+    "fr": "Recommandations principales",
+    "en": "Top recommendations"
+  },
+  "Home_Recommendations_Empty": {
+    "fr": "Aucune recommandation pour le moment.",
+    "en": "No recommendations right now."
+  },
+  "Home_Recommendations_SeeAll": {
+    "fr": "Voir toutes les recommandations",
+    "en": "See all recommendations"
+  },
+  "Home_LastAnalysis": {
+    "fr": "Dernière analyse : {0}",
+    "en": "Last analysis: {0}"
+  },
+  "Home_LastAnalysis_Never": {
+    "fr": "Aucune analyse pour le moment",
+    "en": "No analysis yet"
+  },
+  "Home_QuickActions_Header": {
+    "fr": "Actions rapides",
+    "en": "Quick actions"
+  },
+  "Home_Action_Optimize": {
+    "fr": "Optimiser",
+    "en": "Optimize"
+  },
+  "Home_Action_Cleanup": {
+    "fr": "Nettoyer",
+    "en": "Clean up"
+  },
+  "Home_Action_Gaming": {
+    "fr": "Mode Gaming",
+    "en": "Gaming mode"
+  },
+  "Home_Action_Analyze": {
+    "fr": "Analyser",
+    "en": "Analyze"
+  },
+  "Home_Action_Performance": {
+    "fr": "Performances",
+    "en": "Performance"
+  },
+  "Home_WhySlow": {
+    "fr": "Pourquoi mon PC est lent ?",
+    "en": "Why is my PC slow?"
+  },
+  "Home_WhySlow_Description": {
+    "fr": "Voir les facteurs de ralentissement actuellement observés.",
+    "en": "See the slowdown factors currently observed."
+  },
+  "Home_Empty_Title": {
+    "fr": "Aucune analyse pour le moment",
+    "en": "No analysis yet"
+  },
+  "Home_Empty_Message": {
+    "fr": "Lancez une analyse pour obtenir le score de votre PC et des recommandations.",
+    "en": "Run an analysis to get your PC's score and recommendations."
+  },
+  "Home_Analyzing": {
+    "fr": "Analyse en cours…",
+    "en": "Analyzing…"
+  },
+  "Analysis_Title": {
+    "fr": "Analyse du système",
+    "en": "System analysis"
+  },
+  "Analysis_Subtitle": {
+    "fr": "Un bilan complet de votre PC, en lecture seule : rien n'est modifié.",
+    "en": "A full, read-only report on your PC: nothing is changed."
+  },
+  "Analysis_Action_Start": {
+    "fr": "Lancer l'analyse",
+    "en": "Start analysis"
+  },
+  "Analysis_Action_Restart": {
+    "fr": "Relancer l'analyse",
+    "en": "Run analysis again"
+  },
+  "Analysis_Action_Storage": {
+    "fr": "Voir le détail du stockage",
+    "en": "See storage details"
+  },
+  "Analysis_Action_Diagnosis": {
+    "fr": "Pourquoi mon PC est lent ?",
+    "en": "Why is my PC slow?"
+  },
+  "Analysis_Action_Optimize": {
+    "fr": "Optimiser mon PC",
+    "en": "Optimize my PC"
+  },
+  "Analysis_Action_ManageDismissed": {
+    "fr": "Gérer dans les Paramètres",
+    "en": "Manage in Settings"
+  },
+  "Analysis_NotStarted_Title": {
+    "fr": "Aucune analyse",
+    "en": "No analysis"
+  },
+  "Analysis_NotStarted_Message": {
+    "fr": "Lancez l'analyse pour obtenir un bilan complet de votre PC.",
+    "en": "Start the analysis to get a full report on your PC."
+  },
+  "Analysis_Analyzing_Title": {
+    "fr": "Analyse en cours…",
+    "en": "Analyzing…"
+  },
+  "Analysis_Section_Hardware": {
+    "fr": "Matériel",
+    "en": "Hardware"
+  },
+  "Analysis_Section_Gpu": {
+    "fr": "Carte graphique",
+    "en": "Graphics"
+  },
+  "Analysis_Section_Storage": {
+    "fr": "Stockage",
+    "en": "Storage"
+  },
+  "Analysis_Section_Temperatures": {
+    "fr": "Températures",
+    "en": "Temperatures"
+  },
+  "Analysis_Section_Software": {
+    "fr": "Logiciels",
+    "en": "Software"
+  },
+  "Analysis_Section_TopMemory": {
+    "fr": "Plus gros consommateurs de mémoire",
+    "en": "Top memory users"
+  },
+  "Analysis_Section_TopCpu": {
+    "fr": "Plus gros consommateurs de processeur",
+    "en": "Top processor users"
+  },
+  "Analysis_Section_Findings": {
+    "fr": "Constats",
+    "en": "Findings"
+  },
+  "Analysis_Section_Recommendations": {
+    "fr": "Recommandations",
+    "en": "Recommendations"
+  },
+  "Analysis_Section_Profile": {
+    "fr": "Profil matériel",
+    "en": "Hardware profile"
+  },
+  "Analysis_Section_Advice": {
+    "fr": "Conseils matériels",
+    "en": "Hardware advice"
+  },
+  "Analysis_Advice_Empty": {
+    "fr": "Aucun conseil matériel particulier.",
+    "en": "No particular hardware advice."
+  },
+  "Analysis_Advice_Disclaimer": {
+    "fr": "Ces conseils sont factuels et basés sur les mesures : PCBoost ne vend aucun matériel.",
+    "en": "This advice is factual and based on measurements: PCBoost does not sell any hardware."
+  },
+  "Analysis_Recommendations_Empty": {
+    "fr": "Aucune recommandation : aucun point d'amélioration n'a été identifié.",
+    "en": "No recommendations: no area for improvement was identified."
+  },
+  "Analysis_Recommendation_Why": {
+    "fr": "Pourquoi",
+    "en": "Why"
+  },
+  "Analysis_Recommendation_Dismiss": {
+    "fr": "Masquer",
+    "en": "Hide"
+  },
+  "Analysis_Recommendation_KindRecommendation": {
+    "fr": "Recommandation",
+    "en": "Recommendation"
+  },
+  "Analysis_Recommendation_KindPossibility": {
+    "fr": "Possibilité",
+    "en": "Possibility"
+  },
+  "Analysis_Recommendations_OneDismissed": {
+    "fr": "1 recommandation masquée (réaffichable dans les Paramètres).",
+    "en": "1 hidden recommendation (can be shown again in Settings)."
+  },
+  "Analysis_Recommendations_Dismissed": {
+    "fr": "{0} recommandations masquées (réaffichables dans les Paramètres).",
+    "en": "{0} hidden recommendations (can be shown again in Settings)."
+  },
+  "Analysis_Column_Name": {
+    "fr": "Nom",
+    "en": "Name"
+  },
+  "Analysis_Column_Usage": {
+    "fr": "Utilisation",
+    "en": "Usage"
+  },
+  "Analysis_Date": {
+    "fr": "Analyse effectuée {0}",
+    "en": "Analysis run {0}"
+  },
+  "Analysis_Findings_None": {
+    "fr": "Aucun point d'attention",
+    "en": "No points of attention"
+  },
+  "Analysis_Findings_One": {
+    "fr": "1 point d'attention",
+    "en": "1 point of attention"
+  },
+  "Analysis_Findings_Many": {
+    "fr": "{0} points d'attention",
+    "en": "{0} points of attention"
+  },
+  "Analysis_Findings_CleanCategories": {
+    "fr": "Aucun constat pour : {0}.",
+    "en": "No findings for: {0}."
+  },
+  "Analysis_Card_NoFinding": {
+    "fr": "Aucun constat",
+    "en": "No findings"
+  },
+  "Analysis_Card_OneFinding": {
+    "fr": "1 constat",
+    "en": "1 finding"
+  },
+  "Analysis_Card_Findings": {
+    "fr": "{0} constats",
+    "en": "{0} findings"
+  },
+  "Analysis_Category_NoIssue": {
+    "fr": "Aucun problème de performance correspondant à cette catégorie n'a été identifié.",
+    "en": "No performance issue matching this category was identified."
+  },
+  "Analysis_Category_Cpu": {
+    "fr": "Processeur",
+    "en": "Processor"
+  },
+  "Analysis_Category_Memory": {
+    "fr": "Mémoire",
+    "en": "Memory"
+  },
+  "Analysis_Category_Storage": {
+    "fr": "Stockage",
+    "en": "Storage"
+  },
+  "Analysis_Category_Startup": {
+    "fr": "Démarrage",
+    "en": "Startup"
+  },
+  "Analysis_Category_Processes": {
+    "fr": "Processus",
+    "en": "Processes"
+  },
+  "Analysis_Category_Temperature": {
+    "fr": "Températures",
+    "en": "Temperatures"
+  },
+  "Analysis_Category_Power": {
+    "fr": "Alimentation",
+    "en": "Power"
+  },
+  "Analysis_Category_System": {
+    "fr": "Windows",
+    "en": "Windows"
+  },
+  "Analysis_Category_Security": {
+    "fr": "Sécurité",
+    "en": "Security"
+  },
+  "Analysis_Category_Other": {
+    "fr": "Autres",
+    "en": "Other"
+  },
+  "Analysis_Step_System": {
+    "fr": "Analyse du système",
+    "en": "System analysis"
+  },
+  "Analysis_Step_Startup": {
+    "fr": "Programmes au démarrage",
+    "en": "Startup programs"
+  },
+  "Analysis_Step_Storage": {
+    "fr": "Stockage",
+    "en": "Storage"
+  },
+  "Analysis_Step_Processes": {
+    "fr": "Processus",
+    "en": "Processes"
+  },
+  "Analysis_Step_Results": {
+    "fr": "Résultats",
+    "en": "Results"
+  },
+  "Analysis_StepRunning_System": {
+    "fr": "Analyse du système…",
+    "en": "Analyzing the system…"
+  },
+  "Analysis_StepRunning_Startup": {
+    "fr": "Analyse des programmes au démarrage…",
+    "en": "Analyzing startup programs…"
+  },
+  "Analysis_StepRunning_Storage": {
+    "fr": "Analyse du stockage…",
+    "en": "Analyzing storage…"
+  },
+  "Analysis_StepRunning_Processes": {
+    "fr": "Analyse des processus…",
+    "en": "Analyzing processes…"
+  },
+  "Analysis_StepRunning_Results": {
+    "fr": "Préparation des résultats…",
+    "en": "Preparing results…"
+  },
+  "Analysis_Hw_Cpu": {
+    "fr": "Processeur",
+    "en": "Processor"
+  },
+  "Analysis_Hw_Cores": {
+    "fr": "Cœurs / threads",
+    "en": "Cores / threads"
+  },
+  "Analysis_Hw_CoresValue": {
+    "fr": "{0} cœurs / {1} threads",
+    "en": "{0} cores / {1} threads"
+  },
+  "Analysis_Hw_Frequency": {
+    "fr": "Fréquence",
+    "en": "Clock speed"
+  },
+  "Analysis_Hw_FrequencyRange": {
+    "fr": "{0} (jusqu'à {1})",
+    "en": "{0} (up to {1})"
+  },
+  "Analysis_Hw_Memory": {
+    "fr": "Mémoire (RAM)",
+    "en": "Memory (RAM)"
+  },
+  "Analysis_Hw_MemoryAvailable": {
+    "fr": "{0} disponibles",
+    "en": "{0} available"
+  },
+  "Analysis_Hw_MemoryDetails": {
+    "fr": "Barrettes",
+    "en": "Memory modules"
+  },
+  "Analysis_Hw_OneModule": {
+    "fr": "1 barrette",
+    "en": "1 module"
+  },
+  "Analysis_Hw_Modules": {
+    "fr": "{0} barrettes",
+    "en": "{0} modules"
+  },
+  "Analysis_Hw_Architecture": {
+    "fr": "Architecture",
+    "en": "Architecture"
+  },
+  "Analysis_Hw_Windows": {
+    "fr": "Windows",
+    "en": "Windows"
+  },
+  "Analysis_Hw_Uptime": {
+    "fr": "Allumé depuis",
+    "en": "On for"
+  },
+  "Analysis_Hw_Power": {
+    "fr": "Alimentation",
+    "en": "Power"
+  },
+  "Analysis_Hw_PowerScheme": {
+    "fr": "Mode d'alimentation : {0}",
+    "en": "Power plan: {0}"
+  },
+  "Analysis_Hw_Gpu": {
+    "fr": "Carte graphique",
+    "en": "Graphics card"
+  },
+  "Analysis_Gpu_Vram": {
+    "fr": "{0} de mémoire vidéo",
+    "en": "{0} of video memory"
+  },
+  "Analysis_Gpu_Integrated": {
+    "fr": "Graphique intégré (mémoire partagée)",
+    "en": "Integrated graphics (shared memory)"
+  },
+  "Analysis_Gpu_Driver": {
+    "fr": "Pilote {0}",
+    "en": "Driver {0}"
+  },
+  "Analysis_Arch_Unknown": {
+    "fr": "Inconnue",
+    "en": "Unknown"
+  },
+  "Analysis_Arch_X86": {
+    "fr": "32 bits (x86)",
+    "en": "32-bit (x86)"
+  },
+  "Analysis_Arch_X64": {
+    "fr": "64 bits (x64)",
+    "en": "64-bit (x64)"
+  },
+  "Analysis_Arch_Arm64": {
+    "fr": "ARM 64 bits",
+    "en": "64-bit ARM"
+  },
+  "Analysis_Media_Unknown": {
+    "fr": "Type inconnu",
+    "en": "Unknown type"
+  },
+  "Analysis_Media_Hdd": {
+    "fr": "Disque dur (HDD)",
+    "en": "Hard disk (HDD)"
+  },
+  "Analysis_Media_Ssd": {
+    "fr": "SSD",
+    "en": "SSD"
+  },
+  "Analysis_Media_Scm": {
+    "fr": "Mémoire de stockage (SCM)",
+    "en": "Storage-class memory (SCM)"
+  },
+  "Analysis_Bus_Unknown": {
+    "fr": "Inconnu",
+    "en": "Unknown"
+  },
+  "Analysis_Bus_Sata": {
+    "fr": "SATA",
+    "en": "SATA"
+  },
+  "Analysis_Bus_Nvme": {
+    "fr": "NVMe",
+    "en": "NVMe"
+  },
+  "Analysis_Bus_Usb": {
+    "fr": "USB",
+    "en": "USB"
+  },
+  "Analysis_Bus_Sas": {
+    "fr": "SAS",
+    "en": "SAS"
+  },
+  "Analysis_Bus_Raid": {
+    "fr": "RAID",
+    "en": "RAID"
+  },
+  "Analysis_Bus_Virtual": {
+    "fr": "Virtuel",
+    "en": "Virtual"
+  },
+  "Analysis_Bus_Other": {
+    "fr": "Autre",
+    "en": "Other"
+  },
+  "Analysis_Drive_Free": {
+    "fr": "{0} libres sur {1}",
+    "en": "{0} free of {1}"
+  },
+  "Analysis_Drive_System": {
+    "fr": "Disque système",
+    "en": "System drive"
+  },
+  "Analysis_Power_Ac": {
+    "fr": "Secteur",
+    "en": "Plugged in"
+  },
+  "Analysis_Power_AcBattery": {
+    "fr": "Secteur (batterie à {0})",
+    "en": "Plugged in (battery at {0})"
+  },
+  "Analysis_Power_Battery": {
+    "fr": "Sur batterie ({0})",
+    "en": "On battery ({0})"
+  },
+  "Analysis_Power_BatteryUnknown": {
+    "fr": "Sur batterie",
+    "en": "On battery"
+  },
+  "Analysis_Sw_InstalledPrograms": {
+    "fr": "Programmes installés",
+    "en": "Installed programs"
+  },
+  "Analysis_Sw_Startup": {
+    "fr": "Programmes au démarrage",
+    "en": "Startup programs"
+  },
+  "Analysis_Sw_StartupValue": {
+    "fr": "{0} activés sur {1}",
+    "en": "{0} enabled of {1}"
+  },
+  "Analysis_Sw_Processes": {
+    "fr": "Processus en cours",
+    "en": "Running processes"
+  },
+  "Analysis_Sw_Background": {
+    "fr": "Processus en arrière-plan",
+    "en": "Background processes"
+  },
+  "Analysis_Sw_CpuLoad": {
+    "fr": "Charge du processeur",
+    "en": "Processor load"
+  },
+  "Analysis_Sw_CpuLoadValue": {
+    "fr": "Moyenne {0} — max {1}",
+    "en": "Average {0} — max {1}"
+  },
+  "Analysis_Sw_Sampling": {
+    "fr": "Mesurée pendant {0}",
+    "en": "Measured over {0}"
+  },
+  "Analysis_Sw_MemoryLoad": {
+    "fr": "Mémoire utilisée",
+    "en": "Memory in use"
+  },
+  "Analysis_Sw_DiskLoad": {
+    "fr": "Activité du disque",
+    "en": "Disk activity"
+  },
+  "Analysis_Sw_GpuLoad": {
+    "fr": "Charge de la carte graphique",
+    "en": "Graphics load"
+  },
+  "Analysis_Sw_Cleanable": {
+    "fr": "Fichiers temporaires récupérables",
+    "en": "Recoverable temporary files"
+  },
+  "Analysis_Sw_NotAnalyzed": {
+    "fr": "Non analysé",
+    "en": "Not analyzed"
+  },
+  "Analysis_Tier_Unknown": {
+    "fr": "Non déterminé",
+    "en": "Undetermined"
+  },
+  "Analysis_TierDescription_Unknown": {
+    "fr": "Le profil matériel n'a pas pu être déterminé.",
+    "en": "The hardware profile could not be determined."
+  },
+  "Analysis_Tier_LegacyLowResource": {
+    "fr": "Ancien PC aux ressources limitées",
+    "en": "Older PC with limited resources"
+  },
+  "Analysis_TierDescription_LegacyLowResource": {
+    "fr": "Des réglages légers sont conseillés pour garder une utilisation fluide.",
+    "en": "Lightweight settings are advised to keep things smooth."
+  },
+  "Analysis_Tier_Entry": {
+    "fr": "Configuration d'entrée de gamme",
+    "en": "Entry-level configuration"
+  },
+  "Analysis_TierDescription_Entry": {
+    "fr": "Adaptée aux usages courants (bureautique, navigation, vidéo).",
+    "en": "Suited to everyday use (office, browsing, video)."
+  },
+  "Analysis_Tier_LowEnd": {
+    "fr": "Configuration modeste",
+    "en": "Modest configuration"
+  },
+  "Analysis_TierDescription_LowEnd": {
+    "fr": "Les jeux et applications exigeants peuvent demander des réglages réduits.",
+    "en": "Demanding games and applications may need lower settings."
+  },
+  "Analysis_Tier_MidRange": {
+    "fr": "Configuration intermédiaire",
+    "en": "Mid-range configuration"
+  },
+  "Analysis_TierDescription_MidRange": {
+    "fr": "Adaptée à la plupart des usages, y compris de nombreux jeux.",
+    "en": "Suited to most uses, including many games."
+  },
+  "Analysis_Tier_HighEnd": {
+    "fr": "Configuration performante",
+    "en": "High-performance configuration"
+  },
+  "Analysis_TierDescription_HighEnd": {
+    "fr": "Votre matériel dispose d'une bonne marge de puissance.",
+    "en": "Your hardware has plenty of headroom."
+  },
+  "Analysis_Component_Cpu": {
+    "fr": "Processeur",
+    "en": "Processor"
+  },
+  "Analysis_Component_Memory": {
+    "fr": "Mémoire",
+    "en": "Memory"
+  },
+  "Analysis_Component_Storage": {
+    "fr": "Stockage",
+    "en": "Storage"
+  },
+  "Analysis_Component_Gpu": {
+    "fr": "Carte graphique",
+    "en": "Graphics card"
+  },
+  "Analysis_Component_Battery": {
+    "fr": "Batterie",
+    "en": "Battery"
+  },
+  "Analysis_Component_Cooling": {
+    "fr": "Refroidissement",
+    "en": "Cooling"
+  },
+  "Analysis_Component_Network": {
+    "fr": "Réseau",
+    "en": "Network"
+  },
+  "Analysis_Component_Other": {
+    "fr": "Matériel",
+    "en": "Hardware"
+  },
+  "Diagnosis_Title": {
+    "fr": "Pourquoi mon PC est lent ?",
+    "en": "Why is my PC slow?"
+  },
+  "Diagnosis_Intro": {
+    "fr": "Les facteurs actuellement observés sont :",
+    "en": "The factors currently observed are:"
+  },
+  "Diagnosis_Why": {
+    "fr": "Pourquoi ?",
+    "en": "Why?"
+  },
+  "Diagnosis_WhatToDo": {
+    "fr": "Que peut-on faire ?",
+    "en": "What can be done?"
+  },
+  "Diagnosis_Impact": {
+    "fr": "Impact estimé",
+    "en": "Estimated impact"
+  },
+  "Diagnosis_Evidence": {
+    "fr": "Constat",
+    "en": "Observation"
+  },
+  "Diagnosis_NoFactor_Title": {
+    "fr": "Aucun facteur important observé",
+    "en": "No significant factor observed"
+  },
+  "Diagnosis_NoFactor_Message": {
+    "fr": "Aucun facteur de ralentissement important n'a été observé pour le moment. Si votre PC vous semble lent à un moment précis, relancez ce diagnostic à ce moment-là.",
+    "en": "No significant slowdown factor has been observed for now. If your PC feels slow at a specific moment, run this diagnosis again at that time."
+  },
+  "Diagnosis_Action_Refresh": {
+    "fr": "Relancer le diagnostic",
+    "en": "Run diagnosis again"
+  },
+  "Diagnosis_Diagnosing": {
+    "fr": "Diagnostic en cours…",
+    "en": "Diagnosing…"
+  },
+  "Diagnosis_Date": {
+    "fr": "Diagnostic effectué {0}",
+    "en": "Diagnosis run {0}"
+  },
+  "Optimization_Title": {
+    "fr": "Optimisation",
+    "en": "Optimization"
+  },
+  "Optimization_Section_OneClick": {
+    "fr": "Optimiser mon PC",
+    "en": "Optimize my PC"
+  },
+  "Optimization_Section_Profiles": {
+    "fr": "Profils",
+    "en": "Profiles"
+  },
+  "Optimization_Section_OldPc": {
+    "fr": "Ancien PC",
+    "en": "Older PC"
+  },
+  "Optimization_Idle_Title": {
+    "fr": "Optimiser mon PC",
+    "en": "Optimize my PC"
+  },
+  "Optimization_Idle_Message": {
+    "fr": "PCBoost analyse votre PC puis vous montre les modifications prévues avant de les appliquer. Les modifications réversibles pourront être annulées à tout moment.",
+    "en": "PCBoost analyzes your PC and shows you the planned changes before applying them. Reversible changes can be undone at any time."
+  },
+  "Optimization_Action_Scan": {
+    "fr": "Optimiser mon PC",
+    "en": "Optimize my PC"
+  },
+  "Optimization_Scan_Analyzing": {
+    "fr": "Analyse de votre PC…",
+    "en": "Analyzing your PC…"
+  },
+  "Optimization_Scan_Preparing": {
+    "fr": "Préparation de l'aperçu…",
+    "en": "Preparing the preview…"
+  },
+  "Optimization_Preview_Title": {
+    "fr": "Voici les modifications prévues",
+    "en": "Here are the planned changes"
+  },
+  "Optimization_Preview_Subtitle": {
+    "fr": "Décochez ce que vous ne souhaitez pas modifier. Rien n'est appliqué avant votre confirmation.",
+    "en": "Uncheck anything you don't want to change. Nothing is applied until you confirm."
+  },
+  "Optimization_Preview_Empty": {
+    "fr": "Aucune modification n'est nécessaire pour le moment.",
+    "en": "No changes are needed right now."
+  },
+  "Optimization_Preview_NotApplicableHeader": {
+    "fr": "Non applicable sur ce PC",
+    "en": "Not applicable on this PC"
+  },
+  "Optimization_Preview_ChangesHeader": {
+    "fr": "Modifications",
+    "en": "Changes"
+  },
+  "Optimization_Preview_Target": {
+    "fr": "Cible",
+    "en": "Target"
+  },
+  "Optimization_Preview_SelectionSummary": {
+    "fr": "{0} {0:plural:modification|modifications} sur {1}",
+    "en": "{0} of {1} {1:plural:change|changes}"
+  },
+  "Optimization_Preview_SelectedTotal": {
+    "fr": "{0} {0:plural:modification sélectionnée|modifications sélectionnées} sur {1}",
+    "en": "{0} of {1} {1:plural:change|changes} selected"
+  },
+  "Optimization_Preview_EstimatedTotal": {
+    "fr": "Espace estimé récupérable : {0}",
+    "en": "Estimated recoverable space: {0}"
+  },
+  "Optimization_Preview_RequiresElevation": {
+    "fr": "Autorisation administrateur requise",
+    "en": "Administrator permission required"
+  },
+  "Optimization_Preview_RequiresRestart": {
+    "fr": "Redémarrage nécessaire",
+    "en": "Restart required"
+  },
+  "Optimization_Preview_NoticeIrreversible": {
+    "fr": "Certaines actions sélectionnées ne peuvent pas être annulées.",
+    "en": "Some selected actions cannot be undone."
+  },
+  "Optimization_Preview_NoticeElevation": {
+    "fr": "Windows demandera une autorisation administrateur pour certaines actions.",
+    "en": "Windows will ask for administrator permission for some actions."
+  },
+  "Optimization_Preview_NoticeRestart": {
+    "fr": "Un redémarrage sera nécessaire pour terminer certaines modifications.",
+    "en": "A restart will be needed to finish some changes."
+  },
+  "Optimization_Preview_Cancelled": {
+    "fr": "Aperçu abandonné : aucune modification n'a été faite.",
+    "en": "Preview discarded: no changes were made."
+  },
+  "Optimization_Action_Apply": {
+    "fr": "Appliquer les modifications",
+    "en": "Apply changes"
+  },
+  "Optimization_Action_CancelPreview": {
+    "fr": "Annuler",
+    "en": "Cancel"
+  },
+  "Optimization_Confirm_Title": {
+    "fr": "Appliquer les modifications ?",
+    "en": "Apply the changes?"
+  },
+  "Optimization_Confirm_Message": {
+    "fr": "{0} {0:plural:modification va être appliquée|modifications vont être appliquées}. Les modifications réversibles pourront être annulées depuis l'Historique.",
+    "en": "{0} {0:plural:change|changes} will be applied. Reversible changes can be undone from History."
+  },
+  "Optimization_Confirm_IrreversibleMessage": {
+    "fr": "{0} {0:plural:modification va être appliquée, qui ne pourra pas être annulée|modifications vont être appliquées, dont certaines ne pourront pas être annulées} :",
+    "en": "{0} {0:plural:change|changes} will be applied, {0:plural:which cannot be undone|some of which cannot be undone}:"
+  },
+  "Optimization_Confirm_HighRiskMessage": {
+    "fr": "{0} {0:plural:modification va être appliquée, qui présente un risque élevé|modifications vont être appliquées, dont certaines présentent un risque élevé} :",
+    "en": "{0} {0:plural:change|changes} will be applied, {0:plural:which carries a high risk|some of which carry a high risk}:"
+  },
+  "Optimization_Confirm_IrreversibleItem": {
+    "fr": "Irréversible : {0}",
+    "en": "Cannot be undone: {0}"
+  },
+  "Optimization_Confirm_HighRiskItem": {
+    "fr": "Risque élevé : {0}",
+    "en": "High risk: {0}"
+  },
+  "Optimization_Applying_Title": {
+    "fr": "Optimisation en cours…",
+    "en": "Optimizing…"
+  },
+  "Optimization_Applying_Message": {
+    "fr": "Chaque modification est enregistrée avant d'être appliquée, pour pouvoir être annulée.",
+    "en": "Every change is recorded before it is applied, so it can be undone."
+  },
+  "Optimization_Steps_AccessibleName": {
+    "fr": "Étapes de l'optimisation",
+    "en": "Optimization steps"
+  },
+  "Optimization_Step_Analysis": {
+    "fr": "Analyse",
+    "en": "Analysis"
+  },
+  "Optimization_StepRunning_Analysis": {
+    "fr": "Analyse…",
+    "en": "Analyzing…"
+  },
+  "Optimization_Step_Preparation": {
+    "fr": "Préparation",
+    "en": "Preparation"
+  },
+  "Optimization_StepRunning_Preparation": {
+    "fr": "Préparation…",
+    "en": "Preparing…"
+  },
+  "Optimization_Step_Backup": {
+    "fr": "Sauvegarde",
+    "en": "Backup"
+  },
+  "Optimization_StepRunning_Backup": {
+    "fr": "Sauvegarde de l'état actuel…",
+    "en": "Saving the current state…"
+  },
+  "Optimization_Step_Optimization": {
+    "fr": "Optimisation",
+    "en": "Optimization"
+  },
+  "Optimization_StepRunning_Optimization": {
+    "fr": "Application des modifications…",
+    "en": "Applying changes…"
+  },
+  "Optimization_Step_Verification": {
+    "fr": "Vérification",
+    "en": "Verification"
+  },
+  "Optimization_StepRunning_Verification": {
+    "fr": "Vérification…",
+    "en": "Verifying…"
+  },
+  "Optimization_Step_Completed": {
+    "fr": "Terminé",
+    "en": "Done"
+  },
+  "Optimization_StepRunning_Completed": {
+    "fr": "Terminé",
+    "en": "Done"
+  },
+  "Optimization_Report_Title": {
+    "fr": "Rapport",
+    "en": "Report"
+  },
+  "Optimization_Report_Ready": {
+    "fr": "Votre PC est prêt.",
+    "en": "Your PC is ready."
+  },
+  "Optimization_Report_Partial": {
+    "fr": "L'optimisation est terminée, mais certaines actions n'ont pas pu être effectuées.",
+    "en": "Optimization finished, but some actions could not be completed."
+  },
+  "Optimization_Report_Failed": {
+    "fr": "L'optimisation n'a pas pu être effectuée.",
+    "en": "The optimization could not be completed."
+  },
+  "Optimization_Report_NothingDone": {
+    "fr": "Aucune modification n'a été nécessaire.",
+    "en": "No changes were needed."
+  },
+  "Optimization_Report_Actions": {
+    "fr": "Actions effectuées",
+    "en": "Actions performed"
+  },
+  "Optimization_Report_Failures": {
+    "fr": "Actions en échec",
+    "en": "Failed actions"
+  },
+  "Optimization_Report_SpaceFreed": {
+    "fr": "Espace récupéré",
+    "en": "Space recovered"
+  },
+  "Optimization_Report_Startup": {
+    "fr": "Démarrage",
+    "en": "Startup"
+  },
+  "Optimization_Report_StartupValue": {
+    "fr": "−{0} {0:plural:application|applications}",
+    "en": "−{0} {0:plural:app|apps}"
+  },
+  "Optimization_Report_Processes": {
+    "fr": "Processus ajustés",
+    "en": "Processes adjusted"
+  },
+  "Optimization_Report_Profile": {
+    "fr": "Profil",
+    "en": "Profile"
+  },
+  "Optimization_Report_Restart": {
+    "fr": "Redémarrage requis",
+    "en": "Restart required"
+  },
+  "Optimization_Report_RestartNotice": {
+    "fr": "Redémarrez votre PC pour terminer certaines modifications.",
+    "en": "Restart your PC to finish some changes."
+  },
+  "Optimization_Report_RestoreHint": {
+    "fr": "Vous pouvez annuler ces modifications à tout moment depuis l'Historique.",
+    "en": "You can undo these changes at any time from History."
+  },
+  "Optimization_Report_Skipped": {
+    "fr": "Non nécessaire",
+    "en": "Not needed"
+  },
+  "Optimization_Report_ResultOne": {
+    "fr": "1 modification appliquée",
+    "en": "1 change applied"
+  },
+  "Optimization_Report_ResultMany": {
+    "fr": "{0} modifications appliquées",
+    "en": "{0} changes applied"
+  },
+  "Optimization_Report_ResultPartial": {
+    "fr": "{0} {0:plural:appliquée|appliquées}, {1} en échec",
+    "en": "{0} applied, {1} failed"
+  },
+  "Optimization_Report_ResultsHeader": {
+    "fr": "Détail par optimisation",
+    "en": "Details by optimization"
+  },
+  "Optimization_Report_WarningsHeader": {
+    "fr": "Avertissements",
+    "en": "Warnings"
+  },
+  "Optimization_Action_Restore": {
+    "fr": "Restaurer les paramètres précédents",
+    "en": "Restore previous settings"
+  },
+  "Optimization_Action_BackToStart": {
+    "fr": "Terminé",
+    "en": "Done"
+  },
+  "Optimization_Action_History": {
+    "fr": "Voir l'historique",
+    "en": "View history"
+  },
+  "Optimization_Restore_ConfirmTitle": {
+    "fr": "Restaurer les paramètres précédents ?",
+    "en": "Restore previous settings?"
+  },
+  "Optimization_Restore_ConfirmMessage": {
+    "fr": "Les modifications réversibles de cette optimisation vont être annulées. Les fichiers supprimés ne peuvent pas être récupérés.",
+    "en": "The reversible changes from this optimization will be undone. Deleted files cannot be recovered."
+  },
+  "Profiles_Title": {
+    "fr": "Profils",
+    "en": "Profiles"
+  },
+  "Profiles_Subtitle": {
+    "fr": "Un profil regroupe des réglages adaptés à un usage. Le profil précédent est restauré avant d'en activer un autre.",
+    "en": "A profile groups settings suited to a use. The previous profile is restored before another is turned on."
+  },
+  "Profiles_Action_Preview": {
+    "fr": "Voir les modifications",
+    "en": "See changes"
+  },
+  "Profiles_Action_Activate": {
+    "fr": "Activer le profil",
+    "en": "Turn on profile"
+  },
+  "Profiles_Action_Deactivate": {
+    "fr": "Revenir à l'état d'avant le profil",
+    "en": "Return to the state before the profile"
+  },
+  "Profiles_Action_EditCustom": {
+    "fr": "Personnaliser",
+    "en": "Customize"
+  },
+  "Profiles_Action_SaveCustom": {
+    "fr": "Enregistrer le profil personnalisé",
+    "en": "Save custom profile"
+  },
+  "Profiles_Action_BackToList": {
+    "fr": "Retour aux profils",
+    "en": "Back to profiles"
+  },
+  "Profiles_Custom_Header": {
+    "fr": "Profil personnalisé",
+    "en": "Custom profile"
+  },
+  "Profiles_Custom_Description": {
+    "fr": "Choisissez les optimisations à inclure. Elles seront prévisualisées avant chaque activation.",
+    "en": "Choose the optimizations to include. They will be previewed before each activation."
+  },
+  "Profiles_Previewing": {
+    "fr": "Préparation de l'aperçu…",
+    "en": "Preparing the preview…"
+  },
+  "Profiles_Applying": {
+    "fr": "Application du profil…",
+    "en": "Applying profile…"
+  },
+  "Profiles_NoActive": {
+    "fr": "Aucun profil actif",
+    "en": "No active profile"
+  },
+  "Profiles_Active": {
+    "fr": "Profil actif : {0}",
+    "en": "Active profile: {0}"
+  },
+  "Profiles_ActivatedAt": {
+    "fr": "Activé {0}",
+    "en": "Turned on {0}"
+  },
+  "Profiles_ActiveBadge": {
+    "fr": "Actif",
+    "en": "Active"
+  },
+  "Profiles_OneOptimization": {
+    "fr": "1 optimisation",
+    "en": "1 optimization"
+  },
+  "Profiles_Optimizations": {
+    "fr": "{0} optimisations",
+    "en": "{0} optimizations"
+  },
+  "Profiles_PreviewTitle": {
+    "fr": "Voici les modifications prévues pour le profil {0}",
+    "en": "Here are the planned changes for the {0} profile"
+  },
+  "Profiles_Confirm_Title": {
+    "fr": "Activer ce profil ?",
+    "en": "Turn on this profile?"
+  },
+  "Profiles_Confirm_Message": {
+    "fr": "Le profil {0} va être activé. Le profil précédent sera d'abord restauré.",
+    "en": "The {0} profile will be turned on. The previous profile will be restored first."
+  },
+  "Profiles_Activated": {
+    "fr": "Profil {0} activé.",
+    "en": "{0} profile is on."
+  },
+  "Profiles_Deactivate_ConfirmTitle": {
+    "fr": "Désactiver le profil ?",
+    "en": "Turn off the profile?"
+  },
+  "Profiles_Deactivate_ConfirmMessage": {
+    "fr": "Les réglages d'avant l'activation du profil vont être restaurés.",
+    "en": "The settings from before the profile was turned on will be restored."
+  },
+  "Profiles_Deactivated": {
+    "fr": "Profil désactivé.",
+    "en": "Profile turned off."
+  },
+  "Profiles_CustomSaved": {
+    "fr": "Profil personnalisé enregistré.",
+    "en": "Custom profile saved."
+  },
+  "Profiles_Category_Cleanup": {
+    "fr": "Nettoyage",
+    "en": "Cleanup"
+  },
+  "Profiles_Category_Startup": {
+    "fr": "Démarrage",
+    "en": "Startup"
+  },
+  "Profiles_Category_Power": {
+    "fr": "Alimentation",
+    "en": "Power"
+  },
+  "Profiles_Category_Background": {
+    "fr": "Arrière-plan",
+    "en": "Background"
+  },
+  "Profiles_Category_Visual": {
+    "fr": "Effets visuels",
+    "en": "Visual effects"
+  },
+  "Profiles_Category_Cpu": {
+    "fr": "Processeur",
+    "en": "Processor"
+  },
+  "Profiles_Category_Memory": {
+    "fr": "Mémoire",
+    "en": "Memory"
+  },
+  "Profiles_Category_Gpu": {
+    "fr": "Carte graphique",
+    "en": "Graphics"
+  },
+  "Profiles_Category_Windows": {
+    "fr": "Windows",
+    "en": "Windows"
+  },
+  "Profiles_Category_Network": {
+    "fr": "Réseau",
+    "en": "Network"
+  },
+  "Profiles_Category_Storage": {
+    "fr": "Stockage",
+    "en": "Storage"
+  },
+  "OldPc_Title": {
+    "fr": "Optimiser un ancien PC",
+    "en": "Optimize an older PC"
+  },
+  "OldPc_Subtitle": {
+    "fr": "Des réglages adaptés aux configurations modestes, par niveaux. Chaque niveau est prévisualisé avant d'être appliqué.",
+    "en": "Settings suited to modest configurations, by level. Each level is previewed before it is applied."
+  },
+  "OldPc_Action_Assess": {
+    "fr": "Évaluer mon PC",
+    "en": "Assess my PC"
+  },
+  "OldPc_Assessing": {
+    "fr": "Évaluation en cours…",
+    "en": "Assessing…"
+  },
+  "OldPc_Section_Assessment": {
+    "fr": "Évaluation",
+    "en": "Assessment"
+  },
+  "OldPc_Section_Findings": {
+    "fr": "Constats",
+    "en": "Findings"
+  },
+  "OldPc_Section_Levels": {
+    "fr": "Niveaux d'optimisation",
+    "en": "Optimization levels"
+  },
+  "OldPc_Action_ChooseLevel": {
+    "fr": "Voir les modifications",
+    "en": "See changes"
+  },
+  "OldPc_Action_Apply": {
+    "fr": "Appliquer ce niveau",
+    "en": "Apply this level"
+  },
+  "OldPc_Action_BackToLevels": {
+    "fr": "Retour aux niveaux",
+    "en": "Back to levels"
+  },
+  "OldPc_Indicator_LowMemory": {
+    "fr": "Mémoire limitée",
+    "en": "Limited memory"
+  },
+  "OldPc_Indicator_WeakCpu": {
+    "fr": "Processeur ancien ou peu puissant",
+    "en": "Older or low-power processor"
+  },
+  "OldPc_Indicator_Hdd": {
+    "fr": "Disque système mécanique (HDD)",
+    "en": "Mechanical system drive (HDD)"
+  },
+  "OldPc_Indicator_LowDisk": {
+    "fr": "Peu d'espace libre",
+    "en": "Low free space"
+  },
+  "OldPc_Indicator_HeavyStartup": {
+    "fr": "Démarrage chargé",
+    "en": "Heavy startup"
+  },
+  "OldPc_Indicator_Background": {
+    "fr": "Nombreux processus en arrière-plan",
+    "en": "Many background processes"
+  },
+  "OldPc_Indicator_Detected": {
+    "fr": "Constaté",
+    "en": "Observed"
+  },
+  "OldPc_Indicator_NotDetected": {
+    "fr": "Non constaté",
+    "en": "Not observed"
+  },
+  "OldPc_Summary_None": {
+    "fr": "Ce PC ne présente pas de signe de configuration modeste.",
+    "en": "This PC shows no sign of a modest configuration."
+  },
+  "OldPc_Summary_One": {
+    "fr": "Ce PC présente 1 signe de configuration modeste.",
+    "en": "This PC shows 1 sign of a modest configuration."
+  },
+  "OldPc_Summary_Many": {
+    "fr": "Ce PC présente {0} signes de configuration modeste.",
+    "en": "This PC shows {0} signs of a modest configuration."
+  },
+  "OldPc_Level_Essential_Name": {
+    "fr": "Essentiel",
+    "en": "Essential"
+  },
+  "OldPc_Level_Essential_Description": {
+    "fr": "Les réglages les plus sûrs, à faible risque.",
+    "en": "The safest, low-risk settings."
+  },
+  "OldPc_Level_Standard_Name": {
+    "fr": "Standard",
+    "en": "Standard"
+  },
+  "OldPc_Level_Standard_Description": {
+    "fr": "Le niveau Essentiel, complété par d'autres réglages adaptés aux configurations modestes.",
+    "en": "The Essential level, plus other settings suited to modest configurations."
+  },
+  "OldPc_Level_Advanced_Name": {
+    "fr": "Avancé",
+    "en": "Advanced"
+  },
+  "OldPc_Level_Advanced_Description": {
+    "fr": "Le niveau Standard, complété par des réglages plus poussés. Une confirmation est toujours demandée.",
+    "en": "The Standard level, plus deeper settings. Confirmation is always required."
+  },
+  "OldPc_Level_OneOptimization": {
+    "fr": "1 optimisation",
+    "en": "1 optimization"
+  },
+  "OldPc_Level_Optimizations": {
+    "fr": "{0} optimisations",
+    "en": "{0} optimizations"
+  },
+  "OldPc_Level_AdvancedNotice": {
+    "fr": "Niveau avancé : lisez attentivement les modifications prévues.",
+    "en": "Advanced level: read the planned changes carefully."
+  },
+  "OldPc_Confirm_AdvancedTitle": {
+    "fr": "Appliquer le niveau Avancé ?",
+    "en": "Apply the Advanced level?"
+  },
+  "OldPc_Confirm_AdvancedMessage": {
+    "fr": "{0} {0:plural:modification du niveau Avancé va être appliquée|modifications du niveau Avancé vont être appliquées}. Vérifiez la liste ci-dessous avant de confirmer.",
+    "en": "{0} Advanced-level {0:plural:change|changes} will be applied. Check the list below before confirming."
+  },
+  "Cleanup_Page_Title": {
+    "fr": "Nettoyage",
+    "en": "Cleanup"
+  },
+  "Cleanup_Page_Subtitle": {
+    "fr": "Libérez de l'espace en supprimant des fichiers temporaires. Vos documents, images, vidéos et téléchargements ne sont jamais concernés.",
+    "en": "Free up space by removing temporary files. Your documents, pictures, videos and downloads are never affected."
+  },
+  "Cleanup_Page_Action_Scan": {
+    "fr": "Analyser",
+    "en": "Scan"
+  },
+  "Cleanup_Page_Action_Clean": {
+    "fr": "Nettoyer",
+    "en": "Clean up"
+  },
+  "Cleanup_Page_Action_SelectSafe": {
+    "fr": "Sélection recommandée",
+    "en": "Recommended selection"
+  },
+  "Cleanup_Page_Action_ScanAgain": {
+    "fr": "Analyser à nouveau",
+    "en": "Scan again"
+  },
+  "Cleanup_Page_Action_Storage": {
+    "fr": "Voir le stockage",
+    "en": "View storage"
+  },
+  "Cleanup_Page_Scanning": {
+    "fr": "Analyse en cours…",
+    "en": "Scanning…"
+  },
+  "Cleanup_Page_Cleaning": {
+    "fr": "Nettoyage en cours…",
+    "en": "Cleaning up…"
+  },
+  "Cleanup_Page_IrreversibleNotice": {
+    "fr": "Le nettoyage supprime définitivement les fichiers : il ne peut pas être annulé.",
+    "en": "Cleanup permanently deletes files: it cannot be undone."
+  },
+  "Cleanup_Page_SafetyLegend_Header": {
+    "fr": "Niveaux de sûreté",
+    "en": "Safety levels"
+  },
+  "Cleanup_Page_Selected_Label": {
+    "fr": "Sélection",
+    "en": "Selection"
+  },
+  "Cleanup_Page_Result_Header": {
+    "fr": "Résultat du nettoyage",
+    "en": "Cleanup result"
+  },
+  "Cleanup_Page_Safety_Safe": {
+    "fr": "Sûr",
+    "en": "Safe"
+  },
+  "Cleanup_Page_Safety_Caution": {
+    "fr": "Prudence",
+    "en": "Caution"
+  },
+  "Cleanup_Page_Safety_Advanced": {
+    "fr": "Avancé",
+    "en": "Advanced"
+  },
+  "Cleanup_Page_SafetyDescription_Safe": {
+    "fr": "Fichiers recréés automatiquement si nécessaire. Sélectionnés par défaut.",
+    "en": "Files that are recreated automatically if needed. Selected by default."
+  },
+  "Cleanup_Page_SafetyDescription_Caution": {
+    "fr": "Sans risque pour Windows, mais peut effacer un contenu que vous pourriez vouloir garder (corbeille, caches de navigateur).",
+    "en": "Harmless to Windows, but may erase content you might want to keep (Recycle Bin, browser caches)."
+  },
+  "Cleanup_Page_SafetyDescription_Advanced": {
+    "fr": "Réservé aux utilisateurs avertis : peut ralentir temporairement certaines applications le temps de reconstruire leurs caches.",
+    "en": "For experienced users: may temporarily slow some apps while they rebuild their caches."
+  },
+  "Cleanup_Page_AdminBadge": {
+    "fr": "Administrateur",
+    "en": "Administrator"
+  },
+  "Cleanup_Page_NotScanned": {
+    "fr": "Non analysé",
+    "en": "Not scanned"
+  },
+  "Cleanup_Page_SizeNeedsAdmin": {
+    "fr": "Non mesurable sans droits administrateur",
+    "en": "Can't be measured without administrator rights"
+  },
+  "Cleanup_Page_Unavailable": {
+    "fr": "Indisponible",
+    "en": "Unavailable"
+  },
+  "Cleanup_Page_OneFile": {
+    "fr": "1 fichier",
+    "en": "1 file"
+  },
+  "Cleanup_Page_Files": {
+    "fr": "{0} fichiers",
+    "en": "{0} files"
+  },
+  "Cleanup_Page_ScannedTotal": {
+    "fr": "Espace récupérable : {0}",
+    "en": "Recoverable space: {0}"
+  },
+  "Cleanup_Page_Selection_None": {
+    "fr": "Aucune catégorie sélectionnée",
+    "en": "No category selected"
+  },
+  "Cleanup_Page_Selection_One": {
+    "fr": "1 catégorie sélectionnée — {0}",
+    "en": "1 category selected — {0}"
+  },
+  "Cleanup_Page_Selection_Many": {
+    "fr": "{0} catégories sélectionnées — {1}",
+    "en": "{0} categories selected — {1}"
+  },
+  "Cleanup_Page_Confirm_Title": {
+    "fr": "Supprimer ces fichiers ?",
+    "en": "Delete these files?"
+  },
+  "Cleanup_Page_Confirm_Message": {
+    "fr": "Environ {0} de fichiers temporaires vont être supprimés définitivement. Cette action ne peut pas être annulée.",
+    "en": "About {0} of temporary files will be permanently deleted. This cannot be undone."
+  },
+  "Cleanup_Page_Confirm_MessageAdvanced": {
+    "fr": "Environ {0} vont être supprimés définitivement, y compris des catégories à manipuler avec prudence. Cette action ne peut pas être annulée.",
+    "en": "About {0} will be permanently deleted, including categories that call for caution. This cannot be undone."
+  },
+  "Cleanup_Page_Confirm_Item": {
+    "fr": "{0} — {1} ({2})",
+    "en": "{0} — {1} ({2})"
+  },
+  "Cleanup_Page_Result_Freed": {
+    "fr": "{0} récupérés",
+    "en": "{0} recovered"
+  },
+  "Cleanup_Page_Result_OneFile": {
+    "fr": "1 fichier supprimé",
+    "en": "1 file deleted"
+  },
+  "Cleanup_Page_Result_Files": {
+    "fr": "{0} fichiers supprimés",
+    "en": "{0} files deleted"
+  },
+  "Cleanup_Page_Result_OneSkipped": {
+    "fr": "1 fichier ignoré car utilisé par une application.",
+    "en": "1 file skipped because an app is using it."
+  },
+  "Cleanup_Page_Result_Skipped": {
+    "fr": "{0} fichiers ignorés car utilisés par une application.",
+    "en": "{0} files skipped because an app is using them."
+  },
+  "Cleanup_Page_Result_Category": {
+    "fr": "{0} récupérés ({1} fichiers)",
+    "en": "{0} recovered ({1} files)"
+  },
+  "Cleanup_Page_Result_CategorySkipped": {
+    "fr": "{0} ignorés.",
+    "en": "{0} skipped."
+  },
+  "Startup_Title": {
+    "fr": "Démarrage",
+    "en": "Startup"
+  },
+  "Startup_Subtitle": {
+    "fr": "Choisissez les programmes lancés à l'ouverture de session. La désactivation est réversible et visible dans le Gestionnaire des tâches.",
+    "en": "Choose the programs launched at sign-in. Disabling is reversible and visible in Task Manager."
+  },
+  "Startup_Search_Placeholder": {
+    "fr": "Rechercher un programme",
+    "en": "Search for a program"
+  },
+  "Startup_Filter_Label": {
+    "fr": "Afficher",
+    "en": "Show"
+  },
+  "Startup_Filter_All": {
+    "fr": "Tous",
+    "en": "All"
+  },
+  "Startup_Filter_Enabled": {
+    "fr": "Activés",
+    "en": "Enabled"
+  },
+  "Startup_Filter_Recommended": {
+    "fr": "Recommandés à désactiver",
+    "en": "Recommended to disable"
+  },
+  "Startup_Column_Name": {
+    "fr": "Programme",
+    "en": "Program"
+  },
+  "Startup_Column_Publisher": {
+    "fr": "Éditeur",
+    "en": "Publisher"
+  },
+  "Startup_Column_Status": {
+    "fr": "État",
+    "en": "Status"
+  },
+  "Startup_Detail_Location": {
+    "fr": "Emplacement",
+    "en": "Location"
+  },
+  "Startup_Detail_Signature": {
+    "fr": "Signature",
+    "en": "Signature"
+  },
+  "Startup_Detail_Command": {
+    "fr": "Commande",
+    "en": "Command"
+  },
+  "Startup_Detail_Recommendation": {
+    "fr": "Recommandation",
+    "en": "Recommendation"
+  },
+  "Startup_Detail_Evidence": {
+    "fr": "Mesure",
+    "en": "Measurement"
+  },
+  "Startup_Toggle_AccessibleName": {
+    "fr": "Lancer au démarrage",
+    "en": "Launch at startup"
+  },
+  "Startup_Action_History": {
+    "fr": "Restaurer depuis l'historique",
+    "en": "Restore from history"
+  },
+  "Startup_State_Enabled": {
+    "fr": "Activé",
+    "en": "Enabled"
+  },
+  "Startup_State_Disabled": {
+    "fr": "Désactivé",
+    "en": "Disabled"
+  },
+  "Startup_UnknownPublisher": {
+    "fr": "Éditeur inconnu",
+    "en": "Unknown publisher"
+  },
+  "Startup_AdminBadge": {
+    "fr": "Administrateur",
+    "en": "Administrator"
+  },
+  "Startup_SecurityNotice": {
+    "fr": "Logiciel de sécurité : PCBoost ne le désactive pas.",
+    "en": "Security software: PCBoost does not disable it."
+  },
+  "Startup_MissingExecutable": {
+    "fr": "Le programme associé est introuvable.",
+    "en": "The associated program cannot be found."
+  },
+  "Startup_Impact_NotMeasured": {
+    "fr": "Impact non mesuré",
+    "en": "Impact not measured"
+  },
+  "Startup_Impact_None": {
+    "fr": "Aucun impact mesuré",
+    "en": "No measured impact"
+  },
+  "Startup_Impact_Low": {
+    "fr": "Impact faible",
+    "en": "Low impact"
+  },
+  "Startup_Impact_Medium": {
+    "fr": "Impact moyen",
+    "en": "Medium impact"
+  },
+  "Startup_Impact_High": {
+    "fr": "Impact élevé",
+    "en": "High impact"
+  },
+  "Startup_Badge_Locked": {
+    "fr": "Protégé",
+    "en": "Protected"
+  },
+  "Startup_Recommendation_Keep": {
+    "fr": "À conserver",
+    "en": "Keep"
+  },
+  "Startup_Recommendation_Optional": {
+    "fr": "Facultatif",
+    "en": "Optional"
+  },
+  "Startup_Recommendation_Review": {
+    "fr": "À examiner",
+    "en": "Worth reviewing"
+  },
+  "Startup_Recommendation_CanDisable": {
+    "fr": "Peut être désactivé",
+    "en": "Can be disabled"
+  },
+  "Startup_Location_RegistryRunUser": {
+    "fr": "Registre (utilisateur)",
+    "en": "Registry (user)"
+  },
+  "Startup_Location_RegistryRunMachine": {
+    "fr": "Registre (tous les utilisateurs)",
+    "en": "Registry (all users)"
+  },
+  "Startup_Location_RegistryRunMachine32": {
+    "fr": "Registre (tous les utilisateurs, 32 bits)",
+    "en": "Registry (all users, 32-bit)"
+  },
+  "Startup_Location_StartupFolderUser": {
+    "fr": "Dossier Démarrage (utilisateur)",
+    "en": "Startup folder (user)"
+  },
+  "Startup_Location_StartupFolderCommon": {
+    "fr": "Dossier Démarrage (tous les utilisateurs)",
+    "en": "Startup folder (all users)"
+  },
+  "Startup_Location_ScheduledTaskLogon": {
+    "fr": "Tâche planifiée à l'ouverture de session",
+    "en": "Scheduled task at sign-in"
+  },
+  "Startup_Evidence_NotMeasured": {
+    "fr": "Non mesuré",
+    "en": "Not measured"
+  },
+  "Startup_Evidence_NotRunning": {
+    "fr": "Non mesuré : programme non lancé actuellement",
+    "en": "Not measured: program not currently running"
+  },
+  "Startup_Evidence_Measured": {
+    "fr": "Mesuré : {0}",
+    "en": "Measured: {0}"
+  },
+  "Startup_Evidence_Memory": {
+    "fr": "{0} de mémoire",
+    "en": "{0} of memory"
+  },
+  "Startup_Evidence_Cpu": {
+    "fr": "{0} de processeur",
+    "en": "{0} of processor time"
+  },
+  "Startup_Evidence_Disk": {
+    "fr": "{0} lus sur le disque",
+    "en": "{0} read from disk"
+  },
+  "Startup_Summary": {
+    "fr": "{0} {0:plural:programme|programmes} sur {1} se {0:plural:lance|lancent} au démarrage.",
+    "en": "{0} of {1} {1:plural:program launches|programs launch} at startup."
+  },
+  "Startup_Empty_None": {
+    "fr": "Aucun programme ne se lance au démarrage.",
+    "en": "No programs launch at startup."
+  },
+  "Startup_Empty_Filter": {
+    "fr": "Aucun programme ne correspond à ce filtre.",
+    "en": "No programs match this filter."
+  },
+  "Startup_Enabled": {
+    "fr": "{0} se lancera au démarrage.",
+    "en": "{0} will launch at startup."
+  },
+  "Startup_Disabled": {
+    "fr": "{0} ne se lancera plus au démarrage.",
+    "en": "{0} will no longer launch at startup."
+  },
+  "Startup_Error_ElevationCancelled": {
+    "fr": "L'autorisation administrateur a été refusée : {0} n'a pas été modifié.",
+    "en": "Administrator permission was declined: {0} was not changed."
+  },
+  "Startup_Error_Toggle": {
+    "fr": "{0} n'a pas pu être modifié. {1}",
+    "en": "{0} could not be changed. {1}"
+  },
+  "Processes_Title": {
+    "fr": "Processus",
+    "en": "Processes"
+  },
+  "Processes_Subtitle": {
+    "fr": "Les programmes en cours d'exécution. Les processus essentiels de Windows sont protégés.",
+    "en": "Programs currently running. Essential Windows processes are protected."
+  },
+  "Processes_Search_Placeholder": {
+    "fr": "Rechercher un processus",
+    "en": "Search for a process"
+  },
+  "Processes_Column_Name": {
+    "fr": "Nom",
+    "en": "Name"
+  },
+  "Processes_Column_Pid": {
+    "fr": "PID",
+    "en": "PID"
+  },
+  "Processes_Column_Cpu": {
+    "fr": "CPU",
+    "en": "CPU"
+  },
+  "Processes_Column_Memory": {
+    "fr": "Mémoire",
+    "en": "Memory"
+  },
+  "Processes_Column_Disk": {
+    "fr": "Disque",
+    "en": "Disk"
+  },
+  "Processes_Column_Publisher": {
+    "fr": "Éditeur",
+    "en": "Publisher"
+  },
+  "Processes_Column_Trust": {
+    "fr": "Signature",
+    "en": "Signature"
+  },
+  "Processes_Sort_ToolTip": {
+    "fr": "Trier par cette colonne",
+    "en": "Sort by this column"
+  },
+  "Processes_Detail_Header": {
+    "fr": "Détails",
+    "en": "Details"
+  },
+  "Processes_Detail_Path": {
+    "fr": "Emplacement",
+    "en": "Location"
+  },
+  "Processes_Detail_Trust": {
+    "fr": "Signature",
+    "en": "Signature"
+  },
+  "Processes_Detail_Protection": {
+    "fr": "Protection",
+    "en": "Protection"
+  },
+  "Processes_Detail_StartTime": {
+    "fr": "Démarré le",
+    "en": "Started"
+  },
+  "Processes_Detail_Description": {
+    "fr": "Description",
+    "en": "Description"
+  },
+  "Processes_Action_Close": {
+    "fr": "Fermer l'application",
+    "en": "Close app"
+  },
+  "Processes_Action_Close_ToolTip": {
+    "fr": "Demande à l'application de se fermer normalement (elle peut proposer d'enregistrer).",
+    "en": "Asks the app to close normally (it may offer to save)."
+  },
+  "Processes_Action_Terminate": {
+    "fr": "Terminer le processus",
+    "en": "End process"
+  },
+  "Processes_Action_Terminate_ToolTip": {
+    "fr": "Arrête le processus immédiatement : les données non enregistrées sont perdues.",
+    "en": "Stops the process immediately: unsaved data is lost."
+  },
+  "Processes_Action_OpenLocation": {
+    "fr": "Ouvrir l'emplacement",
+    "en": "Open file location"
+  },
+  "Processes_Action_Properties": {
+    "fr": "Propriétés",
+    "en": "Properties"
+  },
+  "Processes_Action_SearchOnline": {
+    "fr": "Rechercher en ligne",
+    "en": "Search online"
+  },
+  "Processes_Action_SearchOnline_ToolTip": {
+    "fr": "Ouvre une recherche web sur le nom du processus dans votre navigateur.",
+    "en": "Opens a web search for the process name in your browser."
+  },
+  "Processes_AutoRefresh": {
+    "fr": "Liste actualisée toutes les 2 secondes.",
+    "en": "List refreshed every 2 seconds."
+  },
+  "Processes_Paused": {
+    "fr": "Actualisation suspendue pendant l'action en cours.",
+    "en": "Refresh paused during the current action."
+  },
+  "Processes_Count": {
+    "fr": "{0} processus",
+    "en": "{0} processes"
+  },
+  "Processes_UnknownPublisher": {
+    "fr": "Éditeur inconnu",
+    "en": "Unknown publisher"
+  },
+  "Processes_PathUnavailable": {
+    "fr": "Emplacement non accessible",
+    "en": "Location not accessible"
+  },
+  "Processes_Protection_None": {
+    "fr": "Aucune protection particulière",
+    "en": "No special protection"
+  },
+  "Processes_Protection_Sensitive": {
+    "fr": "Composant système : à manipuler avec prudence",
+    "en": "System component: handle with care"
+  },
+  "Processes_Protection_Critical": {
+    "fr": "Processus essentiel de Windows : protégé",
+    "en": "Essential Windows process: protected"
+  },
+  "Processes_Badge_Critical": {
+    "fr": "Protégé",
+    "en": "Protected"
+  },
+  "Processes_Badge_Sensitive": {
+    "fr": "Système",
+    "en": "System"
+  },
+  "Processes_Hint_Select": {
+    "fr": "Sélectionnez un processus pour afficher ses détails et les actions possibles.",
+    "en": "Select a process to see its details and available actions."
+  },
+  "Processes_Critical_Title": {
+    "fr": "Processus protégé",
+    "en": "Protected process"
+  },
+  "Processes_Critical_Message": {
+    "fr": "{0} est un processus essentiel de Windows. Le terminer pourrait rendre le système instable : PCBoost ne le permet pas.",
+    "en": "{0} is an essential Windows process. Ending it could make the system unstable, so PCBoost does not allow it."
+  },
+  "Processes_Terminate_ConfirmTitle": {
+    "fr": "Terminer ce processus ?",
+    "en": "End this process?"
+  },
+  "Processes_Terminate_ConfirmMessage": {
+    "fr": "{0} va être arrêté immédiatement. Les données non enregistrées seront perdues.",
+    "en": "{0} will be stopped immediately. Unsaved data will be lost."
+  },
+  "Processes_Terminate_ConfirmSensitive": {
+    "fr": "{0} est un composant système. L'arrêter peut perturber Windows jusqu'au prochain redémarrage. Les données non enregistrées seront perdues.",
+    "en": "{0} is a system component. Stopping it may disrupt Windows until the next restart. Unsaved data will be lost."
+  },
+  "Processes_Closed": {
+    "fr": "Demande de fermeture envoyée à {0}.",
+    "en": "Close request sent to {0}."
+  },
+  "Processes_Terminated": {
+    "fr": "{0} a été arrêté.",
+    "en": "{0} was stopped."
+  },
+  "Gaming_Title": {
+    "fr": "Mode Gaming",
+    "en": "Gaming mode"
+  },
+  "Gaming_Subtitle": {
+    "fr": "Des réglages temporaires pendant vos parties, restaurés automatiquement ensuite.",
+    "en": "Temporary settings while you play, restored automatically afterwards."
+  },
+  "Gaming_Status_Label": {
+    "fr": "Statut",
+    "en": "Status"
+  },
+  "Gaming_Action_Activate": {
+    "fr": "Activer le mode Gaming",
+    "en": "Turn on Gaming mode"
+  },
+  "Gaming_Action_Deactivate": {
+    "fr": "Désactiver et restaurer",
+    "en": "Turn off and restore"
+  },
+  "Gaming_Action_Detect": {
+    "fr": "Rechercher un jeu",
+    "en": "Look for a game"
+  },
+  "Gaming_Action_RefreshGames": {
+    "fr": "Actualiser la liste",
+    "en": "Refresh list"
+  },
+  "Gaming_Action_Benchmark": {
+    "fr": "Mesurer avant / après",
+    "en": "Measure before / after"
+  },
+  "Gaming_Action_FpsSettings": {
+    "fr": "Réglages de la mesure",
+    "en": "Measurement settings"
+  },
+  "Gaming_Metrics_Header": {
+    "fr": "Mesures en direct",
+    "en": "Live measurements"
+  },
+  "Gaming_Planned_Header": {
+    "fr": "Optimisations prévues",
+    "en": "Planned optimizations"
+  },
+  "Gaming_Planned_Description": {
+    "fr": "Aperçu : rien n'est modifié avant l'activation.",
+    "en": "Preview: nothing is changed until you turn it on."
+  },
+  "Gaming_Active_Header": {
+    "fr": "Optimisations actives",
+    "en": "Active optimizations"
+  },
+  "Gaming_Checks_Header": {
+    "fr": "Paramètres graphiques de Windows",
+    "en": "Windows graphics settings"
+  },
+  "Gaming_Games_Header": {
+    "fr": "Jeux installés détectés",
+    "en": "Installed games detected"
+  },
+  "Gaming_AutoActivation_Header": {
+    "fr": "Activation automatique",
+    "en": "Automatic activation"
+  },
+  "Gaming_AutoActivation_Description": {
+    "fr": "Que faire lorsqu'un jeu est détecté ?",
+    "en": "What to do when a game is detected?"
+  },
+  "Gaming_NoGame": {
+    "fr": "Aucun jeu détecté",
+    "en": "No game detected"
+  },
+  "Gaming_State_Inactive": {
+    "fr": "Inactif",
+    "en": "Off"
+  },
+  "Gaming_State_Activating": {
+    "fr": "Activation…",
+    "en": "Turning on…"
+  },
+  "Gaming_State_Active": {
+    "fr": "Actif",
+    "en": "On"
+  },
+  "Gaming_State_Restoring": {
+    "fr": "Restauration…",
+    "en": "Restoring…"
+  },
+  "Gaming_Metric_Fps": {
+    "fr": "Images par seconde",
+    "en": "Frames per second"
+  },
+  "Gaming_Metric_OnePercentLow": {
+    "fr": "1 % low",
+    "en": "1% low"
+  },
+  "Gaming_Metric_PointOnePercentLow": {
+    "fr": "0,1 % low",
+    "en": "0.1% low"
+  },
+  "Gaming_Metric_FrameTime": {
+    "fr": "Temps d'image",
+    "en": "Frame time"
+  },
+  "Gaming_Metric_FrameTimeP99": {
+    "fr": "99e centile : {0}",
+    "en": "99th percentile: {0}"
+  },
+  "Gaming_Metric_Cpu": {
+    "fr": "Processeur",
+    "en": "Processor"
+  },
+  "Gaming_Metric_Gpu": {
+    "fr": "Carte graphique",
+    "en": "Graphics card"
+  },
+  "Gaming_Metric_Ram": {
+    "fr": "Mémoire",
+    "en": "Memory"
+  },
+  "Gaming_Metric_Vram": {
+    "fr": "Mémoire vidéo",
+    "en": "Video memory"
+  },
+  "Gaming_Metric_CpuTemperature": {
+    "fr": "Température du processeur",
+    "en": "Processor temperature"
+  },
+  "Gaming_Metric_GpuTemperature": {
+    "fr": "Température de la carte graphique",
+    "en": "Graphics card temperature"
+  },
+  "Gaming_Capture_Inactive": {
+    "fr": "Activez le mode Gaming avec un jeu en cours pour mesurer les images.",
+    "en": "Turn on Gaming mode with a game running to measure frames."
+  },
+  "Gaming_Capture_Disabled": {
+    "fr": "Mesure des FPS désactivée (Paramètres > Gaming).",
+    "en": "FPS measurement is turned off (Settings > Gaming)."
+  },
+  "Gaming_Capture_Waiting": {
+    "fr": "En attente des premières images…",
+    "en": "Waiting for the first frames…"
+  },
+  "Gaming_Capture_Available": {
+    "fr": "Mesure des images disponible.",
+    "en": "Frame measurement available."
+  },
+  "Gaming_Capture_RequiresElevation": {
+    "fr": "Autorisation administrateur requise pour mesurer les images.",
+    "en": "Administrator permission is required to measure frames."
+  },
+  "Gaming_Capture_NotSupported": {
+    "fr": "La mesure des images n'est pas prise en charge pour ce jeu ou ce PC.",
+    "en": "Frame measurement is not supported for this game or PC."
+  },
+  "Gaming_Optimization_Applied": {
+    "fr": "Appliquée",
+    "en": "Applied"
+  },
+  "Gaming_Optimization_Skipped": {
+    "fr": "Ignorée",
+    "en": "Skipped"
+  },
+  "Gaming_Optimization_Planned": {
+    "fr": "Prévue",
+    "en": "Planned"
+  },
+  "Gaming_Optimization_NotApplicable": {
+    "fr": "Non applicable",
+    "en": "Not applicable"
+  },
+  "Gaming_Check_Ok": {
+    "fr": "Conforme",
+    "en": "OK"
+  },
+  "Gaming_Check_ToReview": {
+    "fr": "À vérifier",
+    "en": "Worth checking"
+  },
+  "Gaming_Check_OpenSettings": {
+    "fr": "Ouvrir les paramètres Windows",
+    "en": "Open Windows settings"
+  },
+  "Gaming_Games_None": {
+    "fr": "Aucun jeu installé n'a été détecté.",
+    "en": "No installed games were detected."
+  },
+  "Gaming_Games_One": {
+    "fr": "1 jeu détecté",
+    "en": "1 game detected"
+  },
+  "Gaming_Games_Many": {
+    "fr": "{0} jeux détectés",
+    "en": "{0} games detected"
+  },
+  "Gaming_Activated_One": {
+    "fr": "Mode Gaming activé : 1 optimisation appliquée.",
+    "en": "Gaming mode is on: 1 optimization applied."
+  },
+  "Gaming_Activated": {
+    "fr": "Mode Gaming activé : {0} optimisations appliquées.",
+    "en": "Gaming mode is on: {0} optimizations applied."
+  },
+  "Gaming_Restored_One": {
+    "fr": "Mode Gaming désactivé : 1 réglage restauré.",
+    "en": "Gaming mode is off: 1 setting restored."
+  },
+  "Gaming_Restored": {
+    "fr": "Mode Gaming désactivé : {0} réglages restaurés.",
+    "en": "Gaming mode is off: {0} settings restored."
+  },
+  "Gaming_Restored_Partial": {
+    "fr": "Mode Gaming désactivé : {0} réglages restaurés, {1} n'ont pas pu l'être. Voir l'Historique.",
+    "en": "Gaming mode is off: {0} settings restored, {1} could not be. See History."
+  },
+  "Gaming_Source_Unknown": {
+    "fr": "Source inconnue",
+    "en": "Unknown source"
+  },
+  "Gaming_Source_Steam": {
+    "fr": "Steam",
+    "en": "Steam"
+  },
+  "Gaming_Source_EpicGames": {
+    "fr": "Epic Games",
+    "en": "Epic Games"
+  },
+  "Gaming_Source_Xbox": {
+    "fr": "Xbox",
+    "en": "Xbox"
+  },
+  "Gaming_Source_BattleNet": {
+    "fr": "Battle.net",
+    "en": "Battle.net"
+  },
+  "Gaming_Source_Riot": {
+    "fr": "Riot Games",
+    "en": "Riot Games"
+  },
+  "Gaming_Source_Ubisoft": {
+    "fr": "Ubisoft Connect",
+    "en": "Ubisoft Connect"
+  },
+  "Gaming_Source_EA": {
+    "fr": "EA app",
+    "en": "EA app"
+  },
+  "Gaming_Source_Gog": {
+    "fr": "GOG Galaxy",
+    "en": "GOG Galaxy"
+  },
+  "Gaming_Source_WindowsGameConfig": {
+    "fr": "Reconnu par Windows",
+    "en": "Recognized by Windows"
+  },
+  "Gaming_Source_Signature": {
+    "fr": "Reconnu par PCBoost",
+    "en": "Recognized by PCBoost"
+  },
+  "Gaming_Source_Custom": {
+    "fr": "Ajouté manuellement",
+    "en": "Added manually"
+  },
+  "Benchmark_Title": {
+    "fr": "Mesure avant / après",
+    "en": "Before / after measurement"
+  },
+  "Benchmark_Subtitle": {
+    "fr": "Mesurez les performances avant et après un changement. Seuls les écarts réellement mesurés sont affichés.",
+    "en": "Measure performance before and after a change. Only differences that were actually measured are shown."
+  },
+  "Benchmark_Duration_Label": {
+    "fr": "Durée de la mesure",
+    "en": "Measurement duration"
+  },
+  "Benchmark_Label_Label": {
+    "fr": "Libellé (facultatif)",
+    "en": "Label (optional)"
+  },
+  "Benchmark_Label_Placeholder": {
+    "fr": "Ex. : même scène, mêmes réglages",
+    "en": "E.g. same scene, same settings"
+  },
+  "Benchmark_TrackGame_Label": {
+    "fr": "Suivre le jeu détecté",
+    "en": "Track the detected game"
+  },
+  "Benchmark_Action_Before": {
+    "fr": "Mesurer AVANT",
+    "en": "Measure BEFORE"
+  },
+  "Benchmark_Action_After": {
+    "fr": "Mesurer APRÈS",
+    "en": "Measure AFTER"
+  },
+  "Benchmark_Action_Cancel": {
+    "fr": "Arrêter la mesure",
+    "en": "Stop measurement"
+  },
+  "Benchmark_Action_Reset": {
+    "fr": "Nouvelle comparaison",
+    "en": "New comparison"
+  },
+  "Benchmark_Action_DetectGame": {
+    "fr": "Rechercher un jeu",
+    "en": "Look for a game"
+  },
+  "Benchmark_Action_ShowComparison": {
+    "fr": "Voir la comparaison",
+    "en": "View comparison"
+  },
+  "Benchmark_Tip": {
+    "fr": "Pour une comparaison fiable, gardez la même durée et la même activité (même jeu, même scène).",
+    "en": "For a reliable comparison, keep the same duration and activity (same game, same scene)."
+  },
+  "Benchmark_Before_Header": {
+    "fr": "Avant",
+    "en": "Before"
+  },
+  "Benchmark_After_Header": {
+    "fr": "Après",
+    "en": "After"
+  },
+  "Benchmark_Comparison_Header": {
+    "fr": "Comparaison",
+    "en": "Comparison"
+  },
+  "Benchmark_Column_Metric": {
+    "fr": "Mesure",
+    "en": "Metric"
+  },
+  "Benchmark_Column_Before": {
+    "fr": "Avant",
+    "en": "Before"
+  },
+  "Benchmark_Column_After": {
+    "fr": "Après",
+    "en": "After"
+  },
+  "Benchmark_Column_Difference": {
+    "fr": "Écart",
+    "en": "Difference"
+  },
+  "Benchmark_Column_Verdict": {
+    "fr": "Résultat",
+    "en": "Result"
+  },
+  "Benchmark_History_Header": {
+    "fr": "Historique des mesures",
+    "en": "Measurement history"
+  },
+  "Benchmark_History_Empty": {
+    "fr": "Aucune mesure enregistrée.",
+    "en": "No measurements saved."
+  },
+  "Benchmark_Run_CpuLabel": {
+    "fr": "Processeur",
+    "en": "Processor"
+  },
+  "Benchmark_Run_GpuLabel": {
+    "fr": "Carte graphique",
+    "en": "Graphics card"
+  },
+  "Benchmark_Run_RamLabel": {
+    "fr": "Mémoire",
+    "en": "Memory"
+  },
+  "Benchmark_Run_DiskLabel": {
+    "fr": "Disque",
+    "en": "Disk"
+  },
+  "Benchmark_Run_FpsLabel": {
+    "fr": "FPS moyens",
+    "en": "Average FPS"
+  },
+  "Benchmark_Run_OnePercentLowLabel": {
+    "fr": "1 % low",
+    "en": "1% low"
+  },
+  "Benchmark_Run_Cpu": {
+    "fr": "Moyenne {0} — max {1}",
+    "en": "Average {0} — max {1}"
+  },
+  "Benchmark_Run_Samples": {
+    "fr": "{0} échantillons",
+    "en": "{0} samples"
+  },
+  "Benchmark_Progress_Before": {
+    "fr": "Mesure AVANT en cours…",
+    "en": "Measuring BEFORE…"
+  },
+  "Benchmark_Progress_After": {
+    "fr": "Mesure APRÈS en cours…",
+    "en": "Measuring AFTER…"
+  },
+  "Benchmark_BeforeDone": {
+    "fr": "Mesure AVANT enregistrée. Appliquez vos changements, puis lancez la mesure APRÈS.",
+    "en": "BEFORE measurement saved. Apply your changes, then start the AFTER measurement."
+  },
+  "Benchmark_TrackedGame": {
+    "fr": "Jeu suivi : {0}",
+    "en": "Tracked game: {0}"
+  },
+  "Benchmark_NoGameDetected": {
+    "fr": "Aucun jeu détecté : seules les mesures système seront enregistrées.",
+    "en": "No game detected: only system measurements will be recorded."
+  },
+  "Benchmark_NoGame": {
+    "fr": "Sans jeu",
+    "en": "No game"
+  },
+  "Benchmark_NoLabel": {
+    "fr": "Mesure sans libellé",
+    "en": "Unlabeled measurement"
+  },
+  "Benchmark_NotComparable": {
+    "fr": "Non comparable",
+    "en": "Not comparable"
+  },
+  "Benchmark_Delta_Points": {
+    "fr": "{0} pts",
+    "en": "{0} pts"
+  },
+  "Benchmark_Verdict_Better": {
+    "fr": "Mieux",
+    "en": "Better"
+  },
+  "Benchmark_Verdict_Worse": {
+    "fr": "Moins bien",
+    "en": "Worse"
+  },
+  "Benchmark_Verdict_Same": {
+    "fr": "Identique",
+    "en": "Same"
+  },
+  "Benchmark_Verdict_NotComparable": {
+    "fr": "Non comparable (mesure absente)",
+    "en": "Not comparable (missing measurement)"
+  },
+  "Benchmark_Notice_Duration": {
+    "fr": "Les deux mesures n'ont pas la même durée.",
+    "en": "The two measurements have different durations."
+  },
+  "Benchmark_Notice_Game": {
+    "fr": "Les deux mesures ne portent pas sur le même jeu.",
+    "en": "The two measurements are not for the same game."
+  },
+  "Benchmark_PairMissing": {
+    "fr": "La mesure AVANT associée n'est plus disponible.",
+    "en": "The matching BEFORE measurement is no longer available."
+  },
+  "Benchmark_Phase_Before": {
+    "fr": "Avant",
+    "en": "Before"
+  },
+  "Benchmark_Phase_After": {
+    "fr": "Après",
+    "en": "After"
+  },
+  "Benchmark_Phase_Standalone": {
+    "fr": "Mesure seule",
+    "en": "Single measurement"
+  },
+  "Benchmark_Metric_AverageFps": {
+    "fr": "FPS moyens",
+    "en": "Average FPS"
+  },
+  "Benchmark_Metric_OnePercentLowFps": {
+    "fr": "1 % low",
+    "en": "1% low"
+  },
+  "Benchmark_Metric_PointOnePercentLowFps": {
+    "fr": "0,1 % low",
+    "en": "0.1% low"
+  },
+  "Benchmark_Metric_AverageFrameTimeMs": {
+    "fr": "Temps d'image moyen",
+    "en": "Average frame time"
+  },
+  "Benchmark_Metric_P99FrameTimeMs": {
+    "fr": "Temps d'image (99e centile)",
+    "en": "Frame time (99th percentile)"
+  },
+  "Benchmark_Metric_CpuAveragePercent": {
+    "fr": "Processeur (moyenne)",
+    "en": "Processor (average)"
+  },
+  "Benchmark_Metric_CpuMaxPercent": {
+    "fr": "Processeur (maximum)",
+    "en": "Processor (maximum)"
+  },
+  "Benchmark_Metric_GpuAveragePercent": {
+    "fr": "Carte graphique (moyenne)",
+    "en": "Graphics card (average)"
+  },
+  "Benchmark_Metric_GpuMaxPercent": {
+    "fr": "Carte graphique (maximum)",
+    "en": "Graphics card (maximum)"
+  },
+  "Benchmark_Metric_RamAveragePercent": {
+    "fr": "Mémoire (moyenne)",
+    "en": "Memory (average)"
+  },
+  "Benchmark_Metric_DiskActiveAveragePercent": {
+    "fr": "Activité du disque (moyenne)",
+    "en": "Disk activity (average)"
+  },
+  "Performance_Title": {
+    "fr": "Performances",
+    "en": "Performance"
+  },
+  "Performance_Subtitle": {
+    "fr": "Charge de votre PC en temps réel et historique.",
+    "en": "Your PC's load in real time and over time."
+  },
+  "Performance_Period_Label": {
+    "fr": "Période",
+    "en": "Period"
+  },
+  "Performance_Current": {
+    "fr": "Actuel",
+    "en": "Current"
+  },
+  "Performance_Average": {
+    "fr": "Moyenne",
+    "en": "Average"
+  },
+  "Performance_Maximum": {
+    "fr": "Maximum",
+    "en": "Maximum"
+  },
+  "Performance_AxisEnd": {
+    "fr": "Maintenant",
+    "en": "Now"
+  },
+  "Performance_Paused": {
+    "fr": "La surveillance est en pause : les graphiques ne sont plus mis à jour.",
+    "en": "Monitoring is paused: charts are no longer updated."
+  },
+  "Performance_NoHistory": {
+    "fr": "Aucun historique enregistré pour cette période.",
+    "en": "No history recorded for this period."
+  },
+  "Performance_Section_Usage": {
+    "fr": "Utilisation",
+    "en": "Usage"
+  },
+  "Performance_Section_Network": {
+    "fr": "Réseau",
+    "en": "Network"
+  },
+  "Performance_Section_Temperatures": {
+    "fr": "Températures",
+    "en": "Temperatures"
+  },
+  "Performance_Metric_Cpu": {
+    "fr": "Processeur",
+    "en": "Processor"
+  },
+  "Performance_Metric_Memory": {
+    "fr": "Mémoire",
+    "en": "Memory"
+  },
+  "Performance_Metric_Disk": {
+    "fr": "Disque",
+    "en": "Disk"
+  },
+  "Performance_Metric_Gpu": {
+    "fr": "Carte graphique",
+    "en": "Graphics card"
+  },
+  "Performance_Metric_NetworkReceive": {
+    "fr": "Réception",
+    "en": "Download"
+  },
+  "Performance_Metric_NetworkSend": {
+    "fr": "Envoi",
+    "en": "Upload"
+  },
+  "Performance_Metric_CpuTemperature": {
+    "fr": "Processeur",
+    "en": "Processor"
+  },
+  "Performance_Metric_GpuTemperature": {
+    "fr": "Carte graphique",
+    "en": "Graphics card"
+  },
+  "Performance_Period_30s": {
+    "fr": "30 s",
+    "en": "30 s"
+  },
+  "Performance_Period_5m": {
+    "fr": "5 min",
+    "en": "5 min"
+  },
+  "Performance_Period_30m": {
+    "fr": "30 min",
+    "en": "30 min"
+  },
+  "Performance_Period_24h": {
+    "fr": "24 h",
+    "en": "24 h"
+  },
+  "Performance_Period_7d": {
+    "fr": "7 jours",
+    "en": "7 days"
+  },
+  "Performance_AxisStart_30s": {
+    "fr": "Il y a 30 s",
+    "en": "30 s ago"
+  },
+  "Performance_AxisStart_5m": {
+    "fr": "Il y a 5 min",
+    "en": "5 min ago"
+  },
+  "Performance_AxisStart_30m": {
+    "fr": "Il y a 30 min",
+    "en": "30 min ago"
+  },
+  "Performance_AxisStart_24h": {
+    "fr": "Il y a 24 h",
+    "en": "24 h ago"
+  },
+  "Performance_AxisStart_7d": {
+    "fr": "Il y a 7 jours",
+    "en": "7 days ago"
+  },
+  "Performance_Interval": {
+    "fr": "Intervalle de mesure : {0}",
+    "en": "Measurement interval: {0}"
+  },
+  "Performance_Scale_Percent": {
+    "fr": "0 – 100 %",
+    "en": "0 – 100%"
+  },
+  "Performance_Scale_Temperature": {
+    "fr": "0 – 100 °C",
+    "en": "0 – 100 °C"
+  },
+  "Performance_Scale_Max": {
+    "fr": "Max : {0}",
+    "en": "Max: {0}"
+  },
+  "Performance_Unavailable_Live": {
+    "fr": "Non disponible sur ce PC",
+    "en": "Not available on this PC"
+  },
+  "Performance_Unavailable_History": {
+    "fr": "Aucune mesure enregistrée sur cette période",
+    "en": "No measurements recorded for this period"
+  },
+  "Performance_Unavailable_NotRecorded": {
+    "fr": "Non enregistré dans l'historique",
+    "en": "Not recorded in history"
+  },
+  "History_Title": {
+    "fr": "Historique",
+    "en": "History"
+  },
+  "History_Subtitle": {
+    "fr": "Toutes les modifications faites par PCBoost, avec la possibilité de les annuler.",
+    "en": "Every change made by PCBoost, with the option to undo it."
+  },
+  "History_Tab_Sessions": {
+    "fr": "Sessions",
+    "en": "Sessions"
+  },
+  "History_Tab_Journal": {
+    "fr": "Journal des modifications",
+    "en": "Change log"
+  },
+  "History_Empty": {
+    "fr": "Aucune modification n'a encore été effectuée.",
+    "en": "No changes have been made yet."
+  },
+  "History_Session_Details": {
+    "fr": "Détails",
+    "en": "Details"
+  },
+  "History_Change_TargetLabel": {
+    "fr": "Cible",
+    "en": "Target"
+  },
+  "History_Change_StatusLabel": {
+    "fr": "État",
+    "en": "Status"
+  },
+  "History_Change_Undo": {
+    "fr": "Annuler cette modification",
+    "en": "Undo this change"
+  },
+  "History_Change_Undone": {
+    "fr": "Modification annulée : {0}",
+    "en": "Change undone: {0}"
+  },
+  "History_OneChange": {
+    "fr": "1 modification",
+    "en": "1 change"
+  },
+  "History_Changes": {
+    "fr": "{0} modifications",
+    "en": "{0} changes"
+  },
+  "History_BytesFreed": {
+    "fr": "{0} libérés",
+    "en": "{0} freed"
+  },
+  "History_RequiresRestart": {
+    "fr": "Redémarrage nécessaire",
+    "en": "Restart required"
+  },
+  "History_Restore_ConfirmTitle": {
+    "fr": "Restaurer cette session ?",
+    "en": "Restore this session?"
+  },
+  "History_Restore_ConfirmMessage": {
+    "fr": "Les modifications réversibles de « {0} » ({1}) vont être annulées. Les fichiers supprimés ne peuvent pas être récupérés.",
+    "en": "The reversible changes from \"{0}\" ({1}) will be undone. Deleted files cannot be recovered."
+  },
+  "History_Restore_OneRestored": {
+    "fr": "1 modification restaurée.",
+    "en": "1 change restored."
+  },
+  "History_Restore_Restored": {
+    "fr": "{0} modifications restaurées.",
+    "en": "{0} changes restored."
+  },
+  "History_Restore_Failed": {
+    "fr": "{0} n'ont pas pu être restaurées.",
+    "en": "{0} could not be restored."
+  },
+  "History_Restore_Irreversible": {
+    "fr": "{0} actions irréversibles (fichiers supprimés) restent inchangées.",
+    "en": "{0} irreversible actions (deleted files) remain unchanged."
+  },
+  "History_Type_OneClick": {
+    "fr": "Optimisation en un clic",
+    "en": "One-click optimization"
+  },
+  "History_Type_Manual": {
+    "fr": "Optimisation manuelle",
+    "en": "Manual optimization"
+  },
+  "History_Type_Cleanup": {
+    "fr": "Nettoyage",
+    "en": "Cleanup"
+  },
+  "History_Type_Startup": {
+    "fr": "Démarrage",
+    "en": "Startup"
+  },
+  "History_Type_Profile": {
+    "fr": "Profil",
+    "en": "Profile"
+  },
+  "History_Type_Gaming": {
+    "fr": "Mode Gaming",
+    "en": "Gaming mode"
+  },
+  "History_Type_OldPcAssistant": {
+    "fr": "Assistant ancien PC",
+    "en": "Older PC assistant"
+  },
+  "History_Type_Automatic": {
+    "fr": "Optimisation automatique",
+    "en": "Automatic optimization"
+  },
+  "History_Status_InProgress": {
+    "fr": "En cours",
+    "en": "In progress"
+  },
+  "History_Status_Completed": {
+    "fr": "Terminée",
+    "en": "Completed"
+  },
+  "History_Status_PartiallyCompleted": {
+    "fr": "Terminée partiellement",
+    "en": "Partially completed"
+  },
+  "History_Status_Failed": {
+    "fr": "Échec",
+    "en": "Failed"
+  },
+  "History_Status_RolledBack": {
+    "fr": "Restaurée",
+    "en": "Restored"
+  },
+  "History_Status_PartiallyRolledBack": {
+    "fr": "Restaurée partiellement",
+    "en": "Partially restored"
+  },
+  "History_Status_Interrupted": {
+    "fr": "Interrompue",
+    "en": "Interrupted"
+  },
+  "History_Status_Dismissed": {
+    "fr": "Conservée après interruption",
+    "en": "Kept after interruption"
+  },
+  "History_ChangeStatus_Pending": {
+    "fr": "En attente",
+    "en": "Pending"
+  },
+  "History_ChangeStatus_Applied": {
+    "fr": "Appliquée",
+    "en": "Applied"
+  },
+  "History_ChangeStatus_Failed": {
+    "fr": "Échec",
+    "en": "Failed"
+  },
+  "History_ChangeStatus_RolledBack": {
+    "fr": "Annulée",
+    "en": "Undone"
+  },
+  "History_ChangeStatus_RollbackFailed": {
+    "fr": "Annulation impossible",
+    "en": "Undo failed"
+  },
+  "History_ChangeStatus_Irreversible": {
+    "fr": "Irréversible",
+    "en": "Cannot be undone"
+  },
+  "Journal_Title": {
+    "fr": "Journal des modifications",
+    "en": "Change log"
+  },
+  "Journal_Subtitle": {
+    "fr": "Ce que PCBoost a fait, du plus récent au plus ancien.",
+    "en": "What PCBoost has done, most recent first."
+  },
+  "Journal_Empty": {
+    "fr": "Le journal est vide.",
+    "en": "The log is empty."
+  },
+  "Journal_Kind_Info": {
+    "fr": "Information",
+    "en": "Information"
+  },
+  "Journal_Kind_Analysis": {
+    "fr": "Analyse",
+    "en": "Analysis"
+  },
+  "Journal_Kind_Optimization": {
+    "fr": "Optimisation",
+    "en": "Optimization"
+  },
+  "Journal_Kind_Cleanup": {
+    "fr": "Nettoyage",
+    "en": "Cleanup"
+  },
+  "Journal_Kind_Startup": {
+    "fr": "Démarrage",
+    "en": "Startup"
+  },
+  "Journal_Kind_Rollback": {
+    "fr": "Restauration",
+    "en": "Restore"
+  },
+  "Journal_Kind_Gaming": {
+    "fr": "Gaming",
+    "en": "Gaming"
+  },
+  "Journal_Kind_Warning": {
+    "fr": "Avertissement",
+    "en": "Warning"
+  },
+  "Journal_Kind_Error": {
+    "fr": "Erreur",
+    "en": "Error"
+  },
+  "Settings_Title": {
+    "fr": "Paramètres",
+    "en": "Settings"
+  },
+  "Settings_Section_General": {
+    "fr": "Général",
+    "en": "General"
+  },
+  "Settings_Language_Label": {
+    "fr": "Langue",
+    "en": "Language"
+  },
+  "Settings_Language_Description": {
+    "fr": "Le changement s'applique immédiatement.",
+    "en": "The change applies immediately."
+  },
+  "Settings_Language_System": {
+    "fr": "Langue du système",
+    "en": "System language"
+  },
+  "Settings_LaunchAtStartup_Label": {
+    "fr": "Lancer PCBoost avec Windows",
+    "en": "Start PCBoost with Windows"
+  },
+  "Settings_Theme_Label": {
+    "fr": "Thème",
+    "en": "Theme"
+  },
+  "Settings_Theme_System": {
+    "fr": "Selon Windows",
+    "en": "Use Windows setting"
+  },
+  "Settings_Theme_Light": {
+    "fr": "Clair",
+    "en": "Light"
+  },
+  "Settings_Theme_Dark": {
+    "fr": "Sombre",
+    "en": "Dark"
+  },
+  "Settings_Notifications_Label": {
+    "fr": "Notifications",
+    "en": "Notifications"
+  },
+  "Settings_Notifications_Description": {
+    "fr": "Afficher des notifications Windows (analyse terminée, jeu détecté…).",
+    "en": "Show Windows notifications (analysis finished, game detected…)."
+  },
+  "Settings_Monitoring_Label": {
+    "fr": "Surveillance en arrière-plan",
+    "en": "Background monitoring"
+  },
+  "Settings_Monitoring_Description": {
+    "fr": "Mesure légère de la charge pour l'historique et les alertes.",
+    "en": "Lightweight load measurement for history and alerts."
+  },
+  "Settings_AutoOptimizations_Label": {
+    "fr": "Optimisations automatiques sûres",
+    "en": "Safe automatic optimizations"
+  },
+  "Settings_AutoOptimizations_Description": {
+    "fr": "Autoriser PCBoost à appliquer seul des optimisations à faible risque et réversibles. Elles restent visibles dans l'Historique.",
+    "en": "Allow PCBoost to apply low-risk, reversible optimizations on its own. They remain visible in History."
+  },
+  "Settings_MinimizeToTray_Label": {
+    "fr": "Réduire dans la zone de notification",
+    "en": "Minimize to the notification area"
+  },
+  "Settings_MinimizeToTray_Description": {
+    "fr": "Fermer la fenêtre laisse PCBoost actif dans la zone de notification.",
+    "en": "Closing the window keeps PCBoost running in the notification area."
+  },
+  "Settings_ExpertMode_Label": {
+    "fr": "Mode Expert",
+    "en": "Expert mode"
+  },
+  "Settings_ExpertMode_Description": {
+    "fr": "Afficher les détails techniques (cibles, états avant/après, journaux).",
+    "en": "Show technical details (targets, before/after states, logs)."
+  },
+  "Settings_Section_Gaming": {
+    "fr": "Gaming",
+    "en": "Gaming"
+  },
+  "Settings_AutoGaming_Label": {
+    "fr": "Activation automatique du mode Gaming",
+    "en": "Automatic Gaming mode"
+  },
+  "Settings_AutoGaming_Off": {
+    "fr": "Désactivée",
+    "en": "Off"
+  },
+  "Settings_AutoGaming_Ask": {
+    "fr": "Demander",
+    "en": "Ask"
+  },
+  "Settings_AutoGaming_Automatic": {
+    "fr": "Automatique",
+    "en": "Automatic"
+  },
+  "Settings_AutoRestore_Label": {
+    "fr": "Restaurer automatiquement à la fermeture du jeu",
+    "en": "Restore automatically when the game closes"
+  },
+  "Settings_MonitorSession_Label": {
+    "fr": "Surveiller pendant la session de jeu",
+    "en": "Monitor during the game session"
+  },
+  "Settings_MeasureFps_Label": {
+    "fr": "Mesurer les FPS",
+    "en": "Measure FPS"
+  },
+  "Settings_MeasureFps_Description": {
+    "fr": "Nécessite une autorisation administrateur ponctuelle au début de la mesure. Aucune injection dans le jeu.",
+    "en": "Requires one-time administrator permission when measurement starts. Nothing is injected into the game."
+  },
+  "Settings_PowerPlan_Label": {
+    "fr": "Changer de mode d'alimentation pendant le jeu",
+    "en": "Switch power plan while gaming"
+  },
+  "Settings_Priority_Label": {
+    "fr": "Augmenter la priorité du jeu",
+    "en": "Raise the game's priority"
+  },
+  "Settings_BackgroundApps_Label": {
+    "fr": "Réduire l'activité des applications en arrière-plan",
+    "en": "Reduce background app activity"
+  },
+  "Settings_PreferredGame_Label": {
+    "fr": "Jeu prioritaire",
+    "en": "Preferred game"
+  },
+  "Settings_PreferredGame_None": {
+    "fr": "Aucun",
+    "en": "None"
+  },
+  "Settings_Section_Security": {
+    "fr": "Sécurité",
+    "en": "Security"
+  },
+  "Settings_ConfirmSensitive_Label": {
+    "fr": "Demander confirmation avant les opérations sensibles",
+    "en": "Ask for confirmation before sensitive operations"
+  },
+  "Settings_ConfirmSensitive_Description": {
+    "fr": "Les actions irréversibles ou à risque élevé sont toujours confirmées.",
+    "en": "Irreversible or high-risk actions are always confirmed."
+  },
+  "Settings_VerboseLogging_Label": {
+    "fr": "Journalisation détaillée",
+    "en": "Detailed logging"
+  },
+  "Settings_VerboseLogging_Description": {
+    "fr": "Utile pour le support ; aucune donnée personnelle n'est enregistrée.",
+    "en": "Useful for support; no personal data is recorded."
+  },
+  "Settings_Retention_Label": {
+    "fr": "Conserver l'historique",
+    "en": "Keep history for"
+  },
+  "Settings_Retention_Days": {
+    "fr": "{0} jours",
+    "en": "{0} days"
+  },
+  "Settings_Recommendations_Label": {
+    "fr": "Recommandations masquées",
+    "en": "Hidden recommendations"
+  },
+  "Settings_Action_RestoreRecommendations": {
+    "fr": "Réafficher",
+    "en": "Show again"
+  },
+  "Settings_Recommendations_NoneDismissed": {
+    "fr": "Aucune recommandation masquée",
+    "en": "No hidden recommendations"
+  },
+  "Settings_Recommendations_OneDismissed": {
+    "fr": "1 recommandation masquée",
+    "en": "1 hidden recommendation"
+  },
+  "Settings_Recommendations_Dismissed": {
+    "fr": "{0} recommandations masquées",
+    "en": "{0} hidden recommendations"
+  },
+  "Settings_Recommendations_Restored": {
+    "fr": "Les recommandations masquées seront de nouveau affichées.",
+    "en": "Hidden recommendations will be shown again."
+  },
+  "Settings_Section_Diagnostic": {
+    "fr": "Diagnostic",
+    "en": "Diagnostics"
+  },
+  "Settings_Logs_Label": {
+    "fr": "Journaux de l'application",
+    "en": "Application logs"
+  },
+  "Settings_Action_OpenLogs": {
+    "fr": "Ouvrir le dossier des journaux",
+    "en": "Open log folder"
+  },
+  "Settings_Section_Updates": {
+    "fr": "Mises à jour",
+    "en": "Updates"
+  },
+  "Settings_Action_CheckUpdates": {
+    "fr": "Rechercher des mises à jour",
+    "en": "Check for updates"
+  },
+  "Settings_Action_DownloadUpdate": {
+    "fr": "Télécharger",
+    "en": "Download"
+  },
+  "Settings_Action_InstallUpdate": {
+    "fr": "Installer",
+    "en": "Install"
+  },
+  "Settings_Update_Integrity": {
+    "fr": "L'intégrité du fichier est vérifiée (SHA-256) avant l'installation.",
+    "en": "The file's integrity is verified (SHA-256) before installation."
+  },
+  "Settings_Update_ReleaseNotes": {
+    "fr": "Nouveautés",
+    "en": "What's new"
+  },
+  "Settings_Update_CurrentVersion": {
+    "fr": "Version installée : {0}",
+    "en": "Installed version: {0}"
+  },
+  "Settings_Update_NotChecked": {
+    "fr": "Aucune vérification effectuée pour le moment.",
+    "en": "No check performed yet."
+  },
+  "Settings_Update_Checking": {
+    "fr": "Recherche de mises à jour…",
+    "en": "Checking for updates…"
+  },
+  "Settings_Update_UpToDate": {
+    "fr": "Vous utilisez la dernière version.",
+    "en": "You are using the latest version."
+  },
+  "Settings_Update_Available": {
+    "fr": "La version {0} est disponible.",
+    "en": "Version {0} is available."
+  },
+  "Settings_Update_NotConfigured": {
+    "fr": "Les mises à jour automatiques ne sont pas configurées pour cette version.",
+    "en": "Automatic updates are not configured for this version."
+  },
+  "Settings_Update_Failed": {
+    "fr": "La recherche de mises à jour n'a pas abouti.",
+    "en": "The update check did not succeed."
+  },
+  "Settings_Update_DownloadFailed": {
+    "fr": "Le téléchargement ou la vérification de la mise à jour a échoué. Rien n'a été installé.",
+    "en": "Downloading or verifying the update failed. Nothing was installed."
+  },
+  "Settings_Update_Ready": {
+    "fr": "La version {0} est prête à être installée.",
+    "en": "Version {0} is ready to install."
+  },
+  "Settings_Section_About": {
+    "fr": "À propos",
+    "en": "About"
+  },
+  "Settings_Action_Privacy": {
+    "fr": "Confidentialité",
+    "en": "Privacy"
+  },
+  "Settings_Action_About": {
+    "fr": "À propos de PCBoost",
+    "en": "About PCBoost"
+  },
+  "Privacy_Title": {
+    "fr": "Confidentialité",
+    "en": "Privacy"
+  },
+  "Privacy_Headline": {
+    "fr": "Vos données restent sur votre ordinateur.",
+    "en": "Your data stays on your computer."
+  },
+  "Privacy_Intro": {
+    "fr": "PCBoost fonctionne hors ligne. Il n'envoie aucune donnée, n'utilise aucun compte et n'intègre aucune télémétrie.",
+    "en": "PCBoost works offline. It sends no data, uses no account and includes no telemetry."
+  },
+  "Privacy_Stored_Header": {
+    "fr": "Ce qui est enregistré sur ce PC",
+    "en": "What is stored on this PC"
+  },
+  "Privacy_Location_Label": {
+    "fr": "Emplacement des données",
+    "en": "Data location"
+  },
+  "Privacy_NotCollected_Header": {
+    "fr": "Ce que PCBoost ne collecte jamais",
+    "en": "What PCBoost never collects"
+  },
+  "Privacy_Telemetry_Label": {
+    "fr": "Télémétrie",
+    "en": "Telemetry"
+  },
+  "Privacy_Telemetry_Value": {
+    "fr": "Désactivée : PCBoost n'en contient aucune.",
+    "en": "Off: PCBoost contains none."
+  },
+  "Privacy_Action_OpenData": {
+    "fr": "Ouvrir le dossier des données",
+    "en": "Open data folder"
+  },
+  "Privacy_Action_OpenLogs": {
+    "fr": "Ouvrir le dossier des journaux",
+    "en": "Open log folder"
+  },
+  "Privacy_Deletion_Note": {
+    "fr": "Pour tout effacer, désinstallez PCBoost puis supprimez ce dossier.",
+    "en": "To erase everything, uninstall PCBoost and then delete this folder."
+  },
+  "Privacy_Stored_Settings": {
+    "fr": "Préférences",
+    "en": "Preferences"
+  },
+  "Privacy_Stored_SettingsDetail": {
+    "fr": "Langue, thème, options choisies dans les Paramètres.",
+    "en": "Language, theme and options chosen in Settings."
+  },
+  "Privacy_Stored_History": {
+    "fr": "Historique des modifications",
+    "en": "Change history"
+  },
+  "Privacy_Stored_HistoryDetail": {
+    "fr": "Modifications effectuées et état d'origine, pour pouvoir les annuler.",
+    "en": "Changes made and their original state, so they can be undone."
+  },
+  "Privacy_Stored_Scans": {
+    "fr": "Résultats d'analyse",
+    "en": "Analysis results"
+  },
+  "Privacy_Stored_ScansDetail": {
+    "fr": "Score et nombre de constats de chaque analyse.",
+    "en": "Score and number of findings from each analysis."
+  },
+  "Privacy_Stored_Performance": {
+    "fr": "Historique de performances",
+    "en": "Performance history"
+  },
+  "Privacy_Stored_PerformanceDetail": {
+    "fr": "Charge du processeur, de la mémoire, du disque et températures, pour les graphiques.",
+    "en": "Processor, memory, disk load and temperatures, for the charts."
+  },
+  "Privacy_Stored_Benchmarks": {
+    "fr": "Mesures avant / après",
+    "en": "Before / after measurements"
+  },
+  "Privacy_Stored_BenchmarksDetail": {
+    "fr": "Résultats des mesures que vous avez lancées.",
+    "en": "Results of the measurements you started."
+  },
+  "Privacy_Stored_Journal": {
+    "fr": "Journal des modifications",
+    "en": "Change log"
+  },
+  "Privacy_Stored_JournalDetail": {
+    "fr": "Liste chronologique des actions de PCBoost.",
+    "en": "Chronological list of PCBoost's actions."
+  },
+  "Privacy_Stored_Logs": {
+    "fr": "Journaux techniques",
+    "en": "Technical logs"
+  },
+  "Privacy_Stored_LogsDetail": {
+    "fr": "Fichiers de diagnostic, sans données personnelles : {0}",
+    "en": "Diagnostic files, without personal data: {0}"
+  },
+  "Privacy_NotCollected_Files": {
+    "fr": "Le contenu de vos fichiers et documents",
+    "en": "The content of your files and documents"
+  },
+  "Privacy_NotCollected_Browsing": {
+    "fr": "Votre historique de navigation",
+    "en": "Your browsing history"
+  },
+  "Privacy_NotCollected_Telemetry": {
+    "fr": "Des statistiques d'utilisation ou de télémétrie",
+    "en": "Usage statistics or telemetry"
+  },
+  "Privacy_NotCollected_Account": {
+    "fr": "Un compte, une adresse e-mail ou un identifiant",
+    "en": "An account, email address or identifier"
+  },
+  "About_Title": {
+    "fr": "À propos",
+    "en": "About"
+  },
+  "About_Description": {
+    "fr": "Application locale d'analyse et d'optimisation des performances Windows.",
+    "en": "Local app for analyzing and optimizing Windows performance."
+  },
+  "About_Version": {
+    "fr": "Version {0}",
+    "en": "Version {0}"
+  },
+  "About_Publisher": {
+    "fr": "Éditeur",
+    "en": "Publisher"
+  },
+  "About_License": {
+    "fr": "Licence",
+    "en": "License"
+  },
+  "About_DotNet": {
+    "fr": "Version de .NET",
+    "en": ".NET version"
+  },
+  "About_WindowsAppSdk": {
+    "fr": "Windows App SDK",
+    "en": "Windows App SDK"
+  },
+  "About_Action_Website": {
+    "fr": "Site web",
+    "en": "Website"
+  },
+  "About_Action_Support": {
+    "fr": "Support",
+    "en": "Support"
+  },
+  "About_Honesty_Note": {
+    "fr": "PCBoost n'affiche que des valeurs mesurées ; une mesure indisponible est indiquée « Non disponible ».",
+    "en": "PCBoost only shows measured values; an unavailable measurement is shown as \"Not available\"."
+  },
+  "Storage_Title": {
+    "fr": "Stockage",
+    "en": "Storage"
+  },
+  "Storage_Subtitle": {
+    "fr": "Répartition de l'espace du disque système.",
+    "en": "How the system drive's space is used."
+  },
+  "Storage_Reminder": {
+    "fr": "PCBoost ne supprime jamais vos fichiers personnels.",
+    "en": "PCBoost never deletes your personal files."
+  },
+  "Storage_Used_Label": {
+    "fr": "Utilisé",
+    "en": "Used"
+  },
+  "Storage_Free_Label": {
+    "fr": "Libre",
+    "en": "Free"
+  },
+  "Storage_Total_Label": {
+    "fr": "Total",
+    "en": "Total"
+  },
+  "Storage_Categories_Header": {
+    "fr": "Catégories",
+    "en": "Categories"
+  },
+  "Storage_LargestFolders_Header": {
+    "fr": "Dossiers les plus volumineux",
+    "en": "Largest folders"
+  },
+  "Storage_Action_Open": {
+    "fr": "Ouvrir",
+    "en": "Open"
+  },
+  "Storage_Action_Analyze": {
+    "fr": "Analyser à nouveau",
+    "en": "Analyze again"
+  },
+  "Storage_Action_Cleanup": {
+    "fr": "Nettoyer les fichiers temporaires",
+    "en": "Clean up temporary files"
+  },
+  "Storage_Unavailable": {
+    "fr": "L'analyse du stockage n'est pas disponible.",
+    "en": "Storage analysis is not available."
+  },
+  "Storage_Analyzing": {
+    "fr": "Analyse du stockage en cours…",
+    "en": "Analyzing storage…"
+  },
+  "Storage_NotMeasured": {
+    "fr": "Non mesuré",
+    "en": "Not measured"
+  },
+  "Storage_SystemDrive": {
+    "fr": "Disque système ({0})",
+    "en": "System drive ({0})"
+  },
+  "Storage_Date": {
+    "fr": "Analyse effectuée {0}",
+    "en": "Analysis run {0}"
+  },
+  "Storage_Category_Documents": {
+    "fr": "Documents",
+    "en": "Documents"
+  },
+  "Storage_Category_Downloads": {
+    "fr": "Téléchargements",
+    "en": "Downloads"
+  },
+  "Storage_Category_Desktop": {
+    "fr": "Bureau",
+    "en": "Desktop"
+  },
+  "Storage_Category_Pictures": {
+    "fr": "Images",
+    "en": "Pictures"
+  },
+  "Storage_Category_Videos": {
+    "fr": "Vidéos",
+    "en": "Videos"
+  },
+  "Storage_Category_Music": {
+    "fr": "Musique",
+    "en": "Music"
+  },
+  "Storage_Category_Applications": {
+    "fr": "Applications",
+    "en": "Applications"
+  },
+  "Storage_Category_Temporary": {
+    "fr": "Fichiers temporaires",
+    "en": "Temporary files"
+  },
+  "Storage_Category_System": {
+    "fr": "Système",
+    "en": "System"
+  },
+  "Storage_Category_Other": {
+    "fr": "Autres",
+    "en": "Other"
+  },
+  "Expert_Title": {
+    "fr": "Mode Expert",
+    "en": "Expert mode"
+  },
+  "Expert_Subtitle": {
+    "fr": "Détails techniques pour les utilisateurs avancés.",
+    "en": "Technical details for advanced users."
+  },
+  "Expert_Tab_Sessions": {
+    "fr": "Sessions et modifications",
+    "en": "Sessions and changes"
+  },
+  "Expert_Tab_Log": {
+    "fr": "Journal de l'application",
+    "en": "Application log"
+  },
+  "Expert_Tab_Errors": {
+    "fr": "Erreurs techniques",
+    "en": "Technical errors"
+  },
+  "Expert_Change_Kind": {
+    "fr": "Type",
+    "en": "Kind"
+  },
+  "Expert_Change_Optimization": {
+    "fr": "Optimisation",
+    "en": "Optimization"
+  },
+  "Expert_Change_Target": {
+    "fr": "Cible",
+    "en": "Target"
+  },
+  "Expert_Change_Status": {
+    "fr": "État",
+    "en": "Status"
+  },
+  "Expert_Change_Before": {
+    "fr": "État avant",
+    "en": "Before state"
+  },
+  "Expert_Change_After": {
+    "fr": "État après",
+    "en": "After state"
+  },
+  "Expert_Change_Error": {
+    "fr": "Erreur",
+    "en": "Error"
+  },
+  "Expert_Change_RecordedAt": {
+    "fr": "Consignée le",
+    "en": "Recorded"
+  },
+  "Expert_Change_RolledBackAt": {
+    "fr": "Annulée le",
+    "en": "Undone"
+  },
+  "Expert_Log_File": {
+    "fr": "Fichier",
+    "en": "File"
+  },
+  "Expert_Log_Folder": {
+    "fr": "Dossier des journaux",
+    "en": "Log folder"
+  },
+  "Expert_Errors_Empty": {
+    "fr": "Aucune erreur technique consignée.",
+    "en": "No technical errors recorded."
+  },
+  "Expert_Sessions_Empty": {
+    "fr": "Aucune session enregistrée.",
+    "en": "No sessions recorded."
+  },
+  "Expert_Action_OpenLogs": {
+    "fr": "Ouvrir le dossier des journaux",
+    "en": "Open log folder"
+  },
+  "Expert_Log_None": {
+    "fr": "Aucun fichier journal trouvé.",
+    "en": "No log file found."
+  },
+  "Expert_Session_Header": {
+    "fr": "{0} · {1} · {2} · {3} {3:plural:modification|modifications}",
+    "en": "{0} · {1} · {2} · {3} {3:plural:change|changes}"
+  }
+}

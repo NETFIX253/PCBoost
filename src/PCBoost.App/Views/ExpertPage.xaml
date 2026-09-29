@@ -1,0 +1,129 @@
+<local:ViewPage
+    x:Class="PCBoost.App.Views.ExpertPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PCBoost.App.Views"
+    xmlns:h="using:PCBoost.App.Helpers"
+    xmlns:controls="using:PCBoost.App.Controls"
+    xmlns:vm="using:PCBoost.Presentation.ViewModels"
+    xmlns:common="using:PCBoost.Presentation.Common">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel MaxWidth="{StaticResource ContentMaxWidth}" Padding="{StaticResource PagePadding}" Spacing="20">
+            <Grid ColumnSpacing="16">
+                <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                <StackPanel Spacing="6">
+                    <TextBlock Text="{h:Str Key=Expert_Title}" Style="{StaticResource PageTitleTextStyle}" />
+                    <TextBlock Text="{h:Str Key=Expert_Subtitle}" Style="{StaticResource PageSubtitleTextStyle}" />
+                </StackPanel>
+                <Button Grid.Column="1" VerticalAlignment="Top" Style="{StaticResource SecondaryButtonStyle}" Command="{x:Bind ViewModel.RefreshCommand}">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xE72C;" FontSize="14" />
+                        <TextBlock Text="{h:Str Key=Common_Action_Refresh}" />
+                    </StackPanel>
+                </Button>
+            </Grid>
+
+            <SelectorBar x:Name="Tabs" SelectionChanged="OnTabChanged">
+                <SelectorBarItem x:Name="SessionsItem" Text="{h:Str Key=Expert_Tab_Sessions}" />
+                <SelectorBarItem x:Name="LogItem" Text="{h:Str Key=Expert_Tab_Log}" />
+                <SelectorBarItem x:Name="ErrorsItem" Text="{h:Str Key=Expert_Tab_Errors}" />
+            </SelectorBar>
+
+            <InfoBar Severity="Error" h:InfoBarHelper.IsShown="{x:Bind ViewModel.HasError, Mode=OneWay}" Message="{x:Bind ViewModel.ErrorText, Mode=OneWay}"
+                     Title="{h:Str Key=Common_Label_ErrorTitle}" CloseButtonCommand="{x:Bind ViewModel.DismissErrorCommand}" />
+
+            <!-- Sessions : ChangeSets bruts -->
+            <StackPanel x:Name="SessionsPanel" Spacing="8">
+                <controls:EmptyState Text="{h:Str Key=Expert_Sessions_Empty}" Glyph="&#xE81C;" Visibility="{x:Bind h:Ui.ShowNone(ViewModel.Sessions.Count), Mode=OneWay}" />
+                <ItemsControl ItemsSource="{x:Bind ViewModel.Sessions}" IsTabStop="False">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="vm:ExpertSessionItemViewModel">
+                            <Expander IsExpanded="{x:Bind IsExpanded, Mode=TwoWay}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="0,0,0,8">
+                                <Expander.Header>
+                                    <StackPanel Spacing="2" Padding="0,10,0,10">
+                                        <TextBlock Text="{x:Bind Title}" Style="{StaticResource GroupHeaderTextStyle}" />
+                                        <TextBlock Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap">
+                                            <Run Text="{x:Bind Header}" /><Run Text=" · " /><Run Text="{x:Bind CompletedAtText}" />
+                                        </TextBlock>
+                                    </StackPanel>
+                                </Expander.Header>
+                                <ItemsControl ItemsSource="{x:Bind Changes}" IsTabStop="False">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate x:DataType="vm:ExpertChangeItemViewModel">
+                                            <Border Style="{StaticResource SubtleSurfaceStyle}" Margin="0,0,0,8">
+                                                <Grid ColumnSpacing="16" RowSpacing="6">
+                                                    <Grid.ColumnDefinitions><ColumnDefinition Width="150" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" />
+                                                        <RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" />
+                                                    </Grid.RowDefinitions>
+                                                    <TextBlock Grid.ColumnSpan="2" Text="{x:Bind Description}" Style="{StaticResource BodyStrongTextBlockStyle}" TextWrapping="Wrap" />
+                                                    <TextBlock Grid.Row="1" Text="{h:Str Key=Expert_Change_Kind}" Style="{StaticResource FieldLabelTextStyle}" />
+                                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{x:Bind Kind}" Style="{StaticResource MonospaceDataTextStyle}" IsTextSelectionEnabled="True" />
+                                                    <TextBlock Grid.Row="2" Text="{h:Str Key=Expert_Change_Target}" Style="{StaticResource FieldLabelTextStyle}" />
+                                                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{x:Bind Target}" Style="{StaticResource MonospaceDataTextStyle}" TextWrapping="Wrap" IsTextSelectionEnabled="True" />
+                                                    <TextBlock Grid.Row="3" Text="{h:Str Key=Expert_Change_Status}" Style="{StaticResource FieldLabelTextStyle}" />
+                                                    <TextBlock Grid.Row="3" Grid.Column="1" Text="{x:Bind StatusText}" />
+                                                    <TextBlock Grid.Row="4" Text="{h:Str Key=Expert_Change_Before}" Style="{StaticResource FieldLabelTextStyle}" Visibility="{x:Bind h:Ui.Show(HasBeforeState)}" />
+                                                    <TextBlock Grid.Row="4" Grid.Column="1" Text="{x:Bind BeforeState}" Style="{StaticResource MonospaceDataTextStyle}" TextWrapping="Wrap" IsTextSelectionEnabled="True"
+                                                               Visibility="{x:Bind h:Ui.Show(HasBeforeState)}" />
+                                                    <TextBlock Grid.Row="5" Text="{h:Str Key=Expert_Change_After}" Style="{StaticResource FieldLabelTextStyle}" Visibility="{x:Bind h:Ui.Show(HasAfterState)}" />
+                                                    <TextBlock Grid.Row="5" Grid.Column="1" Text="{x:Bind AfterState}" Style="{StaticResource MonospaceDataTextStyle}" TextWrapping="Wrap" IsTextSelectionEnabled="True"
+                                                               Visibility="{x:Bind h:Ui.Show(HasAfterState)}" />
+                                                    <TextBlock Grid.Row="6" Text="{h:Str Key=Expert_Change_Error}" Style="{StaticResource FieldLabelTextStyle}" Visibility="{x:Bind h:Ui.Show(HasError)}" />
+                                                    <TextBlock Grid.Row="6" Grid.Column="1" Text="{x:Bind ErrorDetail}" Style="{StaticResource MonospaceDataTextStyle}" TextWrapping="Wrap" IsTextSelectionEnabled="True"
+                                                               Visibility="{x:Bind h:Ui.Show(HasError)}" />
+                                                    <TextBlock Grid.Row="7" Text="{h:Str Key=Expert_Change_RecordedAt}" Style="{StaticResource FieldLabelTextStyle}" />
+                                                    <TextBlock Grid.Row="7" Grid.Column="1" Style="{StaticResource CaptionSecondaryTextStyle}">
+                                                        <Run Text="{x:Bind RecordedAtText}" /><Run Text="  " /><Run Text="{x:Bind RolledBackAtText}" />
+                                                    </TextBlock>
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </Expander>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+
+            <!-- Journal technique -->
+            <StackPanel x:Name="LogPanel" Spacing="10" Visibility="Collapsed">
+                <Grid ColumnSpacing="12">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                    <StackPanel Spacing="2">
+                        <TextBlock Style="{StaticResource CaptionSecondaryTextStyle}">
+                            <Run Text="{h:Str Key=Expert_Log_File}" /><Run Text=" " /><Run Text="{x:Bind ViewModel.LogFileName, Mode=OneWay}" />
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap">
+                            <Run Text="{h:Str Key=Expert_Log_Folder}" /><Run Text=" " /><Run Text="{x:Bind ViewModel.LogDirectory, Mode=OneWay}" />
+                        </TextBlock>
+                    </StackPanel>
+                    <Button Grid.Column="1" Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Expert_Action_OpenLogs}" Command="{x:Bind ViewModel.OpenLogFolderCommand}" VerticalAlignment="Top" />
+                </Grid>
+                <controls:EmptyState Text="{h:Str Key=Expert_Log_None}" Glyph="&#xE8A5;" Visibility="{x:Bind h:Ui.Hide(ViewModel.HasLog), Mode=OneWay}" />
+                <Border Style="{StaticResource CardStyle}" Padding="16,12,16,12" Visibility="{x:Bind h:Ui.Show(ViewModel.HasLog), Mode=OneWay}">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" MaxHeight="560" HorizontalScrollMode="Auto">
+                        <TextBlock Text="{x:Bind ViewModel.LogTail, Mode=OneWay}" Style="{StaticResource MonospaceDataTextStyle}" FontSize="12" IsTextSelectionEnabled="True" TextWrapping="NoWrap" />
+                    </ScrollViewer>
+                </Border>
+            </StackPanel>
+
+            <!-- Erreurs techniques -->
+            <StackPanel x:Name="ErrorsPanel" Spacing="10" Visibility="Collapsed">
+                <controls:EmptyState Text="{h:Str Key=Expert_Errors_Empty}" Glyph="&#xE73E;" Visibility="{x:Bind h:Ui.Hide(ViewModel.HasTechnicalErrors), Mode=OneWay}" />
+                <Border Style="{StaticResource CardStyle}" Padding="20,8,20,8" Visibility="{x:Bind h:Ui.Show(ViewModel.HasTechnicalErrors), Mode=OneWay}">
+                    <ItemsControl ItemsSource="{x:Bind ViewModel.TechnicalErrors}" IsTabStop="False">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="common:InfoRowViewModel">
+                                <controls:InfoRowView Row="{x:Bind}" LabelWidth="240" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</local:ViewPage>

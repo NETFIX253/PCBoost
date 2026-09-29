@@ -1,0 +1,447 @@
+{
+  "$comment": "Textes du module PCBoost.Gaming (clés Game_*). Générer les .resx : python3 build/tools/i18n.py src/PCBoost.Gaming/Resources/Strings.i18n.json. Aucune promesse de gain : seuls des résultats mesurés sont affichés.",
+  "Game_Opt_Power_Name": {
+    "fr": "Mode d'alimentation performances",
+    "en": "Performance power plan"
+  },
+  "Game_Opt_Power_Description": {
+    "fr": "Active le mode « Performances optimales » ou « Performances élevées » pendant la partie, puis rétablit votre mode habituel.",
+    "en": "Switches to the \"Ultimate Performance\" or \"High performance\" power plan while you play, then restores your usual plan."
+  },
+  "Game_Opt_Priority_Name": {
+    "fr": "Priorité du jeu",
+    "en": "Game priority"
+  },
+  "Game_Opt_Priority_Description": {
+    "fr": "Donne au jeu la priorité « Supérieure à la normale » (jamais « Haute » ni « Temps réel »), puis la rétablit à la fin.",
+    "en": "Gives the game \"Above normal\" priority (never \"High\" or \"Realtime\"), then restores it afterwards."
+  },
+  "Game_Opt_Background_Name": {
+    "fr": "Applications en arrière-plan",
+    "en": "Background apps"
+  },
+  "Game_Opt_Background_Description": {
+    "fr": "Ralentit temporairement les programmes non essentiels (synchronisation, mises à jour, navigateurs en arrière-plan). Rien n'est fermé. Discord, OBS, Spotify, les pilotes et l'anti-triche ne sont jamais touchés.",
+    "en": "Temporarily slows down non-essential programs (sync, updaters, background browsers). Nothing is closed. Discord, OBS, Spotify, drivers and anti-cheat are never touched."
+  },
+  "Game_Opt_Gpu_Name": {
+    "fr": "Carte graphique hautes performances",
+    "en": "High-performance graphics"
+  },
+  "Game_Opt_Gpu_Description": {
+    "fr": "Demande à Windows d'utiliser la carte graphique dédiée pour ce jeu (réglage de Paramètres › Affichage › Graphiques). Prend effet au prochain lancement du jeu.",
+    "en": "Asks Windows to use the dedicated graphics card for this game (the Settings › Display › Graphics option). Takes effect the next time the game starts."
+  },
+  "Game_Opt_DisabledInSettings": {
+    "fr": "Désactivé dans les paramètres du mode Gaming.",
+    "en": "Turned off in Gaming mode settings."
+  },
+  "Game_Opt_Failed": {
+    "fr": "Cette optimisation n'a pas pu être préparée. Rien n'a été modifié.",
+    "en": "This optimization could not be prepared. Nothing was changed."
+  },
+  "Game_Opt_ChangeCount": {
+    "fr": "{0} {0:plural:modification prévue|modifications prévues}.",
+    "en": "{0} planned {0:plural:change|changes}."
+  },
+  "Game_Opt_NotSelectedByDefault": {
+    "fr": "Proposé, mais non sélectionné par défaut.",
+    "en": "Available, but not selected by default."
+  },
+  "Game_NotSelected": {
+    "fr": "Non sélectionné : rien n'a été modifié.",
+    "en": "Not selected: nothing was changed."
+  },
+  "Game_Power_Change": {
+    "fr": "Passer du mode « {0} » au mode « {1} » pendant la partie.",
+    "en": "Switch from the \"{0}\" plan to the \"{1}\" plan while playing."
+  },
+  "Game_Power_ChangeOnBattery": {
+    "fr": "Passer du mode « {0} » au mode « {1} ». Attention : l'ordinateur est sur batterie, l'autonomie diminuera.",
+    "en": "Switch from the \"{0}\" plan to the \"{1}\" plan. Note: the computer is on battery, so battery life will be shorter."
+  },
+  "Game_Power_Applied": {
+    "fr": "Mode d'alimentation « {0} » activé.",
+    "en": "\"{0}\" power plan enabled."
+  },
+  "Game_Power_Failed": {
+    "fr": "Le mode d'alimentation n'a pas pu être changé.",
+    "en": "The power plan could not be changed."
+  },
+  "Game_Power_AlreadyActive": {
+    "fr": "Le mode « {0} » est déjà actif.",
+    "en": "The \"{0}\" plan is already active."
+  },
+  "Game_Power_NoPerformancePlan": {
+    "fr": "Aucun mode d'alimentation « performances » n'est disponible sur ce PC.",
+    "en": "No performance power plan is available on this PC."
+  },
+  "Game_Power_Unknown": {
+    "fr": "Le mode d'alimentation actuel n'a pas pu être lu.",
+    "en": "The current power plan could not be read."
+  },
+  "Game_Power_NotApplicable": {
+    "fr": "Aucun changement du mode d'alimentation n'est nécessaire.",
+    "en": "No power plan change is needed."
+  },
+  "Game_Power_OnBatteryNotSelected": {
+    "fr": "Non appliqué : l'ordinateur est sur batterie.",
+    "en": "Not applied: the computer is on battery."
+  },
+  "Game_Priority_Change": {
+    "fr": "Priorité « Supérieure à la normale » pour {0}.",
+    "en": "\"Above normal\" priority for {0}."
+  },
+  "Game_Priority_Applied": {
+    "fr": "{0} fonctionne avec la priorité « Supérieure à la normale ».",
+    "en": "{0} is running with \"Above normal\" priority."
+  },
+  "Game_Priority_Failed": {
+    "fr": "La priorité de {0} n'a pas pu être modifiée.",
+    "en": "The priority of {0} could not be changed."
+  },
+  "Game_Priority_Protected": {
+    "fr": "{0} est protégé (souvent par son anti-triche) : sa priorité n'est pas modifiée.",
+    "en": "{0} is protected (often by its anti-cheat): its priority is left unchanged."
+  },
+  "Game_Priority_AlreadyHigh": {
+    "fr": "{0} a déjà une priorité supérieure à la normale.",
+    "en": "{0} already has above-normal priority."
+  },
+  "Game_Priority_NoGame": {
+    "fr": "Aucun jeu en cours n'a été détecté.",
+    "en": "No running game was detected."
+  },
+  "Game_Priority_GameNotRunning": {
+    "fr": "Le jeu n'est plus en cours d'exécution.",
+    "en": "The game is no longer running."
+  },
+  "Game_Priority_Unreadable": {
+    "fr": "La priorité de {0} n'a pas pu être lue.",
+    "en": "The priority of {0} could not be read."
+  },
+  "Game_Background_ChangeEfficiency": {
+    "fr": "Mode efficacité pour {0} pendant la partie.",
+    "en": "Efficiency mode for {0} while playing."
+  },
+  "Game_Background_ChangePriority": {
+    "fr": "Priorité « Inférieure à la normale » pour {0} pendant la partie.",
+    "en": "\"Below normal\" priority for {0} while playing."
+  },
+  "Game_Background_Applied": {
+    "fr": "{0} {0:plural:programme d'arrière-plan ralenti|programmes d'arrière-plan ralentis} temporairement.",
+    "en": "{0} background {0:plural:program|programs} temporarily slowed down."
+  },
+  "Game_Background_Skipped": {
+    "fr": "{0} {0:plural:programme ignoré (fermé, protégé ou passé au premier plan)|programmes ignorés (fermés, protégés ou passés au premier plan)}.",
+    "en": "{0} {0:plural:program|programs} skipped (closed, protected or brought to the foreground)."
+  },
+  "Game_Background_Failed": {
+    "fr": "{0} {0:plural:programme n'a pas pu être ralenti|programmes n'ont pas pu être ralentis}.",
+    "en": "{0} {0:plural:program|programs} could not be slowed down."
+  },
+  "Game_Background_NothingToDo": {
+    "fr": "Aucun programme d'arrière-plan à ralentir.",
+    "en": "No background program needs slowing down."
+  },
+  "Game_Gpu_Change": {
+    "fr": "Utiliser la carte graphique hautes performances pour {0} (au prochain lancement).",
+    "en": "Use the high-performance graphics card for {0} (from the next launch)."
+  },
+  "Game_Gpu_Applied": {
+    "fr": "{0} utilisera la carte graphique hautes performances à son prochain lancement.",
+    "en": "{0} will use the high-performance graphics card the next time it starts."
+  },
+  "Game_Gpu_Failed": {
+    "fr": "La préférence graphique n'a pas pu être enregistrée.",
+    "en": "The graphics preference could not be saved."
+  },
+  "Game_Gpu_NoGamePath": {
+    "fr": "L'emplacement du jeu est inconnu.",
+    "en": "The game's location is unknown."
+  },
+  "Game_Gpu_SingleGpu": {
+    "fr": "Ce PC n'a qu'une seule carte graphique utilisable : aucun réglage nécessaire.",
+    "en": "This PC has only one usable graphics card: no setting needed."
+  },
+  "Game_Gpu_AlreadySet": {
+    "fr": "Le jeu utilise déjà la carte graphique hautes performances.",
+    "en": "The game already uses the high-performance graphics card."
+  },
+  "Game_Gpu_NotSelected": {
+    "fr": "Non sélectionné : la préférence graphique n'a pas été modifiée.",
+    "en": "Not selected: the graphics preference was not changed."
+  },
+  "Game_SessionTitle": {
+    "fr": "Mode Gaming — {0}",
+    "en": "Gaming mode — {0}"
+  },
+  "Game_SessionTitle_NoGame": {
+    "fr": "Mode Gaming",
+    "en": "Gaming mode"
+  },
+  "Game_AlreadyActive": {
+    "fr": "Le mode Gaming est déjà actif.",
+    "en": "Gaming mode is already active."
+  },
+  "Game_NotRunning": {
+    "fr": "{0} n'est plus en cours d'exécution : le mode Gaming n'a pas été activé.",
+    "en": "{0} is no longer running: Gaming mode was not enabled."
+  },
+  "Game_Restore_Cancelled": {
+    "fr": "Restauration annulée avant de commencer.",
+    "en": "Restore cancelled before it started."
+  },
+  "Game_Restore_Failed": {
+    "fr": "La restauration des paramètres n'a pas pu être effectuée. Vous pouvez la relancer depuis l'historique.",
+    "en": "Your settings could not be restored. You can retry from the history."
+  },
+  "Game_RollbackUnavailable": {
+    "fr": "Le journal de restauration n'est pas disponible.",
+    "en": "The restore log is not available."
+  },
+  "Game_Frames_Unavailable": {
+    "fr": "La mesure des images par seconde n'est pas disponible.",
+    "en": "Frame rate measurement is not available."
+  },
+  "Game_Deactivated_Title": {
+    "fr": "Mode Gaming désactivé",
+    "en": "Gaming mode turned off"
+  },
+  "Game_Deactivated_Body": {
+    "fr": "Paramètres précédents restaurés.",
+    "en": "Previous settings restored."
+  },
+  "Game_Deactivated_PartialBody": {
+    "fr": "Paramètres restaurés, sauf {0} {0:plural:élément|éléments}. Consultez l'historique pour réessayer.",
+    "en": "Settings restored, except {0} {0:plural:item|items}. Check the history to try again."
+  },
+  "Game_Detected_Title": {
+    "fr": "Jeu détecté : lancement du mode Gaming ?",
+    "en": "Game detected: start Gaming mode?"
+  },
+  "Game_Detected_Body": {
+    "fr": "{0} est en cours. Le mode Gaming peut réduire les tâches de fond pendant la partie ; tout sera restauré à la fermeture du jeu.",
+    "en": "{0} is running. Gaming mode can reduce background work while you play; everything is restored when the game closes."
+  },
+  "Game_Detected_Action": {
+    "fr": "Activer",
+    "en": "Enable"
+  },
+  "Game_AutoActivated_Title": {
+    "fr": "Mode Gaming activé",
+    "en": "Gaming mode enabled"
+  },
+  "Game_AutoActivated_Body": {
+    "fr": "Activé pour {0}. Vos paramètres seront restaurés à la fermeture du jeu.",
+    "en": "Enabled for {0}. Your settings will be restored when the game closes."
+  },
+  "Game_Journal_Activated": {
+    "fr": "Mode Gaming activé pour {0}.",
+    "en": "Gaming mode enabled for {0}."
+  },
+  "Game_Journal_ActivatedNoGame": {
+    "fr": "Mode Gaming activé.",
+    "en": "Gaming mode enabled."
+  },
+  "Game_Journal_Restored": {
+    "fr": "Mode Gaming désactivé : {0} {0:plural:modification restaurée|modifications restaurées}.",
+    "en": "Gaming mode turned off: {0} {0:plural:change|changes} restored."
+  },
+  "Game_Journal_RestoreFailed": {
+    "fr": "Mode Gaming désactivé : {0} {0:plural:modification n'a pas pu être restaurée|modifications n'ont pas pu être restaurées}.",
+    "en": "Gaming mode turned off: {0} {0:plural:change|changes} could not be restored."
+  },
+  "Game_Setting_GameMode": {
+    "fr": "Mode Jeu de Windows",
+    "en": "Windows Game Mode"
+  },
+  "Game_Setting_GameMode_On": {
+    "fr": "Activé. Windows donne la priorité au jeu au premier plan.",
+    "en": "On. Windows prioritises the game in the foreground."
+  },
+  "Game_Setting_GameMode_Off": {
+    "fr": "Désactivé. Vous pouvez le réactiver ; ce changement est annulable.",
+    "en": "Off. You can turn it back on; this change can be undone."
+  },
+  "Game_Setting_Windowed": {
+    "fr": "Optimisations pour les jeux fenêtrés",
+    "en": "Optimizations for windowed games"
+  },
+  "Game_Setting_Windowed_On": {
+    "fr": "Activées.",
+    "en": "On."
+  },
+  "Game_Setting_Windowed_Off": {
+    "fr": "Non activées. Elles peuvent réduire la latence des jeux en mode fenêtré ; ce changement est annulable.",
+    "en": "Not enabled. They can reduce latency in windowed games; this change can be undone."
+  },
+  "Game_Setting_Hags": {
+    "fr": "Planification GPU à accélération matérielle",
+    "en": "Hardware-accelerated GPU scheduling"
+  },
+  "Game_Setting_Hags_On": {
+    "fr": "Activée.",
+    "en": "On."
+  },
+  "Game_Setting_Hags_Off": {
+    "fr": "Désactivée. Si votre carte graphique la prend en charge, vous pouvez l'activer dans Paramètres › Système › Écran › Graphiques (redémarrage nécessaire). PCBoost ne modifie pas ce réglage.",
+    "en": "Off. If your graphics card supports it, you can turn it on in Settings › System › Display › Graphics (restart required). PCBoost does not change this setting."
+  },
+  "Game_Setting_Hags_Unknown": {
+    "fr": "Non disponible sur ce PC ou non configurée : aucune action nécessaire.",
+    "en": "Not available on this PC or not configured: no action needed."
+  },
+  "Game_Setting_Gpu": {
+    "fr": "Carte graphique utilisée par le jeu",
+    "en": "Graphics card used by the game"
+  },
+  "Game_Setting_Gpu_On": {
+    "fr": "{0} utilise la carte graphique hautes performances.",
+    "en": "{0} uses the high-performance graphics card."
+  },
+  "Game_Setting_Gpu_Off": {
+    "fr": "{0} n'a pas de préférence : Windows peut choisir la carte graphique intégrée. Changement annulable, effectif au prochain lancement.",
+    "en": "{0} has no preference: Windows may pick the integrated graphics. This change can be undone and applies from the next launch."
+  },
+  "Game_Setting_Gpu_Single": {
+    "fr": "Une seule carte graphique utilisable : aucun réglage nécessaire.",
+    "en": "Only one usable graphics card: no setting needed."
+  },
+  "Game_Setting_Gpu_NoPath": {
+    "fr": "L'emplacement de {0} est inconnu : la préférence ne peut pas être vérifiée.",
+    "en": "The location of {0} is unknown: the preference cannot be checked."
+  },
+  "Game_Setting_SessionTitle": {
+    "fr": "Paramètres de jeu Windows",
+    "en": "Windows game settings"
+  },
+  "Game_Setting_AlreadyOk": {
+    "fr": "Ce paramètre est déjà dans l'état recommandé.",
+    "en": "This setting is already in the recommended state."
+  },
+  "Game_Setting_ManualOnly": {
+    "fr": "Ce paramètre se règle dans les Paramètres de Windows.",
+    "en": "This setting is changed in Windows Settings."
+  },
+  "Game_Setting_NotFound": {
+    "fr": "Ce paramètre n'est pas disponible sur ce PC.",
+    "en": "This setting is not available on this PC."
+  },
+  "Game_Setting_Blocked": {
+    "fr": "Ce paramètre est protégé : PCBoost ne le modifie pas.",
+    "en": "This setting is protected: PCBoost does not change it."
+  },
+  "Game_Frames_Available": {
+    "fr": "Mesure des images active.",
+    "en": "Frame measurement active."
+  },
+  "Game_Frames_RequiresElevation": {
+    "fr": "FPS non disponibles : la mesure nécessite une autorisation administrateur ponctuelle.",
+    "en": "FPS not available: measuring requires a one-time administrator permission."
+  },
+  "Game_Frames_NotSupported": {
+    "fr": "FPS non disponibles pour ce jeu.",
+    "en": "FPS not available for this game."
+  },
+  "Game_Frames_Disabled": {
+    "fr": "Mesure des FPS désactivée dans les paramètres.",
+    "en": "FPS measurement is turned off in settings."
+  },
+  "Game_Metric_NotAvailable": {
+    "fr": "Non disponible",
+    "en": "Not available"
+  },
+  "Game_Metric_AverageFps": {
+    "fr": "FPS moyens",
+    "en": "Average FPS"
+  },
+  "Game_Metric_OnePercentLowFps": {
+    "fr": "1 % low",
+    "en": "1% low"
+  },
+  "Game_Metric_PointOnePercentLowFps": {
+    "fr": "0,1 % low",
+    "en": "0.1% low"
+  },
+  "Game_Metric_AverageFrameTimeMs": {
+    "fr": "Temps d'image moyen (ms)",
+    "en": "Average frame time (ms)"
+  },
+  "Game_Metric_P99FrameTimeMs": {
+    "fr": "Temps d'image 99e centile (ms)",
+    "en": "99th percentile frame time (ms)"
+  },
+  "Game_Metric_CpuAveragePercent": {
+    "fr": "Processeur moyen (%)",
+    "en": "Average CPU (%)"
+  },
+  "Game_Metric_CpuMaxPercent": {
+    "fr": "Processeur maximal (%)",
+    "en": "Peak CPU (%)"
+  },
+  "Game_Metric_GpuAveragePercent": {
+    "fr": "Carte graphique moyenne (%)",
+    "en": "Average GPU (%)"
+  },
+  "Game_Metric_GpuMaxPercent": {
+    "fr": "Carte graphique maximale (%)",
+    "en": "Peak GPU (%)"
+  },
+  "Game_Metric_RamAveragePercent": {
+    "fr": "Mémoire moyenne (%)",
+    "en": "Average memory (%)"
+  },
+  "Game_Metric_DiskActiveAveragePercent": {
+    "fr": "Activité disque moyenne (%)",
+    "en": "Average disk activity (%)"
+  },
+  "Game_Source_Steam": {
+    "fr": "Steam",
+    "en": "Steam"
+  },
+  "Game_Source_EpicGames": {
+    "fr": "Epic Games",
+    "en": "Epic Games"
+  },
+  "Game_Source_Xbox": {
+    "fr": "Xbox / Microsoft Store",
+    "en": "Xbox / Microsoft Store"
+  },
+  "Game_Source_BattleNet": {
+    "fr": "Battle.net",
+    "en": "Battle.net"
+  },
+  "Game_Source_Riot": {
+    "fr": "Riot Games",
+    "en": "Riot Games"
+  },
+  "Game_Source_Ubisoft": {
+    "fr": "Ubisoft Connect",
+    "en": "Ubisoft Connect"
+  },
+  "Game_Source_EA": {
+    "fr": "Application EA",
+    "en": "EA app"
+  },
+  "Game_Source_Gog": {
+    "fr": "GOG",
+    "en": "GOG"
+  },
+  "Game_Source_WindowsGameConfig": {
+    "fr": "Reconnu par Windows",
+    "en": "Recognised by Windows"
+  },
+  "Game_Source_Signature": {
+    "fr": "Jeu connu",
+    "en": "Known game"
+  },
+  "Game_Source_Custom": {
+    "fr": "Ajouté manuellement",
+    "en": "Added manually"
+  },
+  "Game_Source_Unknown": {
+    "fr": "Inconnu",
+    "en": "Unknown"
+  }
+}

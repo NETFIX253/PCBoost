@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Sys_AutoStartUnavailable" xml:space="preserve"><value>Impossible de déterminer l'emplacement de l'application pour la lancer avec Windows.</value></data>
+  <data name="Sys_CommandNotAllowed" xml:space="preserve"><value>Cette commande système n'est pas autorisée.</value></data>
+  <data name="Sys_CommandTimedOut" xml:space="preserve"><value>La commande système a dépassé le délai prévu et a été arrêtée.</value></data>
+  <data name="Sys_EfficiencyModeNotSupported" xml:space="preserve"><value>Le mode efficacité nécessite Windows 11.</value></data>
+  <data name="Sys_ElevatedCleanupPartial" xml:space="preserve"><value>Certains éléments n'ont pas pu être nettoyés.</value></data>
+  <data name="Sys_ElevatedInvalidParameters" xml:space="preserve"><value>La demande d'autorisation administrateur contient des paramètres invalides. Aucune modification n'a été faite.</value></data>
+  <data name="Sys_ElevatedOperationRefused" xml:space="preserve"><value>Cette opération administrateur n'est pas autorisée. Aucune modification n'a été faite.</value></data>
+  <data name="Sys_ElevationCancelled" xml:space="preserve"><value>L'autorisation administrateur a été refusée. Aucune modification n'a été faite.</value></data>
+  <data name="Sys_ElevationFailed" xml:space="preserve"><value>L'opération administrateur n'a pas pu être exécutée.</value></data>
+  <data name="Sys_ElevationNoResult" xml:space="preserve"><value>L'opération administrateur s'est terminée sans renvoyer de résultat (code {0}).</value></data>
+  <data name="Sys_ElevatorMissing" xml:space="preserve"><value>Le composant d'autorisation administrateur est introuvable. Réinstallez l'application pour le restaurer.</value></data>
+  <data name="Sys_FileInUse" xml:space="preserve"><value>Le fichier est utilisé par un autre programme ; il a été laissé en place.</value></data>
+  <data name="Sys_FileReadOnly" xml:space="preserve"><value>Le fichier est en lecture seule ; il a été laissé en place.</value></data>
+  <data name="Sys_FrameCaptureCancelled" xml:space="preserve"><value>La mesure des images par seconde nécessite une autorisation administrateur, qui a été refusée.</value></data>
+  <data name="Sys_FrameCaptureSessionFailed" xml:space="preserve"><value>Windows n'a pas permis de démarrer la mesure des images par seconde.</value></data>
+  <data name="Sys_FrameCaptureStopped" xml:space="preserve"><value>La mesure des images par seconde s'est arrêtée.</value></data>
+  <data name="Sys_FrameCaptureTargetExited" xml:space="preserve"><value>Le jeu n'est plus en cours d'exécution.</value></data>
+  <data name="Sys_FrameCaptureTimeout" xml:space="preserve"><value>La mesure des images par seconde n'a pas pu démarrer à temps.</value></data>
+  <data name="Sys_FrameCaptureUnavailable" xml:space="preserve"><value>La mesure des images par seconde n'est pas disponible sur ce PC.</value></data>
+  <data name="Sys_MicrosoftTaskBlocked" xml:space="preserve"><value>Les tâches planifiées de Windows ne peuvent pas être modifiées.</value></data>
+  <data name="Sys_PathNotFound" xml:space="preserve"><value>L'emplacement est introuvable.</value></data>
+  <data name="Sys_PowerSchemeNotFound" xml:space="preserve"><value>Ce mode d'alimentation n'existe pas sur ce PC.</value></data>
+  <data name="Sys_ProcessAccessDenied" xml:space="preserve"><value>Windows n'autorise pas cette action sur ce programme.</value></data>
+  <data name="Sys_ProcessNoWindow" xml:space="preserve"><value>Ce programme n'a pas de fenêtre à fermer.</value></data>
+  <data name="Sys_ProcessNotFound" xml:space="preserve"><value>Ce programme n'est plus en cours d'exécution.</value></data>
+  <data name="Sys_ProtectedTarget" xml:space="preserve"><value>Cet élément est protégé et ne peut pas être modifié.</value></data>
+  <data name="Sys_RealTimePriorityBlocked" xml:space="preserve"><value>La priorité « Temps réel » n'est pas proposée : elle peut rendre Windows instable.</value></data>
+  <data name="Sys_UriNotAllowed" xml:space="preserve"><value>Seuls les liens web (http ou https) peuvent être ouverts.</value></data>
+  <data name="Sys_VisualEffectsPartial" xml:space="preserve"><value>Certains effets visuels n'ont pas pu être modifiés.</value></data>
+</root>

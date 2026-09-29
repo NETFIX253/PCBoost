@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>$(PCBoostWindowsTfm)</TargetFramework>
+    <SupportedOSPlatformVersion>$(PCBoostMinWindows)</SupportedOSPlatformVersion>
+    <RootNamespace>PCBoost.System.Tests</RootNamespace>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <Description>Tests d'intégration en lecture seule sur une vraie machine Windows (ignorés hors Windows).</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\PCBoost.System\PCBoost.System.csproj" />
+    <ProjectReference Include="..\PCBoost.TestUtilities\PCBoost.TestUtilities.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+</Project>

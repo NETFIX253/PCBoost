@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Common_Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Common_Close" xml:space="preserve"><value>Close</value></data>
+  <data name="Common_Disabled" xml:space="preserve"><value>Off</value></data>
+  <data name="Common_Duration_DaysHours" xml:space="preserve"><value>{0} d {1} h</value></data>
+  <data name="Common_Duration_HoursMinutes" xml:space="preserve"><value>{0} h {1:00} min</value></data>
+  <data name="Common_Duration_Minutes" xml:space="preserve"><value>{0} min</value></data>
+  <data name="Common_Duration_MinutesSeconds" xml:space="preserve"><value>{0} min {1:00} s</value></data>
+  <data name="Common_Duration_Seconds" xml:space="preserve"><value>{0} s</value></data>
+  <data name="Common_Enabled" xml:space="preserve"><value>On</value></data>
+  <data name="Common_FramesPerSecond" xml:space="preserve"><value>{0} FPS</value></data>
+  <data name="Common_Milliseconds" xml:space="preserve"><value>{0} ms</value></data>
+  <data name="Common_No" xml:space="preserve"><value>No</value></data>
+  <data name="Common_NotAvailable" xml:space="preserve"><value>Not available</value></data>
+  <data name="Common_Ok" xml:space="preserve"><value>OK</value></data>
+  <data name="Common_Percent" xml:space="preserve"><value>{0}%</value></data>
+  <data name="Common_Retry" xml:space="preserve"><value>Try again</value></data>
+  <data name="Common_SizeFormat" xml:space="preserve"><value>{0} {1}</value></data>
+  <data name="Common_Temperature" xml:space="preserve"><value>{0} °C</value></data>
+  <data name="Common_Unit_Byte" xml:space="preserve"><value>B</value></data>
+  <data name="Common_Unit_GB" xml:space="preserve"><value>GB</value></data>
+  <data name="Common_Unit_KB" xml:space="preserve"><value>KB</value></data>
+  <data name="Common_Unit_MB" xml:space="preserve"><value>MB</value></data>
+  <data name="Common_Unit_TB" xml:space="preserve"><value>TB</value></data>
+  <data name="Common_Unknown" xml:space="preserve"><value>Unknown</value></data>
+  <data name="Common_Yes" xml:space="preserve"><value>Yes</value></data>
+  <data name="Error_AccessDenied" xml:space="preserve"><value>Windows refused this operation because it requires additional privileges.</value></data>
+  <data name="Error_Blocked" xml:space="preserve"><value>This operation was blocked to protect the stability and security of Windows.</value></data>
+  <data name="Error_Cancelled" xml:space="preserve"><value>The operation was cancelled.</value></data>
+  <data name="Error_ElevationCancelled" xml:space="preserve"><value>Administrator permission was declined. Nothing was changed.</value></data>
+  <data name="Error_Failed" xml:space="preserve"><value>The operation could not be completed.</value></data>
+  <data name="Error_InUse" xml:space="preserve"><value>The file is being used by another application.</value></data>
+  <data name="Error_InvalidInput" xml:space="preserve"><value>The information provided is not valid.</value></data>
+  <data name="Error_None" xml:space="preserve"><value>The operation completed without errors.</value></data>
+  <data name="Error_NotFound" xml:space="preserve"><value>The item could not be found. It may already have been removed or moved.</value></data>
+  <data name="Error_NotSupported" xml:space="preserve"><value>This operation is not supported on this PC or on this version of Windows.</value></data>
+  <data name="Error_RequiresElevation" xml:space="preserve"><value>This operation requires administrator permission.</value></data>
+  <data name="Error_Timeout" xml:space="preserve"><value>The operation took too long and was stopped.</value></data>
+  <data name="Infra_Database_Recovered" xml:space="preserve"><value>The local data (history, restore) was damaged. A copy was set aside and new data was created.</value></data>
+  <data name="Infra_Database_Temporary" xml:space="preserve"><value>Local data cannot be saved on this PC. This session's history will not be kept after closing.</value></data>
+  <data name="Infra_Language_English" xml:space="preserve"><value>English</value></data>
+  <data name="Infra_Language_French" xml:space="preserve"><value>Français</value></data>
+  <data name="Infra_Language_System" xml:space="preserve"><value>System language</value></data>
+  <data name="Infra_Update_Available" xml:space="preserve"><value>Version {0} is available.</value></data>
+  <data name="Infra_Update_CopyFailed" xml:space="preserve"><value>The update package could not be copied.</value></data>
+  <data name="Infra_Update_FeedInvalid" xml:space="preserve"><value>The update information is unreadable or incomplete.</value></data>
+  <data name="Infra_Update_FeedNotFound" xml:space="preserve"><value>The update source could not be found.</value></data>
+  <data name="Infra_Update_HashMismatch" xml:space="preserve"><value>The update package is damaged or has been modified: its fingerprint does not match. It was deleted and nothing was installed.</value></data>
+  <data name="Infra_Update_InstallerFailed" xml:space="preserve"><value>The installer could not be started. The current version stays in place.</value></data>
+  <data name="Infra_Update_InstallerStarted" xml:space="preserve"><value>The update installation has started. If it fails, the current version stays in place.</value></data>
+  <data name="Infra_Update_InvalidPackage" xml:space="preserve"><value>Only an installation package downloaded and verified by the application can be started.</value></data>
+  <data name="Infra_Update_NotConfigured" xml:space="preserve"><value>No update source is configured.</value></data>
+  <data name="Infra_Update_PackageNotFound" xml:space="preserve"><value>The update package could not be found.</value></data>
+  <data name="Infra_Update_RemoteNotConfigured" xml:space="preserve"><value>Online update checks are not available in this version.</value></data>
+  <data name="Infra_Update_UpToDate" xml:space="preserve"><value>You are using the latest available version ({0}).</value></data>
+  <data name="Infra_Update_Verified" xml:space="preserve"><value>The update package was verified.</value></data>
+</root>

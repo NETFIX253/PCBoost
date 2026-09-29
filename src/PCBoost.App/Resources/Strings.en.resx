@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="App_Chart_AccessibleName" xml:space="preserve"><value>{0} chart</value></data>
+  <data name="App_Common_Loading" xml:space="preserve"><value>Loading…</value></data>
+  <data name="App_Dialog_Details" xml:space="preserve"><value>Details</value></data>
+  <data name="App_Dialog_Ok" xml:space="preserve"><value>OK</value></data>
+  <data name="App_Dialog_TechnicalDetail" xml:space="preserve"><value>Technical detail: {0}</value></data>
+  <data name="App_Error_Retry" xml:space="preserve"><value>Retry with permission</value></data>
+  <data name="App_Factor_Points" xml:space="preserve"><value>points</value></data>
+  <data name="App_Gaming_SessionBand_Active" xml:space="preserve"><value>Session running</value></data>
+  <data name="App_Gaming_SessionBand_Inactive" xml:space="preserve"><value>Gaming mode off</value></data>
+  <data name="App_Home_Heading" xml:space="preserve"><value>Your PC's condition</value></data>
+  <data name="App_Home_OptimizeHint" xml:space="preserve"><value>You'll see every change before it's applied.</value></data>
+  <data name="App_Home_ScoreOutOf" xml:space="preserve"><value>/ 100</value></data>
+  <data name="App_Nav_Back" xml:space="preserve"><value>Back</value></data>
+  <data name="App_Notify_StillRunning_Body" xml:space="preserve"><value>PCBoost keeps watching your PC from the notification area. Right-click its icon to exit.</value></data>
+  <data name="App_Notify_StillRunning_Title" xml:space="preserve"><value>PCBoost is still running</value></data>
+  <data name="App_OldPc_Link" xml:space="preserve"><value>Optimize an older PC</value></data>
+  <data name="App_Score_Of" xml:space="preserve"><value>out of 100</value></data>
+  <data name="App_Section_More" xml:space="preserve"><value>More tools</value></data>
+  <data name="App_Startup_Error_Message" xml:space="preserve"><value>An unexpected error occurred at startup. Details were saved to the application log.</value></data>
+  <data name="App_Startup_Error_Title" xml:space="preserve"><value>PCBoost could not start properly</value></data>
+  <data name="App_Storage_Link" xml:space="preserve"><value>See storage breakdown</value></data>
+  <data name="App_Tray_Exit" xml:space="preserve"><value>Exit</value></data>
+  <data name="App_Tray_Gaming" xml:space="preserve"><value>Gaming mode</value></data>
+  <data name="App_Tray_Open" xml:space="preserve"><value>Open PCBoost</value></data>
+  <data name="App_Tray_Optimize" xml:space="preserve"><value>Optimize</value></data>
+  <data name="App_Tray_PauseMonitoring" xml:space="preserve"><value>Pause monitoring</value></data>
+  <data name="App_Tray_ResumeMonitoring" xml:space="preserve"><value>Resume monitoring</value></data>
+  <data name="App_Tray_Settings" xml:space="preserve"><value>Settings</value></data>
+  <data name="App_Tray_ToolTip" xml:space="preserve"><value>PCBoost — light monitoring on</value></data>
+  <data name="App_Tray_ToolTipPaused" xml:space="preserve"><value>PCBoost — monitoring paused</value></data>
+  <data name="App_Unsupported_Message" xml:space="preserve"><value>PCBoost requires Windows 10 version 1809 (build 17763) or later. This version (build {0}) is not supported: analysis still works but no change will be applied.</value></data>
+  <data name="App_Unsupported_Title" xml:space="preserve"><value>Unsupported Windows version</value></data>
+  <data name="App_Welcome_Heading" xml:space="preserve"><value>Welcome to {0}</value></data>
+  <data name="App_WindowTitle" xml:space="preserve"><value>PCBoost</value></data>
+</root>

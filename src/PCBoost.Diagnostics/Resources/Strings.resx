@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Diag_Action_ChoosePowerPlan" xml:space="preserve"><value>Choisir un mode d'alimentation</value></data>
+  <data name="Diag_Action_ViewBackgroundApps" xml:space="preserve"><value>Voir les applications en arrière-plan</value></data>
+  <data name="Diag_Action_ViewCleanup" xml:space="preserve"><value>Voir les fichiers à nettoyer</value></data>
+  <data name="Diag_Action_ViewOldPc" xml:space="preserve"><value>Voir les conseils pour ancien PC</value></data>
+  <data name="Diag_Action_ViewPerformance" xml:space="preserve"><value>Suivre les performances</value></data>
+  <data name="Diag_Action_ViewProcesses" xml:space="preserve"><value>Voir les processus</value></data>
+  <data name="Diag_Action_ViewStartupApps" xml:space="preserve"><value>Voir les applications</value></data>
+  <data name="Diag_Action_ViewStorage" xml:space="preserve"><value>Voir ce qui occupe le disque</value></data>
+  <data name="Diag_Action_ViewVisualEffects" xml:space="preserve"><value>Voir les effets visuels</value></data>
+  <data name="Diag_Advice_Cpu_Observation" xml:space="preserve"><value>Le processeur ({0}) a été utilisé à plus de 90 % pendant {1:N0} % du temps observé.</value></data>
+  <data name="Diag_Advice_Cpu_Suggestion" xml:space="preserve"><value>Vérifiez d'abord les processus les plus gourmands. Si cette charge correspond à votre usage habituel, un processeur plus puissant pourrait aider.</value></data>
+  <data name="Diag_Advice_Gpu_Observation" xml:space="preserve"><value>Votre PC utilise uniquement une carte graphique intégrée ({0}).</value></data>
+  <data name="Diag_Advice_Gpu_Suggestion" xml:space="preserve"><value>Pour les jeux récents, une carte graphique dédiée pourrait être utile. Pour la bureautique et la vidéo, la carte intégrée suffit en général.</value></data>
+  <data name="Diag_Advice_Ram_Observation" xml:space="preserve"><value>Votre PC possède {0} Go de mémoire vive, utilisée à plus de 85 % pendant {1:N0} % du temps observé.</value></data>
+  <data name="Diag_Advice_Ram_Suggestion" xml:space="preserve"><value>Une augmentation de la RAM pourrait améliorer le multitâche. Vérifiez d'abord que votre PC le permet (emplacements libres, capacité maximale).</value></data>
+  <data name="Diag_Advice_Ssd_Observation" xml:space="preserve"><value>Windows est installé sur un disque dur mécanique (HDD).</value></data>
+  <data name="Diag_Advice_Ssd_Suggestion" xml:space="preserve"><value>Un SSD pourrait réduire nettement les temps de démarrage et d'ouverture des applications.</value></data>
+  <data name="Diag_Advice_StorageFull_Observation" xml:space="preserve"><value>Le disque système est rempli à {0:N0} % ({1:N1} Go libres sur {2:N0} Go).</value></data>
+  <data name="Diag_Advice_StorageFull_Suggestion" xml:space="preserve"><value>Commencez par libérer de l'espace. Si le disque reste plein, un disque de plus grande capacité pourrait être envisagé.</value></data>
+  <data name="Diag_Profile_Reason_Cores" xml:space="preserve"><value>Cœurs physiques du processeur : {0}</value></data>
+  <data name="Diag_Profile_Reason_DedicatedGpu" xml:space="preserve"><value>Carte graphique dédiée ({0} Go de mémoire vidéo)</value></data>
+  <data name="Diag_Profile_Reason_DedicatedGpuUnknownMemory" xml:space="preserve"><value>Carte graphique dédiée</value></data>
+  <data name="Diag_Profile_Reason_Hdd" xml:space="preserve"><value>Windows est installé sur un disque dur mécanique (HDD)</value></data>
+  <data name="Diag_Profile_Reason_IntegratedGpu" xml:space="preserve"><value>Carte graphique intégrée uniquement</value></data>
+  <data name="Diag_Profile_Reason_LowSpace" xml:space="preserve"><value>Disque système presque plein ({0:N0} % libres)</value></data>
+  <data name="Diag_Profile_Reason_Ram" xml:space="preserve"><value>{0} Go de mémoire vive</value></data>
+  <data name="Diag_Profile_Reason_Ssd" xml:space="preserve"><value>Windows est installé sur un SSD</value></data>
+  <data name="Diag_Profile_Reason_Unknown" xml:space="preserve"><value>La quantité de mémoire n'a pas pu être lue : le profil matériel est inconnu.</value></data>
+  <data name="Diag_Rec_Background_Description" xml:space="preserve"><value>Certaines applications continuent de fonctionner sans fenêtre visible. Vous pouvez fermer celles dont vous n'avez pas besoin.</value></data>
+  <data name="Diag_Rec_Background_Reason" xml:space="preserve"><value>Processus en arrière-plan : {0} (seuil : {1}).</value></data>
+  <data name="Diag_Rec_Background_Title" xml:space="preserve"><value>Réduire les applications en arrière-plan</value></data>
+  <data name="Diag_Rec_Cleanup_Description" xml:space="preserve"><value>Ces fichiers (caches, fichiers temporaires) peuvent être supprimés sans risque. Un aperçu vous est montré avant toute suppression, qui est définitive.</value></data>
+  <data name="Diag_Rec_Cleanup_Reason_Gb" xml:space="preserve"><value>Espace récupérable : {0:N1} Go.</value></data>
+  <data name="Diag_Rec_Cleanup_Reason_Mb" xml:space="preserve"><value>Espace récupérable : {0:N0} Mo.</value></data>
+  <data name="Diag_Rec_Cleanup_Title" xml:space="preserve"><value>Nettoyer les fichiers temporaires</value></data>
+  <data name="Diag_Rec_CpuHigh_Description" xml:space="preserve"><value>Consultez les processus qui utilisent le plus le processeur et fermez ceux dont vous n'avez pas besoin.</value></data>
+  <data name="Diag_Rec_CpuHigh_Description_Process" xml:space="preserve"><value>Le processus le plus actif pendant la mesure : {0}. S'il ne vous sert pas maintenant, fermez-le ou laissez-le terminer.</value></data>
+  <data name="Diag_Rec_CpuHigh_Reason" xml:space="preserve"><value>Utilisation moyenne du processeur : {0:N0} % (seuil : {1:N0} %).</value></data>
+  <data name="Diag_Rec_CpuHigh_Title" xml:space="preserve"><value>Réduire la charge du processeur</value></data>
+  <data name="Diag_Rec_DiskBusy_Description" xml:space="preserve"><value>Une mise à jour, une analyse de sécurité ou une synchronisation peut occuper le disque un moment. Si cela dure, observez l'activité dans la page Performances.</value></data>
+  <data name="Diag_Rec_DiskBusy_Reason" xml:space="preserve"><value>Activité moyenne du disque : {0:N0} % (seuil : {1:N0} %).</value></data>
+  <data name="Diag_Rec_DiskBusy_Title" xml:space="preserve"><value>Identifier ce qui occupe le disque</value></data>
+  <data name="Diag_Rec_HardwareRam_Description" xml:space="preserve"><value>Une augmentation de la RAM pourrait améliorer le multitâche. Vérifiez d'abord que votre PC le permet. Fermer les applications inutiles reste la première étape, et ne coûte rien.</value></data>
+  <data name="Diag_Rec_HardwareRam_Reason" xml:space="preserve"><value>{0} Go de mémoire, utilisée à {1:N0} % au moment de l'analyse.</value></data>
+  <data name="Diag_Rec_HardwareRam_Title" xml:space="preserve"><value>Piste : ajouter de la mémoire vive</value></data>
+  <data name="Diag_Rec_HardwareSsd_Description" xml:space="preserve"><value>Un SSD réduit généralement les temps de démarrage et d'ouverture des applications. Ce n'est pas indispensable : à vous de juger selon votre usage.</value></data>
+  <data name="Diag_Rec_HardwareSsd_Reason" xml:space="preserve"><value>Disque système : disque dur mécanique (HDD).</value></data>
+  <data name="Diag_Rec_HardwareSsd_Title" xml:space="preserve"><value>Piste : remplacer le disque dur par un SSD</value></data>
+  <data name="Diag_Rec_LowSpace_Description" xml:space="preserve"><value>Regardez ce qui occupe le disque : téléchargements, vidéos ou anciens fichiers peuvent être déplacés ou supprimés par vos soins.</value></data>
+  <data name="Diag_Rec_LowSpace_Reason" xml:space="preserve"><value>Espace libre : {0:N1} Go ({1:N0} %, seuil : {2:N0} %).</value></data>
+  <data name="Diag_Rec_LowSpace_Title" xml:space="preserve"><value>Libérer de l'espace sur le disque système</value></data>
+  <data name="Diag_Rec_MemoryHigh_Description" xml:space="preserve"><value>Fermer les applications et les onglets dont vous ne vous servez pas peut rendre le PC plus réactif.</value></data>
+  <data name="Diag_Rec_MemoryHigh_Description_Processes" xml:space="preserve"><value>Les applications qui utilisent le plus de mémoire en ce moment : {0}. Fermer celles dont vous ne vous servez pas peut rendre le PC plus réactif.</value></data>
+  <data name="Diag_Rec_MemoryHigh_Reason" xml:space="preserve"><value>Mémoire utilisée : {0:N0} % (seuil : {1:N0} %).</value></data>
+  <data name="Diag_Rec_MemoryHigh_Title" xml:space="preserve"><value>Libérer de la mémoire</value></data>
+  <data name="Diag_Rec_PowerPlan_Description" xml:space="preserve"><value>Sur secteur, le mode Équilibré offre de meilleures performances que le mode Économie d'énergie, sans réglage risqué. Vous pouvez revenir en arrière à tout moment.</value></data>
+  <data name="Diag_Rec_PowerPlan_Reason" xml:space="preserve"><value>Mode actif : Économie d'énergie, alors que le PC est branché sur secteur.</value></data>
+  <data name="Diag_Rec_PowerPlan_Title" xml:space="preserve"><value>Utiliser le mode d'alimentation Équilibré</value></data>
+  <data name="Diag_Rec_Restart_Description" xml:space="preserve"><value>Un redémarrage libère la mémoire occupée depuis longtemps et termine l'installation des mises à jour. Enregistrez votre travail avant.</value></data>
+  <data name="Diag_Rec_Restart_Reason" xml:space="preserve"><value>Dernier redémarrage il y a {0:N1} jours (seuil : {1:N0} jours).</value></data>
+  <data name="Diag_Rec_Restart_Title" xml:space="preserve"><value>Redémarrer le PC</value></data>
+  <data name="Diag_Rec_StartupHeavy_Description" xml:space="preserve"><value>Désactivez celles dont vous n'avez pas besoin dès l'ouverture de session : elles restent installées et vous pouvez les réactiver à tout moment.</value></data>
+  <data name="Diag_Rec_StartupHeavy_Reason" xml:space="preserve"><value>Applications activées au démarrage : {0} (seuil : {1}).</value></data>
+  <data name="Diag_Rec_StartupHeavy_Title" xml:space="preserve"><value>{0} applications se lancent au démarrage</value></data>
+  <data name="Diag_Rec_StartupHeavy_Title_One" xml:space="preserve"><value>{0} application se lance au démarrage</value></data>
+  <data name="Diag_Rec_Thermal_Description" xml:space="preserve"><value>Un PC qui chauffe peut ralentir pour se protéger. Vérifiez que les aérations ne sont ni obstruées ni poussiéreuses, et posez les portables sur une surface dure.</value></data>
+  <data name="Diag_Rec_Thermal_Reason_Cpu" xml:space="preserve"><value>Température du processeur : {0:N0} °C (seuil : {1:N0} °C).</value></data>
+  <data name="Diag_Rec_Thermal_Reason_Gpu" xml:space="preserve"><value>Température de la carte graphique : {0:N0} °C (seuil : {1:N0} °C).</value></data>
+  <data name="Diag_Rec_Thermal_Reason_Storage" xml:space="preserve"><value>Température du disque : {0:N0} °C (seuil : {1:N0} °C).</value></data>
+  <data name="Diag_Rec_Thermal_Title" xml:space="preserve"><value>Vérifier le refroidissement</value></data>
+  <data name="Diag_Rec_UpdateWindows_Description" xml:space="preserve"><value>Cette version de Windows n'est plus prise en charge. Une version récente apporte des correctifs de sécurité. Sauvegardez vos fichiers avant de passer par Windows Update.</value></data>
+  <data name="Diag_Rec_UpdateWindows_Reason" xml:space="preserve"><value>Build installée : {0} (minimum : {1}).</value></data>
+  <data name="Diag_Rec_UpdateWindows_Title" xml:space="preserve"><value>Mettre à jour Windows</value></data>
+  <data name="Diag_Rec_VisualEffects_Description" xml:space="preserve"><value>Réduire les animations et la transparence peut rendre l'affichage plus fluide sur un PC modeste. Ce réglage est réversible.</value></data>
+  <data name="Diag_Rec_VisualEffects_Reason" xml:space="preserve"><value>Configuration modeste : {0} Go de mémoire, {1} cœurs physiques.</value></data>
+  <data name="Diag_Rec_VisualEffects_Reason_RamOnly" xml:space="preserve"><value>Configuration modeste : {0} Go de mémoire.</value></data>
+  <data name="Diag_Rec_VisualEffects_Title" xml:space="preserve"><value>Alléger les effets visuels</value></data>
+  <data name="Diag_Rule_Background_Detail" xml:space="preserve"><value>Processus en arrière-plan dans votre session : {0} (seuil : {1}). Ils utilisent de la mémoire et du processeur même sans fenêtre visible.</value></data>
+  <data name="Diag_Rule_Background_Title" xml:space="preserve"><value>Nombreux processus en arrière-plan</value></data>
+  <data name="Diag_Rule_Cleanable_Detail_Gb" xml:space="preserve"><value>{0:N1} Go de fichiers peuvent être supprimés sans risque (fichiers temporaires, caches).</value></data>
+  <data name="Diag_Rule_Cleanable_Detail_Mb" xml:space="preserve"><value>{0:N0} Mo de fichiers peuvent être supprimés sans risque (fichiers temporaires, caches).</value></data>
+  <data name="Diag_Rule_Cleanable_Title" xml:space="preserve"><value>Fichiers temporaires à nettoyer</value></data>
+  <data name="Diag_Rule_CpuTemperature_Detail" xml:space="preserve"><value>Température mesurée : {0:N0} °C (seuil : {1:N0} °C). Un processeur trop chaud réduit sa vitesse pour se protéger.</value></data>
+  <data name="Diag_Rule_CpuTemperature_Title" xml:space="preserve"><value>Processeur très chaud</value></data>
+  <data name="Diag_Rule_Cpu_Critical_Title" xml:space="preserve"><value>Processeur saturé</value></data>
+  <data name="Diag_Rule_Cpu_Detail" xml:space="preserve"><value>Utilisation moyenne du processeur : {0:N0} % pendant {1:N0} secondes de mesure (maximum {2:N0} %).</value></data>
+  <data name="Diag_Rule_Cpu_Warning_Title" xml:space="preserve"><value>Processeur très sollicité</value></data>
+  <data name="Diag_Rule_Disk_Critical_Title" xml:space="preserve"><value>Disque saturé</value></data>
+  <data name="Diag_Rule_Disk_Detail" xml:space="preserve"><value>Le disque a été actif en moyenne {0:N0} % du temps pendant la mesure. Un disque saturé fait attendre toutes les applications.</value></data>
+  <data name="Diag_Rule_Disk_Warning_Title" xml:space="preserve"><value>Disque très occupé</value></data>
+  <data name="Diag_Rule_GpuTemperature_Detail" xml:space="preserve"><value>Température mesurée : {0:N0} °C (seuil : {1:N0} °C). Une carte graphique trop chaude réduit sa vitesse pour se protéger.</value></data>
+  <data name="Diag_Rule_GpuTemperature_Title" xml:space="preserve"><value>Carte graphique très chaude</value></data>
+  <data name="Diag_Rule_Memory_Critical_Title" xml:space="preserve"><value>Mémoire presque saturée</value></data>
+  <data name="Diag_Rule_Memory_Detail" xml:space="preserve"><value>{0:N0} % de la mémoire est utilisée ({1:N1} Go sur {2:N1} Go). Quand la mémoire manque, Windows se sert du disque, ce qui ralentit les applications.</value></data>
+  <data name="Diag_Rule_Memory_Warning_Title" xml:space="preserve"><value>Mémoire très utilisée</value></data>
+  <data name="Diag_Rule_PowerSaver_Detail" xml:space="preserve"><value>Le PC est branché sur secteur mais utilise le mode Économie d'énergie, qui limite les performances.</value></data>
+  <data name="Diag_Rule_PowerSaver_Title" xml:space="preserve"><value>Mode « Économie d'énergie » sur secteur</value></data>
+  <data name="Diag_Rule_Startup_Critical_Title" xml:space="preserve"><value>Démarrage très chargé</value></data>
+  <data name="Diag_Rule_Startup_Detail" xml:space="preserve"><value>Applications lancées avec Windows : {0}. Chacune allonge le démarrage et peut occuper de la mémoire en permanence.</value></data>
+  <data name="Diag_Rule_Startup_Warning_Title" xml:space="preserve"><value>Beaucoup d'applications au démarrage</value></data>
+  <data name="Diag_Rule_StorageTemperature_Detail" xml:space="preserve"><value>Température mesurée : {0:N0} °C (seuil : {1:N0} °C). Un disque trop chaud peut ralentir pour se protéger.</value></data>
+  <data name="Diag_Rule_StorageTemperature_Title" xml:space="preserve"><value>Disque très chaud</value></data>
+  <data name="Diag_Rule_Storage_Critical_Title" xml:space="preserve"><value>Disque système presque plein</value></data>
+  <data name="Diag_Rule_Storage_Detail" xml:space="preserve"><value>Il reste {0:N1} Go libres sur {1} ({2:N0} %). Windows a besoin d'espace libre pour ses mises à jour et sa mémoire virtuelle.</value></data>
+  <data name="Diag_Rule_Storage_Warning_Title" xml:space="preserve"><value>Peu d'espace libre sur le disque système</value></data>
+  <data name="Diag_Rule_UnsupportedBuild_Detail" xml:space="preserve"><value>Build installée : {0}. Cette application prend en charge Windows 10 version 1809 (build {1}) et les versions ultérieures ; certaines fonctions peuvent ne pas fonctionner.</value></data>
+  <data name="Diag_Rule_UnsupportedBuild_Title" xml:space="preserve"><value>Version de Windows trop ancienne</value></data>
+  <data name="Diag_Rule_Uptime_Detail" xml:space="preserve"><value>Le PC n'a pas été redémarré depuis {0:N1} jours. Un redémarrage libère la mémoire et termine les mises à jour en attente.</value></data>
+  <data name="Diag_Rule_Uptime_Title" xml:space="preserve"><value>Pas de redémarrage depuis longtemps</value></data>
+  <data name="Diag_Score_Cleanable_Explanation_Gb" xml:space="preserve"><value>{0:N1} Go de fichiers temporaires peuvent être supprimés sans risque.</value></data>
+  <data name="Diag_Score_Cleanable_Explanation_Mb" xml:space="preserve"><value>{0:N0} Mo de fichiers temporaires peuvent être supprimés sans risque.</value></data>
+  <data name="Diag_Score_Cleanable_Label" xml:space="preserve"><value>Fichiers récupérables</value></data>
+  <data name="Diag_Score_Cpu_Explanation" xml:space="preserve"><value>Le processeur a été utilisé en moyenne à {0:N0} % pendant la mesure ({1:N0} s).</value></data>
+  <data name="Diag_Score_Cpu_Label" xml:space="preserve"><value>Charge du processeur</value></data>
+  <data name="Diag_Score_Disk_Explanation" xml:space="preserve"><value>Le disque a été actif en moyenne {0:N0} % du temps pendant la mesure.</value></data>
+  <data name="Diag_Score_Disk_Label" xml:space="preserve"><value>Activité du disque</value></data>
+  <data name="Diag_Score_Memory_Explanation" xml:space="preserve"><value>{0:N0} % de la mémoire est utilisée ({1:N1} Go sur {2:N1} Go).</value></data>
+  <data name="Diag_Score_Memory_Label" xml:space="preserve"><value>Mémoire vive</value></data>
+  <data name="Diag_Score_Startup_Explanation" xml:space="preserve"><value>Applications lancées avec Windows : {0}.</value></data>
+  <data name="Diag_Score_Startup_Label" xml:space="preserve"><value>Applications au démarrage</value></data>
+  <data name="Diag_Score_Storage_Explanation" xml:space="preserve"><value>{0:N1} Go libres sur {1} ({2:N0} % du disque).</value></data>
+  <data name="Diag_Score_Storage_Label" xml:space="preserve"><value>Espace libre du disque système</value></data>
+  <data name="Diag_Score_Unknown_Explanation" xml:space="preserve"><value>Cette mesure n'est pas disponible sur ce PC. Ce facteur n'est pas compté dans le score.</value></data>
+  <data name="Diag_Score_Uptime_Explanation_Days" xml:space="preserve"><value>Le PC n'a pas été redémarré depuis {0:N0} jours.</value></data>
+  <data name="Diag_Score_Uptime_Explanation_Recent" xml:space="preserve"><value>Le PC a été redémarré il y a moins de 2 jours ({0:N0} h).</value></data>
+  <data name="Diag_Score_Uptime_Label" xml:space="preserve"><value>Redémarrage récent</value></data>
+  <data name="Diag_Slow_Background_Evidence" xml:space="preserve"><value>Processus en arrière-plan dans votre session : {0}.</value></data>
+  <data name="Diag_Slow_Background_Title" xml:space="preserve"><value>Nombreux processus en arrière-plan</value></data>
+  <data name="Diag_Slow_Background_WhatToDo" xml:space="preserve"><value>Fermez les applications de la zone de notification dont vous n'avez pas besoin et limitez les applications au démarrage.</value></data>
+  <data name="Diag_Slow_Background_Why" xml:space="preserve"><value>Même sans fenêtre, ils utilisent de la mémoire et du processeur.</value></data>
+  <data name="Diag_Slow_Cpu_Evidence" xml:space="preserve"><value>Utilisation moyenne : {0:N0} % (maximum {1:N0} %) pendant la mesure.</value></data>
+  <data name="Diag_Slow_Cpu_Title" xml:space="preserve"><value>Processeur très sollicité</value></data>
+  <data name="Diag_Slow_Cpu_WhatToDo" xml:space="preserve"><value>Consultez les processus les plus actifs et fermez ceux dont vous n'avez pas besoin.</value></data>
+  <data name="Diag_Slow_Cpu_WhatToDo_Process" xml:space="preserve"><value>Le processus le plus actif était {0}. S'il ne vous sert pas maintenant, fermez-le ou laissez-le terminer.</value></data>
+  <data name="Diag_Slow_Cpu_Why" xml:space="preserve"><value>Quand le processeur est occupé, les autres applications doivent attendre.</value></data>
+  <data name="Diag_Slow_DiskBusy_Evidence" xml:space="preserve"><value>Le disque a été actif {0:N0} % du temps en moyenne pendant la mesure.</value></data>
+  <data name="Diag_Slow_DiskBusy_Title" xml:space="preserve"><value>Disque saturé</value></data>
+  <data name="Diag_Slow_DiskBusy_WhatToDo" xml:space="preserve"><value>Laissez se terminer les mises à jour ou synchronisations en cours, puis observez l'activité du disque dans la page Performances.</value></data>
+  <data name="Diag_Slow_DiskBusy_Why" xml:space="preserve"><value>Quand le disque est saturé, chaque lecture de fichier attend son tour : tout le PC paraît lent.</value></data>
+  <data name="Diag_Slow_Hdd_Evidence" xml:space="preserve"><value>Disque système {0} : disque dur mécanique (HDD).</value></data>
+  <data name="Diag_Slow_Hdd_Title" xml:space="preserve"><value>Windows est installé sur un disque dur mécanique</value></data>
+  <data name="Diag_Slow_Hdd_WhatToDo" xml:space="preserve"><value>Limitez les applications au démarrage et gardez de l'espace libre. Remplacer ce disque par un SSD est une piste possible, pas une obligation.</value></data>
+  <data name="Diag_Slow_Hdd_Why" xml:space="preserve"><value>Un disque dur mécanique est beaucoup plus lent qu'un SSD pour démarrer Windows et ouvrir les applications.</value></data>
+  <data name="Diag_Slow_LowSpace_Evidence" xml:space="preserve"><value>Il reste {0:N1} Go libres sur {1} ({2:N0} %).</value></data>
+  <data name="Diag_Slow_LowSpace_Title" xml:space="preserve"><value>Espace disque faible</value></data>
+  <data name="Diag_Slow_LowSpace_WhatToDo" xml:space="preserve"><value>Regardez ce qui occupe le disque, puis déplacez ou supprimez les fichiers dont vous n'avez plus besoin.</value></data>
+  <data name="Diag_Slow_LowSpace_WhatToDo_Cleanable_Gb" xml:space="preserve"><value>{0:N1} Go de fichiers temporaires peuvent être nettoyés sans risque. Regardez aussi vos téléchargements et vos vidéos.</value></data>
+  <data name="Diag_Slow_LowSpace_WhatToDo_Cleanable_Mb" xml:space="preserve"><value>{0:N0} Mo de fichiers temporaires peuvent être nettoyés sans risque. Regardez aussi vos téléchargements et vos vidéos.</value></data>
+  <data name="Diag_Slow_LowSpace_Why" xml:space="preserve"><value>Sans espace libre, Windows ne peut plus agrandir sa mémoire virtuelle ni installer correctement ses mises à jour.</value></data>
+  <data name="Diag_Slow_Memory_Evidence" xml:space="preserve"><value>{0:N0} % de la mémoire est utilisée ({1:N1} Go sur {2:N1} Go).</value></data>
+  <data name="Diag_Slow_Memory_Title" xml:space="preserve"><value>Mémoire très utilisée</value></data>
+  <data name="Diag_Slow_Memory_WhatToDo" xml:space="preserve"><value>Fermez les applications et les onglets inutilisés, puis limitez les applications au démarrage.</value></data>
+  <data name="Diag_Slow_Memory_WhatToDo_Processes" xml:space="preserve"><value>Les plus gros consommateurs : {0}. Fermez ceux dont vous n'avez pas besoin, puis limitez les applications au démarrage.</value></data>
+  <data name="Diag_Slow_Memory_Why" xml:space="preserve"><value>Quand la mémoire manque, Windows déplace des données sur le disque, bien plus lent : les applications mettent du temps à répondre.</value></data>
+  <data name="Diag_Slow_PowerSaver_Evidence" xml:space="preserve"><value>Mode d'alimentation actif : Économie d'énergie ; le PC est branché sur secteur.</value></data>
+  <data name="Diag_Slow_PowerSaver_Title" xml:space="preserve"><value>Mode Économie d'énergie actif sur secteur</value></data>
+  <data name="Diag_Slow_PowerSaver_WhatToDo" xml:space="preserve"><value>Choisissez le mode Équilibré quand le PC est branché. Ce changement est réversible.</value></data>
+  <data name="Diag_Slow_PowerSaver_Why" xml:space="preserve"><value>Ce mode limite la vitesse du processeur pour économiser l'énergie.</value></data>
+  <data name="Diag_Slow_Startup_Evidence" xml:space="preserve"><value>Applications lancées avec Windows : {0}.</value></data>
+  <data name="Diag_Slow_Startup_Title" xml:space="preserve"><value>Trop d'applications au démarrage</value></data>
+  <data name="Diag_Slow_Startup_WhatToDo" xml:space="preserve"><value>Désactivez celles dont vous n'avez pas besoin tout de suite. Elles restent installées et peuvent être réactivées.</value></data>
+  <data name="Diag_Slow_Startup_Why" xml:space="preserve"><value>Elles ralentissent l'ouverture de session et restent souvent actives en arrière-plan.</value></data>
+  <data name="Diag_Slow_Thermal_Cpu_Title" xml:space="preserve"><value>Processeur trop chaud</value></data>
+  <data name="Diag_Slow_Thermal_Evidence" xml:space="preserve"><value>Température mesurée : {0:N0} °C (seuil : {1:N0} °C).</value></data>
+  <data name="Diag_Slow_Thermal_Gpu_Title" xml:space="preserve"><value>Carte graphique trop chaude</value></data>
+  <data name="Diag_Slow_Thermal_Storage_Title" xml:space="preserve"><value>Disque trop chaud</value></data>
+  <data name="Diag_Slow_Thermal_WhatToDo" xml:space="preserve"><value>Vérifiez que les aérations ne sont ni obstruées ni poussiéreuses. Posez les portables sur une surface dure.</value></data>
+  <data name="Diag_Slow_Thermal_Why" xml:space="preserve"><value>Pour se protéger de la chaleur, le matériel réduit sa vitesse.</value></data>
+  <data name="Diag_Slow_Uptime_Evidence" xml:space="preserve"><value>Dernier redémarrage il y a {0:N1} jours.</value></data>
+  <data name="Diag_Slow_Uptime_Title" xml:space="preserve"><value>Pas de redémarrage depuis longtemps</value></data>
+  <data name="Diag_Slow_Uptime_WhatToDo" xml:space="preserve"><value>Enregistrez votre travail, puis choisissez « Redémarrer » (et non « Arrêter »).</value></data>
+  <data name="Diag_Slow_Uptime_Why" xml:space="preserve"><value>Au fil des jours, certaines applications gardent de la mémoire et des mises à jour attendent un redémarrage.</value></data>
+</root>

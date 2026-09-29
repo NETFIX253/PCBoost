@@ -1,0 +1,476 @@
+{
+  "$comment": "Textes du module PCBoost.Diagnostics (clés Diag_*). Générer les .resx : python3 build/tools/i18n.py src/PCBoost.Diagnostics/Resources/Strings.i18n.json. Chaque clé doit aussi figurer dans Resources/DiagText.cs.",
+
+  "Diag_Score_Memory_Label": { "fr": "Mémoire vive", "en": "Memory (RAM)" },
+  "Diag_Score_Memory_Explanation": {
+    "fr": "{0:N0} % de la mémoire est utilisée ({1:N1} Go sur {2:N1} Go).",
+    "en": "{0:N0}% of memory is in use ({1:N1} GB of {2:N1} GB)."
+  },
+  "Diag_Score_Cpu_Label": { "fr": "Charge du processeur", "en": "Processor load" },
+  "Diag_Score_Cpu_Explanation": {
+    "fr": "Le processeur a été utilisé en moyenne à {0:N0} % pendant la mesure ({1:N0} s).",
+    "en": "The processor averaged {0:N0}% load during the measurement ({1:N0} s)."
+  },
+  "Diag_Score_Storage_Label": { "fr": "Espace libre du disque système", "en": "Free space on the system drive" },
+  "Diag_Score_Storage_Explanation": {
+    "fr": "{0:N1} Go libres sur {1} ({2:N0} % du disque).",
+    "en": "{0:N1} GB free on {1} ({2:N0}% of the drive)."
+  },
+  "Diag_Score_Startup_Label": { "fr": "Applications au démarrage", "en": "Startup apps" },
+  "Diag_Score_Startup_Explanation": {
+    "fr": "Applications lancées avec Windows : {0}.",
+    "en": "Apps starting with Windows: {0}."
+  },
+  "Diag_Score_Cleanable_Label": { "fr": "Fichiers récupérables", "en": "Recoverable files" },
+  "Diag_Score_Cleanable_Explanation_Gb": {
+    "fr": "{0:N1} Go de fichiers temporaires peuvent être supprimés sans risque.",
+    "en": "{0:N1} GB of temporary files can be safely removed."
+  },
+  "Diag_Score_Cleanable_Explanation_Mb": {
+    "fr": "{0:N0} Mo de fichiers temporaires peuvent être supprimés sans risque.",
+    "en": "{0:N0} MB of temporary files can be safely removed."
+  },
+  "Diag_Score_Disk_Label": { "fr": "Activité du disque", "en": "Disk activity" },
+  "Diag_Score_Disk_Explanation": {
+    "fr": "Le disque a été actif en moyenne {0:N0} % du temps pendant la mesure.",
+    "en": "The disk was busy {0:N0}% of the time on average during the measurement."
+  },
+  "Diag_Score_Uptime_Label": { "fr": "Redémarrage récent", "en": "Recent restart" },
+  "Diag_Score_Uptime_Explanation_Days": {
+    "fr": "Le PC n'a pas été redémarré depuis {0:N0} jours.",
+    "en": "The PC hasn't been restarted for {0:N0} days."
+  },
+  "Diag_Score_Uptime_Explanation_Recent": {
+    "fr": "Le PC a été redémarré il y a moins de 2 jours ({0:N0} h).",
+    "en": "The PC was restarted less than 2 days ago ({0:N0} h)."
+  },
+  "Diag_Score_Unknown_Explanation": {
+    "fr": "Cette mesure n'est pas disponible sur ce PC. Ce facteur n'est pas compté dans le score.",
+    "en": "This measurement isn't available on this PC. This factor isn't counted in the score."
+  },
+
+  "Diag_Rule_Memory_Warning_Title": { "fr": "Mémoire très utilisée", "en": "Memory usage is high" },
+  "Diag_Rule_Memory_Critical_Title": { "fr": "Mémoire presque saturée", "en": "Memory is almost full" },
+  "Diag_Rule_Memory_Detail": {
+    "fr": "{0:N0} % de la mémoire est utilisée ({1:N1} Go sur {2:N1} Go). Quand la mémoire manque, Windows se sert du disque, ce qui ralentit les applications.",
+    "en": "{0:N0}% of memory is in use ({1:N1} GB of {2:N1} GB). When memory runs short, Windows falls back on the disk, which slows apps down."
+  },
+  "Diag_Rule_Storage_Warning_Title": { "fr": "Peu d'espace libre sur le disque système", "en": "Low free space on the system drive" },
+  "Diag_Rule_Storage_Critical_Title": { "fr": "Disque système presque plein", "en": "System drive almost full" },
+  "Diag_Rule_Storage_Detail": {
+    "fr": "Il reste {0:N1} Go libres sur {1} ({2:N0} %). Windows a besoin d'espace libre pour ses mises à jour et sa mémoire virtuelle.",
+    "en": "{0:N1} GB free on {1} ({2:N0}%). Windows needs free space for updates and virtual memory."
+  },
+  "Diag_Rule_Startup_Warning_Title": { "fr": "Beaucoup d'applications au démarrage", "en": "Many startup apps" },
+  "Diag_Rule_Startup_Critical_Title": { "fr": "Démarrage très chargé", "en": "Very crowded startup" },
+  "Diag_Rule_Startup_Detail": {
+    "fr": "Applications lancées avec Windows : {0}. Chacune allonge le démarrage et peut occuper de la mémoire en permanence.",
+    "en": "Apps starting with Windows: {0}. Each one lengthens startup and may keep using memory."
+  },
+  "Diag_Rule_Cpu_Warning_Title": { "fr": "Processeur très sollicité", "en": "Processor is busy" },
+  "Diag_Rule_Cpu_Critical_Title": { "fr": "Processeur saturé", "en": "Processor is saturated" },
+  "Diag_Rule_Cpu_Detail": {
+    "fr": "Utilisation moyenne du processeur : {0:N0} % pendant {1:N0} secondes de mesure (maximum {2:N0} %).",
+    "en": "Average processor use: {0:N0}% over {1:N0} seconds of measurement (peak {2:N0}%)."
+  },
+  "Diag_Rule_Disk_Warning_Title": { "fr": "Disque très occupé", "en": "Disk is very busy" },
+  "Diag_Rule_Disk_Critical_Title": { "fr": "Disque saturé", "en": "Disk is saturated" },
+  "Diag_Rule_Disk_Detail": {
+    "fr": "Le disque a été actif en moyenne {0:N0} % du temps pendant la mesure. Un disque saturé fait attendre toutes les applications.",
+    "en": "The disk was busy {0:N0}% of the time on average during the measurement. A saturated disk makes every app wait."
+  },
+  "Diag_Rule_CpuTemperature_Title": { "fr": "Processeur très chaud", "en": "Processor running hot" },
+  "Diag_Rule_CpuTemperature_Detail": {
+    "fr": "Température mesurée : {0:N0} °C (seuil : {1:N0} °C). Un processeur trop chaud réduit sa vitesse pour se protéger.",
+    "en": "Measured temperature: {0:N0} °C (threshold: {1:N0} °C). An overheating processor slows itself down to stay safe."
+  },
+  "Diag_Rule_GpuTemperature_Title": { "fr": "Carte graphique très chaude", "en": "Graphics card running hot" },
+  "Diag_Rule_GpuTemperature_Detail": {
+    "fr": "Température mesurée : {0:N0} °C (seuil : {1:N0} °C). Une carte graphique trop chaude réduit sa vitesse pour se protéger.",
+    "en": "Measured temperature: {0:N0} °C (threshold: {1:N0} °C). An overheating graphics card slows itself down to stay safe."
+  },
+  "Diag_Rule_StorageTemperature_Title": { "fr": "Disque très chaud", "en": "Drive running hot" },
+  "Diag_Rule_StorageTemperature_Detail": {
+    "fr": "Température mesurée : {0:N0} °C (seuil : {1:N0} °C). Un disque trop chaud peut ralentir pour se protéger.",
+    "en": "Measured temperature: {0:N0} °C (threshold: {1:N0} °C). An overheating drive may slow down to stay safe."
+  },
+  "Diag_Rule_Uptime_Title": { "fr": "Pas de redémarrage depuis longtemps", "en": "No restart for a long time" },
+  "Diag_Rule_Uptime_Detail": {
+    "fr": "Le PC n'a pas été redémarré depuis {0:N1} jours. Un redémarrage libère la mémoire et termine les mises à jour en attente.",
+    "en": "The PC hasn't been restarted for {0:N1} days. A restart frees memory and finishes pending updates."
+  },
+  "Diag_Rule_Cleanable_Title": { "fr": "Fichiers temporaires à nettoyer", "en": "Temporary files to clean up" },
+  "Diag_Rule_Cleanable_Detail_Gb": {
+    "fr": "{0:N1} Go de fichiers peuvent être supprimés sans risque (fichiers temporaires, caches).",
+    "en": "{0:N1} GB of files can be safely removed (temporary files, caches)."
+  },
+  "Diag_Rule_Cleanable_Detail_Mb": {
+    "fr": "{0:N0} Mo de fichiers peuvent être supprimés sans risque (fichiers temporaires, caches).",
+    "en": "{0:N0} MB of files can be safely removed (temporary files, caches)."
+  },
+  "Diag_Rule_Background_Title": { "fr": "Nombreux processus en arrière-plan", "en": "Many background processes" },
+  "Diag_Rule_Background_Detail": {
+    "fr": "Processus en arrière-plan dans votre session : {0} (seuil : {1}). Ils utilisent de la mémoire et du processeur même sans fenêtre visible.",
+    "en": "Background processes in your session: {0} (threshold: {1}). They use memory and processor time even without a visible window."
+  },
+  "Diag_Rule_PowerSaver_Title": { "fr": "Mode « Économie d'énergie » sur secteur", "en": "Power saver mode while plugged in" },
+  "Diag_Rule_PowerSaver_Detail": {
+    "fr": "Le PC est branché sur secteur mais utilise le mode Économie d'énergie, qui limite les performances.",
+    "en": "The PC is plugged in but uses Power saver mode, which limits performance."
+  },
+  "Diag_Rule_UnsupportedBuild_Title": { "fr": "Version de Windows trop ancienne", "en": "Windows version is too old" },
+  "Diag_Rule_UnsupportedBuild_Detail": {
+    "fr": "Build installée : {0}. Cette application prend en charge Windows 10 version 1809 (build {1}) et les versions ultérieures ; certaines fonctions peuvent ne pas fonctionner.",
+    "en": "Installed build: {0}. This app supports Windows 10 version 1809 (build {1}) and later; some features may not work."
+  },
+
+  "Diag_Action_ViewStartupApps": { "fr": "Voir les applications", "en": "View apps" },
+  "Diag_Action_ViewProcesses": { "fr": "Voir les processus", "en": "View processes" },
+  "Diag_Action_ViewBackgroundApps": { "fr": "Voir les applications en arrière-plan", "en": "View background apps" },
+  "Diag_Action_ViewCleanup": { "fr": "Voir les fichiers à nettoyer", "en": "View files to clean up" },
+  "Diag_Action_ViewStorage": { "fr": "Voir ce qui occupe le disque", "en": "See what's using the drive" },
+  "Diag_Action_ChoosePowerPlan": { "fr": "Choisir un mode d'alimentation", "en": "Choose a power plan" },
+  "Diag_Action_ViewVisualEffects": { "fr": "Voir les effets visuels", "en": "View visual effects" },
+  "Diag_Action_ViewPerformance": { "fr": "Suivre les performances", "en": "Monitor performance" },
+  "Diag_Action_ViewOldPc": { "fr": "Voir les conseils pour ancien PC", "en": "View tips for older PCs" },
+
+  "Diag_Rec_StartupHeavy_Title": { "fr": "{0} applications se lancent au démarrage", "en": "{0} apps start with Windows" },
+  "Diag_Rec_StartupHeavy_Title_One": { "fr": "{0} application se lance au démarrage", "en": "{0} app starts with Windows" },
+  "Diag_Rec_StartupHeavy_Description": {
+    "fr": "Désactivez celles dont vous n'avez pas besoin dès l'ouverture de session : elles restent installées et vous pouvez les réactiver à tout moment.",
+    "en": "Turn off the ones you don't need right after signing in: they stay installed and you can turn them back on at any time."
+  },
+  "Diag_Rec_StartupHeavy_Reason": {
+    "fr": "Applications activées au démarrage : {0} (seuil : {1}).",
+    "en": "Apps enabled at startup: {0} (threshold: {1})."
+  },
+  "Diag_Rec_MemoryHigh_Title": { "fr": "Libérer de la mémoire", "en": "Free up memory" },
+  "Diag_Rec_MemoryHigh_Description_Processes": {
+    "fr": "Les applications qui utilisent le plus de mémoire en ce moment : {0}. Fermer celles dont vous ne vous servez pas peut rendre le PC plus réactif.",
+    "en": "The apps using the most memory right now: {0}. Closing the ones you aren't using can make the PC more responsive."
+  },
+  "Diag_Rec_MemoryHigh_Description": {
+    "fr": "Fermer les applications et les onglets dont vous ne vous servez pas peut rendre le PC plus réactif.",
+    "en": "Closing the apps and tabs you aren't using can make the PC more responsive."
+  },
+  "Diag_Rec_MemoryHigh_Reason": {
+    "fr": "Mémoire utilisée : {0:N0} % (seuil : {1:N0} %).",
+    "en": "Memory in use: {0:N0}% (threshold: {1:N0}%)."
+  },
+  "Diag_Rec_CpuHigh_Title": { "fr": "Réduire la charge du processeur", "en": "Reduce processor load" },
+  "Diag_Rec_CpuHigh_Description_Process": {
+    "fr": "Le processus le plus actif pendant la mesure : {0}. S'il ne vous sert pas maintenant, fermez-le ou laissez-le terminer.",
+    "en": "The most active process during the measurement: {0}. If you don't need it right now, close it or let it finish."
+  },
+  "Diag_Rec_CpuHigh_Description": {
+    "fr": "Consultez les processus qui utilisent le plus le processeur et fermez ceux dont vous n'avez pas besoin.",
+    "en": "Check the processes using the most processor time and close the ones you don't need."
+  },
+  "Diag_Rec_CpuHigh_Reason": {
+    "fr": "Utilisation moyenne du processeur : {0:N0} % (seuil : {1:N0} %).",
+    "en": "Average processor use: {0:N0}% (threshold: {1:N0}%)."
+  },
+  "Diag_Rec_DiskBusy_Title": { "fr": "Identifier ce qui occupe le disque", "en": "Find what keeps the disk busy" },
+  "Diag_Rec_DiskBusy_Description": {
+    "fr": "Une mise à jour, une analyse de sécurité ou une synchronisation peut occuper le disque un moment. Si cela dure, observez l'activité dans la page Performances.",
+    "en": "An update, a security scan or a sync can keep the disk busy for a while. If it lasts, watch the activity on the Performance page."
+  },
+  "Diag_Rec_DiskBusy_Reason": {
+    "fr": "Activité moyenne du disque : {0:N0} % (seuil : {1:N0} %).",
+    "en": "Average disk activity: {0:N0}% (threshold: {1:N0}%)."
+  },
+  "Diag_Rec_LowSpace_Title": { "fr": "Libérer de l'espace sur le disque système", "en": "Free up space on the system drive" },
+  "Diag_Rec_LowSpace_Description": {
+    "fr": "Regardez ce qui occupe le disque : téléchargements, vidéos ou anciens fichiers peuvent être déplacés ou supprimés par vos soins.",
+    "en": "See what takes up the drive: downloads, videos or old files can be moved or deleted by you."
+  },
+  "Diag_Rec_LowSpace_Reason": {
+    "fr": "Espace libre : {0:N1} Go ({1:N0} %, seuil : {2:N0} %).",
+    "en": "Free space: {0:N1} GB ({1:N0}%, threshold: {2:N0}%)."
+  },
+  "Diag_Rec_Cleanup_Title": { "fr": "Nettoyer les fichiers temporaires", "en": "Clean up temporary files" },
+  "Diag_Rec_Cleanup_Description": {
+    "fr": "Ces fichiers (caches, fichiers temporaires) peuvent être supprimés sans risque. Un aperçu vous est montré avant toute suppression, qui est définitive.",
+    "en": "These files (caches, temporary files) can be removed safely. You'll see a preview before anything is deleted; deletion is permanent."
+  },
+  "Diag_Rec_Cleanup_Reason_Gb": { "fr": "Espace récupérable : {0:N1} Go.", "en": "Recoverable space: {0:N1} GB." },
+  "Diag_Rec_Cleanup_Reason_Mb": { "fr": "Espace récupérable : {0:N0} Mo.", "en": "Recoverable space: {0:N0} MB." },
+  "Diag_Rec_Background_Title": { "fr": "Réduire les applications en arrière-plan", "en": "Reduce background apps" },
+  "Diag_Rec_Background_Description": {
+    "fr": "Certaines applications continuent de fonctionner sans fenêtre visible. Vous pouvez fermer celles dont vous n'avez pas besoin.",
+    "en": "Some apps keep running without a visible window. You can close the ones you don't need."
+  },
+  "Diag_Rec_Background_Reason": {
+    "fr": "Processus en arrière-plan : {0} (seuil : {1}).",
+    "en": "Background processes: {0} (threshold: {1})."
+  },
+  "Diag_Rec_PowerPlan_Title": { "fr": "Utiliser le mode d'alimentation Équilibré", "en": "Use the Balanced power plan" },
+  "Diag_Rec_PowerPlan_Description": {
+    "fr": "Sur secteur, le mode Équilibré offre de meilleures performances que le mode Économie d'énergie, sans réglage risqué. Vous pouvez revenir en arrière à tout moment.",
+    "en": "When plugged in, the Balanced plan performs better than Power saver, with no risky tweaks. You can switch back at any time."
+  },
+  "Diag_Rec_PowerPlan_Reason": {
+    "fr": "Mode actif : Économie d'énergie, alors que le PC est branché sur secteur.",
+    "en": "Active plan: Power saver, while the PC is plugged in."
+  },
+  "Diag_Rec_VisualEffects_Title": { "fr": "Alléger les effets visuels", "en": "Lighten visual effects" },
+  "Diag_Rec_VisualEffects_Description": {
+    "fr": "Réduire les animations et la transparence peut rendre l'affichage plus fluide sur un PC modeste. Ce réglage est réversible.",
+    "en": "Reducing animations and transparency can make the display smoother on a modest PC. This setting can be undone."
+  },
+  "Diag_Rec_VisualEffects_Reason": {
+    "fr": "Configuration modeste : {0} Go de mémoire, {1} cœurs physiques.",
+    "en": "Modest hardware: {0} GB of memory, {1} physical cores."
+  },
+  "Diag_Rec_VisualEffects_Reason_RamOnly": {
+    "fr": "Configuration modeste : {0} Go de mémoire.",
+    "en": "Modest hardware: {0} GB of memory."
+  },
+  "Diag_Rec_Restart_Title": { "fr": "Redémarrer le PC", "en": "Restart the PC" },
+  "Diag_Rec_Restart_Description": {
+    "fr": "Un redémarrage libère la mémoire occupée depuis longtemps et termine l'installation des mises à jour. Enregistrez votre travail avant.",
+    "en": "A restart frees memory that has been held for a long time and finishes installing updates. Save your work first."
+  },
+  "Diag_Rec_Restart_Reason": {
+    "fr": "Dernier redémarrage il y a {0:N1} jours (seuil : {1:N0} jours).",
+    "en": "Last restart {0:N1} days ago (threshold: {1:N0} days)."
+  },
+  "Diag_Rec_Thermal_Title": { "fr": "Vérifier le refroidissement", "en": "Check cooling" },
+  "Diag_Rec_Thermal_Description": {
+    "fr": "Un PC qui chauffe peut ralentir pour se protéger. Vérifiez que les aérations ne sont ni obstruées ni poussiéreuses, et posez les portables sur une surface dure.",
+    "en": "A PC that runs hot may slow down to protect itself. Make sure the vents aren't blocked or dusty, and keep laptops on a hard surface."
+  },
+  "Diag_Rec_Thermal_Reason_Cpu": {
+    "fr": "Température du processeur : {0:N0} °C (seuil : {1:N0} °C).",
+    "en": "Processor temperature: {0:N0} °C (threshold: {1:N0} °C)."
+  },
+  "Diag_Rec_Thermal_Reason_Gpu": {
+    "fr": "Température de la carte graphique : {0:N0} °C (seuil : {1:N0} °C).",
+    "en": "Graphics card temperature: {0:N0} °C (threshold: {1:N0} °C)."
+  },
+  "Diag_Rec_Thermal_Reason_Storage": {
+    "fr": "Température du disque : {0:N0} °C (seuil : {1:N0} °C).",
+    "en": "Drive temperature: {0:N0} °C (threshold: {1:N0} °C)."
+  },
+  "Diag_Rec_UpdateWindows_Title": { "fr": "Mettre à jour Windows", "en": "Update Windows" },
+  "Diag_Rec_UpdateWindows_Description": {
+    "fr": "Cette version de Windows n'est plus prise en charge. Une version récente apporte des correctifs de sécurité. Sauvegardez vos fichiers avant de passer par Windows Update.",
+    "en": "This Windows version is no longer supported. A recent version brings security fixes. Back up your files before using Windows Update."
+  },
+  "Diag_Rec_UpdateWindows_Reason": {
+    "fr": "Build installée : {0} (minimum : {1}).",
+    "en": "Installed build: {0} (minimum: {1})."
+  },
+  "Diag_Rec_HardwareSsd_Title": { "fr": "Piste : remplacer le disque dur par un SSD", "en": "Idea: replace the hard drive with an SSD" },
+  "Diag_Rec_HardwareSsd_Description": {
+    "fr": "Un SSD réduit généralement les temps de démarrage et d'ouverture des applications. Ce n'est pas indispensable : à vous de juger selon votre usage.",
+    "en": "An SSD usually shortens startup and app launch times. It isn't required: it's up to you, depending on how you use the PC."
+  },
+  "Diag_Rec_HardwareSsd_Reason": {
+    "fr": "Disque système : disque dur mécanique (HDD).",
+    "en": "System drive: mechanical hard drive (HDD)."
+  },
+  "Diag_Rec_HardwareRam_Title": { "fr": "Piste : ajouter de la mémoire vive", "en": "Idea: add more memory" },
+  "Diag_Rec_HardwareRam_Description": {
+    "fr": "Une augmentation de la RAM pourrait améliorer le multitâche. Vérifiez d'abord que votre PC le permet. Fermer les applications inutiles reste la première étape, et ne coûte rien.",
+    "en": "More RAM could improve multitasking. First check that your PC supports it. Closing unused apps remains the first step, and it's free."
+  },
+  "Diag_Rec_HardwareRam_Reason": {
+    "fr": "{0} Go de mémoire, utilisée à {1:N0} % au moment de l'analyse.",
+    "en": "{0} GB of memory, {1:N0}% in use at the time of the analysis."
+  },
+
+  "Diag_Profile_Reason_Ram": { "fr": "{0} Go de mémoire vive", "en": "{0} GB of memory" },
+  "Diag_Profile_Reason_Cores": { "fr": "Cœurs physiques du processeur : {0}", "en": "Physical processor cores: {0}" },
+  "Diag_Profile_Reason_Hdd": { "fr": "Windows est installé sur un disque dur mécanique (HDD)", "en": "Windows is installed on a mechanical hard drive (HDD)" },
+  "Diag_Profile_Reason_Ssd": { "fr": "Windows est installé sur un SSD", "en": "Windows is installed on an SSD" },
+  "Diag_Profile_Reason_IntegratedGpu": { "fr": "Carte graphique intégrée uniquement", "en": "Integrated graphics only" },
+  "Diag_Profile_Reason_DedicatedGpu": { "fr": "Carte graphique dédiée ({0} Go de mémoire vidéo)", "en": "Dedicated graphics card ({0} GB of video memory)" },
+  "Diag_Profile_Reason_DedicatedGpuUnknownMemory": { "fr": "Carte graphique dédiée", "en": "Dedicated graphics card" },
+  "Diag_Profile_Reason_LowSpace": { "fr": "Disque système presque plein ({0:N0} % libres)", "en": "System drive almost full ({0:N0}% free)" },
+  "Diag_Profile_Reason_Unknown": {
+    "fr": "La quantité de mémoire n'a pas pu être lue : le profil matériel est inconnu.",
+    "en": "The amount of memory couldn't be read, so the hardware profile is unknown."
+  },
+
+  "Diag_Slow_Memory_Title": { "fr": "Mémoire très utilisée", "en": "Memory usage is high" },
+  "Diag_Slow_Memory_Evidence": {
+    "fr": "{0:N0} % de la mémoire est utilisée ({1:N1} Go sur {2:N1} Go).",
+    "en": "{0:N0}% of memory is in use ({1:N1} GB of {2:N1} GB)."
+  },
+  "Diag_Slow_Memory_Why": {
+    "fr": "Quand la mémoire manque, Windows déplace des données sur le disque, bien plus lent : les applications mettent du temps à répondre.",
+    "en": "When memory runs short, Windows moves data to the disk, which is much slower, so apps take longer to respond."
+  },
+  "Diag_Slow_Memory_WhatToDo_Processes": {
+    "fr": "Les plus gros consommateurs : {0}. Fermez ceux dont vous n'avez pas besoin, puis limitez les applications au démarrage.",
+    "en": "The biggest users: {0}. Close the ones you don't need, then limit startup apps."
+  },
+  "Diag_Slow_Memory_WhatToDo": {
+    "fr": "Fermez les applications et les onglets inutilisés, puis limitez les applications au démarrage.",
+    "en": "Close unused apps and tabs, then limit startup apps."
+  },
+  "Diag_Slow_Startup_Title": { "fr": "Trop d'applications au démarrage", "en": "Too many startup apps" },
+  "Diag_Slow_Startup_Evidence": { "fr": "Applications lancées avec Windows : {0}.", "en": "Apps starting with Windows: {0}." },
+  "Diag_Slow_Startup_Why": {
+    "fr": "Elles ralentissent l'ouverture de session et restent souvent actives en arrière-plan.",
+    "en": "They slow down sign-in and often keep running in the background."
+  },
+  "Diag_Slow_Startup_WhatToDo": {
+    "fr": "Désactivez celles dont vous n'avez pas besoin tout de suite. Elles restent installées et peuvent être réactivées.",
+    "en": "Turn off the ones you don't need right away. They stay installed and can be turned back on."
+  },
+  "Diag_Slow_DiskBusy_Title": { "fr": "Disque saturé", "en": "Disk is saturated" },
+  "Diag_Slow_DiskBusy_Evidence": {
+    "fr": "Le disque a été actif {0:N0} % du temps en moyenne pendant la mesure.",
+    "en": "The disk was busy {0:N0}% of the time on average during the measurement."
+  },
+  "Diag_Slow_DiskBusy_Why": {
+    "fr": "Quand le disque est saturé, chaque lecture de fichier attend son tour : tout le PC paraît lent.",
+    "en": "When the disk is saturated, every file read has to wait its turn, so the whole PC feels slow."
+  },
+  "Diag_Slow_DiskBusy_WhatToDo": {
+    "fr": "Laissez se terminer les mises à jour ou synchronisations en cours, puis observez l'activité du disque dans la page Performances.",
+    "en": "Let running updates or syncs finish, then watch disk activity on the Performance page."
+  },
+  "Diag_Slow_Hdd_Title": { "fr": "Windows est installé sur un disque dur mécanique", "en": "Windows is installed on a mechanical hard drive" },
+  "Diag_Slow_Hdd_Evidence": { "fr": "Disque système {0} : disque dur mécanique (HDD).", "en": "System drive {0}: mechanical hard drive (HDD)." },
+  "Diag_Slow_Hdd_Why": {
+    "fr": "Un disque dur mécanique est beaucoup plus lent qu'un SSD pour démarrer Windows et ouvrir les applications.",
+    "en": "A mechanical hard drive is much slower than an SSD at starting Windows and opening apps."
+  },
+  "Diag_Slow_Hdd_WhatToDo": {
+    "fr": "Limitez les applications au démarrage et gardez de l'espace libre. Remplacer ce disque par un SSD est une piste possible, pas une obligation.",
+    "en": "Limit startup apps and keep some free space. Replacing this drive with an SSD is an option, not a requirement."
+  },
+  "Diag_Slow_Cpu_Title": { "fr": "Processeur très sollicité", "en": "Processor is busy" },
+  "Diag_Slow_Cpu_Evidence": {
+    "fr": "Utilisation moyenne : {0:N0} % (maximum {1:N0} %) pendant la mesure.",
+    "en": "Average use: {0:N0}% (peak {1:N0}%) during the measurement."
+  },
+  "Diag_Slow_Cpu_Why": {
+    "fr": "Quand le processeur est occupé, les autres applications doivent attendre.",
+    "en": "When the processor is busy, other apps have to wait."
+  },
+  "Diag_Slow_Cpu_WhatToDo_Process": {
+    "fr": "Le processus le plus actif était {0}. S'il ne vous sert pas maintenant, fermez-le ou laissez-le terminer.",
+    "en": "The most active process was {0}. If you don't need it right now, close it or let it finish."
+  },
+  "Diag_Slow_Cpu_WhatToDo": {
+    "fr": "Consultez les processus les plus actifs et fermez ceux dont vous n'avez pas besoin.",
+    "en": "Check the most active processes and close the ones you don't need."
+  },
+  "Diag_Slow_LowSpace_Title": { "fr": "Espace disque faible", "en": "Low disk space" },
+  "Diag_Slow_LowSpace_Evidence": {
+    "fr": "Il reste {0:N1} Go libres sur {1} ({2:N0} %).",
+    "en": "{0:N1} GB free on {1} ({2:N0}%)."
+  },
+  "Diag_Slow_LowSpace_Why": {
+    "fr": "Sans espace libre, Windows ne peut plus agrandir sa mémoire virtuelle ni installer correctement ses mises à jour.",
+    "en": "Without free space, Windows can no longer grow its virtual memory or install updates properly."
+  },
+  "Diag_Slow_LowSpace_WhatToDo_Cleanable_Gb": {
+    "fr": "{0:N1} Go de fichiers temporaires peuvent être nettoyés sans risque. Regardez aussi vos téléchargements et vos vidéos.",
+    "en": "{0:N1} GB of temporary files can be safely cleaned up. Also check your downloads and videos."
+  },
+  "Diag_Slow_LowSpace_WhatToDo_Cleanable_Mb": {
+    "fr": "{0:N0} Mo de fichiers temporaires peuvent être nettoyés sans risque. Regardez aussi vos téléchargements et vos vidéos.",
+    "en": "{0:N0} MB of temporary files can be safely cleaned up. Also check your downloads and videos."
+  },
+  "Diag_Slow_LowSpace_WhatToDo": {
+    "fr": "Regardez ce qui occupe le disque, puis déplacez ou supprimez les fichiers dont vous n'avez plus besoin.",
+    "en": "See what takes up the drive, then move or delete the files you no longer need."
+  },
+  "Diag_Slow_Thermal_Cpu_Title": { "fr": "Processeur trop chaud", "en": "Processor is too hot" },
+  "Diag_Slow_Thermal_Gpu_Title": { "fr": "Carte graphique trop chaude", "en": "Graphics card is too hot" },
+  "Diag_Slow_Thermal_Storage_Title": { "fr": "Disque trop chaud", "en": "Drive is too hot" },
+  "Diag_Slow_Thermal_Evidence": {
+    "fr": "Température mesurée : {0:N0} °C (seuil : {1:N0} °C).",
+    "en": "Measured temperature: {0:N0} °C (threshold: {1:N0} °C)."
+  },
+  "Diag_Slow_Thermal_Why": {
+    "fr": "Pour se protéger de la chaleur, le matériel réduit sa vitesse.",
+    "en": "To protect itself from heat, the hardware lowers its speed."
+  },
+  "Diag_Slow_Thermal_WhatToDo": {
+    "fr": "Vérifiez que les aérations ne sont ni obstruées ni poussiéreuses. Posez les portables sur une surface dure.",
+    "en": "Make sure the vents aren't blocked or dusty. Keep laptops on a hard surface."
+  },
+  "Diag_Slow_Uptime_Title": { "fr": "Pas de redémarrage depuis longtemps", "en": "No restart for a long time" },
+  "Diag_Slow_Uptime_Evidence": { "fr": "Dernier redémarrage il y a {0:N1} jours.", "en": "Last restart {0:N1} days ago." },
+  "Diag_Slow_Uptime_Why": {
+    "fr": "Au fil des jours, certaines applications gardent de la mémoire et des mises à jour attendent un redémarrage.",
+    "en": "Over the days, some apps hold on to memory and updates wait for a restart."
+  },
+  "Diag_Slow_Uptime_WhatToDo": {
+    "fr": "Enregistrez votre travail, puis choisissez « Redémarrer » (et non « Arrêter »).",
+    "en": "Save your work, then choose \"Restart\" (not \"Shut down\")."
+  },
+  "Diag_Slow_PowerSaver_Title": { "fr": "Mode Économie d'énergie actif sur secteur", "en": "Power saver active while plugged in" },
+  "Diag_Slow_PowerSaver_Evidence": {
+    "fr": "Mode d'alimentation actif : Économie d'énergie ; le PC est branché sur secteur.",
+    "en": "Active power plan: Power saver; the PC is plugged in."
+  },
+  "Diag_Slow_PowerSaver_Why": {
+    "fr": "Ce mode limite la vitesse du processeur pour économiser l'énergie.",
+    "en": "This plan limits processor speed to save energy."
+  },
+  "Diag_Slow_PowerSaver_WhatToDo": {
+    "fr": "Choisissez le mode Équilibré quand le PC est branché. Ce changement est réversible.",
+    "en": "Choose the Balanced plan when the PC is plugged in. This change can be undone."
+  },
+  "Diag_Slow_Background_Title": { "fr": "Nombreux processus en arrière-plan", "en": "Many background processes" },
+  "Diag_Slow_Background_Evidence": {
+    "fr": "Processus en arrière-plan dans votre session : {0}.",
+    "en": "Background processes in your session: {0}."
+  },
+  "Diag_Slow_Background_Why": {
+    "fr": "Même sans fenêtre, ils utilisent de la mémoire et du processeur.",
+    "en": "Even without a window, they use memory and processor time."
+  },
+  "Diag_Slow_Background_WhatToDo": {
+    "fr": "Fermez les applications de la zone de notification dont vous n'avez pas besoin et limitez les applications au démarrage.",
+    "en": "Close the notification-area apps you don't need and limit startup apps."
+  },
+
+  "Diag_Advice_Ram_Observation": {
+    "fr": "Votre PC possède {0} Go de mémoire vive, utilisée à plus de 85 % pendant {1:N0} % du temps observé.",
+    "en": "Your PC has {0} GB of memory, which was more than 85% full {1:N0}% of the observed time."
+  },
+  "Diag_Advice_Ram_Suggestion": {
+    "fr": "Une augmentation de la RAM pourrait améliorer le multitâche. Vérifiez d'abord que votre PC le permet (emplacements libres, capacité maximale).",
+    "en": "More RAM could improve multitasking. First check that your PC supports it (free slots, maximum capacity)."
+  },
+  "Diag_Advice_Ssd_Observation": {
+    "fr": "Windows est installé sur un disque dur mécanique (HDD).",
+    "en": "Windows is installed on a mechanical hard drive (HDD)."
+  },
+  "Diag_Advice_Ssd_Suggestion": {
+    "fr": "Un SSD pourrait réduire nettement les temps de démarrage et d'ouverture des applications.",
+    "en": "An SSD could noticeably shorten startup and app launch times."
+  },
+  "Diag_Advice_StorageFull_Observation": {
+    "fr": "Le disque système est rempli à {0:N0} % ({1:N1} Go libres sur {2:N0} Go).",
+    "en": "The system drive is {0:N0}% full ({1:N1} GB free of {2:N0} GB)."
+  },
+  "Diag_Advice_StorageFull_Suggestion": {
+    "fr": "Commencez par libérer de l'espace. Si le disque reste plein, un disque de plus grande capacité pourrait être envisagé.",
+    "en": "Start by freeing up space. If the drive stays full, a larger drive could be considered."
+  },
+  "Diag_Advice_Gpu_Observation": {
+    "fr": "Votre PC utilise uniquement une carte graphique intégrée ({0}).",
+    "en": "Your PC only uses integrated graphics ({0})."
+  },
+  "Diag_Advice_Gpu_Suggestion": {
+    "fr": "Pour les jeux récents, une carte graphique dédiée pourrait être utile. Pour la bureautique et la vidéo, la carte intégrée suffit en général.",
+    "en": "For recent games, a dedicated graphics card could help. For office work and video, integrated graphics are usually enough."
+  },
+  "Diag_Advice_Cpu_Observation": {
+    "fr": "Le processeur ({0}) a été utilisé à plus de 90 % pendant {1:N0} % du temps observé.",
+    "en": "The processor ({0}) was more than 90% busy {1:N0}% of the observed time."
+  },
+  "Diag_Advice_Cpu_Suggestion": {
+    "fr": "Vérifiez d'abord les processus les plus gourmands. Si cette charge correspond à votre usage habituel, un processeur plus puissant pourrait aider.",
+    "en": "First check the most demanding processes. If this load matches your usual use, a more powerful processor could help."
+  }
+}

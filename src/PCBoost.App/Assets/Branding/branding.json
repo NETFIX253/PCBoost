@@ -1,0 +1,14 @@
+{
+  "$comment": "Identité produit modifiable sans recompiler le code. Voir aussi build/Branding.props (nom, éditeur, version) et les images de ce dossier.",
+  "productName": "PCBoost",
+  "publisher": "Mohamed ABDOURAHMAN (DSI)",
+  "slogan": {
+    "fr": "Redonnez de la fluidité à votre PC.",
+    "en": "Bring the smoothness back to your PC."
+  },
+  "supportUrl": null,
+  "websiteUrl": null,
+  "license": "Propriétaire — tous droits réservés",
+  "dataFolderName": "PCBoost",
+  "updateFeedPath": null
+}

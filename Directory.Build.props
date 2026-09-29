@@ -1,0 +1,37 @@
+<Project>
+  <Import Project="$(MSBuildThisFileDirectory)build/Branding.props" />
+
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
+    <WarningsAsErrors>$(WarningsAsErrors);nullable</WarningsAsErrors>
+    <Deterministic>true</Deterministic>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <SatelliteResourceLanguages>fr;en</SatelliteResourceLanguages>
+    <!-- Ne télécharge pas les packs d'exécution des frameworks non référencés (ASP.NET Core…). -->
+    <DisableTransitiveFrameworkReferenceDownloads>true</DisableTransitiveFrameworkReferenceDownloads>
+    <NeutralLanguage>fr</NeutralLanguage>
+
+    <Product>$(BrandProductName)</Product>
+    <Company>$(BrandPublisher)</Company>
+    <Copyright>$(BrandCopyright)</Copyright>
+    <Version>$(BrandVersion)</Version>
+    <AssemblyVersion>$(BrandVersion).0</AssemblyVersion>
+    <FileVersion>$(BrandVersion).0</FileVersion>
+    <InformationalVersion>$(BrandVersion)</InformationalVersion>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+
+    <!-- Fenêtres cible commune pour les projets Windows -->
+    <PCBoostWindowsTfm>net10.0-windows10.0.19041.0</PCBoostWindowsTfm>
+    <PCBoostMinWindows>10.0.17763.0</PCBoostMinWindows>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DebugType>portable</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+</Project>

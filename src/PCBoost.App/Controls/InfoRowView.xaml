@@ -1,0 +1,19 @@
+<UserControl
+    x:Class="PCBoost.App.Controls.InfoRowView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:h="using:PCBoost.App.Helpers"
+    AutomationProperties.Name="{x:Bind Row.AccessibleName, Mode=OneWay}">
+    <Grid ColumnSpacing="16" Padding="0,8,0,8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{x:Bind LabelWidth, Mode=OneWay}" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="{x:Bind Row.Label, Mode=OneWay}" Style="{StaticResource SecondaryTextStyle}" />
+        <StackPanel Grid.Column="1" Spacing="2">
+            <TextBlock Text="{x:Bind Row.Value, Mode=OneWay}" TextWrapping="Wrap" IsTextSelectionEnabled="True" />
+            <TextBlock Text="{x:Bind Row.Detail, Mode=OneWay}" Style="{StaticResource CaptionSecondaryTextStyle}"
+                       Visibility="{x:Bind h:Ui.ShowText(Row.Detail), Mode=OneWay}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

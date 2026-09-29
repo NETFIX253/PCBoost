@@ -1,0 +1,223 @@
+{
+  "$comment": "Textes communs (Common_*), messages d'erreur humains (Error_<OperationErrorKind>, §79) et textes du module Infrastructure (Infra_*). Générer les .resx : python3 build/tools/i18n.py src/PCBoost.Infrastructure/Resources/Strings.i18n.json. Le nom du produit n'apparaît jamais ici (il est remplaçable).",
+  "Common_NotAvailable": {
+    "fr": "Non disponible",
+    "en": "Not available"
+  },
+  "Common_Unknown": {
+    "fr": "Inconnu",
+    "en": "Unknown"
+  },
+  "Common_Yes": {
+    "fr": "Oui",
+    "en": "Yes"
+  },
+  "Common_No": {
+    "fr": "Non",
+    "en": "No"
+  },
+  "Common_Enabled": {
+    "fr": "Activé",
+    "en": "On"
+  },
+  "Common_Disabled": {
+    "fr": "Désactivé",
+    "en": "Off"
+  },
+  "Common_Ok": {
+    "fr": "OK",
+    "en": "OK"
+  },
+  "Common_Cancel": {
+    "fr": "Annuler",
+    "en": "Cancel"
+  },
+  "Common_Close": {
+    "fr": "Fermer",
+    "en": "Close"
+  },
+  "Common_Retry": {
+    "fr": "Réessayer",
+    "en": "Try again"
+  },
+  "Common_Unit_Byte": {
+    "fr": "o",
+    "en": "B"
+  },
+  "Common_Unit_KB": {
+    "fr": "Ko",
+    "en": "KB"
+  },
+  "Common_Unit_MB": {
+    "fr": "Mo",
+    "en": "MB"
+  },
+  "Common_Unit_GB": {
+    "fr": "Go",
+    "en": "GB"
+  },
+  "Common_Unit_TB": {
+    "fr": "To",
+    "en": "TB"
+  },
+  "Common_SizeFormat": {
+    "fr": "{0} {1}",
+    "en": "{0} {1}"
+  },
+  "Common_Percent": {
+    "fr": "{0} %",
+    "en": "{0}%"
+  },
+  "Common_Temperature": {
+    "fr": "{0} °C",
+    "en": "{0} °C"
+  },
+  "Common_FramesPerSecond": {
+    "fr": "{0} i/s",
+    "en": "{0} FPS"
+  },
+  "Common_Milliseconds": {
+    "fr": "{0} ms",
+    "en": "{0} ms"
+  },
+  "Common_Duration_Seconds": {
+    "fr": "{0} s",
+    "en": "{0} s"
+  },
+  "Common_Duration_Minutes": {
+    "fr": "{0} min",
+    "en": "{0} min"
+  },
+  "Common_Duration_MinutesSeconds": {
+    "fr": "{0} min {1:00} s",
+    "en": "{0} min {1:00} s"
+  },
+  "Common_Duration_HoursMinutes": {
+    "fr": "{0} h {1:00} min",
+    "en": "{0} h {1:00} min"
+  },
+  "Common_Duration_DaysHours": {
+    "fr": "{0} j {1} h",
+    "en": "{0} d {1} h"
+  },
+  "Error_None": {
+    "fr": "L'opération s'est terminée sans erreur.",
+    "en": "The operation completed without errors."
+  },
+  "Error_AccessDenied": {
+    "fr": "Windows a refusé cette opération car elle nécessite des privilèges supplémentaires.",
+    "en": "Windows refused this operation because it requires additional privileges."
+  },
+  "Error_RequiresElevation": {
+    "fr": "Cette opération nécessite une autorisation administrateur.",
+    "en": "This operation requires administrator permission."
+  },
+  "Error_ElevationCancelled": {
+    "fr": "L'autorisation administrateur a été refusée. Aucune modification n'a été faite.",
+    "en": "Administrator permission was declined. Nothing was changed."
+  },
+  "Error_NotFound": {
+    "fr": "L'élément est introuvable. Il a peut-être déjà été supprimé ou déplacé.",
+    "en": "The item could not be found. It may already have been removed or moved."
+  },
+  "Error_NotSupported": {
+    "fr": "Cette opération n'est pas prise en charge sur ce PC ou sur cette version de Windows.",
+    "en": "This operation is not supported on this PC or on this version of Windows."
+  },
+  "Error_Cancelled": {
+    "fr": "L'opération a été annulée.",
+    "en": "The operation was cancelled."
+  },
+  "Error_InUse": {
+    "fr": "Le fichier est utilisé par une autre application.",
+    "en": "The file is being used by another application."
+  },
+  "Error_Blocked": {
+    "fr": "Cette opération a été bloquée pour protéger la stabilité et la sécurité de Windows.",
+    "en": "This operation was blocked to protect the stability and security of Windows."
+  },
+  "Error_Timeout": {
+    "fr": "L'opération a pris trop de temps et a été arrêtée.",
+    "en": "The operation took too long and was stopped."
+  },
+  "Error_InvalidInput": {
+    "fr": "Les informations fournies ne sont pas valides.",
+    "en": "The information provided is not valid."
+  },
+  "Error_Failed": {
+    "fr": "L'opération n'a pas pu être effectuée.",
+    "en": "The operation could not be completed."
+  },
+  "Infra_Language_System": {
+    "fr": "Langue du système",
+    "en": "System language"
+  },
+  "Infra_Language_French": {
+    "fr": "Français",
+    "en": "Français"
+  },
+  "Infra_Language_English": {
+    "fr": "English",
+    "en": "English"
+  },
+  "Infra_Database_Recovered": {
+    "fr": "Les données locales (historique, restauration) étaient endommagées. Une copie a été mise de côté et de nouvelles données ont été créées.",
+    "en": "The local data (history, restore) was damaged. A copy was set aside and new data was created."
+  },
+  "Infra_Database_Temporary": {
+    "fr": "Les données locales ne peuvent pas être enregistrées sur ce PC. L'historique de cette session ne sera pas conservé après la fermeture.",
+    "en": "Local data cannot be saved on this PC. This session's history will not be kept after closing."
+  },
+  "Infra_Update_NotConfigured": {
+    "fr": "Aucune source de mise à jour n'est configurée.",
+    "en": "No update source is configured."
+  },
+  "Infra_Update_RemoteNotConfigured": {
+    "fr": "La recherche de mises à jour en ligne n'est pas disponible dans cette version.",
+    "en": "Online update checks are not available in this version."
+  },
+  "Infra_Update_UpToDate": {
+    "fr": "Vous utilisez la dernière version disponible ({0}).",
+    "en": "You are using the latest available version ({0})."
+  },
+  "Infra_Update_Available": {
+    "fr": "La version {0} est disponible.",
+    "en": "Version {0} is available."
+  },
+  "Infra_Update_FeedNotFound": {
+    "fr": "La source de mise à jour est introuvable.",
+    "en": "The update source could not be found."
+  },
+  "Infra_Update_FeedInvalid": {
+    "fr": "Les informations de mise à jour sont illisibles ou incomplètes.",
+    "en": "The update information is unreadable or incomplete."
+  },
+  "Infra_Update_PackageNotFound": {
+    "fr": "Le paquet de mise à jour est introuvable.",
+    "en": "The update package could not be found."
+  },
+  "Infra_Update_CopyFailed": {
+    "fr": "Le paquet de mise à jour n'a pas pu être copié.",
+    "en": "The update package could not be copied."
+  },
+  "Infra_Update_HashMismatch": {
+    "fr": "Le paquet de mise à jour est endommagé ou a été modifié : son empreinte ne correspond pas. Il a été supprimé et rien n'a été installé.",
+    "en": "The update package is damaged or has been modified: its fingerprint does not match. It was deleted and nothing was installed."
+  },
+  "Infra_Update_Verified": {
+    "fr": "Le paquet de mise à jour a été vérifié.",
+    "en": "The update package was verified."
+  },
+  "Infra_Update_InvalidPackage": {
+    "fr": "Seul un paquet d'installation téléchargé et vérifié par l'application peut être lancé.",
+    "en": "Only an installation package downloaded and verified by the application can be started."
+  },
+  "Infra_Update_InstallerStarted": {
+    "fr": "L'installation de la mise à jour a démarré. En cas d'échec, la version actuelle reste en place.",
+    "en": "The update installation has started. If it fails, the current version stays in place."
+  },
+  "Infra_Update_InstallerFailed": {
+    "fr": "Le programme d'installation n'a pas pu être lancé. La version actuelle reste en place.",
+    "en": "The installer could not be started. The current version stays in place."
+  }
+}

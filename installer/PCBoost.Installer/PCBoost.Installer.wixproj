@@ -1,0 +1,47 @@
+<Project Sdk="WixToolset.Sdk/5.0.2" InitialTargets="PCBoostCheckPublishDir">
+  <!--
+    Installateur MSI de PCBoost (WiX Toolset 5, licence MS-RL).
+    Construire : build\build.ps1 -Publish -Installer  (publie l'application puis produit dist\PCBoost-<version>-<plateforme>.msi)
+    Identité (nom, éditeur, version, UpgradeCode) : build\Branding.props.
+  -->
+  <PropertyGroup>
+    <OutputType>Package</OutputType>
+    <InstallerPlatform Condition="'$(InstallerPlatform)' == ''">x64</InstallerPlatform>
+    <PublishRid Condition="'$(InstallerPlatform)' == 'ARM64'">win-arm64</PublishRid>
+    <PublishRid Condition="'$(PublishRid)' == ''">win-x64</PublishRid>
+    <PublishDir Condition="'$(PublishDir)' == ''">$(MSBuildThisFileDirectory)..\..\artifacts\publish\$(PublishRid)\</PublishDir>
+    <OutputName>$(BrandProductName)-$(BrandVersion)-$(InstallerPlatform)</OutputName>
+    <OutputPath>$(MSBuildThisFileDirectory)..\..\artifacts\installer\$(InstallerPlatform)\</OutputPath>
+    <PCBoostDistDir>$(MSBuildThisFileDirectory)..\..\dist\</PCBoostDistDir>
+    <IntermediateOutputPath>$(MSBuildThisFileDirectory)obj\$(InstallerPlatform)\</IntermediateOutputPath>
+    <Cultures>fr-FR</Cultures>
+    <!-- Chemins transmis sans barre finale : « \" » en fin d'argument serait lu comme un guillemet échappé. -->
+    <PCBoostAppDir>$(PublishDir.TrimEnd('\'))</PCBoostAppDir>
+    <PCBoostBrandingDir>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\src\PCBoost.App\Assets\Branding'))</PCBoostBrandingDir>
+    <DefineConstants>ProductName=$(BrandProductName);Publisher=$(BrandPublisher);ProductVersion=$(BrandVersion);UpgradeCode=$(BrandUpgradeCode);AppDir=$(PCBoostAppDir);BrandingDir=$(PCBoostBrandingDir)</DefineConstants>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <!--
+      ICE03/ICE60 : les fichiers de ressources multilingues du Windows App SDK (MUI) déclarent des listes de langues
+      plus longues que la colonne File.Language et des cultures personnalisées (LCID 4096). Sans effet à l'installation
+      (la langue ne sert qu'à départager deux fichiers de même version).
+      ICE61 : conséquence voulue de MajorUpgrade AllowSameVersionUpgrades (une recompilation de la même version remplace
+      l'installation existante). Les autres ICE restent actives.
+    -->
+    <SuppressIces>ICE03;ICE60;ICE61</SuppressIces>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WixToolset.UI.wixext" Version="5.0.2" />
+    <PackageReference Include="WixToolset.Util.wixext" Version="5.0.2" />
+  </ItemGroup>
+
+  <!-- PublishDir peut être une propriété globale (ligne de commande) : non modifiable ici, d'où PCBoostAppDir. -->
+  <Target Name="PCBoostCheckPublishDir">
+    <Error Condition="!Exists('$(PCBoostAppDir)\PCBoost.exe')" Text="Application non publiée : $(PCBoostAppDir)\PCBoost.exe introuvable. Lancez build\build.ps1 -Publish -Installer." />
+  </Target>
+
+  <!-- Seul le .msi est livré dans dist\ (le .wixpdb reste dans artifacts\installer). -->
+  <Target Name="PCBoostCopyToDist" AfterTargets="Build">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(PCBoostDistDir)" SkipUnchangedFiles="false" />
+  </Target>
+</Project>

@@ -1,0 +1,4 @@
+<Project>
+  <!-- Installateur isolé des réglages C# du dépôt : seule l'identité produit est partagée. -->
+  <Import Project="$(MSBuildThisFileDirectory)../build/Branding.props" />
+</Project>

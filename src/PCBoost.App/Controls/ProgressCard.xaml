@@ -1,0 +1,41 @@
+<UserControl
+    x:Class="PCBoost.App.Controls.ProgressCard"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:h="using:PCBoost.App.Helpers"
+    xmlns:common="using:PCBoost.Presentation.Common">
+    <Border Style="{StaticResource CardStyle}" Padding="24,20,24,22">
+        <StackPanel Spacing="14">
+            <TextBlock Text="{x:Bind Title, Mode=OneWay}" Style="{StaticResource SectionHeaderTextStyle}" />
+            <TextBlock Text="{x:Bind Message, Mode=OneWay}" Style="{StaticResource SecondaryTextStyle}"
+                       Visibility="{x:Bind h:Ui.ShowText(Message), Mode=OneWay}" />
+            <ProgressBar Value="{x:Bind Percent, Mode=OneWay}" Maximum="100" IsIndeterminate="{x:Bind IsIndeterminate, Mode=OneWay}"
+                         AutomationProperties.Name="{x:Bind Title, Mode=OneWay}" />
+            <TextBlock Text="{x:Bind CurrentText, Mode=OneWay}" Style="{StaticResource CaptionSecondaryTextStyle}"
+                       Visibility="{x:Bind h:Ui.ShowText(CurrentText), Mode=OneWay}" />
+            <ItemsControl ItemsSource="{x:Bind Steps, Mode=OneWay}" IsTabStop="False"
+                          AutomationProperties.Name="{x:Bind StepsAccessibleName, Mode=OneWay}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" Spacing="18" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="common:ProgressStepViewModel">
+                        <StackPanel Orientation="Horizontal" Spacing="7" AutomationProperties.Name="{x:Bind AccessibleName, Mode=OneWay}">
+                            <Grid Width="18" Height="18" VerticalAlignment="Center">
+                                <ProgressRing Width="16" Height="16" IsActive="{x:Bind IsRunning, Mode=OneWay}"
+                                              Visibility="{x:Bind h:Ui.Show(IsRunning), Mode=OneWay}" />
+                                <FontIcon Glyph="{x:Bind IconGlyph, Mode=OneWay}" FontSize="14"
+                                          Visibility="{x:Bind h:Ui.Hide(IsRunning), Mode=OneWay}"
+                                          Opacity="{x:Bind h:Ui.Dim(IsPending), Mode=OneWay}" />
+                            </Grid>
+                            <TextBlock Text="{x:Bind Label, Mode=OneWay}" VerticalAlignment="Center" FontSize="13"
+                                       Opacity="{x:Bind h:Ui.Dim(IsPending), Mode=OneWay}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+    </Border>
+</UserControl>

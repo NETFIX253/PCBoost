@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>PCBoost.Core</RootNamespace>
+    <Description>Contrats, modèles de domaine et politiques de sécurité partagés par tous les modules PCBoost.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Security\protected-processes.json" LogicalName="PCBoost.Core.Security.protected-processes.json" />
+  </ItemGroup>
+</Project>

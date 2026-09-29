@@ -1,0 +1,46 @@
+PCBoost — Conditions d'utilisation
+Logiciel gratuit, tous droits réservés
+
+Copyright © 2026 Mohamed ABDOURAHMAN (DSI). Tous droits réservés.
+
+1. Utilisation gratuite
+   Vous pouvez télécharger, installer et utiliser gratuitement PCBoost
+   (installateur MSI et version portable publiés dans les Releases de ce
+   dépôt), à titre personnel ou professionnel, sur autant d'ordinateurs que
+   nécessaire, y compris pour équiper les postes de votre organisation.
+
+2. Partage
+   Vous pouvez partager librement le lien de ce dépôt ou de ses Releases, et
+   copier les fichiers officiels, sans aucune modification, pour les
+   installer. La vente de PCBoost, sa redistribution payante ou la diffusion
+   d'une version modifiée sont interdites sans l'accord écrit de l'auteur.
+
+3. Code source
+   Le code source est publié pour consultation. Sauf accord écrit de
+   l'auteur, il est interdit de le copier, de le modifier, de l'adapter, de
+   le redistribuer ou d'en réutiliser tout ou partie dans un autre logiciel.
+   Les conditions d'utilisation de GitHub permettent aux utilisateurs de
+   GitHub de consulter ce dépôt et d'en créer une copie (fork) sur GitHub ;
+   elles ne confèrent aucun autre droit.
+
+4. Nom et identité visuelle
+   Le nom « PCBoost », le logo et les éléments visuels associés ne peuvent
+   pas être utilisés pour un autre logiciel ou pour laisser croire à un
+   soutien de l'auteur sans son accord écrit.
+
+5. Composants tiers
+   PCBoost intègre des composants tiers soumis à leurs propres licences,
+   listées dans THIRD-PARTY-NOTICES.md. Ces licences s'appliquent à ces
+   composants et ne sont pas modifiées par le présent texte.
+
+6. Absence de garantie
+   PCBoost est fourni « en l'état », sans garantie d'aucune sorte. Les
+   modifications des réglages de Windows sont prévisualisées, enregistrées et
+   annulables depuis l'Historique ; les suppressions de fichiers (nettoyage)
+   sont signalées comme irréversibles et confirmées avant d'être effectuées.
+   Dans les limites permises par la loi, l'auteur ne peut pas être tenu
+   responsable des dommages résultant de l'utilisation du logiciel.
+
+7. Contact
+   Pour toute demande d'autorisation, ouvrez une demande (issue) sur ce
+   dépôt GitHub.

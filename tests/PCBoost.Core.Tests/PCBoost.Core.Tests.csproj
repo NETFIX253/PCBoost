@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>PCBoost.Core.Tests</RootNamespace>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="Microsoft.Extensions.Logging" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\PCBoost.Core\PCBoost.Core.csproj" />
+    <ProjectReference Include="..\..\src\PCBoost.Persistence\PCBoost.Persistence.csproj" />
+    <ProjectReference Include="..\..\src\PCBoost.Infrastructure\PCBoost.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\PCBoost.Presentation\PCBoost.Presentation.csproj" />
+    <ProjectReference Include="..\..\src\PCBoost.Diagnostics\PCBoost.Diagnostics.csproj" />
+    <ProjectReference Include="..\..\src\PCBoost.Optimization\PCBoost.Optimization.csproj" />
+    <ProjectReference Include="..\..\src\PCBoost.Gaming\PCBoost.Gaming.csproj" />
+    <ProjectReference Include="..\PCBoost.TestUtilities\PCBoost.TestUtilities.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+</Project>

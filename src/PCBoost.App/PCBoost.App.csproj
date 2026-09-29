@@ -1,0 +1,82 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>$(PCBoostWindowsTfm)</TargetFramework>
+    <TargetPlatformMinVersion>$(PCBoostMinWindows)</TargetPlatformMinVersion>
+    <SupportedOSPlatformVersion>$(PCBoostMinWindows)</SupportedOSPlatformVersion>
+    <RootNamespace>PCBoost.App</RootNamespace>
+    <AssemblyName>PCBoost</AssemblyName>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Assets\Branding\app.ico</ApplicationIcon>
+    <Platforms>x64;ARM64</Platforms>
+    <!-- Une seule architecture restaurée par compilation (limite les téléchargements) : x64 par défaut, ARM64 avec -p:Platform=ARM64. -->
+    <RuntimeIdentifiers Condition="'$(Platform)' == 'ARM64'">win-arm64</RuntimeIdentifiers>
+    <RuntimeIdentifiers Condition="'$(Platform)' != 'ARM64'">win-x64</RuntimeIdentifiers>
+    <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == '' and '$(Platform)' == 'ARM64'">win-arm64</RuntimeIdentifier>
+    <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">win-x64</RuntimeIdentifier>
+    <UseWinUI>true</UseWinUI>
+    <!-- Application non empaquetée (installation MSI), Windows App SDK autonome : aucun runtime à installer. -->
+    <WindowsPackageType>None</WindowsPackageType>
+    <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+    <SelfContained>true</SelfContained>
+    <DefineConstants>$(DefineConstants);DISABLE_XAML_GENERATED_MAIN</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PublishReadyToRun Condition="'$(Configuration)' == 'Release'">true</PublishReadyToRun>
+    <Description>Application locale d'analyse et d'optimisation des performances Windows.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.WindowsAppSDK.WinUI" />
+    <PackageReference Include="Microsoft.WindowsAppSDK.Foundation" />
+    <PackageReference Include="Microsoft.WindowsAppSDK.InteractiveExperiences" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" />
+    <PackageReference Include="CommunityToolkit.Mvvm" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="Microsoft.Extensions.Logging" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PCBoost.Core\PCBoost.Core.csproj" />
+    <ProjectReference Include="..\PCBoost.Infrastructure\PCBoost.Infrastructure.csproj" />
+    <ProjectReference Include="..\PCBoost.Persistence\PCBoost.Persistence.csproj" />
+    <ProjectReference Include="..\PCBoost.System\PCBoost.System.csproj" />
+    <ProjectReference Include="..\PCBoost.Diagnostics\PCBoost.Diagnostics.csproj" />
+    <ProjectReference Include="..\PCBoost.Optimization\PCBoost.Optimization.csproj" />
+    <ProjectReference Include="..\PCBoost.Gaming\PCBoost.Gaming.csproj" />
+    <ProjectReference Include="..\PCBoost.Presentation\PCBoost.Presentation.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\**\*" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <!--
+    PCBoost.Elevator (assistant élevé ponctuel) doit se trouver à côté de PCBoost.exe.
+    Il est publié en autonome dans le dossier de sortie (compilation) et dans le dossier de publication.
+  -->
+  <Target Name="PublishElevatorToOutput" AfterTargets="Build" Condition="'$(RuntimeIdentifier)' != '' and '$(_PCBoostElevatorPublishing)' != 'true'">
+    <MSBuild Projects="..\PCBoost.Elevator\PCBoost.Elevator.csproj"
+             Targets="Publish"
+             Properties="Configuration=$(Configuration);RuntimeIdentifier=$(RuntimeIdentifier);SelfContained=true;PublishDir=$([System.IO.Path]::GetFullPath('$(OutDir)'));_PCBoostElevatorPublishing=true" />
+  </Target>
+  <Target Name="PublishElevatorToPublishDir" AfterTargets="Publish" Condition="'$(RuntimeIdentifier)' != ''">
+    <MSBuild Projects="..\PCBoost.Elevator\PCBoost.Elevator.csproj"
+             Targets="Publish"
+             Properties="Configuration=$(Configuration);RuntimeIdentifier=$(RuntimeIdentifier);SelfContained=true;PublishDir=$([System.IO.Path]::GetFullPath('$(PublishDir)'));_PCBoostElevatorPublishing=true" />
+  </Target>
+
+  <!--
+    Application non empaquetée : le XAML compilé (*.xbf) et l'index de ressources PCBoost.pri produits à la compilation
+    ne font pas partie des fichiers publiés par défaut. Sans eux, l'application publiée échoue au chargement du XAML
+    (XamlParseException). Ils sont donc copiés explicitement dans le dossier de publication.
+  -->
+  <Target Name="PublishXamlResources" AfterTargets="Publish" Condition="'$(PublishDir)' != ''">
+    <ItemGroup>
+      <_PCBoostXbf Include="$(OutDir)**\*.xbf" />
+      <_PCBoostPri Include="$(OutDir)$(AssemblyName).pri" />
+    </ItemGroup>
+    <Error Condition="'@(_PCBoostPri)' == '' or !Exists('$(OutDir)$(AssemblyName).pri')" Text="$(AssemblyName).pri introuvable dans $(OutDir) : publication incomplète." />
+    <Copy SourceFiles="@(_PCBoostXbf)" DestinationFiles="@(_PCBoostXbf->'$(PublishDir)%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(_PCBoostPri)" DestinationFolder="$(PublishDir)" />
+  </Target>
+</Project>

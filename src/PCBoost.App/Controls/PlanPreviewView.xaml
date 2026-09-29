@@ -1,0 +1,76 @@
+<UserControl
+    x:Class="PCBoost.App.Controls.PlanPreviewView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:h="using:PCBoost.App.Helpers"
+    xmlns:controls="using:PCBoost.App.Controls"
+    xmlns:vm="using:PCBoost.Presentation.ViewModels">
+    <StackPanel Spacing="14">
+        <Grid ColumnSpacing="12">
+            <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+            <TextBlock Text="{x:Bind Preview.SelectedSummaryText, Mode=OneWay}" Style="{StaticResource GroupHeaderTextStyle}" VerticalAlignment="Center" />
+            <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="2">
+                <Button Style="{StaticResource QuietButtonStyle}" Content="{h:Str Key=Common_Action_SelectRecommended}" Command="{x:Bind Preview.SelectRecommendedCommand, Mode=OneWay}" />
+                <Button Style="{StaticResource QuietButtonStyle}" Content="{h:Str Key=Common_Action_SelectAll}" Command="{x:Bind Preview.SelectAllCommand, Mode=OneWay}" />
+                <Button Style="{StaticResource QuietButtonStyle}" Content="{h:Str Key=Common_Action_SelectNone}" Command="{x:Bind Preview.SelectNoneCommand, Mode=OneWay}" />
+            </StackPanel>
+        </Grid>
+
+        <Border Style="{StaticResource CardStyle}" Padding="20,2,20,2" Visibility="{x:Bind ItemsVisibility(Preview.IsEmpty), Mode=OneWay}">
+            <ItemsControl h:ListDividers.HideLast="True" ItemsSource="{x:Bind Preview.Items, Mode=OneWay}" IsTabStop="False">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="vm:OptimizationPreviewItemViewModel">
+                        <Border BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}" BorderThickness="0,0,0,1">
+                            <controls:OptimizationCard Item="{x:Bind}" />
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Border>
+
+        <Border Style="{StaticResource SubtleSurfaceStyle}" Visibility="{x:Bind EmptyVisibility(Preview.IsEmpty), Mode=OneWay}">
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <FontIcon Glyph="&#xE73E;" FontSize="16" Foreground="{ThemeResource SystemFillColorSuccessBrush}" />
+                <TextBlock Text="{h:Str Key=Optimization_Preview_Empty}" TextWrapping="Wrap" />
+            </StackPanel>
+        </Border>
+
+        <!-- Totaux et avertissements -->
+        <Grid ColumnSpacing="16">
+            <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+            <StackPanel Spacing="6">
+                <TextBlock Text="{x:Bind Preview.SelectionNoticeText, Mode=OneWay}" Style="{StaticResource SecondaryTextStyle}"
+                           Visibility="{x:Bind h:Ui.ShowText(Preview.SelectionNoticeText), Mode=OneWay}" />
+                <StackPanel Orientation="Horizontal" Spacing="6">
+                    <controls:StatusBadge Text="{h:Str Key=Common_Label_Irreversible}" Glyph="&#xE7BA;" Kind="Caution"
+                                          Visibility="{x:Bind h:Ui.Show(Preview.HasIrreversibleSelected), Mode=OneWay}" />
+                    <controls:StatusBadge Text="{h:Str Key=Common_Label_AdminRequired}" Glyph="&#xE7EF;" Kind="Info"
+                                          Visibility="{x:Bind h:Ui.Show(Preview.RequiresElevation), Mode=OneWay}" />
+                    <controls:StatusBadge Text="{h:Str Key=Common_Label_RestartRequired}" Glyph="&#xE777;" Kind="Info"
+                                          Visibility="{x:Bind h:Ui.Show(Preview.RequiresRestart), Mode=OneWay}" />
+                </StackPanel>
+            </StackPanel>
+            <TextBlock Grid.Column="1" Text="{x:Bind Preview.EstimatedTotalText, Mode=OneWay}" Style="{StaticResource SectionHeaderTextStyle}"
+                       VerticalAlignment="Top" Visibility="{x:Bind h:Ui.Show(Preview.HasEstimatedTotal), Mode=OneWay}" />
+        </Grid>
+
+        <!-- Non applicables -->
+        <StackPanel Spacing="6" Visibility="{x:Bind h:Ui.Show(Preview.HasNotApplicable), Mode=OneWay}">
+            <TextBlock Text="{h:Str Key=Optimization_Preview_NotApplicableHeader}" Style="{StaticResource FieldLabelTextStyle}" />
+            <ItemsControl ItemsSource="{x:Bind Preview.NotApplicableItems, Mode=OneWay}" IsTabStop="False">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="vm:OptimizationPreviewItemViewModel">
+                        <Grid ColumnSpacing="10" Padding="0,4,0,4">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                            <FontIcon Glyph="&#xE711;" FontSize="11" VerticalAlignment="Top" Margin="0,4,0,0" Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
+                            <StackPanel Grid.Column="1" Spacing="1">
+                                <TextBlock Text="{x:Bind Name}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                                <TextBlock Text="{x:Bind NotApplicableReason}" Style="{StaticResource CaptionSecondaryTextStyle}" />
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

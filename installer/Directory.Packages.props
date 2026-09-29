@@ -1,0 +1,6 @@
+<Project>
+  <!-- L'installateur (WiX) déclare ses extensions directement : pas de gestion centrale des versions ici. -->
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+</Project>

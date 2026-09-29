@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>PCBoost.Persistence</RootNamespace>
+    <Description>Stockage local SQLite : historique, restauration, instantanés, benchmarks, préférences. Migrations versionnées.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PCBoost.Core\PCBoost.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="PCBoost.Core.Tests" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,199 @@
+<local:ViewPage
+    x:Class="PCBoost.App.Views.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PCBoost.App.Views"
+    xmlns:h="using:PCBoost.App.Helpers"
+    xmlns:controls="using:PCBoost.App.Controls">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel MaxWidth="880" Padding="{StaticResource PagePadding}" Spacing="26">
+            <TextBlock Text="{h:Str Key=Settings_Title}" Style="{StaticResource PageTitleTextStyle}" />
+
+            <InfoBar Severity="Error" h:InfoBarHelper.IsShown="{x:Bind ViewModel.HasError, Mode=OneWay}" Message="{x:Bind ViewModel.ErrorText, Mode=OneWay}"
+                     Title="{h:Str Key=Common_Label_ErrorTitle}" CloseButtonCommand="{x:Bind ViewModel.DismissErrorCommand}" />
+            <InfoBar Severity="Success" h:InfoBarHelper.IsShown="{x:Bind ViewModel.HasStatusMessage, Mode=OneWay}" Message="{x:Bind ViewModel.StatusMessage, Mode=OneWay}"
+                     CloseButtonCommand="{x:Bind ViewModel.DismissStatusCommand}" />
+
+            <StackPanel Spacing="10">
+                <TextBlock Text="{h:Str Key=Settings_Section_General}" Style="{StaticResource SectionHeaderTextStyle}" />
+                <Border Style="{StaticResource CardStyle}" Padding="20,4,20,4">
+                    <StackPanel>
+                        <controls:SettingRow Header="{h:Str Key=Settings_Language_Label}" Description="{h:Str Key=Settings_Language_Description}" Glyph="&#xE774;">
+                            <ComboBox ItemsSource="{x:Bind ViewModel.LanguageOptions}" SelectedIndex="{x:Bind ViewModel.SelectedLanguageIndex, Mode=TwoWay}" MinWidth="220"
+                                      AutomationProperties.Name="{h:Str Key=Settings_Language_Label}" />
+                        </controls:SettingRow>
+                        <Border Style="{StaticResource RowDividerStyle}" Padding="0">
+                            <controls:SettingRow Header="{h:Str Key=Settings_Theme_Label}" Glyph="&#xE790;">
+                            <ComboBox ItemsSource="{x:Bind ViewModel.ThemeOptions}" SelectedIndex="{x:Bind ViewModel.SelectedThemeIndex, Mode=TwoWay}" MinWidth="220"
+                                      AutomationProperties.Name="{h:Str Key=Settings_Theme_Label}" />
+                        </controls:SettingRow>
+                        </Border>
+                        <Border Style="{StaticResource RowDividerStyle}" Padding="0">
+                            <controls:SettingRow Header="{h:Str Key=Settings_LaunchAtStartup_Label}" Glyph="&#xE768;">
+                            <ToggleSwitch IsOn="{x:Bind ViewModel.LaunchAtStartup, Mode=TwoWay}" MinWidth="0" AutomationProperties.Name="{h:Str Key=Settings_LaunchAtStartup_Label}" />
+                        </controls:SettingRow>
+                        </Border>
+                        <Border Style="{StaticResource RowDividerStyle}" Padding="0">
+                            <controls:SettingRow Header="{h:Str Key=Settings_MinimizeToTray_Label}" Description="{h:Str Key=Settings_MinimizeToTray_Description}" Glyph="&#xE73F;">
+                            <ToggleSwitch IsOn="{x:Bind ViewModel.MinimizeToTray, Mode=TwoWay}" MinWidth="0" AutomationProperties.Name="{h:Str Key=Settings_MinimizeToTray_Label}" />
+                        </controls:SettingRow>
+                        </Border>
+                        <Border Style="{StaticResource RowDividerStyle}" Padding="0">
+                            <controls:SettingRow Header="{h:Str Key=Settings_Notifications_Label}" Description="{h:Str Key=Settings_Notifications_Description}" Glyph="&#xEA8F;">
+                            <ToggleSwitch IsOn="{x:Bind ViewModel.NotificationsEnabled, Mode=TwoWay}" MinWidth="0" AutomationProperties.Name="{h:Str Key=Settings_Notifications_Label}" />
+                        </controls:SettingRow>
+                        </Border>
+                        <Border Style="{StaticResource RowDividerStyle}" Padding="0">
+                            <controls:SettingRow Header="{h:Str Key=Settings_Monitoring_Label}" Description="{h:Str Key=Settings_Monitoring_Description}" Glyph="&#xE9D9;">
+                            <ToggleSwitch IsOn="{x:Bind ViewModel.MonitoringEnabled, Mode=TwoWay}" MinWidth="0" AutomationProperties.Name="{h:Str Key=Settings_Monitoring_Label}" />
+                        </controls:SettingRow>
+                        </Border>
+                        <Border Style="{StaticResource RowDividerStyle}" Padding="0">
+                            <controls:SettingRow Header="{h:Str Key=Settings_AutoOptimizations_Label}" Description="{h:Str Key=Settings_AutoOptimizations_Description}" Glyph="&#xE945;">
+                            <ToggleSwitch IsOn="{x:Bind ViewModel.AllowAutomaticSafeOptimizations, Mode=TwoWay}" MinWidth="0" AutomationProperties.Name="{h:Str Key=Settings_AutoOptimizations_Label}" />
+                        </controls:SettingRow>
+                        </Border>
+                        <Border Style="{StaticResource RowDividerStyle}" Padding="0">
+                            <controls:SettingRow Header="{h:Str Key=Settings_ExpertMode_Label}" Description="{h:Str Key=Settings_ExpertMode_Description}" Glyph="&#xE943;">
+                            <ToggleSwitch IsOn="{x:Bind ViewModel.ExpertMode, Mode=TwoWay}" MinWidth="0" AutomationProperties.Name="{h:Str Key=Settings_ExpertMode_Label}" />
+                        </controls:SettingRow>
+                        </Border>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Spacing="10">
+                <TextBlock Text="{h:Str Key=Settings_Section_Gaming}" Style="{StaticResource SectionHeaderTextStyle}" />
+                <Border Style="{StaticResource CardStyle}" Padding="20,4,20,4">
+                    <StackPanel>
+                        <controls:SettingRow Header="{h:Str Key=Settings_AutoGaming_Label}" Glyph="&#xE7FC;">
+                            <ComboBox ItemsSource="{x:Bind ViewModel.AutoGamingOptions}" SelectedIndex="{x:Bind ViewModel.SelectedAutoGamingIndex, Mode=TwoWay}" MinWidth="220"
+                                      AutomationProperties.Name="{h:Str Key=Settings_AutoGaming_Label}" />
+                        </controls:SettingRow>
+                        <Border Style="{StaticResource RowDividerStyle}" Padding="0">
+                            <controls:SettingRow Header="{h:Str Key=Settings_AutoRestore_Label}" Glyph="&#xE7A7;">
+                            <ToggleSwitch IsOn="{x:Bind ViewModel.GamingAutoRestore, Mode=TwoWay}" MinWidth="0" AutomationProperties.Name="{h:Str Key=Settings_AutoRestore_Label}" />
+                        </controls:SettingRow>
+                        </Border>
+                        <Border Style="{StaticResource RowDividerStyle}" Padding="0">
+                            <controls:SettingRow Header="{h:Str Key=Settings_MonitorSession_Label}" Glyph="&#xE7F4;">
+                            <ToggleSwitch IsOn="{x:Bind ViewModel.GamingMonitorDuringSession, Mode=TwoWay}" MinWidth="0" AutomationProperties.Name="{h:Str Key=Settings_MonitorSession_Label}" />
+                        </controls:SettingRow>
+                        </Border>
+                        <Border Style="{StaticResource RowDividerStyle}" Padding="0">
+                            <controls:SettingRow Header="{h:Str Key=Settings_MeasureFps_Label}" Description="{h:Str Key=Settings_MeasureFps_Description}" Glyph="&#xEC4A;">
+                            <ToggleSwitch IsOn="{x:Bind ViewModel.GamingMeasureFrameRate, Mode=TwoWay}" MinWidth="0" AutomationProperties.Name="{h:Str Key=Settings_MeasureFps_Label}" />
+                        </controls:SettingRow>
+                        </Border>
+                        <Border Style="{StaticResource RowDividerStyle}" Padding="0">
+                            <controls:SettingRow Header="{h:Str Key=Settings_PowerPlan_Label}" Glyph="&#xE7E8;">
+                            <ToggleSwitch IsOn="{x:Bind ViewModel.GamingSwitchPowerPlan, Mode=TwoWay}" MinWidth="0" AutomationProperties.Name="{h:Str Key=Settings_PowerPlan_Label}" />
+                        </controls:SettingRow>
+                        </Border>
+                        <Border Style="{StaticResource RowDividerStyle}" Padding="0">
+                            <controls:SettingRow Header="{h:Str Key=Settings_Priority_Label}" Glyph="&#xE8CB;">
+                            <ToggleSwitch IsOn="{x:Bind ViewModel.GamingRaisePriority, Mode=TwoWay}" MinWidth="0" AutomationProperties.Name="{h:Str Key=Settings_Priority_Label}" />
+                        </controls:SettingRow>
+                        </Border>
+                        <Border Style="{StaticResource RowDividerStyle}" Padding="0">
+                            <controls:SettingRow Header="{h:Str Key=Settings_BackgroundApps_Label}" Glyph="&#xE71D;">
+                            <ToggleSwitch IsOn="{x:Bind ViewModel.GamingThrottleBackgroundApps, Mode=TwoWay}" MinWidth="0" AutomationProperties.Name="{h:Str Key=Settings_BackgroundApps_Label}" />
+                        </controls:SettingRow>
+                        </Border>
+                        <Border Style="{StaticResource RowDividerStyle}" Padding="0">
+                            <controls:SettingRow Header="{h:Str Key=Settings_PreferredGame_Label}" Glyph="&#xE734;">
+                            <ComboBox ItemsSource="{x:Bind ViewModel.PreferredGameOptions}" SelectedIndex="{x:Bind ViewModel.SelectedPreferredGameIndex, Mode=TwoWay}" MinWidth="240"
+                                      AutomationProperties.Name="{h:Str Key=Settings_PreferredGame_Label}" />
+                        </controls:SettingRow>
+                        </Border>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Spacing="10">
+                <TextBlock Text="{h:Str Key=Settings_Section_Security}" Style="{StaticResource SectionHeaderTextStyle}" />
+                <Border Style="{StaticResource CardStyle}" Padding="20,4,20,4">
+                    <StackPanel>
+                        <controls:SettingRow Header="{h:Str Key=Settings_ConfirmSensitive_Label}" Description="{h:Str Key=Settings_ConfirmSensitive_Description}" Glyph="&#xE72E;">
+                            <ToggleSwitch IsOn="{x:Bind ViewModel.ConfirmSensitiveOperations, Mode=TwoWay}" MinWidth="0" AutomationProperties.Name="{h:Str Key=Settings_ConfirmSensitive_Label}" />
+                        </controls:SettingRow>
+                        <Border Style="{StaticResource RowDividerStyle}" Padding="0">
+                            <controls:SettingRow Header="{h:Str Key=Settings_VerboseLogging_Label}" Description="{h:Str Key=Settings_VerboseLogging_Description}" Glyph="&#xE8A5;">
+                            <ToggleSwitch IsOn="{x:Bind ViewModel.VerboseLogging, Mode=TwoWay}" MinWidth="0" AutomationProperties.Name="{h:Str Key=Settings_VerboseLogging_Label}" />
+                        </controls:SettingRow>
+                        </Border>
+                        <Border Style="{StaticResource RowDividerStyle}" Padding="0">
+                            <controls:SettingRow Header="{h:Str Key=Settings_Retention_Label}" Glyph="&#xE823;">
+                            <ComboBox ItemsSource="{x:Bind ViewModel.RetentionOptions}" SelectedIndex="{x:Bind ViewModel.SelectedRetentionIndex, Mode=TwoWay}" MinWidth="180"
+                                      AutomationProperties.Name="{h:Str Key=Settings_Retention_Label}" />
+                        </controls:SettingRow>
+                        </Border>
+                        <Border Style="{StaticResource RowDividerStyle}" Padding="0">
+                            <controls:SettingRow Header="{h:Str Key=Settings_Recommendations_Label}" Description="{x:Bind ViewModel.DismissedRecommendationsText, Mode=OneWay}" Glyph="&#xE82F;">
+                            <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Settings_Action_RestoreRecommendations}" Command="{x:Bind ViewModel.RestoreDismissedRecommendationsCommand}" />
+                        </controls:SettingRow>
+                        </Border>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Spacing="10">
+                <TextBlock Text="{h:Str Key=Settings_Section_Diagnostic}" Style="{StaticResource SectionHeaderTextStyle}" />
+                <Border Style="{StaticResource CardStyle}" Padding="20,4,20,4">
+                    <StackPanel>
+                        <controls:SettingRow Header="{h:Str Key=Settings_Logs_Label}" Description="{x:Bind ViewModel.LogDirectory, Mode=OneWay}" Glyph="&#xE838;">
+                            <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Settings_Action_OpenLogs}" Command="{x:Bind ViewModel.OpenLogFolderCommand}" />
+                        </controls:SettingRow>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Spacing="10">
+                <TextBlock Text="{h:Str Key=Settings_Section_Updates}" Style="{StaticResource SectionHeaderTextStyle}" />
+                <Border Style="{StaticResource CardStyle}" Padding="20,4,20,4">
+                    <StackPanel>
+                        <controls:SettingRow Header="{x:Bind ViewModel.CurrentVersionText, Mode=OneWay}" Description="{x:Bind ViewModel.UpdateStatusText, Mode=OneWay}" Glyph="&#xE895;">
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <ProgressRing IsActive="{x:Bind ViewModel.IsCheckingUpdates, Mode=OneWay}" Width="20" Height="20" Visibility="{x:Bind h:Ui.Show(ViewModel.IsCheckingUpdates), Mode=OneWay}" />
+                                <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Settings_Action_CheckUpdates}" Command="{x:Bind ViewModel.CheckForUpdatesCommand}" />
+                                <Button Style="{StaticResource PrimaryButtonStyle}" Content="{h:Str Key=Settings_Action_DownloadUpdate}" Command="{x:Bind ViewModel.DownloadUpdateCommand}"
+                                        Visibility="{x:Bind h:Ui.Show(ViewModel.IsUpdateAvailable), Mode=OneWay}" />
+                                <Button Style="{StaticResource PrimaryButtonStyle}" Content="{h:Str Key=Settings_Action_InstallUpdate}" Command="{x:Bind ViewModel.InstallUpdateCommand}"
+                                        Visibility="{x:Bind h:Ui.Show(ViewModel.IsUpdateReadyToInstall), Mode=OneWay}" />
+                            </StackPanel>
+                        </controls:SettingRow>
+                        <Border Style="{StaticResource RowDividerStyle}" Padding="0" Visibility="{x:Bind h:Ui.ShowAny(ViewModel.IsUpdateAvailable, ViewModel.IsDownloadingUpdate), Mode=OneWay}">
+                            <StackPanel Spacing="8" Padding="34,12,0,14">
+                                <ProgressBar Value="{x:Bind ViewModel.DownloadProgressPercent, Mode=OneWay}" Maximum="100" Visibility="{x:Bind h:Ui.Show(ViewModel.IsDownloadingUpdate), Mode=OneWay}" />
+                                <TextBlock Text="{h:Str Key=Settings_Update_ReleaseNotes}" Style="{StaticResource FieldLabelTextStyle}" Visibility="{x:Bind h:Ui.ShowText(ViewModel.ReleaseNotes), Mode=OneWay}" />
+                                <TextBlock Text="{x:Bind ViewModel.ReleaseNotes, Mode=OneWay}" Style="{StaticResource SecondaryTextStyle}" Visibility="{x:Bind h:Ui.ShowText(ViewModel.ReleaseNotes), Mode=OneWay}" />
+                                <TextBlock Text="{h:Str Key=Settings_Update_Integrity}" Style="{StaticResource CaptionSecondaryTextStyle}" />
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Spacing="10">
+                <TextBlock Text="{h:Str Key=Settings_Section_About}" Style="{StaticResource SectionHeaderTextStyle}" />
+                <Border Style="{StaticResource CardStyle}" Padding="20,4,20,4">
+                    <StackPanel>
+                        <controls:SettingRow Header="{h:Str Key=Settings_Action_Privacy}" Glyph="&#xEA18;">
+                            <Button Style="{StaticResource QuietButtonStyle}" Command="{x:Bind ViewModel.OpenPrivacyCommand}" AutomationProperties.Name="{h:Str Key=Settings_Action_Privacy}">
+                                <FontIcon Glyph="&#xE76C;" FontSize="12" />
+                            </Button>
+                        </controls:SettingRow>
+                        <Border Style="{StaticResource RowDividerStyle}" Padding="0">
+                            <controls:SettingRow Header="{h:Str Key=Settings_Action_About}" Glyph="&#xE946;">
+                            <Button Style="{StaticResource QuietButtonStyle}" Command="{x:Bind ViewModel.OpenAboutCommand}" AutomationProperties.Name="{h:Str Key=Settings_Action_About}">
+                                <FontIcon Glyph="&#xE76C;" FontSize="12" />
+                            </Button>
+                        </controls:SettingRow>
+                        </Border>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</local:ViewPage>

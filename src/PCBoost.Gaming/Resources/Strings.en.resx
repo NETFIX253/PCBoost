@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Game_AlreadyActive" xml:space="preserve"><value>Gaming mode is already active.</value></data>
+  <data name="Game_AutoActivated_Body" xml:space="preserve"><value>Enabled for {0}. Your settings will be restored when the game closes.</value></data>
+  <data name="Game_AutoActivated_Title" xml:space="preserve"><value>Gaming mode enabled</value></data>
+  <data name="Game_Background_Applied" xml:space="preserve"><value>{0} background {0:plural:program|programs} temporarily slowed down.</value></data>
+  <data name="Game_Background_ChangeEfficiency" xml:space="preserve"><value>Efficiency mode for {0} while playing.</value></data>
+  <data name="Game_Background_ChangePriority" xml:space="preserve"><value>"Below normal" priority for {0} while playing.</value></data>
+  <data name="Game_Background_Failed" xml:space="preserve"><value>{0} {0:plural:program|programs} could not be slowed down.</value></data>
+  <data name="Game_Background_NothingToDo" xml:space="preserve"><value>No background program needs slowing down.</value></data>
+  <data name="Game_Background_Skipped" xml:space="preserve"><value>{0} {0:plural:program|programs} skipped (closed, protected or brought to the foreground).</value></data>
+  <data name="Game_Deactivated_Body" xml:space="preserve"><value>Previous settings restored.</value></data>
+  <data name="Game_Deactivated_PartialBody" xml:space="preserve"><value>Settings restored, except {0} {0:plural:item|items}. Check the history to try again.</value></data>
+  <data name="Game_Deactivated_Title" xml:space="preserve"><value>Gaming mode turned off</value></data>
+  <data name="Game_Detected_Action" xml:space="preserve"><value>Enable</value></data>
+  <data name="Game_Detected_Body" xml:space="preserve"><value>{0} is running. Gaming mode can reduce background work while you play; everything is restored when the game closes.</value></data>
+  <data name="Game_Detected_Title" xml:space="preserve"><value>Game detected: start Gaming mode?</value></data>
+  <data name="Game_Frames_Available" xml:space="preserve"><value>Frame measurement active.</value></data>
+  <data name="Game_Frames_Disabled" xml:space="preserve"><value>FPS measurement is turned off in settings.</value></data>
+  <data name="Game_Frames_NotSupported" xml:space="preserve"><value>FPS not available for this game.</value></data>
+  <data name="Game_Frames_RequiresElevation" xml:space="preserve"><value>FPS not available: measuring requires a one-time administrator permission.</value></data>
+  <data name="Game_Frames_Unavailable" xml:space="preserve"><value>Frame rate measurement is not available.</value></data>
+  <data name="Game_Gpu_AlreadySet" xml:space="preserve"><value>The game already uses the high-performance graphics card.</value></data>
+  <data name="Game_Gpu_Applied" xml:space="preserve"><value>{0} will use the high-performance graphics card the next time it starts.</value></data>
+  <data name="Game_Gpu_Change" xml:space="preserve"><value>Use the high-performance graphics card for {0} (from the next launch).</value></data>
+  <data name="Game_Gpu_Failed" xml:space="preserve"><value>The graphics preference could not be saved.</value></data>
+  <data name="Game_Gpu_NoGamePath" xml:space="preserve"><value>The game's location is unknown.</value></data>
+  <data name="Game_Gpu_NotSelected" xml:space="preserve"><value>Not selected: the graphics preference was not changed.</value></data>
+  <data name="Game_Gpu_SingleGpu" xml:space="preserve"><value>This PC has only one usable graphics card: no setting needed.</value></data>
+  <data name="Game_Journal_Activated" xml:space="preserve"><value>Gaming mode enabled for {0}.</value></data>
+  <data name="Game_Journal_ActivatedNoGame" xml:space="preserve"><value>Gaming mode enabled.</value></data>
+  <data name="Game_Journal_RestoreFailed" xml:space="preserve"><value>Gaming mode turned off: {0} {0:plural:change|changes} could not be restored.</value></data>
+  <data name="Game_Journal_Restored" xml:space="preserve"><value>Gaming mode turned off: {0} {0:plural:change|changes} restored.</value></data>
+  <data name="Game_Metric_AverageFps" xml:space="preserve"><value>Average FPS</value></data>
+  <data name="Game_Metric_AverageFrameTimeMs" xml:space="preserve"><value>Average frame time (ms)</value></data>
+  <data name="Game_Metric_CpuAveragePercent" xml:space="preserve"><value>Average CPU (%)</value></data>
+  <data name="Game_Metric_CpuMaxPercent" xml:space="preserve"><value>Peak CPU (%)</value></data>
+  <data name="Game_Metric_DiskActiveAveragePercent" xml:space="preserve"><value>Average disk activity (%)</value></data>
+  <data name="Game_Metric_GpuAveragePercent" xml:space="preserve"><value>Average GPU (%)</value></data>
+  <data name="Game_Metric_GpuMaxPercent" xml:space="preserve"><value>Peak GPU (%)</value></data>
+  <data name="Game_Metric_NotAvailable" xml:space="preserve"><value>Not available</value></data>
+  <data name="Game_Metric_OnePercentLowFps" xml:space="preserve"><value>1% low</value></data>
+  <data name="Game_Metric_P99FrameTimeMs" xml:space="preserve"><value>99th percentile frame time (ms)</value></data>
+  <data name="Game_Metric_PointOnePercentLowFps" xml:space="preserve"><value>0.1% low</value></data>
+  <data name="Game_Metric_RamAveragePercent" xml:space="preserve"><value>Average memory (%)</value></data>
+  <data name="Game_NotRunning" xml:space="preserve"><value>{0} is no longer running: Gaming mode was not enabled.</value></data>
+  <data name="Game_NotSelected" xml:space="preserve"><value>Not selected: nothing was changed.</value></data>
+  <data name="Game_Opt_Background_Description" xml:space="preserve"><value>Temporarily slows down non-essential programs (sync, updaters, background browsers). Nothing is closed. Discord, OBS, Spotify, drivers and anti-cheat are never touched.</value></data>
+  <data name="Game_Opt_Background_Name" xml:space="preserve"><value>Background apps</value></data>
+  <data name="Game_Opt_ChangeCount" xml:space="preserve"><value>{0} planned {0:plural:change|changes}.</value></data>
+  <data name="Game_Opt_DisabledInSettings" xml:space="preserve"><value>Turned off in Gaming mode settings.</value></data>
+  <data name="Game_Opt_Failed" xml:space="preserve"><value>This optimization could not be prepared. Nothing was changed.</value></data>
+  <data name="Game_Opt_Gpu_Description" xml:space="preserve"><value>Asks Windows to use the dedicated graphics card for this game (the Settings › Display › Graphics option). Takes effect the next time the game starts.</value></data>
+  <data name="Game_Opt_Gpu_Name" xml:space="preserve"><value>High-performance graphics</value></data>
+  <data name="Game_Opt_NotSelectedByDefault" xml:space="preserve"><value>Available, but not selected by default.</value></data>
+  <data name="Game_Opt_Power_Description" xml:space="preserve"><value>Switches to the "Ultimate Performance" or "High performance" power plan while you play, then restores your usual plan.</value></data>
+  <data name="Game_Opt_Power_Name" xml:space="preserve"><value>Performance power plan</value></data>
+  <data name="Game_Opt_Priority_Description" xml:space="preserve"><value>Gives the game "Above normal" priority (never "High" or "Realtime"), then restores it afterwards.</value></data>
+  <data name="Game_Opt_Priority_Name" xml:space="preserve"><value>Game priority</value></data>
+  <data name="Game_Power_AlreadyActive" xml:space="preserve"><value>The "{0}" plan is already active.</value></data>
+  <data name="Game_Power_Applied" xml:space="preserve"><value>"{0}" power plan enabled.</value></data>
+  <data name="Game_Power_Change" xml:space="preserve"><value>Switch from the "{0}" plan to the "{1}" plan while playing.</value></data>
+  <data name="Game_Power_ChangeOnBattery" xml:space="preserve"><value>Switch from the "{0}" plan to the "{1}" plan. Note: the computer is on battery, so battery life will be shorter.</value></data>
+  <data name="Game_Power_Failed" xml:space="preserve"><value>The power plan could not be changed.</value></data>
+  <data name="Game_Power_NoPerformancePlan" xml:space="preserve"><value>No performance power plan is available on this PC.</value></data>
+  <data name="Game_Power_NotApplicable" xml:space="preserve"><value>No power plan change is needed.</value></data>
+  <data name="Game_Power_OnBatteryNotSelected" xml:space="preserve"><value>Not applied: the computer is on battery.</value></data>
+  <data name="Game_Power_Unknown" xml:space="preserve"><value>The current power plan could not be read.</value></data>
+  <data name="Game_Priority_AlreadyHigh" xml:space="preserve"><value>{0} already has above-normal priority.</value></data>
+  <data name="Game_Priority_Applied" xml:space="preserve"><value>{0} is running with "Above normal" priority.</value></data>
+  <data name="Game_Priority_Change" xml:space="preserve"><value>"Above normal" priority for {0}.</value></data>
+  <data name="Game_Priority_Failed" xml:space="preserve"><value>The priority of {0} could not be changed.</value></data>
+  <data name="Game_Priority_GameNotRunning" xml:space="preserve"><value>The game is no longer running.</value></data>
+  <data name="Game_Priority_NoGame" xml:space="preserve"><value>No running game was detected.</value></data>
+  <data name="Game_Priority_Protected" xml:space="preserve"><value>{0} is protected (often by its anti-cheat): its priority is left unchanged.</value></data>
+  <data name="Game_Priority_Unreadable" xml:space="preserve"><value>The priority of {0} could not be read.</value></data>
+  <data name="Game_Restore_Cancelled" xml:space="preserve"><value>Restore cancelled before it started.</value></data>
+  <data name="Game_Restore_Failed" xml:space="preserve"><value>Your settings could not be restored. You can retry from the history.</value></data>
+  <data name="Game_RollbackUnavailable" xml:space="preserve"><value>The restore log is not available.</value></data>
+  <data name="Game_SessionTitle" xml:space="preserve"><value>Gaming mode — {0}</value></data>
+  <data name="Game_SessionTitle_NoGame" xml:space="preserve"><value>Gaming mode</value></data>
+  <data name="Game_Setting_AlreadyOk" xml:space="preserve"><value>This setting is already in the recommended state.</value></data>
+  <data name="Game_Setting_Blocked" xml:space="preserve"><value>This setting is protected: PCBoost does not change it.</value></data>
+  <data name="Game_Setting_GameMode" xml:space="preserve"><value>Windows Game Mode</value></data>
+  <data name="Game_Setting_GameMode_Off" xml:space="preserve"><value>Off. You can turn it back on; this change can be undone.</value></data>
+  <data name="Game_Setting_GameMode_On" xml:space="preserve"><value>On. Windows prioritises the game in the foreground.</value></data>
+  <data name="Game_Setting_Gpu" xml:space="preserve"><value>Graphics card used by the game</value></data>
+  <data name="Game_Setting_Gpu_NoPath" xml:space="preserve"><value>The location of {0} is unknown: the preference cannot be checked.</value></data>
+  <data name="Game_Setting_Gpu_Off" xml:space="preserve"><value>{0} has no preference: Windows may pick the integrated graphics. This change can be undone and applies from the next launch.</value></data>
+  <data name="Game_Setting_Gpu_On" xml:space="preserve"><value>{0} uses the high-performance graphics card.</value></data>
+  <data name="Game_Setting_Gpu_Single" xml:space="preserve"><value>Only one usable graphics card: no setting needed.</value></data>
+  <data name="Game_Setting_Hags" xml:space="preserve"><value>Hardware-accelerated GPU scheduling</value></data>
+  <data name="Game_Setting_Hags_Off" xml:space="preserve"><value>Off. If your graphics card supports it, you can turn it on in Settings › System › Display › Graphics (restart required). PCBoost does not change this setting.</value></data>
+  <data name="Game_Setting_Hags_On" xml:space="preserve"><value>On.</value></data>
+  <data name="Game_Setting_Hags_Unknown" xml:space="preserve"><value>Not available on this PC or not configured: no action needed.</value></data>
+  <data name="Game_Setting_ManualOnly" xml:space="preserve"><value>This setting is changed in Windows Settings.</value></data>
+  <data name="Game_Setting_NotFound" xml:space="preserve"><value>This setting is not available on this PC.</value></data>
+  <data name="Game_Setting_SessionTitle" xml:space="preserve"><value>Windows game settings</value></data>
+  <data name="Game_Setting_Windowed" xml:space="preserve"><value>Optimizations for windowed games</value></data>
+  <data name="Game_Setting_Windowed_Off" xml:space="preserve"><value>Not enabled. They can reduce latency in windowed games; this change can be undone.</value></data>
+  <data name="Game_Setting_Windowed_On" xml:space="preserve"><value>On.</value></data>
+  <data name="Game_Source_BattleNet" xml:space="preserve"><value>Battle.net</value></data>
+  <data name="Game_Source_Custom" xml:space="preserve"><value>Added manually</value></data>
+  <data name="Game_Source_EA" xml:space="preserve"><value>EA app</value></data>
+  <data name="Game_Source_EpicGames" xml:space="preserve"><value>Epic Games</value></data>
+  <data name="Game_Source_Gog" xml:space="preserve"><value>GOG</value></data>
+  <data name="Game_Source_Riot" xml:space="preserve"><value>Riot Games</value></data>
+  <data name="Game_Source_Signature" xml:space="preserve"><value>Known game</value></data>
+  <data name="Game_Source_Steam" xml:space="preserve"><value>Steam</value></data>
+  <data name="Game_Source_Ubisoft" xml:space="preserve"><value>Ubisoft Connect</value></data>
+  <data name="Game_Source_Unknown" xml:space="preserve"><value>Unknown</value></data>
+  <data name="Game_Source_WindowsGameConfig" xml:space="preserve"><value>Recognised by Windows</value></data>
+  <data name="Game_Source_Xbox" xml:space="preserve"><value>Xbox / Microsoft Store</value></data>
+</root>

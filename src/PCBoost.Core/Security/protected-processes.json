@@ -1,0 +1,23 @@
+{
+  "$comment": "Processus que PCBoost ne ferme, ne termine et ne modifie jamais (niveau critical), ou déconseille (sensitive). Extensible via %LOCALAPPDATA%\\PCBoost\\protected-processes.user.json (ajouts uniquement).",
+  "critical": [
+    "system", "idle", "registry", "secure system", "memory compression", "vmmem", "vmmemws",
+    "smss.exe", "csrss.exe", "wininit.exe", "winlogon.exe", "services.exe", "lsass.exe", "lsaiso.exe",
+    "svchost.exe", "dwm.exe", "explorer.exe", "fontdrvhost.exe", "sihost.exe", "ctfmon.exe",
+    "logonui.exe", "userinit.exe", "taskhostw.exe", "conhost.exe", "dllhost.exe", "wudfhost.exe",
+    "audiodg.exe", "spoolsv.exe", "searchindexer.exe", "wmiprvse.exe", "lsm.exe",
+    "msmpeng.exe", "nissrv.exe", "mpdefendercoreservice.exe", "securityhealthservice.exe",
+    "securityhealthsystray.exe", "smartscreen.exe", "mpcmdrun.exe", "sgrmbroker.exe",
+    "trustedinstaller.exe", "tiworker.exe", "wuauclt.exe", "usocoreworker.exe", "mousocoreworker.exe",
+    "musnotification.exe", "sppsvc.exe", "vgc.exe", "vgtray.exe", "easyanticheat.exe",
+    "easyanticheat_eos.exe", "beservice.exe", "faceit.exe", "faceitservice.exe", "gameguard.exe",
+    "pcboost.exe", "pcboost.elevator.exe"
+  ],
+  "sensitive": [
+    "runtimebroker.exe", "startmenuexperiencehost.exe", "shellexperiencehost.exe", "searchhost.exe",
+    "searchapp.exe", "textinputhost.exe", "applicationframehost.exe", "systemsettings.exe",
+    "lockapp.exe", "widgets.exe", "phoneexperiencehost.exe", "securityhealthhost.exe",
+    "igfxem.exe", "nvcontainer.exe", "nvdisplay.container.exe", "atiesrxx.exe", "atieclxx.exe",
+    "amdrsserv.exe", "rtkaudumservice64.exe", "audiosrv.exe"
+  ]
+}

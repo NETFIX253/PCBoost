@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>$(PCBoostWindowsTfm)</TargetFramework>
+    <TargetPlatformMinVersion>$(PCBoostMinWindows)</TargetPlatformMinVersion>
+    <SupportedOSPlatformVersion>$(PCBoostMinWindows)</SupportedOSPlatformVersion>
+    <!-- Espace de noms PCBoost.Platform : un espace « PCBoost.System » masquerait l'espace « System » dans tout le code PCBoost. -->
+    <RootNamespace>PCBoost.Platform</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Description>Implémentations Windows des fournisseurs de plateforme : Win32, WMI, PDH, registre, alimentation, signatures, ETW.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PCBoost.Core\PCBoost.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Management" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="PCBoost.System.Tests" />
+    <!-- L'assistant élevé réutilise les validateurs et l'écriture sécurisée de fichiers (internes). -->
+    <InternalsVisibleTo Include="PCBoost.Elevator" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Strings.i18n.json" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,314 @@
+<local:ViewPage
+    x:Class="PCBoost.App.Views.OptimizationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PCBoost.App.Views"
+    xmlns:h="using:PCBoost.App.Helpers"
+    xmlns:controls="using:PCBoost.App.Controls"
+    xmlns:common="using:PCBoost.Presentation.Common"
+    xmlns:vm="using:PCBoost.Presentation.ViewModels">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel MaxWidth="{StaticResource ContentMaxWidth}" Padding="{StaticResource PagePadding}" Spacing="20">
+            <TextBlock Text="{h:Str Key=Optimization_Title}" Style="{StaticResource PageTitleTextStyle}" />
+
+            <SelectorBar x:Name="Sections" SelectionChanged="OnSectionChanged">
+                <SelectorBarItem x:Name="OneClickItem" Text="{h:Str Key=Optimization_Section_OneClick}">
+                    <SelectorBarItem.Icon><FontIcon Glyph="&#xE945;" /></SelectorBarItem.Icon>
+                </SelectorBarItem>
+                <SelectorBarItem x:Name="ProfilesItem" Text="{h:Str Key=Optimization_Section_Profiles}">
+                    <SelectorBarItem.Icon><FontIcon Glyph="&#xE9D5;" /></SelectorBarItem.Icon>
+                </SelectorBarItem>
+                <SelectorBarItem x:Name="OldPcItem" Text="{h:Str Key=Optimization_Section_OldPc}">
+                    <SelectorBarItem.Icon><FontIcon Glyph="&#xE7F4;" /></SelectorBarItem.Icon>
+                </SelectorBarItem>
+            </SelectorBar>
+
+            <InfoBar Severity="Error" h:InfoBarHelper.IsShown="{x:Bind ViewModel.HasError, Mode=OneWay}" Message="{x:Bind ViewModel.ErrorText, Mode=OneWay}"
+                     Title="{h:Str Key=Common_Label_ErrorTitle}" CloseButtonCommand="{x:Bind ViewModel.DismissErrorCommand}" />
+            <InfoBar Severity="Success" h:InfoBarHelper.IsShown="{x:Bind ViewModel.HasStatusMessage, Mode=OneWay}" Message="{x:Bind ViewModel.StatusMessage, Mode=OneWay}"
+                     CloseButtonCommand="{x:Bind ViewModel.DismissStatusCommand}" />
+
+            <!-- ===================== Optimiser mon PC ===================== -->
+            <StackPanel x:Name="OneClickPanel" Spacing="20">
+                <Border Style="{StaticResource CardStyle}" Padding="28,24,28,26" Visibility="{x:Bind h:Ui.Show(ViewModel.IsIdle), Mode=OneWay}">
+                    <Grid ColumnSpacing="24">
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                        <StackPanel Spacing="10">
+                            <TextBlock Text="{h:Str Key=Optimization_Idle_Title}" Style="{StaticResource SectionHeaderTextStyle}" FontSize="22" />
+                            <TextBlock Text="{h:Str Key=Optimization_Idle_Message}" Style="{StaticResource SecondaryTextStyle}" MaxWidth="620" HorizontalAlignment="Left" />
+                            <Button Style="{StaticResource HeroButtonStyle}" Margin="0,10,0,0" Command="{x:Bind ViewModel.ScanCommand}">
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <FontIcon Glyph="&#xE945;" FontSize="16" />
+                                    <TextBlock Text="{h:Str Key=Optimization_Action_Scan}" />
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Spacing="10" VerticalAlignment="Center">
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <FontIcon Glyph="&#xE890;" FontSize="16" Foreground="{ThemeResource BrandAccentTextBrush}" />
+                                <TextBlock Text="{h:Str Key=Welcome_Intro_Preview}" TextWrapping="Wrap" MaxWidth="280" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <FontIcon Glyph="&#xE7A7;" FontSize="16" Foreground="{ThemeResource BrandAccentTextBrush}" />
+                                <TextBlock Text="{h:Str Key=Welcome_Intro_Undo}" TextWrapping="Wrap" MaxWidth="280" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <Border Style="{StaticResource CardStyle}" Visibility="{x:Bind h:Ui.Show(ViewModel.IsScanning), Mode=OneWay}">
+                    <StackPanel Spacing="12">
+                        <TextBlock Text="{x:Bind ViewModel.ScanStatusText, Mode=OneWay}" Style="{StaticResource SectionHeaderTextStyle}" />
+                        <ProgressBar Value="{x:Bind ViewModel.ScanProgressPercent, Mode=OneWay}" Maximum="100" AutomationProperties.Name="{x:Bind ViewModel.ScanStatusText, Mode=OneWay}" />
+                        <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Common_Action_Cancel}" Command="{x:Bind ViewModel.ScanCancelCommand}" />
+                    </StackPanel>
+                </Border>
+
+                <StackPanel Spacing="16" Visibility="{x:Bind h:Ui.Show(ViewModel.IsPreview), Mode=OneWay}">
+                    <StackPanel Spacing="4">
+                        <TextBlock Text="{h:Str Key=Optimization_Preview_Title}" Style="{StaticResource SectionHeaderTextStyle}" FontSize="22" />
+                        <TextBlock Text="{h:Str Key=Optimization_Preview_Subtitle}" Style="{StaticResource SecondaryTextStyle}" />
+                    </StackPanel>
+                    <controls:PlanPreviewView Preview="{x:Bind ViewModel.Preview, Mode=OneWay}" />
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <Button Style="{StaticResource HeroButtonStyle}" Content="{h:Str Key=Optimization_Action_Apply}" Command="{x:Bind ViewModel.ApplyCommand}" />
+                        <Button Style="{StaticResource HeroSecondaryButtonStyle}" Content="{h:Str Key=Optimization_Action_CancelPreview}" Command="{x:Bind ViewModel.CancelPreviewCommand}" />
+                    </StackPanel>
+                </StackPanel>
+
+                <controls:ProgressCard Visibility="{x:Bind h:Ui.Show(ViewModel.IsApplying), Mode=OneWay}"
+                                       Title="{h:Str Key=Optimization_Applying_Title}" Message="{h:Str Key=Optimization_Applying_Message}"
+                                       Percent="{x:Bind ViewModel.ApplyProgressPercent, Mode=OneWay}" CurrentText="{x:Bind ViewModel.CurrentActionText, Mode=OneWay}"
+                                       Steps="{x:Bind ViewModel.Steps}" StepsAccessibleName="{h:Str Key=Optimization_Steps_AccessibleName}" />
+
+                <StackPanel Spacing="14" Visibility="{x:Bind h:Ui.Show(ViewModel.IsReport), Mode=OneWay}">
+                    <controls:ReportView Report="{x:Bind ViewModel.Report, Mode=OneWay}" />
+                    <TextBlock Text="{x:Bind ViewModel.RestoreResultText, Mode=OneWay}" Style="{StaticResource SecondaryTextStyle}"
+                               Visibility="{x:Bind h:Ui.Show(ViewModel.IsRestored), Mode=OneWay}" />
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <Button Style="{StaticResource PrimaryButtonStyle}" Content="{h:Str Key=Optimization_Action_BackToStart}" Command="{x:Bind ViewModel.BackToStartCommand}" />
+                        <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Optimization_Action_Restore}" Command="{x:Bind ViewModel.RestoreCommand}" />
+                        <HyperlinkButton Content="{h:Str Key=Optimization_Action_History}" Command="{x:Bind ViewModel.OpenHistoryCommand}" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+            <!-- ===================== Profils ===================== -->
+            <StackPanel x:Name="ProfilesPanel" Spacing="18" Visibility="Collapsed">
+                <TextBlock Text="{h:Str Key=Profiles_Subtitle}" Style="{StaticResource PageSubtitleTextStyle}" />
+                <InfoBar Severity="Error" h:InfoBarHelper.IsShown="{x:Bind ViewModel.Profiles.HasError, Mode=OneWay}" Message="{x:Bind ViewModel.Profiles.ErrorText, Mode=OneWay}"
+                         Title="{h:Str Key=Common_Label_ErrorTitle}" CloseButtonCommand="{x:Bind ViewModel.Profiles.DismissErrorCommand}" />
+
+                <StackPanel Spacing="14" Visibility="{x:Bind h:Ui.Show(ViewModel.Profiles.IsList), Mode=OneWay}">
+                    <Border Style="{StaticResource SubtleSurfaceStyle}" Visibility="{x:Bind h:Ui.Show(ViewModel.Profiles.HasActiveProfile), Mode=OneWay}">
+                        <Grid ColumnSpacing="12">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                            <StackPanel Spacing="2">
+                                <TextBlock Text="{x:Bind ViewModel.Profiles.ActiveProfileText, Mode=OneWay}" Style="{StaticResource GroupHeaderTextStyle}" />
+                                <TextBlock Text="{x:Bind ViewModel.Profiles.ActivatedAtText, Mode=OneWay}" Style="{StaticResource CaptionSecondaryTextStyle}" />
+                            </StackPanel>
+                            <Button Grid.Column="1" Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Profiles_Action_Deactivate}" Command="{x:Bind ViewModel.Profiles.DeactivateCommand}" />
+                        </Grid>
+                    </Border>
+
+                    <Border Style="{StaticResource CardStyle}" Padding="20,2,20,2" Visibility="{x:Bind h:Ui.Hide(ViewModel.Profiles.IsEditingCustom), Mode=OneWay}">
+                        <ItemsControl h:ListDividers.HideLast="True" ItemsSource="{x:Bind ViewModel.Profiles.Profiles}" IsTabStop="False">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="vm:ProfileItemViewModel">
+                                    <Grid ColumnSpacing="16" Padding="0,14,0,14" AutomationProperties.Name="{x:Bind AccessibleName}"
+                                          BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}" BorderThickness="0,0,0,1">
+                                        <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                        <Border Width="40" Height="40" CornerRadius="8" Background="{ThemeResource BrandAccentSubtleBrush}" VerticalAlignment="Top">
+                                            <FontIcon Glyph="{x:Bind IconGlyph}" FontSize="18" Foreground="{ThemeResource BrandAccentTextBrush}" />
+                                        </Border>
+                                        <StackPanel Grid.Column="1" Spacing="3">
+                                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                                <TextBlock Text="{x:Bind Name}" Style="{StaticResource GroupHeaderTextStyle}" />
+                                                <controls:StatusBadge Text="{x:Bind ActiveBadgeText}" Glyph="&#xE73E;" Kind="Success" Visibility="{x:Bind h:Ui.Show(IsActive)}" />
+                                            </StackPanel>
+                                            <TextBlock Text="{x:Bind Description}" Style="{StaticResource SecondaryTextStyle}" />
+                                            <TextBlock Text="{x:Bind OptimizationCountText}" Style="{StaticResource CaptionSecondaryTextStyle}" />
+                                        </StackPanel>
+                                        <Button Grid.Column="2" Style="{StaticResource SecondaryButtonStyle}" VerticalAlignment="Center"
+                                                Content="{h:Str Key=Profiles_Action_Preview}" Command="{x:Bind PreviewCommand}" IsEnabled="{x:Bind h:Ui.Not(IsEmpty)}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Border>
+                    <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Profiles_Action_EditCustom}" Command="{x:Bind ViewModel.Profiles.EditCustomCommand}"
+                            Visibility="{x:Bind h:Ui.Hide(ViewModel.Profiles.IsEditingCustom), Mode=OneWay}" />
+
+                    <!-- Profil personnalisé -->
+                    <Border Style="{StaticResource CardStyle}" Visibility="{x:Bind h:Ui.Show(ViewModel.Profiles.IsEditingCustom), Mode=OneWay}">
+                        <StackPanel Spacing="12">
+                            <TextBlock Text="{h:Str Key=Profiles_Custom_Header}" Style="{StaticResource SectionHeaderTextStyle}" />
+                            <TextBlock Text="{h:Str Key=Profiles_Custom_Description}" Style="{StaticResource SecondaryTextStyle}" />
+                            <ItemsControl ItemsSource="{x:Bind ViewModel.Profiles.CustomOptions}" IsTabStop="False">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate x:DataType="vm:CustomProfileOptionViewModel">
+                                        <Grid ColumnSpacing="10" Padding="0,8,0,8">
+                                            <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                                            <CheckBox MinWidth="0" VerticalAlignment="Top" Margin="0,-4,0,0" IsChecked="{x:Bind IsIncluded, Mode=TwoWay}" AutomationProperties.Name="{x:Bind Name}" />
+                                            <StackPanel Grid.Column="1" Spacing="3">
+                                                <TextBlock Text="{x:Bind Name}" Style="{StaticResource GroupHeaderTextStyle}" />
+                                                <TextBlock Text="{x:Bind Description}" Style="{StaticResource SecondaryTextStyle}" />
+                                                <StackPanel Orientation="Horizontal" Spacing="6">
+                                                    <controls:StatusBadge Text="{x:Bind CategoryText}" />
+                                                    <controls:StatusBadge Text="{x:Bind RiskText}" Glyph="{x:Bind RiskGlyph}" />
+                                                    <controls:StatusBadge Text="{x:Bind ImpactText}" />
+                                                    <controls:StatusBadge Text="{x:Bind ReversibleText}" Glyph="&#xE7A7;" />
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <Button Style="{StaticResource PrimaryButtonStyle}" Content="{h:Str Key=Profiles_Action_SaveCustom}" Command="{x:Bind ViewModel.Profiles.SaveCustomCommand}" />
+                                <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Common_Action_Cancel}" Command="{x:Bind ViewModel.Profiles.CancelCustomEditCommand}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <Border Style="{StaticResource CardStyle}" Visibility="{x:Bind h:Ui.ShowAny(ViewModel.Profiles.IsPreviewing, ViewModel.Profiles.IsApplying), Mode=OneWay}">
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="{h:Str Key=Profiles_Previewing}" Style="{StaticResource GroupHeaderTextStyle}" Visibility="{x:Bind h:Ui.Show(ViewModel.Profiles.IsPreviewing), Mode=OneWay}" />
+                        <TextBlock Text="{h:Str Key=Profiles_Applying}" Style="{StaticResource GroupHeaderTextStyle}" Visibility="{x:Bind h:Ui.Show(ViewModel.Profiles.IsApplying), Mode=OneWay}" />
+                        <ProgressBar IsIndeterminate="True" />
+                    </StackPanel>
+                </Border>
+
+                <StackPanel Spacing="14" Visibility="{x:Bind h:Ui.Show(ViewModel.Profiles.IsPreview), Mode=OneWay}">
+                    <TextBlock Text="{x:Bind ViewModel.Profiles.PreviewTitle, Mode=OneWay}" Style="{StaticResource SectionHeaderTextStyle}" FontSize="22" />
+                    <controls:PlanPreviewView Preview="{x:Bind ViewModel.Profiles.Preview, Mode=OneWay}" />
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <Button Style="{StaticResource HeroButtonStyle}" Content="{h:Str Key=Profiles_Action_Activate}" Command="{x:Bind ViewModel.Profiles.ActivateCommand}" />
+                        <Button Style="{StaticResource HeroSecondaryButtonStyle}" Content="{h:Str Key=Profiles_Action_BackToList}" Command="{x:Bind ViewModel.Profiles.BackToListCommand}" />
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Spacing="14" Visibility="{x:Bind h:Ui.Show(ViewModel.Profiles.IsResult), Mode=OneWay}">
+                    <TextBlock Text="{x:Bind ViewModel.Profiles.ResultText, Mode=OneWay}" Style="{StaticResource SectionHeaderTextStyle}" />
+                    <controls:ReportView Report="{x:Bind ViewModel.Profiles.Report, Mode=OneWay}" Visibility="{x:Bind h:Ui.Show(ViewModel.Profiles.HasReport), Mode=OneWay}" />
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <Button Style="{StaticResource PrimaryButtonStyle}" Content="{h:Str Key=Profiles_Action_BackToList}" Command="{x:Bind ViewModel.Profiles.BackToListCommand}" />
+                        <HyperlinkButton Content="{h:Str Key=Optimization_Action_History}" Command="{x:Bind ViewModel.Profiles.OpenHistoryCommand}" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+            <!-- ===================== Ancien PC ===================== -->
+            <StackPanel x:Name="OldPcPanel" Spacing="18" Visibility="Collapsed">
+                <StackPanel Spacing="4">
+                    <TextBlock Text="{h:Str Key=OldPc_Title}" Style="{StaticResource SectionHeaderTextStyle}" FontSize="22" />
+                    <TextBlock Text="{h:Str Key=OldPc_Subtitle}" Style="{StaticResource PageSubtitleTextStyle}" />
+                </StackPanel>
+                <InfoBar Severity="Error" h:InfoBarHelper.IsShown="{x:Bind ViewModel.OldPc.HasError, Mode=OneWay}" Message="{x:Bind ViewModel.OldPc.ErrorText, Mode=OneWay}"
+                         Title="{h:Str Key=Common_Label_ErrorTitle}" CloseButtonCommand="{x:Bind ViewModel.OldPc.DismissErrorCommand}" />
+
+                <Button Style="{StaticResource HeroButtonStyle}" Content="{h:Str Key=OldPc_Action_Assess}" Command="{x:Bind ViewModel.OldPc.AssessCommand}"
+                        Visibility="{x:Bind h:Ui.Show(ViewModel.OldPc.IsNotAssessed), Mode=OneWay}" />
+
+                <Border Style="{StaticResource CardStyle}" Visibility="{x:Bind h:Ui.ShowAny(ViewModel.OldPc.IsAssessing, ViewModel.OldPc.IsPreviewing), Mode=OneWay}">
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="{h:Str Key=OldPc_Assessing}" Style="{StaticResource GroupHeaderTextStyle}" />
+                        <ProgressBar IsIndeterminate="True" />
+                        <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Common_Action_Cancel}" Command="{x:Bind ViewModel.OldPc.AssessCancelCommand}"
+                                Visibility="{x:Bind h:Ui.Show(ViewModel.OldPc.IsAssessing), Mode=OneWay}" />
+                    </StackPanel>
+                </Border>
+
+                <StackPanel Spacing="18" Visibility="{x:Bind h:Ui.Show(ViewModel.OldPc.IsAssessed), Mode=OneWay}">
+                    <Border Style="{StaticResource CardStyle}">
+                        <StackPanel Spacing="12">
+                            <TextBlock Text="{h:Str Key=OldPc_Section_Assessment}" Style="{StaticResource GroupHeaderTextStyle}" />
+                            <TextBlock Text="{x:Bind ViewModel.OldPc.AssessmentSummary, Mode=OneWay}" Style="{StaticResource SecondaryTextStyle}" />
+                            <ItemsRepeater VerticalCacheLength="20" ItemsSource="{x:Bind ViewModel.OldPc.Indicators}">
+                                <ItemsRepeater.Layout>
+                                    <controls:CardGridLayout MinItemWidth="300" ColumnSpacing="16" RowSpacing="6" />
+                                </ItemsRepeater.Layout>
+                                <ItemsRepeater.ItemTemplate>
+                                    <DataTemplate x:DataType="vm:OldPcIndicatorViewModel">
+                                        <Grid ColumnSpacing="10" Padding="0,4,0,4" AutomationProperties.Name="{x:Bind AccessibleName}">
+                                            <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                            <TextBlock Text="{x:Bind Label}" VerticalAlignment="Center" TextWrapping="Wrap" />
+                                            <controls:StatusBadge Grid.Column="1" Text="{x:Bind StatusText}" Glyph="{x:Bind IconGlyph}" Kind="{x:Bind h:Ui.CautionOrNeutral(IsDetected)}" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsRepeater.ItemTemplate>
+                            </ItemsRepeater>
+                        </StackPanel>
+                    </Border>
+
+                    <TextBlock Text="{h:Str Key=OldPc_Section_Levels}" Style="{StaticResource SectionHeaderTextStyle}" />
+                    <ItemsRepeater VerticalCacheLength="20" ItemsSource="{x:Bind ViewModel.OldPc.Levels}">
+                        <ItemsRepeater.Layout>
+                            <!-- Cartes de hauteurs différentes (2, 4 puis 5 optimisations) : une rangée prend la hauteur de la plus haute. -->
+                            <controls:CardGridLayout MinItemWidth="300" ColumnSpacing="12" RowSpacing="12" />
+                        </ItemsRepeater.Layout>
+                        <ItemsRepeater.ItemTemplate>
+                            <DataTemplate x:DataType="vm:OldPcLevelViewModel">
+                                <Border Style="{StaticResource CardStyle}">
+                                    <Grid RowSpacing="14">
+                                        <Grid.RowDefinitions><RowDefinition Height="*" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+                                        <StackPanel Spacing="8">
+                                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                                <FontIcon Glyph="{x:Bind IconGlyph}" FontSize="18" Foreground="{ThemeResource BrandAccentTextBrush}" />
+                                                <TextBlock Text="{x:Bind Name}" Style="{StaticResource GroupHeaderTextStyle}" FontSize="16" />
+                                            </StackPanel>
+                                            <TextBlock Text="{x:Bind Description}" Style="{StaticResource SecondaryTextStyle}" />
+                                            <TextBlock Text="{x:Bind CountText}" Style="{StaticResource CaptionSecondaryTextStyle}" />
+                                            <ItemsControl ItemsSource="{x:Bind OptimizationNames}" IsTabStop="False">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate x:DataType="x:String">
+                                                        <StackPanel Orientation="Horizontal" Spacing="8" Padding="0,2,0,2">
+                                                            <FontIcon Glyph="&#xE73E;" FontSize="11" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                                                            <TextBlock Text="{x:Bind}" FontSize="13" />
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                            <TextBlock Text="{x:Bind AdvancedNotice}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="Wrap"
+                                                       Foreground="{ThemeResource SystemFillColorCautionBrush}" Visibility="{x:Bind h:Ui.Show(IsAdvanced)}" />
+                                        </StackPanel>
+                                        <!-- Toujours en bas de la carte : les trois boutons sont alignés. -->
+                                        <Button Grid.Row="1" VerticalAlignment="Bottom" Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=OldPc_Action_ChooseLevel}"
+                                                Command="{x:Bind SelectCommand}" IsEnabled="{x:Bind h:Ui.Not(IsEmpty)}" />
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsRepeater.ItemTemplate>
+                    </ItemsRepeater>
+                </StackPanel>
+
+                <StackPanel Spacing="14" Visibility="{x:Bind h:Ui.Show(ViewModel.OldPc.IsPreview), Mode=OneWay}">
+                    <TextBlock Text="{h:Str Key=Optimization_Preview_Title}" Style="{StaticResource SectionHeaderTextStyle}" FontSize="22" />
+                    <controls:PlanPreviewView Preview="{x:Bind ViewModel.OldPc.Preview, Mode=OneWay}" />
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <Button Style="{StaticResource HeroButtonStyle}" Content="{h:Str Key=OldPc_Action_Apply}" Command="{x:Bind ViewModel.OldPc.ApplyCommand}" />
+                        <Button Style="{StaticResource HeroSecondaryButtonStyle}" Content="{h:Str Key=OldPc_Action_BackToLevels}" Command="{x:Bind ViewModel.OldPc.BackToLevelsCommand}" />
+                    </StackPanel>
+                </StackPanel>
+
+                <controls:ProgressCard Visibility="{x:Bind h:Ui.Show(ViewModel.OldPc.IsApplying), Mode=OneWay}"
+                                       Title="{h:Str Key=Optimization_Applying_Title}" Message="{h:Str Key=Optimization_Applying_Message}"
+                                       Percent="{x:Bind ViewModel.OldPc.ApplyProgressPercent, Mode=OneWay}" CurrentText="{x:Bind ViewModel.OldPc.CurrentActionText, Mode=OneWay}"
+                                       Steps="{x:Bind ViewModel.OldPc.Steps}" />
+
+                <StackPanel Spacing="14" Visibility="{x:Bind h:Ui.Show(ViewModel.OldPc.IsReport), Mode=OneWay}">
+                    <controls:ReportView Report="{x:Bind ViewModel.OldPc.Report, Mode=OneWay}" />
+                    <TextBlock Text="{x:Bind ViewModel.OldPc.RestoreResultText, Mode=OneWay}" Style="{StaticResource SecondaryTextStyle}"
+                               Visibility="{x:Bind h:Ui.Show(ViewModel.OldPc.IsRestored), Mode=OneWay}" />
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <Button Style="{StaticResource PrimaryButtonStyle}" Content="{h:Str Key=OldPc_Action_BackToLevels}" Command="{x:Bind ViewModel.OldPc.BackToLevelsCommand}" />
+                        <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Optimization_Action_Restore}" Command="{x:Bind ViewModel.OldPc.RestoreCommand}" />
+                        <HyperlinkButton Content="{h:Str Key=Optimization_Action_History}" Command="{x:Bind ViewModel.OldPc.OpenHistoryCommand}" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</local:ViewPage>

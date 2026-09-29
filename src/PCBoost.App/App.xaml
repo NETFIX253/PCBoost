@@ -1,0 +1,19 @@
+<Application
+    x:Class="PCBoost.App.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+                <ResourceDictionary Source="ms-appx:///Styles/Colors.xaml" />
+                <ResourceDictionary Source="ms-appx:///Styles/Typography.xaml" />
+                <ResourceDictionary Source="ms-appx:///Styles/Buttons.xaml" />
+                <ResourceDictionary Source="ms-appx:///Styles/Cards.xaml" />
+                <ResourceDictionary Source="ms-appx:///Styles/Navigation.xaml" />
+                <ResourceDictionary Source="ms-appx:///Styles/Dialogs.xaml" />
+                <ResourceDictionary Source="ms-appx:///Styles/Controls.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

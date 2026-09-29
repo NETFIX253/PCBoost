@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  PCBoost : installation par machine (Program Files), désinstallation propre depuis « Applications installées ».
+  Fonctionnalités : application (obligatoire), raccourci Bureau (facultatif), lancement avec Windows (facultatif).
+  Les données de l'utilisateur (%LOCALAPPDATA%\PCBoost : réglages, historique, journaux) ne sont pas supprimées
+  à la désinstallation, pour permettre une réinstallation sans perte ; la page Confidentialité indique comment les effacer.
+-->
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+     xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
+  <Package Name="$(ProductName)"
+           Manufacturer="$(Publisher)"
+           Version="$(ProductVersion)"
+           UpgradeCode="$(UpgradeCode)"
+           Scope="perMachine"
+           Compressed="yes"
+           Codepage="1252">
+    <SummaryInformation Description="$(ProductName) $(ProductVersion)" Manufacturer="$(Publisher)" />
+
+    <!-- AllowSameVersionUpgrades : une nouvelle compilation de la même version remplace l'installation existante
+         au lieu de s'installer à côté (redéploiement interne sans changer de numéro de version). -->
+    <MajorUpgrade DowngradeErrorMessage="Une version plus récente de [ProductName] est déjà installée." Schedule="afterInstallInitialize"
+                  AllowSameVersionUpgrades="yes" />
+    <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
+
+    <Icon Id="AppIcon" SourceFile="$(BrandingDir)\app.ico" />
+    <Property Id="ARPPRODUCTICON" Value="AppIcon" />
+    <Property Id="ARPCOMMENTS" Value="Redonnez de la fluidité à votre PC." />
+    <Property Id="DISABLEADVTSHORTCUTS" Value="1" />
+
+    <!-- Images de l'assistant aux couleurs de PCBoost (générées par build/tools/make_brand_assets.py). -->
+    <WixVariable Id="WixUIBannerBmp" Value="$(sys.SOURCEFILEDIR)Assets\banner.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value="$(sys.SOURCEFILEDIR)Assets\dialog.bmp" />
+
+    <!-- Windows Installer signale Windows 10/11 comme 6.3 (VersionNT = 603) : seule une version antérieure est refusée ici ;
+         la version 1809 minimale est vérifiée par l'application elle-même (Windows App SDK). -->
+    <Launch Condition="Installed OR VersionNT >= 603" Message="[ProductName] nécessite Windows 10 version 1809 ou ultérieure." />
+
+    <StandardDirectory Id="ProgramFiles6432Folder">
+      <Directory Id="INSTALLFOLDER" Name="$(ProductName)" />
+    </StandardDirectory>
+
+    <Feature Id="Main" Title="$(ProductName)" Description="L'application et ses composants." Level="1" Display="expand"
+             ConfigurableDirectory="INSTALLFOLDER" AllowAbsent="no" AllowAdvertise="no">
+      <ComponentGroupRef Id="AppFiles" />
+      <ComponentRef Id="MainExecutable" />
+      <ComponentRef Id="StartMenuShortcut" />
+
+      <Feature Id="DesktopShortcutFeature" Title="Raccourci sur le Bureau" Description="Ajoute un raccourci vers [ProductName] sur le Bureau." Level="1000" AllowAdvertise="no">
+        <ComponentRef Id="DesktopShortcut" />
+      </Feature>
+      <Feature Id="AutoStartFeature" Title="Lancer avec Windows" Description="Démarre [ProductName] discrètement dans la zone de notification à l'ouverture de session. Modifiable à tout moment dans les Paramètres." Level="1000" AllowAdvertise="no">
+        <ComponentRef Id="AutoStart" />
+      </Feature>
+    </Feature>
+
+    <!-- Interface : Bienvenue → choix des fonctionnalités et du dossier → Prêt → Installation → Fin (option « Lancer PCBoost »). -->
+    <UIRef Id="PCBoostUI" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Lancer $(ProductName)" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1" />
+    <Property Id="WixShellExecTarget" Value="[#PCBoostExe]" />
+    <CustomAction Id="LaunchApplication" BinaryRef="Wix4UtilCA_$(sys.BUILDARCHSHORT)" DllEntry="WixShellExec" Impersonate="yes" />
+  </Package>
+
+  <Fragment>
+    <ComponentGroup Id="AppFiles" Directory="INSTALLFOLDER">
+      <Files Include="$(AppDir)\**">
+        <Exclude Files="$(AppDir)\PCBoost.exe" />
+        <Exclude Files="$(AppDir)\**\*.pdb" />
+      </Files>
+    </ComponentGroup>
+
+    <Component Id="MainExecutable" Directory="INSTALLFOLDER">
+      <File Id="PCBoostExe" Source="$(AppDir)\PCBoost.exe" KeyPath="yes" />
+    </Component>
+
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Component Id="StartMenuShortcut" Guid="3F4B9C1E-8E0A-4B7C-9D52-6C1E2A7B4F10">
+        <Shortcut Id="StartMenuShortcutLink" Name="$(ProductName)" Description="Redonnez de la fluidité à votre PC."
+                  Target="[INSTALLFOLDER]PCBoost.exe" WorkingDirectory="INSTALLFOLDER" Icon="AppIcon" />
+        <RegistryValue Root="HKCU" Key="Software\$(ProductName)" Name="StartMenuShortcut" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </StandardDirectory>
+
+    <StandardDirectory Id="DesktopFolder">
+      <Component Id="DesktopShortcut" Guid="8B2E6D40-1C7F-4E93-A5B8-0D9F3E6C2A71">
+        <Shortcut Id="DesktopShortcutLink" Name="$(ProductName)" Description="Redonnez de la fluidité à votre PC."
+                  Target="[INSTALLFOLDER]PCBoost.exe" WorkingDirectory="INSTALLFOLDER" Icon="AppIcon" />
+        <RegistryValue Root="HKCU" Key="Software\$(ProductName)" Name="DesktopShortcut" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </StandardDirectory>
+
+    <!-- Même valeur que celle gérée par l'application (Paramètres → Lancer avec Windows) : HKCU\…\Run\<Produit>. -->
+    <Component Id="AutoStart" Directory="INSTALLFOLDER" Guid="C51A7E93-2F64-4D0B-8E1C-7A3B9D5F0E28">
+      <RegistryValue Root="HKCU" Key="Software\Microsoft\Windows\CurrentVersion\Run" Name="$(ProductName)" Type="string"
+                     Value="&quot;[INSTALLFOLDER]PCBoost.exe&quot; --background" KeyPath="yes" />
+    </Component>
+  </Fragment>
+
+  <Fragment>
+    <!-- Jeu de dialogues WixUI_FeatureTree sans l'écran de licence (aucun contrat à accepter). -->
+    <UI Id="PCBoostUI">
+      <TextStyle Id="WixUI_Font_Normal" FaceName="Segoe UI" Size="9" />
+      <TextStyle Id="WixUI_Font_Bigger" FaceName="Segoe UI" Size="12" />
+      <TextStyle Id="WixUI_Font_Title" FaceName="Segoe UI" Size="9" Bold="yes" />
+      <Property Id="DefaultUIFont" Value="WixUI_Font_Normal" />
+
+      <DialogRef Id="ErrorDlg" />
+      <DialogRef Id="FatalError" />
+      <DialogRef Id="FilesInUse" />
+      <DialogRef Id="MsiRMFilesInUse" />
+      <DialogRef Id="PrepareDlg" />
+      <DialogRef Id="ProgressDlg" />
+      <DialogRef Id="ResumeDlg" />
+      <DialogRef Id="UserExit" />
+
+      <Publish Dialog="ExitDialog" Control="Finish" Event="DoAction" Value="LaunchApplication" Order="998"
+               Condition="WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 AND NOT Installed" />
+      <Publish Dialog="ExitDialog" Control="Finish" Event="EndDialog" Value="Return" Order="999" />
+
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="CustomizeDlg" Condition="NOT Installed" />
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="VerifyReadyDlg" Condition="Installed AND PATCH" />
+
+      <Publish Dialog="CustomizeDlg" Control="Back" Event="NewDialog" Value="MaintenanceTypeDlg" Order="1" Condition="Installed" />
+      <Publish Dialog="CustomizeDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg" Order="2" Condition="NOT Installed" />
+      <Publish Dialog="CustomizeDlg" Control="Next" Event="NewDialog" Value="VerifyReadyDlg" />
+
+      <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="CustomizeDlg" Order="1" Condition="NOT Installed OR WixUI_InstallMode = &quot;Change&quot;" />
+      <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="MaintenanceTypeDlg" Order="2" Condition="Installed AND NOT PATCH" />
+      <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg" Order="3" Condition="Installed AND PATCH" />
+
+      <Publish Dialog="MaintenanceWelcomeDlg" Control="Next" Event="NewDialog" Value="MaintenanceTypeDlg" />
+      <Publish Dialog="MaintenanceTypeDlg" Control="ChangeButton" Event="NewDialog" Value="CustomizeDlg" />
+      <Publish Dialog="MaintenanceTypeDlg" Control="RepairButton" Event="NewDialog" Value="VerifyReadyDlg" />
+      <Publish Dialog="MaintenanceTypeDlg" Control="RemoveButton" Event="NewDialog" Value="VerifyReadyDlg" />
+      <Publish Dialog="MaintenanceTypeDlg" Control="Back" Event="NewDialog" Value="MaintenanceWelcomeDlg" />
+    </UI>
+    <UIRef Id="WixUI_Common" />
+  </Fragment>
+</Wix>

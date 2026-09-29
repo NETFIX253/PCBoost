@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>$(PCBoostWindowsTfm)</TargetFramework>
+    <TargetPlatformMinVersion>$(PCBoostMinWindows)</TargetPlatformMinVersion>
+    <SupportedOSPlatformVersion>$(PCBoostMinWindows)</SupportedOSPlatformVersion>
+    <RootNamespace>PCBoost.Elevator</RootNamespace>
+    <RuntimeIdentifiers Condition="'$(Platform)' == 'ARM64'">win-arm64</RuntimeIdentifiers>
+    <RuntimeIdentifiers Condition="'$(Platform)' != 'ARM64'">win-x64</RuntimeIdentifiers>
+    <AssemblyName>PCBoost.Elevator</AssemblyName>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Description>Assistant élevé ponctuel : exécute une opération privilégiée de la liste blanche puis se termine.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PCBoost.Core\PCBoost.Core.csproj" />
+    <ProjectReference Include="..\PCBoost.System\PCBoost.System.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Diagnostics.Tracing.TraceEvent" />
+  </ItemGroup>
+</Project>
