@@ -36,10 +36,20 @@
 
 ## 📥 Télécharger
 
-| | Fichier | Idéal pour |
-|---|---|---|
-| **Installateur** (recommandé) | [`PCBoost-1.0.0-x64.msi`](https://github.com/NETFIX253/PCBoost/releases/download/v1.0.0/PCBoost-1.0.0-x64.msi) · 66 Mo | Une installation classique : dossier *Program Files*, raccourci dans le menu Démarrer, raccourci Bureau et lancement avec Windows en option, désinstallation depuis les *Paramètres*. |
-| **Version portable** | [`PCBoost-1.0.0-x64-portable.zip`](https://github.com/NETFIX253/PCBoost/releases/download/v1.0.0/PCBoost-1.0.0-x64-portable.zip) · 83 Mo | Aucune installation : décompressez le dossier puis lancez `PCBoost.exe`. Pratique sur une clé USB ou un poste partagé. |
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>💿 Installateur <sup>recommandé</sup></h3>
+      <a href="https://github.com/NETFIX253/PCBoost/releases/download/v1.0.0/PCBoost-1.0.0-x64.msi"><b>PCBoost-1.0.0-x64.msi</b></a> · 66 Mo<br><br>
+      Une installation classique : dossier <i>Program Files</i>, raccourci dans le menu Démarrer, raccourci Bureau et lancement avec Windows en option, désinstallation depuis les <i>Paramètres</i>.
+    </td>
+    <td width="50%" valign="top">
+      <h3>🗂️ Version portable</h3>
+      <a href="https://github.com/NETFIX253/PCBoost/releases/download/v1.0.0/PCBoost-1.0.0-x64-portable.zip"><b>PCBoost-1.0.0-x64-portable.zip</b></a> · 83 Mo<br><br>
+      Aucune installation : décompressez le dossier puis lancez <code>PCBoost.exe</code>. Pratique sur une clé USB ou un poste partagé.
+    </td>
+  </tr>
+</table>
 
 Toutes les versions et notes de publication : **[page des Releases](https://github.com/NETFIX253/PCBoost/releases/latest)**.
 
@@ -78,18 +88,18 @@ Toutes les versions et notes de publication : **[page des Releases](https://gith
     <td width="50%" valign="top">
       <picture>
         <source media="(prefers-color-scheme: dark)" srcset="docs/images/screen-analysis-dark.png">
-        <img src="docs/images/screen-analysis-light.png" alt="Analyse du système : constats, recommandations, matériel et logiciels">
+        <img src="docs/images/screen-analysis-light.png" alt="Analyse du système : constats par catégorie et recommandations">
       </picture>
-      <p align="center"><b>Analyse</b> — un bilan complet en lecture seule : rien n'est modifié.</p>
+      <p align="center"><b>Analyse</b> — constats et recommandations, en lecture seule : rien n'est modifié.</p>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
       <picture>
         <source media="(prefers-color-scheme: dark)" srcset="docs/images/screen-oldpc-dark.png">
-        <img src="docs/images/screen-oldpc-light.png" alt="Assistant Ancien PC : évaluation et niveaux Essentiel, Standard, Avancé">
+        <img src="docs/images/screen-oldpc-light.png" alt="Assistant Ancien PC : aperçu des modifications prévues pour le niveau Standard">
       </picture>
-      <p align="center"><b>Ancien PC</b> — des réglages par niveaux, adaptés aux configurations modestes.</p>
+      <p align="center"><b>Ancien PC</b> — chaque niveau est prévisualisé : risque, impact, réversible ou non.</p>
     </td>
     <td width="50%" valign="top">
       <picture>
