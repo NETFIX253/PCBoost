@@ -24,7 +24,8 @@ public enum KnownFolder
     StartMenuPrograms,
 }
 
-public sealed record FileEntry(string Path, long Size, DateTimeOffset LastWriteUtc, bool IsReadOnly, bool IsSystem, bool IsHidden);
+/// <param name="IsOffline">Contenu non présent sur le disque (fichier en ligne, rappel à l'accès) : ne jamais le lire.</param>
+public sealed record FileEntry(string Path, long Size, DateTimeOffset LastWriteUtc, bool IsReadOnly, bool IsSystem, bool IsHidden, bool IsOffline = false);
 
 public sealed record DirectorySizeResult(long Bytes, int FileCount, int InaccessibleEntries);
 
@@ -60,6 +61,21 @@ public interface IFileSystemProvider
     IReadOnlyList<string> GetFixedDriveRoots();
 
     string GetFullPath(string path);
+
+    /// <summary>État actuel d'un fichier (taille, date, attributs) ; null s'il est absent, inaccessible ou s'il s'agit d'un point d'analyse.</summary>
+    FileEntry? GetFileInfo(string path);
+
+    /// <summary>Date du dernier accès au fichier (NTFS) ; null si indisponible.</summary>
+    DateTimeOffset? GetLastAccessTimeUtc(string path);
+
+    /// <summary>Ouvre un fichier en lecture partagée (comparaison de contenu) ; null si impossible. N'ouvre jamais un point d'analyse.</summary>
+    Stream? OpenRead(string path);
+
+    /// <summary>
+    /// Envoie un fichier à la Corbeille (restaurable depuis la Corbeille). Si Windows ne peut pas le recycler (fichier trop
+    /// volumineux, lecteur sans Corbeille), il demande confirmation avant toute suppression définitive ; un refus annule.
+    /// </summary>
+    OperationResult MoveToRecycleBin(string path);
 }
 
 /// <summary>Métadonnées de version et signature Authenticode.</summary>

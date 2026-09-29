@@ -198,6 +198,10 @@ public sealed partial class AnalysisViewModel : ViewModelBase
     [RelayCommand]
     private void OpenStorage() => Navigation.Navigate(PageKeys.Storage);
 
+    /// <summary>Rapport de diagnostic (aperçu, puis enregistrement en PDF ou HTML).</summary>
+    [RelayCommand]
+    private void OpenReport() => Navigation.Navigate(PageKeys.Report);
+
     [RelayCommand]
     private void OpenDiagnosis() => Navigation.Navigate(PageKeys.Diagnosis);
 

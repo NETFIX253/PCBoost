@@ -91,11 +91,13 @@ public sealed partial class GameSettingCheckItemViewModel
 /// <summary>Jeu installé détecté.</summary>
 public sealed class GameItemViewModel
 {
-    public GameItemViewModel(GameInfo game, ILocalizer localizer)
+    public GameItemViewModel(GameInfo game, ILocalizer localizer, Action<GameItemViewModel>? open = null)
     {
         ArgumentNullException.ThrowIfNull(game);
         ArgumentNullException.ThrowIfNull(localizer);
         Model = game;
+        OpenCommand = new RelayCommand(() => open?.Invoke(this), () => open is not null);
+        OpenLabel = localizer.Get("Gaming_Action_GameProfile");
         Id = game.Id;
         Name = game.Name;
         SourceText = localizer.Get($"Gaming_Source_{game.Source}");
@@ -114,6 +116,11 @@ public sealed class GameItemViewModel
     public string Location { get; }
 
     public bool HasLocation => !string.IsNullOrEmpty(Location);
+
+    /// <summary>Réglages et historique des FPS de ce jeu.</summary>
+    public IRelayCommand OpenCommand { get; }
+
+    public string OpenLabel { get; }
 
     public string AccessibleName => $"{Name}, {SourceText}";
 }

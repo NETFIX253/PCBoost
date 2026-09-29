@@ -378,4 +378,29 @@ public sealed class ElevationValidationTests
     [InlineData(@"C:\Users\Test\AppData\Local\PCBoost\Logs\other.log", false)]
     public void ResolvedLogPath_IsChecked(string path, bool expected)
         => Assert.Equal(expected, ElevationPaths.IsAcceptableResolvedLogPath(path));
+
+    // ---- Diagnostics de santé (lecture seule, sauf point de restauration) -----------------------------------
+
+    [Theory]
+    [InlineData(ElevatedHealthOperations.DiskReliability)]
+    [InlineData(ElevatedHealthOperations.BootPerformance)]
+    [InlineData(ElevatedHealthOperations.RestorePointCreate)]
+    [InlineData(ElevatedHealthOperations.AppsLastRun)]
+    public void Health_operations_without_parameters_are_accepted(string operation)
+    {
+        var result = ElevatedRequestValidator.Validate(Request(operation));
+        Assert.True(result.Success);
+        Assert.Equal(operation, Assert.IsType<ValidatedHealthOperation>(result.Value).Name);
+    }
+
+    [Theory]
+    [InlineData(ElevatedHealthOperations.DiskReliability)]
+    [InlineData(ElevatedHealthOperations.RestorePointCreate)]
+    [InlineData(ElevatedHealthOperations.AppsLastRun)]
+    public void Health_operations_with_any_parameter_are_refused(string operation)
+    {
+        var result = ElevatedRequestValidator.Validate(Request(operation, ("path", @"C:\Windows\Prefetch")));
+        Assert.False(result.Success);
+        Assert.Equal(OperationErrorKind.InvalidInput, result.Error);
+    }
 }

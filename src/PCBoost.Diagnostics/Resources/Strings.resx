@@ -7,6 +7,7 @@
   <data name="Diag_Action_ChoosePowerPlan" xml:space="preserve"><value>Choisir un mode d'alimentation</value></data>
   <data name="Diag_Action_ViewBackgroundApps" xml:space="preserve"><value>Voir les applications en arrière-plan</value></data>
   <data name="Diag_Action_ViewCleanup" xml:space="preserve"><value>Voir les fichiers à nettoyer</value></data>
+  <data name="Diag_Action_ViewHardwareHealth" xml:space="preserve"><value>Voir la santé du matériel</value></data>
   <data name="Diag_Action_ViewOldPc" xml:space="preserve"><value>Voir les conseils pour ancien PC</value></data>
   <data name="Diag_Action_ViewPerformance" xml:space="preserve"><value>Suivre les performances</value></data>
   <data name="Diag_Action_ViewProcesses" xml:space="preserve"><value>Voir les processus</value></data>
@@ -23,6 +24,13 @@
   <data name="Diag_Advice_Ssd_Suggestion" xml:space="preserve"><value>Un SSD pourrait réduire nettement les temps de démarrage et d'ouverture des applications.</value></data>
   <data name="Diag_Advice_StorageFull_Observation" xml:space="preserve"><value>Le disque système est rempli à {0:N0} % ({1:N1} Go libres sur {2:N0} Go).</value></data>
   <data name="Diag_Advice_StorageFull_Suggestion" xml:space="preserve"><value>Commencez par libérer de l'espace. Si le disque reste plein, un disque de plus grande capacité pourrait être envisagé.</value></data>
+  <data name="Diag_Boot_NoMeasurement" xml:space="preserve"><value>Windows n'a enregistré aucune mesure de démarrage complet récente.</value></data>
+  <data name="Diag_Health_Notify_Disk_Body" xml:space="preserve"><value>Windows signale un problème sur « {0} ». Sauvegardez dès que possible vos données importantes.</value></data>
+  <data name="Diag_Health_Notify_Disk_Title" xml:space="preserve"><value>Disque en mauvais état</value></data>
+  <data name="Diag_Health_Notify_Open" xml:space="preserve"><value>Voir la santé du matériel</value></data>
+  <data name="Diag_Health_Notify_Thermal_Body" xml:space="preserve"><value>Le processeur a fonctionné à {0} % de sa fréquence de base pendant {1} s alors qu'il était très sollicité. Cause probable : chaleur (ventilation encrassée) ou alimentation.</value></data>
+  <data name="Diag_Health_Notify_Thermal_Title" xml:space="preserve"><value>Processeur ralenti sous forte charge</value></data>
+  <data name="Diag_Health_ReliabilityNotProvided" xml:space="preserve"><value>Les disques n'ont fourni aucun compteur de fiabilité.</value></data>
   <data name="Diag_Profile_Reason_Cores" xml:space="preserve"><value>Cœurs physiques du processeur : {0}</value></data>
   <data name="Diag_Profile_Reason_DedicatedGpu" xml:space="preserve"><value>Carte graphique dédiée ({0} Go de mémoire vidéo)</value></data>
   <data name="Diag_Profile_Reason_DedicatedGpuUnknownMemory" xml:space="preserve"><value>Carte graphique dédiée</value></data>
@@ -83,6 +91,8 @@
   <data name="Diag_Rec_VisualEffects_Title" xml:space="preserve"><value>Alléger les effets visuels</value></data>
   <data name="Diag_Rule_Background_Detail" xml:space="preserve"><value>Processus en arrière-plan dans votre session : {0} (seuil : {1}). Ils utilisent de la mémoire et du processeur même sans fenêtre visible.</value></data>
   <data name="Diag_Rule_Background_Title" xml:space="preserve"><value>Nombreux processus en arrière-plan</value></data>
+  <data name="Diag_Rule_Battery_Detail" xml:space="preserve"><value>La batterie ne conserve plus que {0:N0} % de sa capacité d'origine : l'autonomie est réduite d'autant.</value></data>
+  <data name="Diag_Rule_Battery_Worn_Title" xml:space="preserve"><value>Batterie usée</value></data>
   <data name="Diag_Rule_Cleanable_Detail_Gb" xml:space="preserve"><value>{0:N1} Go de fichiers peuvent être supprimés sans risque (fichiers temporaires, caches).</value></data>
   <data name="Diag_Rule_Cleanable_Detail_Mb" xml:space="preserve"><value>{0:N0} Mo de fichiers peuvent être supprimés sans risque (fichiers temporaires, caches).</value></data>
   <data name="Diag_Rule_Cleanable_Title" xml:space="preserve"><value>Fichiers temporaires à nettoyer</value></data>
@@ -91,6 +101,14 @@
   <data name="Diag_Rule_Cpu_Critical_Title" xml:space="preserve"><value>Processeur saturé</value></data>
   <data name="Diag_Rule_Cpu_Detail" xml:space="preserve"><value>Utilisation moyenne du processeur : {0:N0} % pendant {1:N0} secondes de mesure (maximum {2:N0} %).</value></data>
   <data name="Diag_Rule_Cpu_Warning_Title" xml:space="preserve"><value>Processeur très sollicité</value></data>
+  <data name="Diag_Rule_Devices_Detail" xml:space="preserve"><value>Le Gestionnaire de périphériques signale : {1}.</value></data>
+  <data name="Diag_Rule_Devices_Title" xml:space="preserve"><value>{0} {0:plural:périphérique en erreur|périphériques en erreur}</value></data>
+  <data name="Diag_Rule_DiskHealth_Critical_Title" xml:space="preserve"><value>Disque en mauvais état : sauvegardez vos données</value></data>
+  <data name="Diag_Rule_DiskHealth_Errors_Detail" xml:space="preserve"><value>Le disque « {0} » a signalé {1} {1:plural:erreur de lecture non corrigée|erreurs de lecture non corrigées}.</value></data>
+  <data name="Diag_Rule_DiskHealth_Unhealthy_Detail" xml:space="preserve"><value>Windows signale le disque « {0} » comme défaillant. Sauvegardez vos données et prévoyez son remplacement.</value></data>
+  <data name="Diag_Rule_DiskHealth_Warning_Detail" xml:space="preserve"><value>Windows signale un avertissement pour le disque « {0} ». Sauvegardez vos données importantes.</value></data>
+  <data name="Diag_Rule_DiskHealth_Warning_Title" xml:space="preserve"><value>Disque à surveiller</value></data>
+  <data name="Diag_Rule_DiskHealth_Wear_Detail" xml:space="preserve"><value>Le SSD « {0} » a consommé {1} % de son endurance prévue.</value></data>
   <data name="Diag_Rule_Disk_Critical_Title" xml:space="preserve"><value>Disque saturé</value></data>
   <data name="Diag_Rule_Disk_Detail" xml:space="preserve"><value>Le disque a été actif en moyenne {0:N0} % du temps pendant la mesure. Un disque saturé fait attendre toutes les applications.</value></data>
   <data name="Diag_Rule_Disk_Warning_Title" xml:space="preserve"><value>Disque très occupé</value></data>
@@ -109,6 +127,9 @@
   <data name="Diag_Rule_Storage_Critical_Title" xml:space="preserve"><value>Disque système presque plein</value></data>
   <data name="Diag_Rule_Storage_Detail" xml:space="preserve"><value>Il reste {0:N1} Go libres sur {1} ({2:N0} %). Windows a besoin d'espace libre pour ses mises à jour et sa mémoire virtuelle.</value></data>
   <data name="Diag_Rule_Storage_Warning_Title" xml:space="preserve"><value>Peu d'espace libre sur le disque système</value></data>
+  <data name="Diag_Rule_Thermal_Firmware_Detail" xml:space="preserve"><value>En 30 jours, Windows a signalé {0} fois que la vitesse du processeur était limitée par le microprogramme.</value></data>
+  <data name="Diag_Rule_Thermal_Observed_Detail" xml:space="preserve"><value>Sous forte charge, le processeur a fonctionné à {0:N0} % de sa fréquence de base pendant {1:N0} s.</value></data>
+  <data name="Diag_Rule_Thermal_Title" xml:space="preserve"><value>Processeur ralenti (chaleur ou alimentation probable)</value></data>
   <data name="Diag_Rule_UnsupportedBuild_Detail" xml:space="preserve"><value>Build installée : {0}. Cette application prend en charge Windows 10 version 1809 (build {1}) et les versions ultérieures ; certaines fonctions peuvent ne pas fonctionner.</value></data>
   <data name="Diag_Rule_UnsupportedBuild_Title" xml:space="preserve"><value>Version de Windows trop ancienne</value></data>
   <data name="Diag_Rule_Uptime_Detail" xml:space="preserve"><value>Le PC n'a pas été redémarré depuis {0:N1} jours. Un redémarrage libère la mémoire et termine les mises à jour en attente.</value></data>
@@ -143,6 +164,8 @@
   <data name="Diag_Slow_DiskBusy_Title" xml:space="preserve"><value>Disque saturé</value></data>
   <data name="Diag_Slow_DiskBusy_WhatToDo" xml:space="preserve"><value>Laissez se terminer les mises à jour ou synchronisations en cours, puis observez l'activité du disque dans la page Performances.</value></data>
   <data name="Diag_Slow_DiskBusy_Why" xml:space="preserve"><value>Quand le disque est saturé, chaque lecture de fichier attend son tour : tout le PC paraît lent.</value></data>
+  <data name="Diag_Slow_DiskHealth_WhatToDo" xml:space="preserve"><value>Sauvegardez vos données importantes dès maintenant, puis faites vérifier ou remplacer le disque.</value></data>
+  <data name="Diag_Slow_DiskHealth_Why" xml:space="preserve"><value>Un disque qui se dégrade doit relire plusieurs fois les données : tout le PC ralentit, et des données peuvent être perdues.</value></data>
   <data name="Diag_Slow_Hdd_Evidence" xml:space="preserve"><value>Disque système {0} : disque dur mécanique (HDD).</value></data>
   <data name="Diag_Slow_Hdd_Title" xml:space="preserve"><value>Windows est installé sur un disque dur mécanique</value></data>
   <data name="Diag_Slow_Hdd_WhatToDo" xml:space="preserve"><value>Limitez les applications au démarrage et gardez de l'espace libre. Remplacer ce disque par un SSD est une piste possible, pas une obligation.</value></data>
@@ -172,6 +195,8 @@
   <data name="Diag_Slow_Thermal_Storage_Title" xml:space="preserve"><value>Disque trop chaud</value></data>
   <data name="Diag_Slow_Thermal_WhatToDo" xml:space="preserve"><value>Vérifiez que les aérations ne sont ni obstruées ni poussiéreuses. Posez les portables sur une surface dure.</value></data>
   <data name="Diag_Slow_Thermal_Why" xml:space="preserve"><value>Pour se protéger de la chaleur, le matériel réduit sa vitesse.</value></data>
+  <data name="Diag_Slow_Throttling_WhatToDo" xml:space="preserve"><value>Dépoussiérez les grilles d'aération, posez le portable sur une surface dure et vérifiez le chargeur. Si le problème persiste, un technicien peut renouveler la pâte thermique.</value></data>
+  <data name="Diag_Slow_Throttling_Why" xml:space="preserve"><value>Quand il chauffe trop ou manque d'alimentation, le processeur réduit sa vitesse pour se protéger.</value></data>
   <data name="Diag_Slow_Uptime_Evidence" xml:space="preserve"><value>Dernier redémarrage il y a {0:N1} jours.</value></data>
   <data name="Diag_Slow_Uptime_Title" xml:space="preserve"><value>Pas de redémarrage depuis longtemps</value></data>
   <data name="Diag_Slow_Uptime_WhatToDo" xml:space="preserve"><value>Enregistrez votre travail, puis choisissez « Redémarrer » (et non « Arrêter »).</value></data>

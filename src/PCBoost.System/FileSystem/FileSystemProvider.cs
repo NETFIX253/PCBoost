@@ -178,6 +178,99 @@ public sealed class FileSystemProvider : IFileSystemProvider
         }
     }
 
+    public FileEntry? GetFileInfo(string path)
+    {
+        if (string.IsNullOrWhiteSpace(path)) return null;
+        try
+        {
+            var info = new FileInfo(path);
+            if (!info.Exists) return null;
+            var a = info.Attributes;
+            if ((a & FileAttributes.ReparsePoint) != 0) return null;
+            return new FileEntry(info.FullName, info.Length, new DateTimeOffset(info.LastWriteTimeUtc, TimeSpan.Zero),
+                (a & FileAttributes.ReadOnly) != 0, (a & FileAttributes.System) != 0, (a & FileAttributes.Hidden) != 0,
+                (a & (FileAttributes.Offline | (FileAttributes)0x00040000 | (FileAttributes)0x00400000)) != 0);
+        }
+        catch (Exception ex) when (IsExpected(ex))
+        {
+            return null;
+        }
+    }
+
+    public DateTimeOffset? GetLastAccessTimeUtc(string path)
+    {
+        if (string.IsNullOrWhiteSpace(path)) return null;
+        try
+        {
+            var info = new FileInfo(path);
+            return info.Exists ? new DateTimeOffset(info.LastAccessTimeUtc, TimeSpan.Zero) : null;
+        }
+        catch (Exception ex) when (IsExpected(ex))
+        {
+            return null;
+        }
+    }
+
+    public Stream? OpenRead(string path)
+    {
+        if (string.IsNullOrWhiteSpace(path)) return null;
+        try
+        {
+            var info = new FileInfo(path);
+            if (!info.Exists || (info.Attributes & FileAttributes.ReparsePoint) != 0) return null;
+            return new FileStream(path, new FileStreamOptions
+            {
+                Mode = FileMode.Open,
+                Access = FileAccess.Read,
+                Share = FileShare.ReadWrite | FileShare.Delete,
+                Options = FileOptions.SequentialScan,
+                BufferSize = 1 << 16,
+            });
+        }
+        catch (Exception ex) when (IsExpected(ex))
+        {
+            return null;
+        }
+    }
+
+    public unsafe OperationResult MoveToRecycleBin(string path)
+    {
+        if (string.IsNullOrWhiteSpace(path)) return OperationResult.Fail(OperationErrorKind.InvalidInput);
+        var full = GetFullPath(path);
+        if (ForbiddenTargetPolicy.IsForbiddenFilePath(full))
+            return OperationResult.Fail(OperationErrorKind.Blocked, TextRef.Of("Sys_ProtectedTarget"));
+        try
+        {
+            var info = new FileInfo(full);
+            if (!info.Exists) return OperationResult.Fail(OperationErrorKind.NotFound);
+            if ((info.Attributes & FileAttributes.ReparsePoint) != 0)
+                return OperationResult.Fail(OperationErrorKind.Blocked, TextRef.Of("Sys_ProtectedTarget"), "reparse point");
+        }
+        catch (Exception ex) when (IsExpected(ex))
+        {
+            return OperationResult.FromException(ex);
+        }
+
+        // Liste terminée par deux caractères nuls, exigée par SHFileOperation.
+        var from = full + "\0\0";
+        fixed (char* pFrom = from)
+        {
+            var op = new Interop.Shell32.SHFILEOPSTRUCTW
+            {
+                wFunc = Interop.Shell32.FO_DELETE,
+                pFrom = pFrom,
+                fFlags = (ushort)(Interop.Shell32.FOF_ALLOWUNDO | Interop.Shell32.FOF_NOCONFIRMATION | Interop.Shell32.FOF_WANTNUKEWARNING),
+            };
+            var code = Interop.Shell32.SHFileOperation(ref op);
+            if (op.fAnyOperationsAborted != 0) return OperationResult.Fail(OperationErrorKind.Cancelled);
+            if (code != 0)
+                return OperationResult.Fail(code is 0x20 or 0x21 ? OperationErrorKind.InUse : OperationErrorKind.Failed, TextRef.Of("Sys_RecycleFailed"), $"SHFileOperation {code}");
+        }
+        return File.Exists(full)
+            ? OperationResult.Fail(OperationErrorKind.Failed, TextRef.Of("Sys_RecycleFailed"), "fichier toujours présent")
+            : OperationResult.Ok();
+    }
+
     public string GetFullPath(string path)
     {
         try

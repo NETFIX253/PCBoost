@@ -21,6 +21,12 @@
                             <TextBlock Text="{h:Str Key=Storage_Action_Analyze}" />
                         </StackPanel>
                     </Button>
+                    <Button Style="{StaticResource SecondaryButtonStyle}" Command="{x:Bind ViewModel.OpenFilesCommand}">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <FontIcon Glyph="&#xE8B7;" FontSize="14" />
+                            <TextBlock Text="{h:Str Key=Files_Title}" />
+                        </StackPanel>
+                    </Button>
                     <Button Style="{StaticResource PrimaryButtonStyle}" Content="{h:Str Key=Storage_Action_Cleanup}" Command="{x:Bind ViewModel.OpenCleanupCommand}" />
                 </StackPanel>
             </Grid>

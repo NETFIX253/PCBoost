@@ -257,6 +257,8 @@ public sealed partial class GamingViewModel : ViewModelBase
     [RelayCommand]
     private void OpenBenchmark() => Navigation.Navigate(PageKeys.Benchmark);
 
+    private void OpenGameProfile(GameItemViewModel game) => Navigation.Navigate(PageKeys.GameProfile, game.Id);
+
     [RelayCommand]
     private void OpenSettings() => Navigation.Navigate(PageKeys.Settings);
 
@@ -268,7 +270,7 @@ public sealed partial class GamingViewModel : ViewModelBase
             await RunSafeAsync(async ct =>
             {
                 var games = await _detection.GetInstalledGamesAsync(refresh, ct).ConfigureAwait(true);
-                CollectionSync.Replace(InstalledGames, games.OrderBy(g => g.Name, StringComparer.CurrentCultureIgnoreCase).Select(g => new GameItemViewModel(g, Localizer)));
+                CollectionSync.Replace(InstalledGames, games.OrderBy(g => g.Name, StringComparer.CurrentCultureIgnoreCase).Select(g => new GameItemViewModel(g, Localizer, OpenGameProfile)));
                 InstalledGamesText = games.Count switch
                 {
                     0 => T("Gaming_Games_None"),
@@ -431,7 +433,7 @@ public sealed partial class GamingViewModel : ViewModelBase
     {
         if (hasFrames) return string.Empty;
         if (availability is null || State != GamingState.Active) return T("Gaming_Capture_Inactive");
-        if (!_settings.Current.Gaming.MeasureFrameRate) return T("Gaming_Capture_Disabled");
+        if (!_settings.Current.Gaming.ForGame(_gaming.CurrentGame?.Game.Id ?? _detectedGame?.Game.Id).MeasureFrameRate) return T("Gaming_Capture_Disabled");
         return availability.Value switch
         {
             FrameCaptureAvailability.Available => T("Gaming_Capture_Waiting"),

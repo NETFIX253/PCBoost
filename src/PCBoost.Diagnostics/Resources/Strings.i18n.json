@@ -472,5 +472,69 @@
   "Diag_Advice_Cpu_Suggestion": {
     "fr": "Vérifiez d'abord les processus les plus gourmands. Si cette charge correspond à votre usage habituel, un processeur plus puissant pourrait aider.",
     "en": "First check the most demanding processes. If this load matches your usual use, a more powerful processor could help."
+  },
+  "Diag_Health_ReliabilityNotProvided": { "fr": "Les disques n'ont fourni aucun compteur de fiabilité.", "en": "The disks did not report any reliability counters." },
+  "Diag_Health_Notify_Disk_Title": { "fr": "Disque en mauvais état", "en": "Disk in poor condition" },
+  "Diag_Health_Notify_Disk_Body": {
+    "fr": "Windows signale un problème sur « {0} ». Sauvegardez dès que possible vos données importantes.",
+    "en": "Windows reports a problem with “{0}”. Back up your important data as soon as possible."
+  },
+  "Diag_Health_Notify_Open": { "fr": "Voir la santé du matériel", "en": "View hardware health" },
+  "Diag_Health_Notify_Thermal_Title": { "fr": "Processeur ralenti sous forte charge", "en": "Processor slowed down under heavy load" },
+  "Diag_Health_Notify_Thermal_Body": {
+    "fr": "Le processeur a fonctionné à {0} % de sa fréquence de base pendant {1} s alors qu'il était très sollicité. Cause probable : chaleur (ventilation encrassée) ou alimentation.",
+    "en": "The processor ran at {0}% of its base frequency for {1} s while under heavy load. Likely cause: heat (clogged cooling) or power supply."
+  },
+  "Diag_Boot_NoMeasurement": {
+    "fr": "Windows n'a enregistré aucune mesure de démarrage complet récente.",
+    "en": "Windows has not recorded any recent full-boot measurement."
+  },
+  "Diag_Rule_DiskHealth_Critical_Title": { "fr": "Disque en mauvais état : sauvegardez vos données", "en": "Disk in poor condition: back up your data" },
+  "Diag_Rule_DiskHealth_Warning_Title": { "fr": "Disque à surveiller", "en": "Disk to keep an eye on" },
+  "Diag_Rule_DiskHealth_Unhealthy_Detail": {
+    "fr": "Windows signale le disque « {0} » comme défaillant. Sauvegardez vos données et prévoyez son remplacement.",
+    "en": "Windows reports disk “{0}” as failing. Back up your data and plan to replace it."
+  },
+  "Diag_Rule_DiskHealth_Warning_Detail": {
+    "fr": "Windows signale un avertissement pour le disque « {0} ». Sauvegardez vos données importantes.",
+    "en": "Windows reports a warning for disk “{0}”. Back up your important data."
+  },
+  "Diag_Rule_DiskHealth_Wear_Detail": { "fr": "Le SSD « {0} » a consommé {1} % de son endurance prévue.", "en": "SSD “{0}” has used {1}% of its rated endurance." },
+  "Diag_Rule_DiskHealth_Errors_Detail": {
+    "fr": "Le disque « {0} » a signalé {1} {1:plural:erreur de lecture non corrigée|erreurs de lecture non corrigées}.",
+    "en": "Disk “{0}” reported {1} uncorrected {1:plural:read error|read errors}."
+  },
+  "Diag_Rule_Battery_Worn_Title": { "fr": "Batterie usée", "en": "Worn battery" },
+  "Diag_Rule_Battery_Detail": {
+    "fr": "La batterie ne conserve plus que {0:N0} % de sa capacité d'origine : l'autonomie est réduite d'autant.",
+    "en": "The battery holds only {0:N0}% of its original capacity: battery life is reduced accordingly."
+  },
+  "Diag_Rule_Devices_Title": { "fr": "{0} {0:plural:périphérique en erreur|périphériques en erreur}", "en": "{0} {0:plural:device|devices} with errors" },
+  "Diag_Rule_Devices_Detail": { "fr": "Le Gestionnaire de périphériques signale : {1}.", "en": "Device Manager reports: {1}." },
+  "Diag_Rule_Thermal_Title": { "fr": "Processeur ralenti (chaleur ou alimentation probable)", "en": "Processor slowed down (likely heat or power)" },
+  "Diag_Rule_Thermal_Firmware_Detail": {
+    "fr": "En 30 jours, Windows a signalé {0} fois que la vitesse du processeur était limitée par le microprogramme.",
+    "en": "In 30 days, Windows reported {0} {0:plural:time|times} that the processor speed was limited by firmware."
+  },
+  "Diag_Rule_Thermal_Observed_Detail": {
+    "fr": "Sous forte charge, le processeur a fonctionné à {0:N0} % de sa fréquence de base pendant {1:N0} s.",
+    "en": "Under heavy load, the processor ran at {0:N0}% of its base frequency for {1:N0} s."
+  },
+  "Diag_Action_ViewHardwareHealth": { "fr": "Voir la santé du matériel", "en": "View hardware health" },
+  "Diag_Slow_DiskHealth_Why": {
+    "fr": "Un disque qui se dégrade doit relire plusieurs fois les données : tout le PC ralentit, et des données peuvent être perdues.",
+    "en": "A degrading disk has to re-read data several times: the whole PC slows down, and data may be lost."
+  },
+  "Diag_Slow_DiskHealth_WhatToDo": {
+    "fr": "Sauvegardez vos données importantes dès maintenant, puis faites vérifier ou remplacer le disque.",
+    "en": "Back up your important data now, then have the disk checked or replaced."
+  },
+  "Diag_Slow_Throttling_Why": {
+    "fr": "Quand il chauffe trop ou manque d'alimentation, le processeur réduit sa vitesse pour se protéger.",
+    "en": "When it overheats or lacks power, the processor lowers its speed to protect itself."
+  },
+  "Diag_Slow_Throttling_WhatToDo": {
+    "fr": "Dépoussiérez les grilles d'aération, posez le portable sur une surface dure et vérifiez le chargeur. Si le problème persiste, un technicien peut renouveler la pâte thermique.",
+    "en": "Clean the air vents, place the laptop on a hard surface and check the charger. If it persists, a technician can renew the thermal paste."
   }
 }

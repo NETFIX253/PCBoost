@@ -5,6 +5,7 @@ using System.Resources;
 using Microsoft.Extensions.Logging.Abstractions;
 using PCBoost.Core.Common;
 using PCBoost.Core.Models.Analysis;
+using PCBoost.Core.Models.Health;
 using PCBoost.Core.Models.Monitoring;
 using PCBoost.Core.Models.SystemInfo;
 using PCBoost.Core.Settings;
@@ -85,8 +86,8 @@ public sealed class ResourceTests
             Assert.False(text.IsLiteral);
             Assert.True(fr.ContainsKey(text.Key), $"Clé fr absente : {text.Key}");
             Assert.True(en.ContainsKey(text.Key), $"Clé en absente : {text.Key}");
-            var frText = string.Format(French, fr[text.Key], text.Args);
-            var enText = string.Format(English, en[text.Key], text.Args);
+            var frText = string.Format(French, Core.Localization.PluralRules.Resolve(fr[text.Key], text.Args, French), text.Args);
+            var enText = string.Format(English, Core.Localization.PluralRules.Resolve(en[text.Key], text.Args, English), text.Args);
             Assert.DoesNotContain("{", frText);
             Assert.DoesNotContain("{", enText);
             Assert.All(text.Args, a => Assert.False(a is TextRef, $"{text.Key} : argument TextRef imbriqué non pris en charge"));
@@ -116,6 +117,7 @@ public sealed class ResourceTests
             new MemoryUsageRule(), new SystemDriveFreeSpaceRule(), new StartupCountRule(), new SustainedCpuRule(), new DiskActivityRule(),
             new CpuTemperatureRule(), new GpuTemperatureRule(), new StorageTemperatureRule(), new UptimeRule(), new CleanableFilesRule(),
             new BackgroundProcessesRule(), new PowerSaverOnAcRule(), new UnsupportedBuildRule(),
+            new DiskHealthRule(), new BatteryWearRule(), new DeviceProblemRule(), new ThermalLimitRule(),
         ];
         var rules = new HealthRulesEngine(ruleSet, NullLogger<HealthRulesEngine>.Instance);
         var recommendations = new PerformanceRecommendationEngine();
@@ -137,6 +139,12 @@ public sealed class ResourceTests
                 .WithUptime(TimeSpan.FromDays(8)) with { HardwareProfile = legacyProfile, Cpu = new CpuInfo("CPU", "V", 0, 0, null, null, null) },
             Reports.Healthy().WithStartup(9).WithTemperatures(null, 90, null).WithUptime(TimeSpan.FromHours(30)).WithSystemDrive(8).WithCleanable(null),
             Reports.Healthy().WithTemperatures(null, null, 80) with { HardwareProfile = legacyProfile },
+            // Santé du matériel : chaque état de disque, batterie usée ou vieillissante, périphériques, limitation.
+            Reports.Healthy().WithHealth(HealthScenarios.Disk(DiskHealthStatus.Unhealthy), battery: 55, devices: 4, episode: true),
+            Reports.Healthy().WithHealth(HealthScenarios.Disk(DiskHealthStatus.Healthy, uncorrected: 3), battery: 75, firmwareEvents: 2),
+            Reports.Healthy().WithHealth(HealthScenarios.Disk(DiskHealthStatus.Healthy, wear: 95)),
+            Reports.Healthy().WithHealth(HealthScenarios.Disk(DiskHealthStatus.Warning), devices: 1),
+            Reports.Healthy().WithHealth(HealthScenarios.Disk(DiskHealthStatus.Healthy, wear: 75)),
         };
 
         foreach (var report in scenarios)
@@ -168,6 +176,8 @@ public sealed class ResourceTests
             var profile = classifier.Classify(report.Cpu, report.Memory, report.Drives, report.Gpus);
             foreach (var reason in profile.Reasons) yield return reason;
         }
+
+        foreach (var text in HealthScenarios.ServiceTexts()) yield return text;
 
         // Profils matériels : SSD/HDD, GPU dédié avec ou sans mémoire connue, disque presque plein.
         var gpuUnknownMemory = new GpuInfo("GPU", GpuVendor.Amd, null, null, null, false, false);

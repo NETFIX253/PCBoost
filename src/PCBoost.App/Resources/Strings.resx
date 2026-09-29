@@ -20,6 +20,8 @@
   <data name="App_Notify_StillRunning_Body" xml:space="preserve"><value>PCBoost continue de surveiller votre PC dans la zone de notification. Clic droit sur l'icône pour quitter.</value></data>
   <data name="App_Notify_StillRunning_Title" xml:space="preserve"><value>PCBoost reste actif</value></data>
   <data name="App_OldPc_Link" xml:space="preserve"><value>Optimiser un ancien PC</value></data>
+  <data name="App_Report_PdfFailed" xml:space="preserve"><value>Le PDF n'a pas pu être créé. Essayez l'export HTML.</value></data>
+  <data name="App_Report_PdfUnavailable" xml:space="preserve"><value>L'export PDF n'est pas disponible : ouvrez la page du rapport et attendez la fin de l'aperçu.</value></data>
   <data name="App_Score_Of" xml:space="preserve"><value>sur 100</value></data>
   <data name="App_Section_More" xml:space="preserve"><value>Plus d'outils</value></data>
   <data name="App_Startup_Error_Message" xml:space="preserve"><value>Une erreur inattendue s'est produite au démarrage. Les détails ont été enregistrés dans le journal de l'application.</value></data>

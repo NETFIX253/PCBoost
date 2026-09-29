@@ -186,4 +186,31 @@ internal static class DiagText
         => bytes >= ByteSize.GiB
             ? TextRef.Of(gigabytesKey, bytes / (double)ByteSize.GiB)
             : TextRef.Of(megabytesKey, bytes / (double)ByteSize.MiB);
+
+    // Santé du matériel et démarrage (version 1.1).
+    public const string HealthReliabilityNotProvided = "Diag_Health_ReliabilityNotProvided";
+    public const string HealthNotifyDiskTitle = "Diag_Health_Notify_Disk_Title";
+    public const string HealthNotifyDiskBody = "Diag_Health_Notify_Disk_Body";
+    public const string HealthNotifyOpen = "Diag_Health_Notify_Open";
+    public const string HealthNotifyThermalTitle = "Diag_Health_Notify_Thermal_Title";
+    public const string HealthNotifyThermalBody = "Diag_Health_Notify_Thermal_Body";
+    public const string BootNoMeasurement = "Diag_Boot_NoMeasurement";
+    public const string RuleDiskHealthCriticalTitle = "Diag_Rule_DiskHealth_Critical_Title";
+    public const string RuleDiskHealthWarningTitle = "Diag_Rule_DiskHealth_Warning_Title";
+    public const string RuleDiskHealthUnhealthyDetail = "Diag_Rule_DiskHealth_Unhealthy_Detail";
+    public const string RuleDiskHealthWarningDetail = "Diag_Rule_DiskHealth_Warning_Detail";
+    public const string RuleDiskHealthWearDetail = "Diag_Rule_DiskHealth_Wear_Detail";
+    public const string RuleDiskHealthErrorsDetail = "Diag_Rule_DiskHealth_Errors_Detail";
+    public const string RuleBatteryWornTitle = "Diag_Rule_Battery_Worn_Title";
+    public const string RuleBatteryDetail = "Diag_Rule_Battery_Detail";
+    public const string RuleDevicesTitle = "Diag_Rule_Devices_Title";
+    public const string RuleDevicesDetail = "Diag_Rule_Devices_Detail";
+    public const string RuleThermalTitle = "Diag_Rule_Thermal_Title";
+    public const string RuleThermalFirmwareDetail = "Diag_Rule_Thermal_Firmware_Detail";
+    public const string RuleThermalObservedDetail = "Diag_Rule_Thermal_Observed_Detail";
+    public const string ActionViewHardwareHealth = "Diag_Action_ViewHardwareHealth";
+    public const string SlowDiskHealthWhy = "Diag_Slow_DiskHealth_Why";
+    public const string SlowDiskHealthWhatToDo = "Diag_Slow_DiskHealth_WhatToDo";
+    public const string SlowThrottlingWhy = "Diag_Slow_Throttling_Why";
+    public const string SlowThrottlingWhatToDo = "Diag_Slow_Throttling_WhatToDo";
 }

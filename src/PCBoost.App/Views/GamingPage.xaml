@@ -232,10 +232,17 @@
                     <ItemsRepeater.ItemTemplate>
                         <DataTemplate x:DataType="vm:GameItemViewModel">
                             <Border Style="{StaticResource CardStyle}" Padding="16,12,16,12" ToolTipService.ToolTip="{x:Bind Location}" AutomationProperties.Name="{x:Bind AccessibleName}">
-                                <StackPanel Spacing="2">
-                                    <TextBlock Text="{x:Bind Name}" Style="{StaticResource GroupHeaderTextStyle}" TextTrimming="CharacterEllipsis" />
-                                    <TextBlock Text="{x:Bind SourceText}" Style="{StaticResource CaptionSecondaryTextStyle}" />
-                                </StackPanel>
+                                <Grid ColumnSpacing="8">
+                                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                    <StackPanel Spacing="2">
+                                        <TextBlock Text="{x:Bind Name}" Style="{StaticResource GroupHeaderTextStyle}" TextTrimming="CharacterEllipsis" />
+                                        <TextBlock Text="{x:Bind SourceText}" Style="{StaticResource CaptionSecondaryTextStyle}" />
+                                    </StackPanel>
+                                    <Button Grid.Column="1" Style="{StaticResource QuietButtonStyle}" Padding="8" VerticalAlignment="Center" Command="{x:Bind OpenCommand}"
+                                            AutomationProperties.Name="{x:Bind OpenLabel}" ToolTipService.ToolTip="{x:Bind OpenLabel}">
+                                        <FontIcon Glyph="&#xE713;" FontSize="14" />
+                                    </Button>
+                                </Grid>
                             </Border>
                         </DataTemplate>
                     </ItemsRepeater.ItemTemplate>

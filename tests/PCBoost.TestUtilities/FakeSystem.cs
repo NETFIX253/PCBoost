@@ -150,3 +150,49 @@ public sealed class FakeShortcutResolver : IShortcutResolver
     public Dictionary<string, ShortcutTarget> Targets { get; } = new(StringComparer.OrdinalIgnoreCase);
     public ShortcutTarget? Resolve(string shortcutPath) => Targets.GetValueOrDefault(shortcutPath);
 }
+
+public sealed class FakeHardwareHealthProvider : IHardwareHealthProvider
+{
+    public OperationResult<IReadOnlyList<Core.Models.Health.DiskHealthInfo>> Disks { get; set; }
+        = OperationResult<IReadOnlyList<Core.Models.Health.DiskHealthInfo>>.Ok([]);
+    public OperationResult<IReadOnlyList<Core.Models.Health.BatteryInfo>> Batteries { get; set; }
+        = OperationResult<IReadOnlyList<Core.Models.Health.BatteryInfo>>.Ok([]);
+    public OperationResult<IReadOnlyList<Core.Models.Health.DeviceProblem>> DeviceProblems { get; set; }
+        = OperationResult<IReadOnlyList<Core.Models.Health.DeviceProblem>>.Ok([]);
+    public List<DateTimeOffset> FirmwareLimitEvents { get; } = [];
+    public List<Core.Models.Health.BootSession> Boots { get; } = [];
+
+    public OperationResult<IReadOnlyList<Core.Models.Health.DiskHealthInfo>> GetDisks() => Disks;
+    public OperationResult<IReadOnlyList<Core.Models.Health.BatteryInfo>> GetBatteries() => Batteries;
+    public OperationResult<IReadOnlyList<Core.Models.Health.DeviceProblem>> GetDeviceProblems() => DeviceProblems;
+    public IReadOnlyList<DateTimeOffset> GetFirmwareLimitEvents(DateTimeOffset since) => FirmwareLimitEvents.Where(t => t >= since).ToList();
+    public IReadOnlyList<Core.Models.Health.BootSession> GetRecentBoots(int max) => Boots.Take(max).ToList();
+}
+
+/// <summary>Lanceur de désinstallation scriptable : enregistre les commandes et exécute un effet (ex. retirer la clé).</summary>
+public sealed class FakeUninstallerLauncher : IUninstallerLauncher
+{
+    public List<Core.Models.Programs.UninstallCommand> Commands { get; } = [];
+
+    public OperationResult<int> Result { get; set; } = OperationResult<int>.Ok(0);
+
+    public Action<Core.Models.Programs.UninstallCommand>? OnRun { get; set; }
+
+    public Task<OperationResult<int>> RunAsync(Core.Models.Programs.UninstallCommand command, CancellationToken cancellationToken = default)
+    {
+        Commands.Add(command);
+        if (Result.Success) OnRun?.Invoke(command);
+        return Task.FromResult(Result);
+    }
+}
+
+/// <summary>Informations d'application fixes pour les tests.</summary>
+public sealed class TestAppInfo : Core.Services.IAppInfo
+{
+    public string ProductName { get; set; } = "PCBoost";
+    public Version Version { get; set; } = new(1, 1, 0);
+    public string DotNetVersion => "10.0";
+    public string WindowsAppSdkVersion => "2.3";
+    public string DataDirectory { get; set; } = @"C:\Users\Test\AppData\Local\PCBoost";
+    public string LogDirectory { get; set; } = @"C:\Users\Test\AppData\Local\PCBoost\logs";
+}

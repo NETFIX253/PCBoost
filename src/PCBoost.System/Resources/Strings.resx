@@ -31,6 +31,11 @@
   <data name="Sys_ProcessNotFound" xml:space="preserve"><value>Ce programme n'est plus en cours d'exécution.</value></data>
   <data name="Sys_ProtectedTarget" xml:space="preserve"><value>Cet élément est protégé et ne peut pas être modifié.</value></data>
   <data name="Sys_RealTimePriorityBlocked" xml:space="preserve"><value>La priorité « Temps réel » n'est pas proposée : elle peut rendre Windows instable.</value></data>
+  <data name="Sys_RecycleFailed" xml:space="preserve"><value>Le fichier n'a pas pu être envoyé à la Corbeille.</value></data>
+  <data name="Sys_UninstallBlocked" xml:space="preserve"><value>Cette commande de désinstallation n'est pas lancée par PCBoost. Utilisez les Paramètres de Windows.</value></data>
+  <data name="Sys_UninstallDeclined" xml:space="preserve"><value>Autorisation refusée : rien n'a été désinstallé.</value></data>
+  <data name="Sys_UninstallerFailed" xml:space="preserve"><value>Le programme de désinstallation n'a pas pu être lancé.</value></data>
+  <data name="Sys_UninstallerMissing" xml:space="preserve"><value>Le programme de désinstallation de l'éditeur est introuvable. Utilisez les Paramètres de Windows.</value></data>
   <data name="Sys_UriNotAllowed" xml:space="preserve"><value>Seuls les liens web (http ou https) peuvent être ouverts.</value></data>
   <data name="Sys_VisualEffectsPartial" xml:space="preserve"><value>Certains effets visuels n'ont pas pu être modifiés.</value></data>
 </root>

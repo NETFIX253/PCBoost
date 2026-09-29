@@ -119,6 +119,11 @@
                             <ToggleSwitch IsOn="{x:Bind ViewModel.ConfirmSensitiveOperations, Mode=TwoWay}" MinWidth="0" AutomationProperties.Name="{h:Str Key=Settings_ConfirmSensitive_Label}" />
                         </controls:SettingRow>
                         <Border Style="{StaticResource RowDividerStyle}" Padding="0">
+                            <controls:SettingRow Header="{h:Str Key=Settings_RestorePoint_Label}" Description="{h:Str Key=Settings_RestorePoint_Description}" Glyph="&#xE777;">
+                            <ToggleSwitch IsOn="{x:Bind ViewModel.CreateRestorePointBeforeAdvanced, Mode=TwoWay}" MinWidth="0" AutomationProperties.Name="{h:Str Key=Settings_RestorePoint_Label}" />
+                        </controls:SettingRow>
+                        </Border>
+                        <Border Style="{StaticResource RowDividerStyle}" Padding="0">
                             <controls:SettingRow Header="{h:Str Key=Settings_VerboseLogging_Label}" Description="{h:Str Key=Settings_VerboseLogging_Description}" Glyph="&#xE8A5;">
                             <ToggleSwitch IsOn="{x:Bind ViewModel.VerboseLogging, Mode=TwoWay}" MinWidth="0" AutomationProperties.Name="{h:Str Key=Settings_VerboseLogging_Label}" />
                         </controls:SettingRow>
@@ -145,6 +150,11 @@
                         <controls:SettingRow Header="{h:Str Key=Settings_Logs_Label}" Description="{x:Bind ViewModel.LogDirectory, Mode=OneWay}" Glyph="&#xE838;">
                             <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Settings_Action_OpenLogs}" Command="{x:Bind ViewModel.OpenLogFolderCommand}" />
                         </controls:SettingRow>
+                        <Border Style="{StaticResource RowDividerStyle}" Padding="0">
+                            <controls:SettingRow Header="{h:Str Key=Report_Title}" Description="{h:Str Key=Settings_Report_Description}" Glyph="&#xE9F9;">
+                            <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Report_Action_Open}" Command="{x:Bind ViewModel.OpenReportCommand}" />
+                        </controls:SettingRow>
+                        </Border>
                     </StackPanel>
                 </Border>
             </StackPanel>

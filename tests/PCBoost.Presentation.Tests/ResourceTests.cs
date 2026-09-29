@@ -114,7 +114,7 @@ public sealed class ResourceTests
         var en = Read(En);
         foreach (var key in fr.Keys)
         {
-            var args = new object[] { "a", "b", "c", "d" };
+            var args = new object[] { "a", "b", "c", "d", "e", "f" };
             var f = string.Format(Fr, fr[key], args);
             var e = string.Format(En, en[key], args);
             Assert.Equal(fr[key].Contains("{0", StringComparison.Ordinal), en[key].Contains("{0", StringComparison.Ordinal));
@@ -125,7 +125,7 @@ public sealed class ResourceTests
 
     private static Dictionary<string, string> Read(CultureInfo culture)
     {
-        var set = Resources.GetResourceSet(culture, createIfNotExists: true, tryParents: false)!;
+        var set = Resources.GetResourceSet(culture, createIfNotExists: true, tryParents: true)!;
         return set.Cast<System.Collections.DictionaryEntry>().ToDictionary(e => (string)e.Key, e => (string)e.Value!, StringComparer.Ordinal);
     }
 }

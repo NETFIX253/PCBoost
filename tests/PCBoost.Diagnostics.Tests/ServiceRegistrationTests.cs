@@ -34,6 +34,11 @@ public sealed class ServiceRegistrationTests
         services.AddSingleton<ISettingsService, FakeSettingsService>();
         services.AddSingleton<IScanHistoryRepository, InMemoryScanHistoryRepository>();
         services.AddSingleton<IPerformanceSnapshotRepository, InMemoryPerformanceSnapshotRepository>();
+        services.AddSingleton<IHardwareHealthProvider, FakeHardwareHealthProvider>();
+        services.AddSingleton<IElevationService, FakeElevationService>();
+        services.AddSingleton<IKeyValueStore, InMemoryKeyValueStore>();
+        services.AddSingleton<INotificationService, FakeNotificationService>();
+        services.AddSingleton<IOptimizationHistoryRepository, InMemoryOptimizationHistoryRepository>();
         configure?.Invoke(services);
         services.AddPCBoostDiagnostics();
         return services.BuildServiceProvider(new ServiceProviderOptions { ValidateOnBuild = true, ValidateScopes = true });
@@ -63,8 +68,8 @@ public sealed class ServiceRegistrationTests
         services.AddPCBoostDiagnostics();
         services.AddPCBoostDiagnostics();
         var rules = services.Where(d => d.ServiceType == typeof(IHealthRule)).ToList();
-        Assert.Equal(13, rules.Count);
-        Assert.Equal(13, rules.Select(d => d.ImplementationType).Distinct().Count());
+        Assert.Equal(17, rules.Count);
+        Assert.Equal(17, rules.Select(d => d.ImplementationType).Distinct().Count());
     }
 
     [Fact]
@@ -75,7 +80,7 @@ public sealed class ServiceRegistrationTests
             s.AddSingleton<IHealthRule, ExtraRule>();
             s.AddSingleton(new SystemAnalyzerOptions { DefaultLoadSamplingDuration = TimeSpan.FromSeconds(7) });
         });
-        Assert.Equal(14, provider.GetServices<IHealthRule>().Count());
+        Assert.Equal(18, provider.GetServices<IHealthRule>().Count());
         Assert.Equal(TimeSpan.FromSeconds(7), provider.GetRequiredService<SystemAnalyzerOptions>().DefaultLoadSamplingDuration);
     }
 

@@ -17,6 +17,9 @@ public sealed class RegistrationTests : IDisposable
     {
         Assert.NotNull(_h.Get<IRollbackManager>());
         Assert.NotNull(_h.Get<IRecoveryManager>());
+        Assert.NotNull(_h.Get<IRestorePointService>());
+        Assert.NotNull(_h.Get<IProgramInventoryService>());
+        Assert.NotNull(_h.Get<IFileCleanupService>());
         Assert.NotNull(_h.Get<IOptimizationSafetyValidator>());
         Assert.NotNull(_h.Get<ICleanupService>());
         Assert.NotNull(_h.Get<IStartupService>());

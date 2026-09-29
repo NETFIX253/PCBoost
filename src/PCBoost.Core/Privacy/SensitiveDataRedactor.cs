@@ -1,7 +1,7 @@
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace PCBoost.Infrastructure.Logging;
+namespace PCBoost.Core.Privacy;
 
 /// <summary>
 /// Masque les données personnelles avant écriture dans les journaux (§34) :
@@ -29,13 +29,14 @@ public sealed class SensitiveDataRedactor
         if (profile.Length >= 3)
             rules.Add((new Regex(BuildPathPattern(profile) + @"(?![\p{L}\p{N}_])", Options, MatchTimeout), UserProfileToken));
 
+        // Nom de machine avant le nom d'utilisateur : « BUREAU-AMIN » devient « <machine> » et non « BUREAU-<user> ».
         var user = (userName ?? string.Empty).Trim();
-        if (user.Length >= 2)
-            rules.Add((WholeWord(user), UserToken));
-
         var machine = (machineName ?? string.Empty).Trim();
         if (machine.Length >= 2 && !string.Equals(machine, user, StringComparison.OrdinalIgnoreCase))
             rules.Add((WholeWord(machine), MachineToken));
+
+        if (user.Length >= 2)
+            rules.Add((WholeWord(user), UserToken));
 
         _rules = rules.ToArray();
     }
@@ -75,8 +76,13 @@ public sealed class SensitiveDataRedactor
         return builder.ToString();
     }
 
+    /// <summary>
+    /// Mot entier, insensible à la casse ; un nom de moins de 4 caractères (ex. « hp ») est comparé en respectant la casse
+    /// pour ne pas masquer un mot courant (« HP » fabricant) — il reste masqué dans les chemins par la règle du profil.
+    /// </summary>
     private static Regex WholeWord(string word)
-        => new(@"(?<![\p{L}\p{N}_])" + Regex.Escape(word) + @"(?![\p{L}\p{N}_])", Options, MatchTimeout);
+        => new(@"(?<![\p{L}\p{N}_])" + Regex.Escape(word) + @"(?![\p{L}\p{N}_])",
+            word.Length < 4 ? Options & ~RegexOptions.IgnoreCase : Options, MatchTimeout);
 
     private static string? Safe(Func<string> read)
     {

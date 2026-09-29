@@ -32,6 +32,10 @@ public static class HealthRuleIds
     public const string BackgroundProcesses = "health.processes.background";
     public const string PowerSaverOnAc = "health.power.saver-on-ac";
     public const string UnsupportedBuild = "health.system.unsupported-build";
+    public const string DiskHealth = "health.hardware.disk";
+    public const string BatteryWear = "health.hardware.battery";
+    public const string DeviceProblems = "health.hardware.devices";
+    public const string ThermalLimit = "health.hardware.thermal-limit";
 }
 
 /// <summary>Catégories des constats (<see cref="HealthFinding.Category"/>).</summary>
@@ -47,4 +51,5 @@ public static class HealthCategories
     public const string Cleanup = "cleanup";
     public const string Processes = "processes";
     public const string Power = "power";
+    public const string Hardware = "hardware";
 }

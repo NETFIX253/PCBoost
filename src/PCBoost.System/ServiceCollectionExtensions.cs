@@ -32,9 +32,11 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IScheduledTaskProvider, ScheduledTaskProvider>();
         services.AddSingleton<IAutoStartRegistration, AutoStartRegistration>();
         services.AddSingleton<IShellService, ShellService>();
+        services.AddSingleton<IUninstallerLauncher, Programs.UninstallerLauncher>();
         services.AddSingleton<ICommandRunner, CommandRunner>();
         services.AddSingleton<IElevationService, ElevationService>();
         services.AddSingleton<IFrameTimeSource, FrameTimeSource>();
+        services.AddSingleton<IHardwareHealthProvider, Health.HardwareHealthProvider>();
 
         services.AddSingleton<IStringResourceSource>(
             ResourceManagerStringSource.ForAssembly(typeof(ServiceCollectionExtensions).Assembly, "PCBoost.Platform.Resources.Strings"));

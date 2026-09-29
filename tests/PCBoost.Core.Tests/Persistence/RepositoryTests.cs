@@ -83,6 +83,30 @@ public sealed class RepositoryTests : IDisposable
     }
 
     [Fact]
+    public async Task Gaming_sessions_are_queried_by_game()
+    {
+        var repository = new SqliteGamingSessionRepository(_db.Database);
+        for (var i = 0; i < 5; i++)
+        {
+            await repository.SaveAsync(new GamingSession
+            {
+                Id = Guid.NewGuid(), StartedAt = Now.AddDays(-i), Status = GamingSessionStatus.Restored,
+                GameId = i % 2 == 0 ? "steam:730" : "epic:fortnite", GameName = "Jeu",
+                FrameStats = new FrameStats(60 + i, 40, 30, 16.6, 25, 1000, TimeSpan.FromMinutes(10)),
+            });
+        }
+
+        var cs = await repository.GetByGameAsync("steam:730", 2);
+
+        Assert.Equal(2, cs.Count);
+        Assert.All(cs, s => Assert.Equal("steam:730", s.GameId));
+        Assert.True(cs[0].StartedAt > cs[1].StartedAt);
+        Assert.Equal(60, cs[0].FrameStats!.AverageFps);
+        Assert.Empty(await repository.GetByGameAsync("inconnu", 10));
+        Assert.Empty(await repository.GetByGameAsync("steam:730", 0));
+    }
+
+    [Fact]
     public async Task Scans_are_saved_and_returned_newest_first()
     {
         var repository = new SqliteScanHistoryRepository(_db.Database);

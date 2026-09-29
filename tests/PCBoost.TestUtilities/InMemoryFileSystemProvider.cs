@@ -41,6 +41,29 @@ public sealed class InMemoryFileSystemProvider : IFileSystemProvider
         public bool Locked { get; set; }
         public bool ReadOnly { get; set; }
         public string? Content { get; set; }
+        public DateTimeOffset? LastAccessUtc { get; set; }
+    }
+
+    public HashSet<string> RecycledFiles { get; } = new(StringComparer.OrdinalIgnoreCase);
+
+    public FileEntry? GetFileInfo(string path)
+        => _files.TryGetValue(Norm(path), out var f) ? new FileEntry(f.Path, f.Size, f.LastWriteUtc, f.ReadOnly, false, false) : null;
+
+    public DateTimeOffset? GetLastAccessTimeUtc(string path) => _files.TryGetValue(Norm(path), out var f) ? f.LastAccessUtc ?? f.LastWriteUtc : null;
+
+    public Stream? OpenRead(string path)
+        => _files.TryGetValue(Norm(path), out var f) && !f.Locked
+            ? new MemoryStream(System.Text.Encoding.UTF8.GetBytes(f.Content ?? new string('\0', (int)Math.Min(f.Size, 1 << 20))), writable: false)
+            : null;
+
+    public OperationResult MoveToRecycleBin(string path)
+    {
+        var p = Norm(path);
+        if (!_files.TryGetValue(p, out var f)) return OperationResult.Fail(OperationErrorKind.NotFound);
+        if (f.Locked) return OperationResult.Fail(OperationErrorKind.InUse);
+        _files.Remove(p);
+        RecycledFiles.Add(p);
+        return OperationResult.Ok();
     }
 
     public IReadOnlyCollection<string> AllFiles => _files.Keys.ToList();

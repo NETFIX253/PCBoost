@@ -28,6 +28,8 @@ public sealed class AppSettings
     // Sécurité
     /// <summary>Confirmation avant les opérations sensibles. Ne peut pas être désactivée pour les actions irréversibles.</summary>
     public bool ConfirmSensitiveOperations { get; set; } = true;
+    /// <summary>Point de restauration Windows créé avant le niveau Avancé de l'assistant PC ancien (activé par défaut).</summary>
+    public bool CreateRestorePointBeforeAdvanced { get; set; } = true;
     public bool VerboseLogging { get; set; }
     /// <summary>Durée de conservation de l'historique de restauration (jours).</summary>
     public int HistoryRetentionDays { get; set; } = 90;
@@ -64,6 +66,33 @@ public sealed class GamingSettings
     public List<CustomGameEntry> CustomGames { get; set; } = [];
     /// <summary>Processus que l'utilisateur ne veut jamais voir ralentis pendant le jeu.</summary>
     public List<string> BackgroundExclusions { get; set; } = ["discord.exe", "obs64.exe", "spotify.exe"];
+
+    /// <summary>Réglages propres à un jeu (identifiant du jeu → valeurs remplaçant les réglages généraux).</summary>
+    public Dictionary<string, GameProfile> GameProfiles { get; set; } = [];
+
+    /// <summary>Réglages effectifs pour un jeu : les valeurs du profil du jeu remplacent les réglages généraux.</summary>
+    public GamingSettings ForGame(string? gameId)
+    {
+        if (string.IsNullOrWhiteSpace(gameId) || GameProfiles is null || !GameProfiles.TryGetValue(gameId, out var profile) || profile is null) return this;
+        var copy = (GamingSettings)MemberwiseClone();
+        copy.SwitchPowerPlan = profile.SwitchPowerPlan ?? SwitchPowerPlan;
+        copy.RaiseGamePriority = profile.RaiseGamePriority ?? RaiseGamePriority;
+        copy.ThrottleBackgroundApps = profile.ThrottleBackgroundApps ?? ThrottleBackgroundApps;
+        copy.MeasureFrameRate = profile.MeasureFrameRate ?? MeasureFrameRate;
+        return copy;
+    }
+}
+
+/// <summary>Réglages d'un jeu ; null = réglage général.</summary>
+public sealed class GameProfile
+{
+    public bool? SwitchPowerPlan { get; set; }
+    public bool? RaiseGamePriority { get; set; }
+    public bool? ThrottleBackgroundApps { get; set; }
+    public bool? MeasureFrameRate { get; set; }
+
+    [System.Text.Json.Serialization.JsonIgnore]
+    public bool IsEmpty => SwitchPowerPlan is null && RaiseGamePriority is null && ThrottleBackgroundApps is null && MeasureFrameRate is null;
 }
 
 public sealed class CustomGameEntry

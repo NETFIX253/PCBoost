@@ -21,6 +21,7 @@ public sealed class SystemMetricsProvider : ISystemMetricsProvider
     internal const string NetworkSentPath = @"\Network Interface(*)\Bytes Sent/sec";
     internal const string Gpu3DPath = @"\GPU Engine(*engtype_3D)\Utilization Percentage";
     internal const string GpuDedicatedPath = @"\GPU Adapter Memory(*)\Dedicated Usage";
+    internal const string ProcessorPerformancePath = @"\Processor Information(_Total)\% Processor Performance";
 
     /// <summary>Les instances « GPU Engine » suivent les processus : le compteur est recréé régulièrement.</summary>
     private static readonly long GpuRecreateIntervalMs = (long)TimeSpan.FromSeconds(30).TotalMilliseconds;
@@ -30,7 +31,7 @@ public sealed class SystemMetricsProvider : ISystemMetricsProvider
     private readonly Lock _lock = new();
 
     private PdhQuery? _query;
-    private PdhCounter? _diskIdle, _diskRead, _diskWrite, _netReceived, _netSent;
+    private PdhCounter? _diskIdle, _diskRead, _diskWrite, _netReceived, _netSent, _processorPerformance;
     private bool _initialized;
 
     private PdhQuery? _gpuQuery;
@@ -68,7 +69,7 @@ public sealed class SystemMetricsProvider : ISystemMetricsProvider
             }
             var used = Math.Max(0, total - available);
 
-            double? diskActive = null, diskRead = null, diskWrite = null, netIn = null, netOut = null;
+            double? diskActive = null, diskRead = null, diskWrite = null, netIn = null, netOut = null, performance = null;
             if (_query is not null && _query.Collect())
             {
                 diskActive = MetricMath.DiskActivePercent(_diskIdle?.ReadDouble());
@@ -76,6 +77,7 @@ public sealed class SystemMetricsProvider : ISystemMetricsProvider
                 diskWrite = MetricMath.NonNegative(_diskWrite?.ReadDouble());
                 netIn = MetricMath.Sum(_netReceived?.ReadInstances());
                 netOut = MetricMath.Sum(_netSent?.ReadInstances());
+                performance = MetricMath.ProcessorPerformance(_processorPerformance?.ReadDouble(noCap100: true));
             }
 
             var (gpuPercent, gpuDedicated) = SampleGpu();
@@ -97,7 +99,8 @@ public sealed class SystemMetricsProvider : ISystemMetricsProvider
                 gpuDedicated is null ? null : (long)gpuDedicated.Value,
                 netIn,
                 netOut,
-                processCount);
+                processCount,
+                performance);
         }
     }
 
@@ -136,6 +139,7 @@ public sealed class SystemMetricsProvider : ISystemMetricsProvider
                 _diskWrite = _query.TryAdd(DiskWritePath);
                 _netReceived = _query.TryAdd(NetworkReceivedPath);
                 _netSent = _query.TryAdd(NetworkSentPath);
+                _processorPerformance = _query.TryAdd(ProcessorPerformancePath);
                 LogMissing(_diskIdle, DiskIdlePath);
                 LogMissing(_netReceived, NetworkReceivedPath);
             }

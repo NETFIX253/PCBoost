@@ -29,4 +29,8 @@ internal static class MetricMath
 
     public static double Clamp(double percent)
         => double.IsFinite(percent) ? Math.Clamp(percent, 0, 100) : 0;
+
+    /// <summary>« % Processor Performance » : 0 exclu (compteur non amorcé), valeurs aberrantes (> 400 %) ignorées.</summary>
+    public static double? ProcessorPerformance(double? value)
+        => value is > 0 and <= 400 ? value : null;
 }

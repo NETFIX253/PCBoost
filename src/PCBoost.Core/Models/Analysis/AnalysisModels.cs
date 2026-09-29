@@ -1,4 +1,5 @@
 using PCBoost.Core.Common;
+using PCBoost.Core.Models.Health;
 using PCBoost.Core.Models.Processes;
 using PCBoost.Core.Models.Startup;
 using PCBoost.Core.Models.SystemInfo;
@@ -50,6 +51,8 @@ public sealed record SystemAnalysisReport
     /// <summary>Octets récupérables par les catégories SAFE (null si non analysé).</summary>
     public long? CleanableBytes { get; init; }
     public HardwareProfile? HardwareProfile { get; init; }
+    /// <summary>Santé du matériel (disques, batterie, périphériques, limitation thermique), si relevée.</summary>
+    public HardwareHealthReport? Health { get; init; }
 
     public StorageDrive? SystemDrive => Drives.FirstOrDefault(d => d.IsSystemDrive);
     public int EnabledStartupCount => StartupEntries.Count(e => e.IsEnabled);

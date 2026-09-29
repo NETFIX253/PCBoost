@@ -27,6 +27,12 @@ internal sealed record ValidatedFrameCapture(int ProcessId, string PipeName, int
     : ValidatedElevatedOperation(ElevatedOperations.FrameCapture);
 
 /// <summary>
+/// Opérations de diagnostic et de sécurité sans paramètre : lectures seules (fiabilité des disques, mesures de démarrage,
+/// dernière exécution des programmes) ou création d'un point de restauration à la description fixe.
+/// </summary>
+internal sealed record ValidatedHealthOperation(string Name) : ValidatedElevatedOperation(Name);
+
+/// <summary>
 /// Validation stricte des demandes d'élévation (liste blanche fermée), appliquée par l'application avant l'invite UAC
 /// et à nouveau par PCBoost.Elevator. Toute opération inconnue, tout paramètre inattendu ou hors limites est refusé.
 /// </summary>
@@ -50,6 +56,9 @@ internal static class ElevatedRequestValidator
             ElevatedOperations.RegistryDeleteValue => ValidateRegistry(request.Parameters, isSet: false),
             ElevatedOperations.ScheduledTaskSetEnabled => ValidateTask(request.Parameters),
             ElevatedOperations.FrameCapture => ValidateFrameCapture(request.Parameters),
+            ElevatedHealthOperations.DiskReliability or ElevatedHealthOperations.BootPerformance
+                or ElevatedHealthOperations.RestorePointCreate or ElevatedHealthOperations.AppsLastRun
+                => request.Parameters.Count == 0 ? Ok(new ValidatedHealthOperation(request.Operation)) : Invalid("paramètres"),
             _ => OperationResult<ValidatedElevatedOperation>.Fail(OperationErrorKind.Blocked, TextRef.Of("Sys_ElevatedOperationRefused"), "opération inconnue"),
         };
     }

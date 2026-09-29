@@ -119,6 +119,8 @@ public partial class App : Application
         services.AddSingleton<AppLifecycle>();
         services.AddSingleton<IAppLifecycle>(sp => sp.GetRequiredService<AppLifecycle>());
         services.AddSingleton<DevCaptureService>();
+        services.AddSingleton<ReportFileService>();
+        services.AddSingleton<IReportFileService>(sp => sp.GetRequiredService<ReportFileService>());
         services.AddSingleton<AppNotificationService>();
         services.AddSingleton<INotificationService>(sp => sp.GetRequiredService<AppNotificationService>());
         services.AddSingleton<IUiDispatcher>(_ => new UiDispatcher(Microsoft.UI.Dispatching.DispatcherQueue.GetForCurrentThread()));
@@ -145,6 +147,11 @@ public partial class App : Application
 
         Services.GetRequiredService<IAutoGamingMode>().Start();
         Services.GetRequiredService<ISmartOptimizationService>().Start();
+
+        // Santé du matériel : détection de limitation thermique (échantillons existants) et vérification périodique
+        // des disques (première après 2 minutes, puis toutes les 6 heures ; lecture seule).
+        Services.GetRequiredService<IThermalThrottlingDetector>().Start();
+        Services.GetRequiredService<IHardwareHealthService>().Start();
     }
 
     /// <summary>Arrêt propre : restaure une session Gaming en cours, vide l'historique, libère les ressources.</summary>
@@ -159,6 +166,8 @@ public partial class App : Application
                 _services.GetService<IAutoGamingMode>()?.Stop();
                 _services.GetService<IGameDetectionService>()?.StopWatching();
                 _services.GetService<ISmartOptimizationService>()?.Stop();
+                _services.GetService<IHardwareHealthService>()?.Stop();
+                _services.GetService<IThermalThrottlingDetector>()?.Stop();
                 _services.GetService<IPerformanceMonitor>()?.Stop();
 
                 // 2. Restaurer une session Gaming encore active (jamais de réglage temporaire laissé en place).

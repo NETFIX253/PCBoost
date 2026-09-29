@@ -4,6 +4,7 @@ using PCBoost.Core.Abstractions.Persistence;
 using PCBoost.Core.Abstractions.Platform;
 using PCBoost.Core.Common;
 using PCBoost.Core.Models.Analysis;
+using PCBoost.Core.Models.Health;
 using PCBoost.Core.Models.Processes;
 using PCBoost.Core.Models.Startup;
 using PCBoost.Core.Models.SystemInfo;
@@ -49,6 +50,7 @@ public sealed class SystemAnalyzer : ISystemAnalyzer
     private readonly IClock _clock;
     private readonly ILogger<SystemAnalyzer> _logger;
     private readonly SystemAnalyzerOptions _options;
+    private readonly IHardwareHealthService? _health;
     private volatile SystemAnalysisReport? _lastReport;
 
     public SystemAnalyzer(
@@ -68,7 +70,8 @@ public sealed class SystemAnalyzer : ISystemAnalyzer
         IScanHistoryRepository scanHistory,
         IClock clock,
         ILogger<SystemAnalyzer> logger,
-        SystemAnalyzerOptions? options = null)
+        SystemAnalyzerOptions? options = null,
+        IHardwareHealthService? health = null)
     {
         _systemInfo = systemInfo ?? throw new ArgumentNullException(nameof(systemInfo));
         _hardware = hardware ?? throw new ArgumentNullException(nameof(hardware));
@@ -87,6 +90,7 @@ public sealed class SystemAnalyzer : ISystemAnalyzer
         _clock = clock ?? throw new ArgumentNullException(nameof(clock));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _options = options ?? new SystemAnalyzerOptions();
+        _health = health;
     }
 
     public SystemAnalysisReport? LastReport => _lastReport;
@@ -111,6 +115,11 @@ public sealed class SystemAnalyzer : ISystemAnalyzer
         var installedPrograms = Try<int?>("installed-programs", _systemInfo.GetInstalledProgramCount, null);
         var temperatures = Try("temperatures", _hardware.GetTemperatures, UnreadTemperatures);
         Report(progress, AnalysisStage.System, 5);
+
+        // Santé du matériel (disques, batterie, périphériques, limitation thermique) : lecture rapide, sans autorisation.
+        HardwareHealthReport? health = null;
+        if (_health is not null)
+            health = await TryAsync<HardwareHealthReport?>("hardware-health", async ct => await _health.RefreshAsync(ct).ConfigureAwait(false), null, cancellationToken).ConfigureAwait(false);
 
         var load = await ObserveLoadAsync(options.LoadSamplingDuration ?? _options.DefaultLoadSamplingDuration, memory, progress, cancellationToken).ConfigureAwait(false);
         cancellationToken.ThrowIfCancellationRequested();
@@ -158,6 +167,7 @@ public sealed class SystemAnalyzer : ISystemAnalyzer
             TopCpuProcesses = processSummary.TopCpu,
             CleanableBytes = cleanableBytes,
             HardwareProfile = profile,
+            Health = health,
         };
 
         var thresholds = Thresholds();

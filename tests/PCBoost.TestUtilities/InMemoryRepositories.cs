@@ -73,6 +73,8 @@ public sealed class InMemoryGamingSessionRepository : IGamingSessionRepository
         => Task.FromResult<IReadOnlyList<GamingSession>>(_items.Values.Where(s => s.Status == status).ToList());
     public Task<IReadOnlyList<GamingSession>> GetRecentAsync(int limit, CancellationToken cancellationToken = default)
         => Task.FromResult<IReadOnlyList<GamingSession>>(_items.Values.OrderByDescending(s => s.StartedAt).Take(limit).ToList());
+    public Task<IReadOnlyList<GamingSession>> GetByGameAsync(string gameId, int limit, CancellationToken cancellationToken = default)
+        => Task.FromResult<IReadOnlyList<GamingSession>>(_items.Values.Where(s => s.GameId == gameId).OrderByDescending(s => s.StartedAt).Take(limit).ToList());
 }
 
 public sealed class InMemoryScanHistoryRepository : IScanHistoryRepository

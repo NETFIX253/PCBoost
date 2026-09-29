@@ -1,0 +1,241 @@
+<local:ViewPage
+    x:Class="PCBoost.App.Views.HealthPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PCBoost.App.Views"
+    xmlns:controls="using:PCBoost.App.Controls"
+    xmlns:common="using:PCBoost.Presentation.Common"
+    xmlns:h="using:PCBoost.App.Helpers"
+    xmlns:vm="using:PCBoost.Presentation.ViewModels">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel MaxWidth="{StaticResource ContentMaxWidth}" Padding="{StaticResource PagePadding}" Spacing="22">
+            <Grid ColumnSpacing="16" RowSpacing="12">
+                <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                <StackPanel Spacing="6">
+                    <TextBlock Text="{h:Str Key=Health_Title}" Style="{StaticResource PageTitleTextStyle}" />
+                    <TextBlock Text="{h:Str Key=Health_Subtitle}" Style="{StaticResource PageSubtitleTextStyle}" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8" VerticalAlignment="Top">
+                    <Button Style="{StaticResource SecondaryButtonStyle}" Command="{x:Bind ViewModel.ExportReportCommand}"
+                            ToolTipService.ToolTip="{h:Str Key=Report_Action_Open_ToolTip}">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <FontIcon Glyph="&#xE9F9;" FontSize="14" />
+                            <TextBlock Text="{h:Str Key=Report_Action_Open}" />
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{StaticResource SecondaryButtonStyle}" Command="{x:Bind ViewModel.RefreshCommand}">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <FontIcon Glyph="&#xE72C;" FontSize="14" />
+                            <TextBlock Text="{h:Str Key=Health_Action_Refresh}" />
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{StaticResource PrimaryButtonStyle}" Command="{x:Bind ViewModel.ReadCountersCommand}"
+                            ToolTipService.ToolTip="{h:Str Key=Health_Action_ReadCounters_ToolTip}">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <FontIcon Glyph="&#xEA18;" FontSize="14" />
+                            <TextBlock Text="{h:Str Key=Health_Action_ReadCounters}" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+            <InfoBar Severity="Error" h:InfoBarHelper.IsShown="{x:Bind ViewModel.HasError, Mode=OneWay}" Message="{x:Bind ViewModel.ErrorText, Mode=OneWay}"
+                     Title="{h:Str Key=Common_Label_ErrorTitle}" CloseButtonCommand="{x:Bind ViewModel.DismissErrorCommand}" />
+            <InfoBar Severity="Success" h:InfoBarHelper.IsShown="{x:Bind ViewModel.HasStatusMessage, Mode=OneWay}" Message="{x:Bind ViewModel.StatusMessage, Mode=OneWay}"
+                     CloseButtonCommand="{x:Bind ViewModel.DismissStatusCommand}" />
+
+            <StackPanel Spacing="8" Visibility="{x:Bind h:Ui.ShowAny(ViewModel.IsLoading, ViewModel.IsReadingCounters), Mode=OneWay}">
+                <ProgressBar IsIndeterminate="True" />
+                <TextBlock Text="{h:Str Key=Health_Loading}" Style="{StaticResource CaptionSecondaryTextStyle}" Visibility="{x:Bind h:Ui.Show(ViewModel.IsLoading), Mode=OneWay}" />
+                <TextBlock Text="{h:Str Key=Health_ReadingCounters}" Style="{StaticResource CaptionSecondaryTextStyle}" Visibility="{x:Bind h:Ui.Show(ViewModel.IsReadingCounters), Mode=OneWay}" />
+            </StackPanel>
+
+            <!-- Résumé -->
+            <Border Style="{StaticResource CardStyle}" Padding="24,20,24,20" Visibility="{x:Bind h:Ui.Show(ViewModel.HasReport), Mode=OneWay}"
+                    AutomationProperties.Name="{x:Bind ViewModel.OverallTitle, Mode=OneWay}">
+                <Grid ColumnSpacing="16">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                    <FontIcon Glyph="{x:Bind h:Ui.HealthGlyph(ViewModel.OverallLevel), Mode=OneWay}" FontSize="28" VerticalAlignment="Top"
+                              Foreground="{ThemeResource BrandAccentTextBrush}" AutomationProperties.AccessibilityView="Raw" />
+                    <StackPanel Grid.Column="1" Spacing="4">
+                        <TextBlock Text="{x:Bind ViewModel.OverallTitle, Mode=OneWay}" Style="{StaticResource GroupHeaderTextStyle}" TextWrapping="Wrap" />
+                        <TextBlock Text="{x:Bind ViewModel.OverallDetail, Mode=OneWay}" Style="{StaticResource SecondaryTextStyle}" TextWrapping="Wrap" />
+                        <TextBlock Text="{x:Bind ViewModel.UpdatedText, Mode=OneWay}" Style="{StaticResource CaptionSecondaryTextStyle}" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- Disques -->
+            <StackPanel Spacing="10" Visibility="{x:Bind h:Ui.Show(ViewModel.HasReport), Mode=OneWay}">
+                <TextBlock Text="{h:Str Key=Health_Section_Disks}" Style="{StaticResource SectionHeaderTextStyle}" />
+                <TextBlock Text="{x:Bind ViewModel.CountersText, Mode=OneWay}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap" />
+                <InfoBar Severity="Warning" IsClosable="False" h:InfoBarHelper.IsShown="{x:Bind h:Ui.Not(ViewModel.HasDisks), Mode=OneWay}"
+                         Message="{x:Bind ViewModel.DisksUnavailableText, Mode=OneWay}" />
+                <ItemsControl ItemsSource="{x:Bind ViewModel.Disks}" IsTabStop="False">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate><StackPanel Spacing="12" /></ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="vm:DiskHealthItemViewModel">
+                            <Border Style="{StaticResource CardStyle}" Padding="24,18,24,16" AutomationProperties.Name="{x:Bind AccessibleName}">
+                                <StackPanel Spacing="10">
+                                    <Grid ColumnSpacing="12">
+                                        <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                        <FontIcon Glyph="&#xEDA2;" FontSize="20" VerticalAlignment="Top" Margin="0,2,0,0" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                                        <StackPanel Grid.Column="1" Spacing="2">
+                                            <TextBlock Text="{x:Bind Name}" Style="{StaticResource GroupHeaderTextStyle}" TextTrimming="CharacterEllipsis" />
+                                            <TextBlock Text="{x:Bind DetailsText}" Style="{StaticResource CaptionSecondaryTextStyle}" />
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="6" VerticalAlignment="Top">
+                                            <controls:StatusBadge Text="{x:Bind SystemBadge}" Kind="Accent" Visibility="{x:Bind h:Ui.Show(IsSystemDisk)}" />
+                                            <controls:StatusBadge Text="{x:Bind StatusText}" Glyph="{x:Bind h:Ui.HealthGlyph(Level)}" Kind="{x:Bind h:Ui.HealthKind(Level)}" />
+                                        </StackPanel>
+                                    </Grid>
+                                    <ProgressBar Value="{x:Bind WearBarValue}" Maximum="100" Height="6" MinHeight="6" CornerRadius="3" Visibility="{x:Bind h:Ui.Show(HasWear)}"
+                                                 AutomationProperties.AccessibilityView="Raw" />
+                                    <ItemsControl ItemsSource="{x:Bind Rows}" IsTabStop="False">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate x:DataType="common:InfoRowViewModel"><controls:InfoRowView Row="{x:Bind}" LabelWidth="240" /></DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                    <Grid ColumnSpacing="8" Visibility="{x:Bind h:Ui.Show(HasAdvice)}">
+                                        <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                                        <FontIcon Glyph="&#xE7BA;" FontSize="14" VerticalAlignment="Top" Margin="0,2,0,0" Foreground="{ThemeResource SystemFillColorCautionBrush}" />
+                                        <TextBlock Grid.Column="1" Text="{x:Bind AdviceText}" TextWrapping="Wrap" />
+                                    </Grid>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+
+            <!-- Batterie et température -->
+            <Grid x:Name="SideBySide" ColumnSpacing="16" RowSpacing="22" Visibility="{x:Bind h:Ui.Show(ViewModel.HasReport), Mode=OneWay}">
+                <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+
+                <StackPanel x:Name="BatteryBlock" Spacing="10">
+                    <TextBlock Text="{h:Str Key=Health_Section_Battery}" Style="{StaticResource SectionHeaderTextStyle}" />
+                    <Border Style="{StaticResource CardStyle}" Padding="20,16,20,14" Visibility="{x:Bind h:Ui.Hide(ViewModel.HasBatteries), Mode=OneWay}">
+                        <Grid ColumnSpacing="12">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                            <FontIcon Glyph="&#xE83F;" FontSize="18" VerticalAlignment="Top" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                            <TextBlock Grid.Column="1" Text="{x:Bind ViewModel.NoBatteryText, Mode=OneWay}" Style="{StaticResource SecondaryTextStyle}" TextWrapping="Wrap" />
+                        </Grid>
+                    </Border>
+                    <ItemsControl ItemsSource="{x:Bind ViewModel.Batteries}" IsTabStop="False">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate><StackPanel Spacing="12" /></ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="vm:BatteryHealthItemViewModel">
+                                <Border Style="{StaticResource CardStyle}" Padding="20,16,20,14" AutomationProperties.Name="{x:Bind AccessibleName}">
+                                    <StackPanel Spacing="10">
+                                        <Grid ColumnSpacing="12">
+                                            <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                            <TextBlock Text="{x:Bind Name}" Style="{StaticResource GroupHeaderTextStyle}" TextTrimming="CharacterEllipsis" />
+                                            <controls:StatusBadge Grid.Column="1" Text="{x:Bind StatusText}" Glyph="{x:Bind h:Ui.HealthGlyph(Level)}" Kind="{x:Bind h:Ui.HealthKind(Level)}" />
+                                        </Grid>
+                                        <StackPanel Spacing="4">
+                                            <Grid>
+                                                <TextBlock Text="{h:Str Key=Health_Battery_HealthLabel}" Style="{StaticResource FieldLabelTextStyle}" />
+                                                <TextBlock Text="{x:Bind HealthText}" Style="{StaticResource BodyStrongTextBlockStyle}" HorizontalAlignment="Right" />
+                                            </Grid>
+                                            <ProgressBar Value="{x:Bind HealthBarValue}" Maximum="100" Height="8" MinHeight="8" CornerRadius="4" AutomationProperties.AccessibilityView="Raw" />
+                                        </StackPanel>
+                                        <ItemsControl ItemsSource="{x:Bind Rows}" IsTabStop="False">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate x:DataType="common:InfoRowViewModel"><controls:InfoRowView Row="{x:Bind}" LabelWidth="200" /></DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                        <TextBlock Text="{x:Bind AdviceText}" Style="{StaticResource SecondaryTextStyle}" TextWrapping="Wrap" Visibility="{x:Bind h:Ui.Show(HasAdvice)}" />
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+
+                <StackPanel x:Name="ThermalBlock" Grid.Column="1" Spacing="10">
+                    <TextBlock Text="{h:Str Key=Health_Section_Thermal}" Style="{StaticResource SectionHeaderTextStyle}" />
+                    <Border Style="{StaticResource CardStyle}" Padding="20,16,20,16">
+                        <StackPanel Spacing="10">
+                            <Grid ColumnSpacing="12">
+                                <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                <TextBlock Text="{x:Bind ViewModel.ThermalStatusText, Mode=OneWay}" Style="{StaticResource GroupHeaderTextStyle}" TextWrapping="Wrap" />
+                                <controls:StatusBadge Grid.Column="1" Glyph="{x:Bind h:Ui.HealthGlyph(ViewModel.ThermalLevel), Mode=OneWay}"
+                                                      Text="{x:Bind ViewModel.ThermalBadgeText, Mode=OneWay}" Kind="{x:Bind h:Ui.HealthKind(ViewModel.ThermalLevel), Mode=OneWay}" />
+                            </Grid>
+                            <TextBlock Text="{x:Bind ViewModel.ThermalDetailText, Mode=OneWay}" Style="{StaticResource SecondaryTextStyle}" TextWrapping="Wrap" />
+                            <Border Style="{StaticResource RowDividerStyle}" Padding="0,12,0,0" Visibility="{x:Bind h:Ui.Show(ViewModel.ShowThermalAdvice), Mode=OneWay}">
+                                <StackPanel Spacing="8">
+                                    <TextBlock Text="{h:Str Key=Health_Thermal_AdviceTitle}" Style="{StaticResource BodyStrongTextBlockStyle}" />
+                                    <ItemsControl ItemsSource="{x:Bind ViewModel.ThermalAdvice}" IsTabStop="False">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate x:DataType="common:TextItemViewModel">
+                                                <Grid ColumnSpacing="8" Padding="0,3,0,3">
+                                                    <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                                                    <FontIcon Glyph="&#xE76C;" FontSize="10" VerticalAlignment="Top" Margin="0,5,0,0" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                                                    <TextBlock Grid.Column="1" Text="{x:Bind Text}" TextWrapping="Wrap" />
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Grid>
+
+            <!-- Périphériques -->
+            <StackPanel Spacing="10" Visibility="{x:Bind h:Ui.Show(ViewModel.HasReport), Mode=OneWay}">
+                <TextBlock Text="{h:Str Key=Health_Section_Devices}" Style="{StaticResource SectionHeaderTextStyle}" />
+                <Border Style="{StaticResource CardStyle}" Padding="20,14,20,14">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="{x:Bind ViewModel.DevicesStatusText, Mode=OneWay}" Style="{StaticResource BodyStrongTextBlockStyle}" TextWrapping="Wrap" />
+                        <ItemsControl ItemsSource="{x:Bind ViewModel.Devices}" IsTabStop="False" Visibility="{x:Bind h:Ui.Show(ViewModel.HasDeviceProblems), Mode=OneWay}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="vm:DeviceProblemItemViewModel">
+                                    <Border Style="{StaticResource RowDividerStyle}" Padding="0,10,0,10" AutomationProperties.Name="{x:Bind AccessibleName}">
+                                        <Grid ColumnSpacing="12">
+                                            <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                                            <FontIcon Glyph="&#xE772;" FontSize="16" VerticalAlignment="Top" Margin="0,2,0,0" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                                            <StackPanel Grid.Column="1" Spacing="2">
+                                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                                    <TextBlock Text="{x:Bind Name}" TextWrapping="Wrap" />
+                                                    <controls:StatusBadge Text="{x:Bind ClassText}" Visibility="{x:Bind h:Ui.Show(HasClass)}" />
+                                                </StackPanel>
+                                                <TextBlock Text="{x:Bind ProblemText}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap" />
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <TextBlock Text="{h:Str Key=Health_Devices_Hint}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="Wide">
+                    <VisualState.StateTriggers><AdaptiveTrigger MinWindowWidth="1100" /></VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="Narrow">
+                    <VisualState.StateTriggers><AdaptiveTrigger MinWindowWidth="0" /></VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ThermalBlock.(Grid.Column)" Value="0" />
+                        <Setter Target="ThermalBlock.(Grid.Row)" Value="1" />
+                        <Setter Target="BatteryBlock.(Grid.ColumnSpan)" Value="2" />
+                        <Setter Target="ThermalBlock.(Grid.ColumnSpan)" Value="2" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </ScrollViewer>
+</local:ViewPage>

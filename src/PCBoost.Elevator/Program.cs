@@ -64,6 +64,7 @@ internal static class Program
             ValidatedRegistryChange registry => ElevatedOperationExecutor.Registry(registry, log),
             ValidatedTaskToggle task => ElevatedOperationExecutor.ScheduledTask(task, log),
             ValidatedFrameCapture frames => FrameCaptureOperation.Run(frames, log),
+            ValidatedHealthOperation health => ElevatedOperationExecutor.Health(health, log),
             _ => new ElevatedResponse(
                 OperationResult.Fail(OperationErrorKind.Blocked, TextRef.Of("Sys_ElevatedOperationRefused")),
                 new Dictionary<string, string>()),

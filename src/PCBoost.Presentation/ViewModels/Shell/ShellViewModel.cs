@@ -60,6 +60,7 @@ public sealed partial class ShellViewModel : ViewModelBase, IDisposable
         [
             new(PageKeys.Home, "Nav_Home", "Nav_Home_ToolTip", Glyphs.Home),
             new(PageKeys.Analysis, "Nav_Analysis", "Nav_Analysis_ToolTip", Glyphs.Analysis),
+            new(PageKeys.Health, "Nav_Health", "Nav_Health_ToolTip", Glyphs.Health),
             new(PageKeys.Optimization, "Nav_Optimization", "Nav_Optimization_ToolTip", Glyphs.Optimization),
             new(PageKeys.Cleanup, "Nav_Cleanup", "Nav_Cleanup_ToolTip", Glyphs.Cleanup),
             new(PageKeys.Startup, "Nav_Startup", "Nav_Startup_ToolTip", Glyphs.Startup),
@@ -299,10 +300,11 @@ public sealed partial class ShellViewModel : ViewModelBase, IDisposable
         // Pages secondaires rattachées à une entrée du menu.
         var menuKey = pageKey switch
         {
-            PageKeys.Diagnosis or PageKeys.Storage => PageKeys.Analysis,
+            PageKeys.Diagnosis or PageKeys.Storage or PageKeys.Report or PageKeys.Files => PageKeys.Analysis,
             PageKeys.OldPc or PageRegistry.Profiles => PageKeys.Optimization,
-            PageKeys.Benchmark => PageKeys.Gaming,
+            PageKeys.Benchmark or PageKeys.GameProfile => PageKeys.Gaming,
             PageKeys.Journal => PageKeys.History,
+            PageKeys.Programs => PageKeys.Cleanup,
             PageKeys.Privacy or PageKeys.About => PageKeys.Settings,
             _ => pageKey,
         };

@@ -731,5 +731,50 @@
   "Opt_Journal_ProcessActionFailed": {
     "fr": "L'action sur {0} n'a pas abouti.",
     "en": "The action on {0} did not succeed."
+  },
+  "Opt_RestorePoint_Created": {
+    "fr": "Point de restauration Windows créé avant l'optimisation avancée.",
+    "en": "Windows restore point created before the advanced optimization."
+  },
+  "Opt_RestorePoint_Recent": {
+    "fr": "Un point de restauration Windows de moins de 24 heures existe déjà et couvre l'optimisation avancée.",
+    "en": "A Windows restore point less than 24 hours old already exists and covers the advanced optimization."
+  },
+  "Opt_RestorePoint_Disabled": {
+    "fr": "La protection du système Windows est désactivée : aucun point de restauration n'a pu être créé.",
+    "en": "Windows System Protection is turned off: no restore point could be created."
+  },
+  "Opt_RestorePoint_Failed": { "fr": "Le point de restauration Windows n'a pas pu être créé.", "en": "The Windows restore point could not be created." },
+  "Opt_RestorePoint_Cancelled": {
+    "fr": "Autorisation refusée : aucun point de restauration Windows n'a été créé.",
+    "en": "Permission declined: no Windows restore point was created."
+  },
+  "Programs_LastRun_None": { "fr": "Windows n'a fourni aucune exécution enregistrée.", "en": "Windows did not provide any recorded run." },
+  "Programs_Uninstall_UseSettings": {
+    "fr": "Ce programme se désinstalle depuis les Paramètres de Windows (Applications installées).",
+    "en": "This program is uninstalled from Windows Settings (Installed apps)."
+  },
+  "Programs_Uninstall_Changed": {
+    "fr": "La commande de désinstallation a changé depuis l'affichage de la liste : actualisez la liste, puis réessayez.",
+    "en": "The uninstall command changed since the list was displayed: refresh the list, then try again."
+  },
+  "Programs_Journal_Started": {
+    "fr": "Désinstallation de « {0} » lancée avec son programme officiel.",
+    "en": "Uninstall of \"{0}\" started with its official uninstaller."
+  },
+  "Programs_Journal_Removed": { "fr": "« {0} » a été désinstallé.", "en": "\"{0}\" was uninstalled." },
+  "Files_Journal_Recycled": {
+    "fr": "{0} {0:plural:fichier envoyé|fichiers envoyés} à la Corbeille ({1} Mo) depuis « Gros fichiers et doublons ».",
+    "en": "{0} {0:plural:file|files} moved to the Recycle Bin ({1} MB) from \"Large files and duplicates\"."
+  },
+  "Files_KeptCopy": {
+    "fr": "Copie conservée : une copie de chaque fichier en double est toujours gardée.",
+    "en": "Copy kept: one copy of each duplicate file is always kept."
+  },
+  "Files_NoCopyLeft": { "fr": "Non envoyé : l'autre copie a changé ou n'existe plus.", "en": "Not moved: the other copy changed or no longer exists." },
+  "Files_NotInScan": { "fr": "Non envoyé : ce fichier ne fait pas partie de l'analyse.", "en": "Not moved: this file is not part of the scan." },
+  "Files_Changed": {
+    "fr": "Non envoyé : le fichier a été modifié ou déplacé depuis l'analyse.",
+    "en": "Not moved: the file was changed or moved since the scan."
   }
 }

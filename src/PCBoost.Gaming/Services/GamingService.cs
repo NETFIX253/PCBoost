@@ -139,7 +139,7 @@ public sealed class GamingService : IGamingService, IDisposable, IAsyncDisposabl
         game ??= await _detection.DetectRunningGameAsync(cancellationToken).ConfigureAwait(false);
         var context = BuildContext(game);
         var result = new List<ActiveGamingOptimization>();
-        foreach (var (id, enabled) in BuildPlan(_settings.Current.Gaming))
+        foreach (var (id, enabled) in BuildPlan(_settings.Current.Gaming.ForGame(game?.Game.Id)))
         {
             var module = Find(id);
             if (module is null) continue;
@@ -174,7 +174,6 @@ public sealed class GamingService : IGamingService, IDisposable, IAsyncDisposabl
                 return new GamingActivationReport(existing.Session.Id, OperationResult.Ok(TextRef.Of("Game_AlreadyActive")), existing.Game, existing.Session.Optimizations, existing.FrameCapture);
 
             SetState(GamingState.Activating);
-            var settings = _settings.Current.Gaming;
 
             // 1) Profil matériel et charge actuelle (journal technique, aucune donnée personnelle).
             LogHardwareProfile();
@@ -193,7 +192,8 @@ public sealed class GamingService : IGamingService, IDisposable, IAsyncDisposabl
                 gameStart = process.StartTime;
             }
 
-            // 3) Plan selon les réglages (aperçus : rien n'est encore modifié).
+            // 3) Plan selon les réglages, ceux du jeu remplaçant les réglages généraux (aperçus : rien n'est encore modifié).
+            var settings = _settings.Current.Gaming.ForGame(game?.Game.Id);
             var context = BuildContext(game);
             var entries = new List<ActiveGamingOptimization>();
             var plan = new List<(IOptimization Module, OptimizationPreview? Preview)>();

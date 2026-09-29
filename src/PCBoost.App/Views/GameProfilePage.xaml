@@ -1,0 +1,97 @@
+<local:ViewPage
+    x:Class="PCBoost.App.Views.GameProfilePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PCBoost.App.Views"
+    xmlns:h="using:PCBoost.App.Helpers"
+    xmlns:controls="using:PCBoost.App.Controls"
+    xmlns:vm="using:PCBoost.Presentation.ViewModels">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel MaxWidth="{StaticResource ContentMaxWidth}" Padding="{StaticResource PagePadding}" Spacing="20">
+            <Grid ColumnSpacing="16" RowSpacing="12">
+                <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                <StackPanel Spacing="6">
+                    <TextBlock Text="{h:Str Key=GameProfile_Title}" Style="{StaticResource PageTitleTextStyle}" />
+                    <TextBlock Text="{h:Str Key=GameProfile_Subtitle}" Style="{StaticResource PageSubtitleTextStyle}" />
+                </StackPanel>
+                <ComboBox Grid.Column="1" VerticalAlignment="Top" MinWidth="260" ItemsSource="{x:Bind ViewModel.Games}"
+                          SelectedIndex="{x:Bind ViewModel.SelectedGameIndex, Mode=TwoWay}" AutomationProperties.Name="{h:Str Key=GameProfile_Game_Label}"
+                          Visibility="{x:Bind h:Ui.ShowCount(ViewModel.Games.Count), Mode=OneWay}" />
+            </Grid>
+
+            <InfoBar Severity="Error" h:InfoBarHelper.IsShown="{x:Bind ViewModel.HasError, Mode=OneWay}" Message="{x:Bind ViewModel.ErrorText, Mode=OneWay}"
+                     Title="{h:Str Key=Common_Label_ErrorTitle}" CloseButtonCommand="{x:Bind ViewModel.DismissErrorCommand}" />
+
+            <Border Style="{StaticResource SubtleSurfaceStyle}" Visibility="{x:Bind h:Ui.ShowText(ViewModel.NoGameText), Mode=OneWay}">
+                <TextBlock Text="{x:Bind ViewModel.NoGameText, Mode=OneWay}" TextWrapping="Wrap" />
+            </Border>
+
+            <!-- Réglages du jeu -->
+            <StackPanel Spacing="10" Visibility="{x:Bind h:Ui.Show(ViewModel.HasGame), Mode=OneWay}">
+                <Grid>
+                    <StackPanel Spacing="2">
+                        <TextBlock Style="{StaticResource SectionHeaderTextStyle}">
+                            <Run Text="{h:Str Key=GameProfile_Settings_Header}" /><Run Text=" — " /><Run Text="{x:Bind ViewModel.GameName, Mode=OneWay}" />
+                        </TextBlock>
+                        <TextBlock Text="{h:Str Key=GameProfile_Settings_Hint}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap" />
+                    </StackPanel>
+                    <HyperlinkButton HorizontalAlignment="Right" VerticalAlignment="Top" Content="{h:Str Key=GameProfile_Action_Reset}"
+                                     Command="{x:Bind ViewModel.ResetToGeneralCommand}" Visibility="{x:Bind h:Ui.Show(ViewModel.HasCustomSettings), Mode=OneWay}" />
+                </Grid>
+                <Border Style="{StaticResource CardStyle}" Padding="20,4,20,4">
+                    <ItemsControl h:ListDividers.HideLast="True" ItemsSource="{x:Bind ViewModel.Settings}" IsTabStop="False">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="vm:GameSettingOptionViewModel">
+                                <Grid ColumnSpacing="14" Padding="0,12,0,12" BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}" BorderThickness="0,0,0,1">
+                                    <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                    <FontIcon Glyph="{x:Bind Glyph}" FontSize="16" VerticalAlignment="Center" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                                    <StackPanel Grid.Column="1" Spacing="2" VerticalAlignment="Center">
+                                        <TextBlock Text="{x:Bind Label}" TextWrapping="Wrap" />
+                                        <TextBlock Text="{x:Bind Description}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap" />
+                                    </StackPanel>
+                                    <ComboBox Grid.Column="2" MinWidth="240" VerticalAlignment="Center" ItemsSource="{x:Bind Options}"
+                                              SelectedIndex="{x:Bind SelectedIndex, Mode=TwoWay}" AutomationProperties.Name="{x:Bind Label}" />
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Border>
+            </StackPanel>
+
+            <!-- Historique des FPS -->
+            <StackPanel Spacing="10" Visibility="{x:Bind h:Ui.Show(ViewModel.HasGame), Mode=OneWay}">
+                <TextBlock Text="{h:Str Key=GameProfile_History_Header}" Style="{StaticResource SectionHeaderTextStyle}" />
+                <TextBlock Text="{x:Bind ViewModel.HistorySummary, Mode=OneWay}" Style="{StaticResource SecondaryTextStyle}" TextWrapping="Wrap" />
+                <Border Style="{StaticResource CardStyle}" Padding="20,8,20,8" Visibility="{x:Bind h:Ui.Show(ViewModel.HasHistory), Mode=OneWay}">
+                    <StackPanel>
+                        <Grid ColumnSpacing="12" Padding="0,6,0,8">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="2*" /><ColumnDefinition Width="*" /><ColumnDefinition Width="*" /><ColumnDefinition Width="*" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                            <TextBlock Text="{h:Str Key=GameProfile_Col_Date}" Style="{StaticResource FieldLabelTextStyle}" />
+                            <TextBlock Grid.Column="1" Text="{h:Str Key=GameProfile_Col_Duration}" Style="{StaticResource FieldLabelTextStyle}" />
+                            <TextBlock Grid.Column="2" Text="{h:Str Key=Gaming_Metric_Fps}" Style="{StaticResource FieldLabelTextStyle}" />
+                            <TextBlock Grid.Column="3" Text="{h:Str Key=Gaming_Metric_OnePercentLow}" Style="{StaticResource FieldLabelTextStyle}" />
+                            <TextBlock Grid.Column="4" Text="{h:Str Key=Gaming_Metric_PointOnePercentLow}" Style="{StaticResource FieldLabelTextStyle}" />
+                        </Grid>
+                        <ItemsControl ItemsSource="{x:Bind ViewModel.History}" IsTabStop="False">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="vm:GameSessionItemViewModel">
+                                    <Grid ColumnSpacing="12" Padding="0,8,0,8" BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}" BorderThickness="0,1,0,0"
+                                          AutomationProperties.Name="{x:Bind AccessibleName}">
+                                        <Grid.ColumnDefinitions><ColumnDefinition Width="2*" /><ColumnDefinition Width="*" /><ColumnDefinition Width="*" /><ColumnDefinition Width="*" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                                        <TextBlock Text="{x:Bind DateText}" />
+                                        <TextBlock Grid.Column="1" Text="{x:Bind DurationText}" Style="{StaticResource SecondaryTextStyle}" />
+                                        <TextBlock Grid.Column="2" Text="{x:Bind FpsText}" Style="{StaticResource BodyStrongTextBlockStyle}" Opacity="{x:Bind h:Ui.Opacity(IsMeasured)}" />
+                                        <TextBlock Grid.Column="3" Text="{x:Bind LowText}" Opacity="{x:Bind h:Ui.Opacity(IsMeasured)}" />
+                                        <TextBlock Grid.Column="4" Text="{x:Bind PointOneLowText}" Opacity="{x:Bind h:Ui.Opacity(IsMeasured)}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </Border>
+                <TextBlock Text="{h:Str Key=GameProfile_History_Note}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap" />
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</local:ViewPage>

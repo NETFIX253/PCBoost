@@ -120,6 +120,15 @@ Nahimic…), communication vocale (Discord, TeamSpeak, Teams, Zoom…), diffusio
 logiciels de périphériques (G HUB, Synapse, iCUE…), accessibilité (clavier visuel, Narrateur, Loupe), processus d'autres
 utilisateurs ou sessions, fenêtre au premier plan (revérifiée juste avant l'application). **Rien n'est jamais fermé.**
 
+### Réglages par jeu et historique des FPS
+
+`GamingSettings.GameProfiles` associe un identifiant de jeu à un `GameProfile` (alimentation, priorité, arrière-plan,
+mesure des FPS ; `null` = réglage général). `GamingSettings.ForGame(id)` produit les réglages effectifs, utilisés par
+l'aperçu et par l'activation. La page « Réglages et historique du jeu » (icône engrenage d'un jeu installé) modifie ce
+profil et affiche les sessions du jeu (`IGamingSessionRepository.GetByGameAsync`, index `gaming_sessions (game_id,
+started_at)`) : date, durée, FPS moyens, 1 % et 0,1 % low. Une session sans mesure est indiquée « Non mesuré » ; aucune
+valeur n'est estimée.
+
 ## 4. Vérifications des paramètres Windows (`CheckWindowsGameSettings`)
 
 | Id | Lecture | Correction |

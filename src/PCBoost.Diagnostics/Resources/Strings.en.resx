@@ -7,6 +7,7 @@
   <data name="Diag_Action_ChoosePowerPlan" xml:space="preserve"><value>Choose a power plan</value></data>
   <data name="Diag_Action_ViewBackgroundApps" xml:space="preserve"><value>View background apps</value></data>
   <data name="Diag_Action_ViewCleanup" xml:space="preserve"><value>View files to clean up</value></data>
+  <data name="Diag_Action_ViewHardwareHealth" xml:space="preserve"><value>View hardware health</value></data>
   <data name="Diag_Action_ViewOldPc" xml:space="preserve"><value>View tips for older PCs</value></data>
   <data name="Diag_Action_ViewPerformance" xml:space="preserve"><value>Monitor performance</value></data>
   <data name="Diag_Action_ViewProcesses" xml:space="preserve"><value>View processes</value></data>
@@ -23,6 +24,13 @@
   <data name="Diag_Advice_Ssd_Suggestion" xml:space="preserve"><value>An SSD could noticeably shorten startup and app launch times.</value></data>
   <data name="Diag_Advice_StorageFull_Observation" xml:space="preserve"><value>The system drive is {0:N0}% full ({1:N1} GB free of {2:N0} GB).</value></data>
   <data name="Diag_Advice_StorageFull_Suggestion" xml:space="preserve"><value>Start by freeing up space. If the drive stays full, a larger drive could be considered.</value></data>
+  <data name="Diag_Boot_NoMeasurement" xml:space="preserve"><value>Windows has not recorded any recent full-boot measurement.</value></data>
+  <data name="Diag_Health_Notify_Disk_Body" xml:space="preserve"><value>Windows reports a problem with “{0}”. Back up your important data as soon as possible.</value></data>
+  <data name="Diag_Health_Notify_Disk_Title" xml:space="preserve"><value>Disk in poor condition</value></data>
+  <data name="Diag_Health_Notify_Open" xml:space="preserve"><value>View hardware health</value></data>
+  <data name="Diag_Health_Notify_Thermal_Body" xml:space="preserve"><value>The processor ran at {0}% of its base frequency for {1} s while under heavy load. Likely cause: heat (clogged cooling) or power supply.</value></data>
+  <data name="Diag_Health_Notify_Thermal_Title" xml:space="preserve"><value>Processor slowed down under heavy load</value></data>
+  <data name="Diag_Health_ReliabilityNotProvided" xml:space="preserve"><value>The disks did not report any reliability counters.</value></data>
   <data name="Diag_Profile_Reason_Cores" xml:space="preserve"><value>Physical processor cores: {0}</value></data>
   <data name="Diag_Profile_Reason_DedicatedGpu" xml:space="preserve"><value>Dedicated graphics card ({0} GB of video memory)</value></data>
   <data name="Diag_Profile_Reason_DedicatedGpuUnknownMemory" xml:space="preserve"><value>Dedicated graphics card</value></data>
@@ -83,6 +91,8 @@
   <data name="Diag_Rec_VisualEffects_Title" xml:space="preserve"><value>Lighten visual effects</value></data>
   <data name="Diag_Rule_Background_Detail" xml:space="preserve"><value>Background processes in your session: {0} (threshold: {1}). They use memory and processor time even without a visible window.</value></data>
   <data name="Diag_Rule_Background_Title" xml:space="preserve"><value>Many background processes</value></data>
+  <data name="Diag_Rule_Battery_Detail" xml:space="preserve"><value>The battery holds only {0:N0}% of its original capacity: battery life is reduced accordingly.</value></data>
+  <data name="Diag_Rule_Battery_Worn_Title" xml:space="preserve"><value>Worn battery</value></data>
   <data name="Diag_Rule_Cleanable_Detail_Gb" xml:space="preserve"><value>{0:N1} GB of files can be safely removed (temporary files, caches).</value></data>
   <data name="Diag_Rule_Cleanable_Detail_Mb" xml:space="preserve"><value>{0:N0} MB of files can be safely removed (temporary files, caches).</value></data>
   <data name="Diag_Rule_Cleanable_Title" xml:space="preserve"><value>Temporary files to clean up</value></data>
@@ -91,6 +101,14 @@
   <data name="Diag_Rule_Cpu_Critical_Title" xml:space="preserve"><value>Processor is saturated</value></data>
   <data name="Diag_Rule_Cpu_Detail" xml:space="preserve"><value>Average processor use: {0:N0}% over {1:N0} seconds of measurement (peak {2:N0}%).</value></data>
   <data name="Diag_Rule_Cpu_Warning_Title" xml:space="preserve"><value>Processor is busy</value></data>
+  <data name="Diag_Rule_Devices_Detail" xml:space="preserve"><value>Device Manager reports: {1}.</value></data>
+  <data name="Diag_Rule_Devices_Title" xml:space="preserve"><value>{0} {0:plural:device|devices} with errors</value></data>
+  <data name="Diag_Rule_DiskHealth_Critical_Title" xml:space="preserve"><value>Disk in poor condition: back up your data</value></data>
+  <data name="Diag_Rule_DiskHealth_Errors_Detail" xml:space="preserve"><value>Disk “{0}” reported {1} uncorrected {1:plural:read error|read errors}.</value></data>
+  <data name="Diag_Rule_DiskHealth_Unhealthy_Detail" xml:space="preserve"><value>Windows reports disk “{0}” as failing. Back up your data and plan to replace it.</value></data>
+  <data name="Diag_Rule_DiskHealth_Warning_Detail" xml:space="preserve"><value>Windows reports a warning for disk “{0}”. Back up your important data.</value></data>
+  <data name="Diag_Rule_DiskHealth_Warning_Title" xml:space="preserve"><value>Disk to keep an eye on</value></data>
+  <data name="Diag_Rule_DiskHealth_Wear_Detail" xml:space="preserve"><value>SSD “{0}” has used {1}% of its rated endurance.</value></data>
   <data name="Diag_Rule_Disk_Critical_Title" xml:space="preserve"><value>Disk is saturated</value></data>
   <data name="Diag_Rule_Disk_Detail" xml:space="preserve"><value>The disk was busy {0:N0}% of the time on average during the measurement. A saturated disk makes every app wait.</value></data>
   <data name="Diag_Rule_Disk_Warning_Title" xml:space="preserve"><value>Disk is very busy</value></data>
@@ -109,6 +127,9 @@
   <data name="Diag_Rule_Storage_Critical_Title" xml:space="preserve"><value>System drive almost full</value></data>
   <data name="Diag_Rule_Storage_Detail" xml:space="preserve"><value>{0:N1} GB free on {1} ({2:N0}%). Windows needs free space for updates and virtual memory.</value></data>
   <data name="Diag_Rule_Storage_Warning_Title" xml:space="preserve"><value>Low free space on the system drive</value></data>
+  <data name="Diag_Rule_Thermal_Firmware_Detail" xml:space="preserve"><value>In 30 days, Windows reported {0} {0:plural:time|times} that the processor speed was limited by firmware.</value></data>
+  <data name="Diag_Rule_Thermal_Observed_Detail" xml:space="preserve"><value>Under heavy load, the processor ran at {0:N0}% of its base frequency for {1:N0} s.</value></data>
+  <data name="Diag_Rule_Thermal_Title" xml:space="preserve"><value>Processor slowed down (likely heat or power)</value></data>
   <data name="Diag_Rule_UnsupportedBuild_Detail" xml:space="preserve"><value>Installed build: {0}. This app supports Windows 10 version 1809 (build {1}) and later; some features may not work.</value></data>
   <data name="Diag_Rule_UnsupportedBuild_Title" xml:space="preserve"><value>Windows version is too old</value></data>
   <data name="Diag_Rule_Uptime_Detail" xml:space="preserve"><value>The PC hasn't been restarted for {0:N1} days. A restart frees memory and finishes pending updates.</value></data>
@@ -143,6 +164,8 @@
   <data name="Diag_Slow_DiskBusy_Title" xml:space="preserve"><value>Disk is saturated</value></data>
   <data name="Diag_Slow_DiskBusy_WhatToDo" xml:space="preserve"><value>Let running updates or syncs finish, then watch disk activity on the Performance page.</value></data>
   <data name="Diag_Slow_DiskBusy_Why" xml:space="preserve"><value>When the disk is saturated, every file read has to wait its turn, so the whole PC feels slow.</value></data>
+  <data name="Diag_Slow_DiskHealth_WhatToDo" xml:space="preserve"><value>Back up your important data now, then have the disk checked or replaced.</value></data>
+  <data name="Diag_Slow_DiskHealth_Why" xml:space="preserve"><value>A degrading disk has to re-read data several times: the whole PC slows down, and data may be lost.</value></data>
   <data name="Diag_Slow_Hdd_Evidence" xml:space="preserve"><value>System drive {0}: mechanical hard drive (HDD).</value></data>
   <data name="Diag_Slow_Hdd_Title" xml:space="preserve"><value>Windows is installed on a mechanical hard drive</value></data>
   <data name="Diag_Slow_Hdd_WhatToDo" xml:space="preserve"><value>Limit startup apps and keep some free space. Replacing this drive with an SSD is an option, not a requirement.</value></data>
@@ -172,6 +195,8 @@
   <data name="Diag_Slow_Thermal_Storage_Title" xml:space="preserve"><value>Drive is too hot</value></data>
   <data name="Diag_Slow_Thermal_WhatToDo" xml:space="preserve"><value>Make sure the vents aren't blocked or dusty. Keep laptops on a hard surface.</value></data>
   <data name="Diag_Slow_Thermal_Why" xml:space="preserve"><value>To protect itself from heat, the hardware lowers its speed.</value></data>
+  <data name="Diag_Slow_Throttling_WhatToDo" xml:space="preserve"><value>Clean the air vents, place the laptop on a hard surface and check the charger. If it persists, a technician can renew the thermal paste.</value></data>
+  <data name="Diag_Slow_Throttling_Why" xml:space="preserve"><value>When it overheats or lacks power, the processor lowers its speed to protect itself.</value></data>
   <data name="Diag_Slow_Uptime_Evidence" xml:space="preserve"><value>Last restart {0:N1} days ago.</value></data>
   <data name="Diag_Slow_Uptime_Title" xml:space="preserve"><value>No restart for a long time</value></data>
   <data name="Diag_Slow_Uptime_WhatToDo" xml:space="preserve"><value>Save your work, then choose "Restart" (not "Shut down").</value></data>

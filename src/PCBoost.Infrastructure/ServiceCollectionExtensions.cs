@@ -55,6 +55,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IActivityJournal>(sp => sp.GetRequiredService<ActivityJournal>());
 
         services.AddSingleton<IAppInfo, AppInfo>();
+        services.AddSingleton<IDiagnosticLogSource>(sp => new DiagnosticLogSource(sp.GetRequiredService<IAppInfo>()));
 
         services.TryAddEnumerable(ServiceDescriptor.Singleton<IUpdateProvider, LocalUpdateProvider>());
         services.TryAddEnumerable(ServiceDescriptor.Singleton<IUpdateProvider, PlaceholderRemoteUpdateProvider>());

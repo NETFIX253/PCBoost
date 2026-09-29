@@ -178,6 +178,10 @@ public sealed partial class StorageViewModel : ViewModelBase
     [RelayCommand]
     private void OpenCleanup() => Navigation.Navigate(PageKeys.Cleanup);
 
+    /// <summary>Gros fichiers et doublons des dossiers personnels (Corbeille uniquement).</summary>
+    [RelayCommand]
+    private void OpenFiles() => Navigation.Navigate(PageKeys.Files);
+
     private void Apply(StorageBreakdown b)
     {
         var d = b.Drive;

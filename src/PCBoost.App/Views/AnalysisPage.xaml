@@ -21,6 +21,13 @@
                 <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8" VerticalAlignment="Top">
                     <Button Style="{StaticResource PrimaryButtonStyle}" Content="{h:Str Key=Analysis_Action_Start}" Command="{x:Bind ViewModel.StartAnalysisCommand}"
                             Visibility="{x:Bind h:Ui.Show(ViewModel.IsNotStarted), Mode=OneWay}" />
+                    <Button Style="{StaticResource SecondaryButtonStyle}" Command="{x:Bind ViewModel.OpenReportCommand}"
+                            ToolTipService.ToolTip="{h:Str Key=Report_Action_Open_ToolTip}" Visibility="{x:Bind h:Ui.Show(ViewModel.IsDone), Mode=OneWay}">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <FontIcon Glyph="&#xE9F9;" FontSize="14" />
+                            <TextBlock Text="{h:Str Key=Report_Action_Open}" />
+                        </StackPanel>
+                    </Button>
                     <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Analysis_Action_Restart}" Command="{x:Bind ViewModel.StartAnalysisCommand}"
                             Visibility="{x:Bind h:Ui.Show(ViewModel.IsDone), Mode=OneWay}" />
                     <Button Style="{StaticResource PrimaryButtonStyle}" Content="{h:Str Key=Analysis_Action_Optimize}" Command="{x:Bind ViewModel.OptimizeCommand}"

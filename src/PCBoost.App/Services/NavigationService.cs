@@ -16,6 +16,7 @@ public sealed class NavigationService : INavigationService
         [PageKeys.Home] = (typeof(HomePage), null),
         [PageKeys.Analysis] = (typeof(AnalysisPage), null),
         [PageKeys.Diagnosis] = (typeof(DiagnosisPage), null),
+        [PageKeys.Health] = (typeof(HealthPage), null),
         [PageKeys.Optimization] = (typeof(OptimizationPage), null),
         [PageRegistry.Profiles] = (typeof(OptimizationPage), "profiles"),
         [PageKeys.OldPc] = (typeof(OptimizationPage), "oldpc"),
@@ -32,6 +33,10 @@ public sealed class NavigationService : INavigationService
         [PageKeys.About] = (typeof(AboutPage), null),
         [PageKeys.Storage] = (typeof(StoragePage), null),
         [PageKeys.Expert] = (typeof(ExpertPage), null),
+        [PageKeys.Report] = (typeof(ReportPage), null),
+        [PageKeys.Programs] = (typeof(ProgramsPage), null),
+        [PageKeys.Files] = (typeof(FilesPage), null),
+        [PageKeys.GameProfile] = (typeof(GameProfilePage), null),
     };
 
     private readonly ILogger<NavigationService> _logger;

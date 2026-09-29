@@ -37,6 +37,28 @@ internal static unsafe partial class Shell32
         public long i64NumItems;
     }
 
+    public const uint FO_DELETE = 0x0003;
+    public const ushort FOF_NOCONFIRMATION = 0x0010;
+    public const ushort FOF_ALLOWUNDO = 0x0040;
+    public const ushort FOF_WANTNUKEWARNING = 0x4000;
+
+    /// <summary>SHFILEOPSTRUCTW (alignement naturel en 64 bits ; pshpack1 ne s'applique qu'au 32 bits, non pris en charge).</summary>
+    [StructLayout(LayoutKind.Sequential)]
+    public struct SHFILEOPSTRUCTW
+    {
+        public nint hwnd;
+        public uint wFunc;
+        public char* pFrom;
+        public char* pTo;
+        public ushort fFlags;
+        public int fAnyOperationsAborted;
+        public nint hNameMappings;
+        public char* lpszProgressTitle;
+    }
+
+    [LibraryImport("shell32.dll", EntryPoint = "SHFileOperationW")]
+    public static partial int SHFileOperation(ref SHFILEOPSTRUCTW lpFileOp);
+
     [LibraryImport("shell32.dll")]
     public static partial int SHGetKnownFolderPath(in Guid rfid, uint dwFlags, nint hToken, out char* ppszPath);
 

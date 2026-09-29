@@ -1,0 +1,82 @@
+<local:ViewPage
+    x:Class="PCBoost.App.Views.ReportPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PCBoost.App.Views"
+    xmlns:h="using:PCBoost.App.Helpers">
+
+    <Grid MaxWidth="{StaticResource ContentMaxWidth}" Padding="{StaticResource PagePadding}" RowSpacing="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid ColumnSpacing="16" RowSpacing="12">
+            <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+            <StackPanel Spacing="6">
+                <TextBlock Text="{h:Str Key=Report_Title}" Style="{StaticResource PageTitleTextStyle}" />
+                <TextBlock Text="{h:Str Key=Report_Subtitle}" Style="{StaticResource PageSubtitleTextStyle}" />
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8" VerticalAlignment="Top">
+                <Button Style="{StaticResource SecondaryButtonStyle}" Command="{x:Bind ViewModel.RefreshCommand}"
+                        ToolTipService.ToolTip="{h:Str Key=Report_Action_Refresh_ToolTip}" AutomationProperties.Name="{h:Str Key=Report_Action_Refresh_ToolTip}">
+                    <FontIcon Glyph="&#xE72C;" FontSize="14" />
+                </Button>
+                <Button Style="{StaticResource SecondaryButtonStyle}" Command="{x:Bind ViewModel.SaveHtmlCommand}">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xE12B;" FontSize="14" />
+                        <TextBlock Text="{h:Str Key=Report_Action_SaveHtml}" />
+                    </StackPanel>
+                </Button>
+                <Button Style="{StaticResource PrimaryButtonStyle}" Command="{x:Bind ViewModel.SavePdfCommand}">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xEA90;" FontSize="14" />
+                        <TextBlock Text="{h:Str Key=Report_Action_SavePdf}" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Grid.Row="1" Spacing="8">
+            <InfoBar Severity="Error" h:InfoBarHelper.IsShown="{x:Bind ViewModel.HasError, Mode=OneWay}" Message="{x:Bind ViewModel.ErrorText, Mode=OneWay}"
+                     Title="{h:Str Key=Common_Label_ErrorTitle}" CloseButtonCommand="{x:Bind ViewModel.DismissErrorCommand}" />
+            <InfoBar Severity="Success" h:InfoBarHelper.IsShown="{x:Bind ViewModel.HasStatusMessage, Mode=OneWay}" Message="{x:Bind ViewModel.StatusMessage, Mode=OneWay}"
+                     CloseButtonCommand="{x:Bind ViewModel.DismissStatusCommand}">
+                <InfoBar.ActionButton>
+                    <HyperlinkButton Content="{h:Str Key=Report_Action_Reveal}" Command="{x:Bind ViewModel.RevealSavedFileCommand}"
+                                     Visibility="{x:Bind h:Ui.Show(ViewModel.HasSavedFile), Mode=OneWay}" />
+                </InfoBar.ActionButton>
+            </InfoBar>
+            <InfoBar Severity="Warning" IsClosable="False" Message="{h:Str Key=Report_NoWebView}"
+                     h:InfoBarHelper.IsShown="{x:Bind h:Ui.Not(ViewModel.CanExportPdf)}" />
+        </StackPanel>
+
+        <Border Grid.Row="2" Style="{StaticResource CardStyle}" Padding="20,12,20,12">
+            <Grid ColumnSpacing="24" RowSpacing="6">
+                <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="Auto" /><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+                <CheckBox Content="{h:Str Key=Report_Option_Logs}" IsChecked="{x:Bind ViewModel.IncludeLogs, Mode=TwoWay}" />
+                <CheckBox Grid.Column="1" Content="{h:Str Key=Report_Option_History}" IsChecked="{x:Bind ViewModel.IncludeHistory, Mode=TwoWay}" />
+                <CheckBox Grid.Column="2" Content="{h:Str Key=Report_Option_ComputerName}" IsChecked="{x:Bind ViewModel.IncludeComputerName, Mode=TwoWay}" />
+                <TextBlock Grid.Row="1" Grid.ColumnSpan="4" Text="{h:Str Key=Report_PrivacyHint}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap" />
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="3" Style="{StaticResource CardStyle}" Padding="0" MinHeight="360">
+            <Grid>
+                <WebView2 x:Name="Preview" DefaultBackgroundColor="White" AutomationProperties.Name="{h:Str Key=Report_Preview_AccessibleName}"
+                          Visibility="{x:Bind h:Ui.Show(ViewModel.CanExportPdf)}" />
+                <StackPanel Spacing="10" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="24"
+                            Visibility="{x:Bind h:Ui.Show(ViewModel.IsPreparing), Mode=OneWay}">
+                    <ProgressRing IsActive="{x:Bind ViewModel.IsPreparing, Mode=OneWay}" />
+                    <TextBlock Text="{h:Str Key=Report_Preparing}" Style="{StaticResource SecondaryTextStyle}" HorizontalAlignment="Center" />
+                </StackPanel>
+                <TextBlock Text="{h:Str Key=Report_PreviewUnavailable}" Style="{StaticResource SecondaryTextStyle}" TextWrapping="Wrap" Margin="24"
+                           VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"
+                           Visibility="{x:Bind h:Ui.Hide(ViewModel.CanExportPdf)}" />
+            </Grid>
+        </Border>
+    </Grid>
+</local:ViewPage>

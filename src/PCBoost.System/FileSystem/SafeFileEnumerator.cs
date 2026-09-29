@@ -45,7 +45,8 @@ internal sealed class SafeFileEnumerator : FileSystemEnumerator<FileEntry>
             entry.LastWriteTimeUtc,
             (attributes & FileAttributes.ReadOnly) != 0,
             (attributes & FileAttributes.System) != 0,
-            (attributes & FileAttributes.Hidden) != 0);
+            (attributes & FileAttributes.Hidden) != 0,
+            (attributes & (FileAttributes.Offline | (FileAttributes)0x00040000 | (FileAttributes)0x00400000)) != 0);
     }
 
     protected override bool ContinueOnError(int error)

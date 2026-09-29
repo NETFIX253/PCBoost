@@ -31,6 +31,11 @@
   <data name="Sys_ProcessNotFound" xml:space="preserve"><value>This program is no longer running.</value></data>
   <data name="Sys_ProtectedTarget" xml:space="preserve"><value>This item is protected and cannot be changed.</value></data>
   <data name="Sys_RealTimePriorityBlocked" xml:space="preserve"><value>The "Realtime" priority is not offered: it can make Windows unstable.</value></data>
+  <data name="Sys_RecycleFailed" xml:space="preserve"><value>The file could not be moved to the Recycle Bin.</value></data>
+  <data name="Sys_UninstallBlocked" xml:space="preserve"><value>PCBoost does not run this uninstall command. Use Windows Settings.</value></data>
+  <data name="Sys_UninstallDeclined" xml:space="preserve"><value>Permission declined: nothing was uninstalled.</value></data>
+  <data name="Sys_UninstallerFailed" xml:space="preserve"><value>The uninstaller could not be started.</value></data>
+  <data name="Sys_UninstallerMissing" xml:space="preserve"><value>The publisher's uninstaller cannot be found. Use Windows Settings.</value></data>
   <data name="Sys_UriNotAllowed" xml:space="preserve"><value>Only web links (http or https) can be opened.</value></data>
   <data name="Sys_VisualEffectsPartial" xml:space="preserve"><value>Some visual effects could not be changed.</value></data>
 </root>

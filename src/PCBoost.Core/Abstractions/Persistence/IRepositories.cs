@@ -36,6 +36,9 @@ public interface IGamingSessionRepository
     Task<IReadOnlyList<GamingSession>> GetByStatusAsync(GamingSessionStatus status, CancellationToken cancellationToken = default);
 
     Task<IReadOnlyList<GamingSession>> GetRecentAsync(int limit, CancellationToken cancellationToken = default);
+
+    /// <summary>Sessions d'un jeu, de la plus récente à la plus ancienne (historique des FPS par jeu).</summary>
+    Task<IReadOnlyList<GamingSession>> GetByGameAsync(string gameId, int limit, CancellationToken cancellationToken = default);
 }
 
 public interface IScanHistoryRepository

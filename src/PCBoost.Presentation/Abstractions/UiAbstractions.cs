@@ -105,3 +105,20 @@ public interface IValueFormatter
 
     string NotAvailable { get; }
 }
+
+public enum ReportFileFormat { Html = 0, Pdf = 1 }
+
+/// <summary>
+/// Enregistrement du rapport de diagnostic choisi par l'utilisateur (boîte « Enregistrer sous » de Windows).
+/// L'aperçu affiché est la source du PDF : le fichier correspond exactement à ce que l'utilisateur a vu.
+/// </summary>
+public interface IReportFileService
+{
+    /// <summary>L'export PDF est possible sur ce PC (moteur d'affichage WebView2 présent).</summary>
+    bool CanExportPdf { get; }
+
+    /// <summary>Demande l'emplacement ; null si l'utilisateur annule.</summary>
+    Task<string?> PickSavePathAsync(string suggestedFileName, ReportFileFormat format);
+
+    Task<OperationResult> SaveAsync(string path, string html, ReportFileFormat format, CancellationToken cancellationToken = default);
+}

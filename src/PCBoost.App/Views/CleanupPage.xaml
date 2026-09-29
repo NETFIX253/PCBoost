@@ -132,6 +132,23 @@
                     </ItemsControl>
                 </Border>
             </StackPanel>
+
+            <!-- Aller plus loin : programmes installés (désinstallation assistée) -->
+            <StackPanel Spacing="12">
+                <TextBlock Text="{h:Str Key=Cleanup_Page_More_Header}" Style="{StaticResource SectionHeaderTextStyle}" />
+                <Border x:Name="MoreCard" Style="{StaticResource CardStyle}" Padding="20,4,20,4">
+                    <StackPanel>
+                        <controls:SettingRow Header="{h:Str Key=Programs_Title}" Description="{h:Str Key=Cleanup_Page_Programs_Description}" Glyph="&#xE74C;">
+                            <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Cleanup_Page_Action_Programs}" Command="{x:Bind ViewModel.OpenProgramsCommand}" />
+                        </controls:SettingRow>
+                        <Border Style="{StaticResource RowDividerStyle}" Padding="0">
+                            <controls:SettingRow Header="{h:Str Key=Files_Title}" Description="{h:Str Key=Cleanup_Page_Files_Description}" Glyph="&#xE8B7;">
+                            <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Cleanup_Page_Action_Files}" Command="{x:Bind ViewModel.OpenFilesCommand}" />
+                        </controls:SettingRow>
+                        </Border>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
         </StackPanel>
     </ScrollViewer>
 </local:ViewPage>

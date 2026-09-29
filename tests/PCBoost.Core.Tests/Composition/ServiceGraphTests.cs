@@ -52,6 +52,8 @@ public sealed class ServiceGraphTests : IDisposable
         services.AddSingleton<ICommandRunner, FakeCommandRunner>();
         services.AddSingleton<IShellService, FakeShellService>();
         services.AddSingleton<IFrameTimeSource, FakeFrameTimeSource>();
+        services.AddSingleton<IHardwareHealthProvider, FakeHardwareHealthProvider>();
+        services.AddSingleton<IUninstallerLauncher, FakeUninstallerLauncher>();
         services.AddSingleton<IAutoStartRegistration, FakeAutoStartRegistration>();
 
         // Services de l'hôte UI (fournis par PCBoost.App)
@@ -60,6 +62,7 @@ public sealed class ServiceGraphTests : IDisposable
         services.AddSingleton<IDialogService, FakeDialogService>();
         services.AddSingleton<IUiDispatcher, ImmediateDispatcher>();
         services.AddSingleton<IThemeService, FakeThemeService>();
+        services.AddSingleton<IReportFileService, FakeReportFileService>();
 
         services.AddPCBoostInfrastructure(o =>
         {
@@ -85,6 +88,7 @@ public sealed class ServiceGraphTests : IDisposable
             typeof(ISystemAnalyzer), typeof(IHealthRulesEngine), typeof(IPerformanceScoreCalculator), typeof(IPerformanceRecommendationEngine),
             typeof(IHardwareProfileClassifier), typeof(ISlowPcDiagnosticService), typeof(IHardwareAdvisor), typeof(IStorageAnalyzer),
             typeof(IPerformanceMonitor), typeof(IPerformanceHistoryService),
+            typeof(IHardwareHealthService), typeof(IBootTimeService), typeof(IThermalThrottlingDetector),
             typeof(IProcessService), typeof(ICriticalProcessProtection), typeof(ISecurityService), typeof(IStartupService), typeof(ICleanupService),
             typeof(IOptimizationManager), typeof(IRollbackManager), typeof(IRecoveryManager), typeof(IProfileService), typeof(IOldPcAssistant),
             typeof(ISmartOptimizationService),
@@ -158,6 +162,13 @@ public sealed class ServiceGraphTests : IDisposable
         public bool HasThreadAccess => true;
         public void Post(Action action) => action();
         public Task InvokeAsync(Func<Task> action) => action();
+    }
+
+    private sealed class FakeReportFileService : IReportFileService
+    {
+        public bool CanExportPdf => false;
+        public Task<string?> PickSavePathAsync(string suggestedFileName, ReportFileFormat format) => Task.FromResult<string?>(null);
+        public Task<OperationResult> SaveAsync(string path, string html, ReportFileFormat format, CancellationToken cancellationToken = default) => Task.FromResult(OperationResult.Ok());
     }
 
     private sealed class FakeThemeService : IThemeService

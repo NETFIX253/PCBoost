@@ -134,5 +134,10 @@
   "App_Welcome_Heading": {
     "fr": "Bienvenue dans {0}",
     "en": "Welcome to {0}"
-  }
+  },
+  "App_Report_PdfUnavailable": {
+    "fr": "L'export PDF n'est pas disponible : ouvrez la page du rapport et attendez la fin de l'aperçu.",
+    "en": "PDF export is not available: open the report page and wait for the preview."
+  },
+  "App_Report_PdfFailed": { "fr": "Le PDF n'a pas pu être créé. Essayez l'export HTML.", "en": "The PDF could not be created. Try HTML export." }
 }

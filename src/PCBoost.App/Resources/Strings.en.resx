@@ -20,6 +20,8 @@
   <data name="App_Notify_StillRunning_Body" xml:space="preserve"><value>PCBoost keeps watching your PC from the notification area. Right-click its icon to exit.</value></data>
   <data name="App_Notify_StillRunning_Title" xml:space="preserve"><value>PCBoost is still running</value></data>
   <data name="App_OldPc_Link" xml:space="preserve"><value>Optimize an older PC</value></data>
+  <data name="App_Report_PdfFailed" xml:space="preserve"><value>The PDF could not be created. Try HTML export.</value></data>
+  <data name="App_Report_PdfUnavailable" xml:space="preserve"><value>PDF export is not available: open the report page and wait for the preview.</value></data>
   <data name="App_Score_Of" xml:space="preserve"><value>out of 100</value></data>
   <data name="App_Section_More" xml:space="preserve"><value>More tools</value></data>
   <data name="App_Startup_Error_Message" xml:space="preserve"><value>An unexpected error occurred at startup. Details were saved to the application log.</value></data>

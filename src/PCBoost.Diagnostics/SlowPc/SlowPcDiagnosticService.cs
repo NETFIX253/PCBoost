@@ -21,6 +21,8 @@ public static class SlownessFactorIds
     public const string Uptime = "slow.uptime";
     public const string PowerSaver = "slow.power.saver";
     public const string BackgroundProcesses = "slow.processes.background";
+    public const string DiskHealth = "slow.hardware.disk";
+    public const string CpuThrottling = "slow.thermal.throttling";
 }
 
 /// <summary>
@@ -184,6 +186,33 @@ public sealed class SlowPcDiagnosticService : ISlowPcDiagnosticService
                 TextRef.Of(DiagText.SlowBackgroundWhatToDo),
                 ImpactLevel.Low, ConfidenceLevel.Medium,
                 Action(DiagText.ActionViewBackgroundApps, NavigationTargets.Processes, OptimizationIds.BackgroundApps)));
+        }
+
+        // Disque signalé en mauvais état par Windows : un disque qui se dégrade ralentit tout le PC.
+        if (report.Health?.Disks.Where(d => d.IsCritical || d.IsWarning).OrderByDescending(d => d.IsCritical).ThenByDescending(d => d.IsSystemDisk).FirstOrDefault() is { } failing)
+        {
+            factors.Add(new SlownessFactor(SlownessFactorIds.DiskHealth,
+                TextRef.Of(failing.IsCritical ? DiagText.RuleDiskHealthCriticalTitle : DiagText.RuleDiskHealthWarningTitle),
+                Rules.DiskHealthRule.Detail(failing),
+                TextRef.Of(DiagText.SlowDiskHealthWhy),
+                TextRef.Of(DiagText.SlowDiskHealthWhatToDo),
+                failing.IsCritical ? ImpactLevel.High : ImpactLevel.Medium, ConfidenceLevel.High,
+                Action(DiagText.ActionViewHardwareHealth, NavigationTargets.Health)));
+        }
+
+        // Processeur ralenti sous charge (épisode mesuré) ou limité par le microprogramme (événements Windows).
+        if (report.Health?.Thermal is { } thermal && (thermal.LastEpisode is not null || thermal.FirmwareLimitEvents > 0))
+        {
+            factors.Add(new SlownessFactor(SlownessFactorIds.CpuThrottling,
+                TextRef.Of(DiagText.RuleThermalTitle),
+                thermal.LastEpisode is { } episode
+                    ? TextRef.Of(DiagText.RuleThermalObservedDetail, episode.AverageProcessorPerformancePercent, episode.Duration.TotalSeconds)
+                    : TextRef.Of(DiagText.RuleThermalFirmwareDetail, thermal.FirmwareLimitEvents),
+                TextRef.Of(DiagText.SlowThrottlingWhy),
+                TextRef.Of(DiagText.SlowThrottlingWhatToDo),
+                thermal.LastEpisode is not null ? ImpactLevel.High : ImpactLevel.Medium,
+                thermal.LastEpisode is not null ? ConfidenceLevel.Medium : ConfidenceLevel.Low,
+                Action(DiagText.ActionViewHardwareHealth, NavigationTargets.Health)));
         }
 
         // Tri stable : impact, puis confiance.

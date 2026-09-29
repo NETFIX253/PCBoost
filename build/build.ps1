@@ -79,8 +79,10 @@ if ($Publish -or $Installer) {
 if ($Installer) {
     Step 'Installateur MSI' { dotnet build installer\PCBoost.Installer\PCBoost.Installer.wixproj -c Release "-p:PublishDir=$publishDir" "-p:InstallerPlatform=$Platform" -nologo *> (Join-Path $logs 'installer.log') }
     Step 'Empreintes' {
-        # Empreintes SHA-256 des livrables (vérification d'intégrité par l'utilisateur ou un mécanisme de mise à jour).
-        Get-ChildItem -Path $dist -File | Where-Object { $_.Extension -in '.msi', '.zip' } |
+        # Empreintes SHA-256 des livrables de CETTE version (vérification d'intégrité par l'utilisateur ou un mécanisme de
+        # mise à jour). Les fichiers d'une version précédente restés dans dist\ n'y figurent pas : SHA256SUMS.txt est joint
+        # tel quel à la Release et recopié dans ses notes.
+        Get-ChildItem -Path $dist -File | Where-Object { $_.Extension -in '.msi', '.zip' -and $_.Name -like "$product-$version-*" } |
             ForEach-Object { "$((Get-FileHash -Algorithm SHA256 -Path $_.FullName).Hash.ToLowerInvariant())  $($_.Name)" } |
             Set-Content -Path (Join-Path $dist 'SHA256SUMS.txt') -Encoding ASCII
         $global:LASTEXITCODE = 0

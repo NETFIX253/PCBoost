@@ -5,6 +5,7 @@ public static class PageKeys
 {
     public const string Home = "home";
     public const string Analysis = "analysis";
+    public const string Health = "health";
     public const string Optimization = "optimization";
     public const string Cleanup = "cleanup";
     public const string Startup = "startup";
@@ -23,4 +24,8 @@ public static class PageKeys
     public const string Storage = "storage";
     public const string Benchmark = "benchmark";
     public const string Expert = "expert";
+    public const string Report = "report";
+    public const string Programs = "programs";
+    public const string Files = "files";
+    public const string GameProfile = "game";
 }

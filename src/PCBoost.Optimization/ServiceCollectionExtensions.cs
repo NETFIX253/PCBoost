@@ -14,6 +14,7 @@ using PCBoost.Optimization.Modules;
 using PCBoost.Optimization.Orchestration;
 using PCBoost.Optimization.Processes;
 using PCBoost.Optimization.Rollback;
+using PCBoost.Optimization.Safety;
 using PCBoost.Optimization.Startup;
 
 namespace PCBoost.Optimization;
@@ -62,6 +63,13 @@ public static class ServiceCollectionExtensions
         services.TryAddSingleton<RollbackManager>();
         services.TryAddSingleton<IRollbackManager>(sp => sp.GetRequiredService<RollbackManager>());
         services.TryAddSingleton<IRecoveryManager, RecoveryManager>();
+        services.TryAddSingleton<IRestorePointService, RestorePointService>();
+
+        // Désinstallation assistée (programme officiel de l'éditeur, après confirmation).
+        services.TryAddSingleton<IProgramInventoryService, Programs.ProgramInventoryService>();
+
+        // Gros fichiers et doublons des dossiers personnels (Corbeille uniquement).
+        services.TryAddSingleton<IFileCleanupService, Files.FileCleanupService>();
 
         // Nettoyage.
         services.TryAddSingleton<SafeCleanupEngine>();

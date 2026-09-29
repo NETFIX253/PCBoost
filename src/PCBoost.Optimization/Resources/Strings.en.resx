@@ -30,6 +30,11 @@
   <data name="Cleanup_user-temp_Name" xml:space="preserve"><value>Temporary files (user)</value></data>
   <data name="Cleanup_windows-temp_Description" xml:space="preserve"><value>Temporary files created by Windows and installers. Safe: files older than one day only, locked files are kept. Requires administrator permission.</value></data>
   <data name="Cleanup_windows-temp_Name" xml:space="preserve"><value>Temporary files (Windows)</value></data>
+  <data name="Files_Changed" xml:space="preserve"><value>Not moved: the file was changed or moved since the scan.</value></data>
+  <data name="Files_Journal_Recycled" xml:space="preserve"><value>{0} {0:plural:file|files} moved to the Recycle Bin ({1} MB) from "Large files and duplicates".</value></data>
+  <data name="Files_KeptCopy" xml:space="preserve"><value>Copy kept: one copy of each duplicate file is always kept.</value></data>
+  <data name="Files_NoCopyLeft" xml:space="preserve"><value>Not moved: the other copy changed or no longer exists.</value></data>
+  <data name="Files_NotInScan" xml:space="preserve"><value>Not moved: this file is not part of the scan.</value></data>
   <data name="Opt_BackgroundApps_NothingToDo" xml:space="preserve"><value>No background app to slow down right now.</value></data>
   <data name="Opt_BackgroundApps_ThrottleKnown" xml:space="preserve"><value>Slow down {0}, an app known to load the PC in the background</value></data>
   <data name="Opt_BackgroundApps_ThrottleMeasured" xml:space="preserve"><value>Slow down {0}, which uses {1:N1}% of the processor without a window</value></data>
@@ -109,6 +114,11 @@
   <data name="Opt_Profile_Productivity_Description" xml:space="preserve"><value>Office work: "Balanced" power plan, background apps slowed down and, on a modest PC, reduced visual effects.</value></data>
   <data name="Opt_Profile_Productivity_Name" xml:space="preserve"><value>Productivity</value></data>
   <data name="Opt_Profile_Unknown" xml:space="preserve"><value>This profile is unknown: nothing was changed.</value></data>
+  <data name="Opt_RestorePoint_Cancelled" xml:space="preserve"><value>Permission declined: no Windows restore point was created.</value></data>
+  <data name="Opt_RestorePoint_Created" xml:space="preserve"><value>Windows restore point created before the advanced optimization.</value></data>
+  <data name="Opt_RestorePoint_Disabled" xml:space="preserve"><value>Windows System Protection is turned off: no restore point could be created.</value></data>
+  <data name="Opt_RestorePoint_Failed" xml:space="preserve"><value>The Windows restore point could not be created.</value></data>
+  <data name="Opt_RestorePoint_Recent" xml:space="preserve"><value>A Windows restore point less than 24 hours old already exists and covers the advanced optimization.</value></data>
   <data name="Opt_Result_Failed" xml:space="preserve"><value>This optimization could not be applied.</value></data>
   <data name="Opt_Result_NothingSelected" xml:space="preserve"><value>No change selected.</value></data>
   <data name="Opt_Result_Partial" xml:space="preserve"><value>{0} {0:plural:change|changes} applied, {1} could not be applied.</value></data>
@@ -184,6 +194,11 @@
   <data name="Opt_Warning_UnknownOptimization" xml:space="preserve"><value>A requested optimization is unknown ({0}): it was skipped.</value></data>
   <data name="Opt_Warning_VerifyPowerPlan" xml:space="preserve"><value>The power plan found does not match the one requested (another program may have changed it).</value></data>
   <data name="Opt_Warning_VerifyRegistry" xml:space="preserve"><value>A startup setting found does not match the one requested.</value></data>
+  <data name="Programs_Journal_Removed" xml:space="preserve"><value>"{0}" was uninstalled.</value></data>
+  <data name="Programs_Journal_Started" xml:space="preserve"><value>Uninstall of "{0}" started with its official uninstaller.</value></data>
+  <data name="Programs_LastRun_None" xml:space="preserve"><value>Windows did not provide any recorded run.</value></data>
+  <data name="Programs_Uninstall_Changed" xml:space="preserve"><value>The uninstall command changed since the list was displayed: refresh the list, then try again.</value></data>
+  <data name="Programs_Uninstall_UseSettings" xml:space="preserve"><value>This program is uninstalled from Windows Settings (Installed apps).</value></data>
   <data name="Protection_Critical" xml:space="preserve"><value>Process essential to Windows: PCBoost never closes or changes it.</value></data>
   <data name="Protection_Sensitive" xml:space="preserve"><value>System component: closing it is not recommended.</value></data>
   <data name="Protection_SystemDirectory" xml:space="preserve"><value>Program located in the Windows system folder: closing it is not recommended.</value></data>

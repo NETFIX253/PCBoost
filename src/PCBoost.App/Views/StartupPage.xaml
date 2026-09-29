@@ -19,6 +19,73 @@
             <InfoBar Severity="Success" h:InfoBarHelper.IsShown="{x:Bind ViewModel.HasStatusMessage, Mode=OneWay}" Message="{x:Bind ViewModel.StatusMessage, Mode=OneWay}"
                      CloseButtonCommand="{x:Bind ViewModel.DismissStatusCommand}" />
 
+            <!-- Durée du démarrage (mesures de Windows) -->
+            <Border Style="{StaticResource CardStyle}" Padding="24,18,24,18" Visibility="{x:Bind h:Ui.Show(ViewModel.HasBootSection)}">
+                <StackPanel Spacing="12">
+                    <Grid ColumnSpacing="16">
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                        <FontIcon Glyph="&#xE916;" FontSize="18" VerticalAlignment="Center" Foreground="{ThemeResource BrandAccentTextBrush}" />
+                        <TextBlock Grid.Column="1" Text="{h:Str Key=Startup_Boot_Title}" Style="{StaticResource GroupHeaderTextStyle}" VerticalAlignment="Center" />
+                        <Button Grid.Column="2" Style="{StaticResource SecondaryButtonStyle}" Command="{x:Bind ViewModel.ReadBootMeasurementsCommand}"
+                                ToolTipService.ToolTip="{h:Str Key=Startup_Boot_Action_Read_ToolTip}">
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <FontIcon Glyph="&#xEA18;" FontSize="14" />
+                                <TextBlock Text="{h:Str Key=Startup_Boot_Action_Read}" />
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                    <StackPanel Spacing="6" Visibility="{x:Bind h:Ui.Show(ViewModel.IsReadingBoot), Mode=OneWay}">
+                        <ProgressBar IsIndeterminate="True" />
+                        <TextBlock Text="{h:Str Key=Startup_Boot_Reading}" Style="{StaticResource CaptionSecondaryTextStyle}" />
+                    </StackPanel>
+                    <Grid ColumnSpacing="20" Visibility="{x:Bind h:Ui.Show(ViewModel.HasBootMeasurement), Mode=OneWay}">
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                        <TextBlock Text="{x:Bind ViewModel.BootValueText, Mode=OneWay}" Style="{StaticResource MetricValueTextStyle}" VerticalAlignment="Center" />
+                        <StackPanel Grid.Column="1" Spacing="2" VerticalAlignment="Center">
+                            <TextBlock Text="{x:Bind ViewModel.BootCaptionText, Mode=OneWay}" TextWrapping="Wrap" />
+                            <TextBlock Text="{x:Bind ViewModel.BootBreakdownText, Mode=OneWay}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                    <TextBlock Text="{x:Bind ViewModel.BootInfoText, Mode=OneWay}" Style="{StaticResource SecondaryTextStyle}" TextWrapping="Wrap"
+                               Visibility="{x:Bind h:Ui.ShowText(ViewModel.BootInfoText), Mode=OneWay}" />
+                    <TextBlock Text="{h:Str Key=Startup_Boot_FastStartupNote}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap"
+                               Visibility="{x:Bind h:Ui.Show(ViewModel.ShowFastStartupNote), Mode=OneWay}" />
+                    <Border Style="{StaticResource RowDividerStyle}" Padding="0,12,0,0" Visibility="{x:Bind h:Ui.Show(ViewModel.HasBootComparison), Mode=OneWay}">
+                        <StackPanel Spacing="6">
+                            <Grid ColumnSpacing="12">
+                                <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                <TextBlock Text="{x:Bind ViewModel.BootComparisonText, Mode=OneWay}" TextWrapping="Wrap" />
+                                <controls:StatusBadge Grid.Column="1" VerticalAlignment="Top" Text="{x:Bind ViewModel.BootDifferenceText, Mode=OneWay}"
+                                                      Kind="{x:Bind h:Ui.GoodOrNeutral(ViewModel.BootImproved), Mode=OneWay}"
+                                                      Visibility="{x:Bind h:Ui.ShowText(ViewModel.BootDifferenceText), Mode=OneWay}" />
+                            </Grid>
+                            <TextBlock Text="{h:Str Key=Startup_Boot_ComparisonNote}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap"
+                                       Visibility="{x:Bind h:Ui.ShowText(ViewModel.BootDifferenceText), Mode=OneWay}" />
+                        </StackPanel>
+                    </Border>
+                    <Border Style="{StaticResource RowDividerStyle}" Padding="0,12,0,0" Visibility="{x:Bind h:Ui.Show(ViewModel.HasBootDegradations), Mode=OneWay}">
+                        <StackPanel Spacing="6">
+                            <TextBlock Text="{h:Str Key=Startup_Boot_DegradationsHeader}" Style="{StaticResource BodyStrongTextBlockStyle}" />
+                            <ItemsControl ItemsSource="{x:Bind ViewModel.BootDegradations}" IsTabStop="False">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate x:DataType="vm:BootDegradationItemViewModel">
+                                        <Grid ColumnSpacing="12" Padding="0,4,0,4" AutomationProperties.Name="{x:Bind AccessibleName}">
+                                            <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                            <StackPanel Spacing="0">
+                                                <TextBlock Text="{x:Bind Name}" TextTrimming="CharacterEllipsis" />
+                                                <TextBlock Text="{x:Bind DateText}" Style="{StaticResource CaptionSecondaryTextStyle}" />
+                                            </StackPanel>
+                                            <controls:StatusBadge Grid.Column="1" Text="{x:Bind KindText}" />
+                                            <TextBlock Grid.Column="2" Text="{x:Bind DelayText}" Style="{StaticResource BodyStrongTextBlockStyle}" VerticalAlignment="Center" MinWidth="64" TextAlignment="Right" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Border>
+
             <Grid ColumnSpacing="12">
                 <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
                 <AutoSuggestBox PlaceholderText="{h:Str Key=Startup_Search_Placeholder}" QueryIcon="Find" MaxWidth="360" HorizontalAlignment="Left"
@@ -59,6 +126,8 @@
                                         <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="6" HorizontalAlignment="Right" VerticalAlignment="Center">
                                             <controls:StatusBadge Text="{x:Bind RecommendationText, Mode=OneWay}" Glyph="{x:Bind RecommendationGlyph, Mode=OneWay}"
                                                                   Kind="{x:Bind h:Ui.AccentOrNeutral(IsRecommendedToDisable), Mode=OneWay}" />
+                                            <controls:StatusBadge Text="{x:Bind BootDelayText, Mode=OneWay}" Glyph="&#xE916;" Kind="Caution"
+                                                                  Visibility="{x:Bind h:Ui.Show(HasBootDelay), Mode=OneWay}" />
                                             <controls:StatusBadge Text="{h:Str Key=Startup_Badge_Locked}" Glyph="&#xE72E;" Kind="Neutral"
                                                                   Visibility="{x:Bind h:Ui.Show(IsLocked), Mode=OneWay}" ToolTipService.ToolTip="{x:Bind SecurityNotice}" />
                                         </StackPanel>

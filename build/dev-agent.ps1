@@ -2,7 +2,7 @@
 .SYNOPSIS
   Boucle de développement PCBoost (outil développeur, non livré dans l'installateur).
   Surveille artifacts\devloop\request.json et exécute UNIQUEMENT une liste fermée d'actions :
-  build, test, publish, installer, msi, verify-msi, launch, selfcapture, logs, crashinfo, stop, capture, install-msi, uninstall-msi, status.
+  build, test, publish, installer, msi, verify-msi, launch, selfcapture, logs, crashinfo, probe, stop, capture, install-msi, uninstall-msi, status.
   Aucune commande arbitraire n'est acceptée. Fermez la fenêtre pour arrêter l'agent.
   Au démarrage, une instance plus ancienne de l'agent est arrêtée ; si ce script change sur le disque,
   l'agent se relance lui-même (même liste fermée d'actions).
@@ -14,7 +14,7 @@ $results = Join-Path $loop 'results'
 New-Item -ItemType Directory -Force -Path $results | Out-Null
 $requestFile = Join-Path $loop 'request.json'
 $heartbeat = Join-Path $loop 'agent-alive.txt'
-$agentVersion = 4
+$agentVersion = 5
 $agentHash = (Get-FileHash -Path $PSCommandPath -Algorithm SHA256).Hash
 
 # Une seule instance : arrêter les agents plus anciens (même script, autre processus).
@@ -171,6 +171,42 @@ function Invoke-Action($req) {
             $p = Start-Process msiexec.exe -ArgumentList @('/x', "`"$($msi.FullName)`"", '/qb', '/l*v', "`"$results\$($req.id)-msi.log`"") -Wait -PassThru
             "msiexec /x -> $($p.ExitCode)" | Set-Content $log; return $p.ExitCode
         }
+        'probe' {
+            # Lecture seule, commandes fixes : disponibilité des sources Windows sans élévation (conception des diagnostics).
+            # Aucun nom de programme ni donnée d'usage n'est écrit (seulement des compteurs et des formats).
+            $out = [System.Collections.Generic.List[string]]::new()
+            function Section($title, [scriptblock] $body) {
+                $out.Add("== $title")
+                try { & $body | ForEach-Object { $out.Add("$_") } } catch { $out.Add("ERREUR : $($_.Exception.GetType().Name) : $($_.Exception.Message)") }
+            }
+            $out.Add("Élevé : $(([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator))")
+            Section 'Journal Diagnostics-Performance' {
+                $l = Get-WinEvent -ListLog 'Microsoft-Windows-Diagnostics-Performance/Operational' -ErrorAction Stop
+                "enabled=$($l.IsEnabled) records=$($l.RecordCount) mode=$($l.LogMode) max=$($l.MaximumSizeInBytes)"
+                Get-WinEvent -LogName 'Microsoft-Windows-Diagnostics-Performance/Operational' -MaxEvents 200 -ErrorAction Stop | Group-Object Id | ForEach-Object { "id $($_.Name) x$($_.Count) dernier=$(($_.Group | Select-Object -First 1).TimeCreated.ToString('s'))" }
+            }
+            Section 'Démarrage rapide et Kernel-Boot' {
+                $hb = (Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Power' -ErrorAction Stop).HiberbootEnabled
+                "HiberbootEnabled=$hb"
+                Get-WinEvent -FilterHashtable @{ LogName = 'System'; ProviderName = 'Microsoft-Windows-Kernel-Boot'; Id = 27 } -MaxEvents 5 -ErrorAction Stop | ForEach-Object { $x = [xml]$_.ToXml(); "kb27 $($_.TimeCreated.ToString('s')) " + (($x.Event.EventData.Data | ForEach-Object { "$($_.Name)=$($_.'#text')" }) -join '; ') }
+            }
+            Section 'Winlogon 7001 / Shell-Core' {
+                Get-WinEvent -FilterHashtable @{ LogName = 'System'; ProviderName = 'Microsoft-Windows-Winlogon'; Id = 7001 } -MaxEvents 3 -ErrorAction Stop | ForEach-Object { "wl7001 $($_.TimeCreated.ToString('s'))" }
+                Get-WinEvent -LogName 'Microsoft-Windows-Shell-Core/Operational' -MaxEvents 400 -ErrorAction Stop | Where-Object { $_.Id -in 9601,9602,9603,9604,9605,9606,9611,9612,9613,9614,62170,62171,27702 } | Group-Object Id | ForEach-Object { "shell id $($_.Name) x$($_.Count) dernier=$(($_.Group | Select-Object -First 1).TimeCreated.ToString('s'))" }
+            }
+            Section 'BAM (compteur uniquement)' {
+                $sid = [Security.Principal.WindowsIdentity]::GetCurrent().User.Value
+                $k = "HKLM:\SYSTEM\CurrentControlSet\Services\bam\State\UserSettings\$sid"
+                $p = (Get-Item $k -ErrorAction Stop).Property
+                "valeurs=$(@($p).Count)"
+            }
+            Section 'Prefetch' { $f = Get-ChildItem 'C:\Windows\Prefetch' -Filter *.pf -ErrorAction Stop; "fichiers=$(@($f).Count)" }
+            Section 'Dernier accès NTFS' { fsutil behavior query disablelastaccess }
+            Section 'Start_TrackProgs' { $v = (Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -ErrorAction Stop).Start_TrackProgs; "Start_TrackProgs=$v" }
+            Section 'Batterie (périphérique)' { Get-CimInstance Win32_PnPEntity -Filter "PNPClass='Battery'" -ErrorAction Stop | ForEach-Object { "batt $($_.Name) status=$($_.Status)" } }
+            $out | Set-Content $log
+            return 0
+        }
         'status' {
             $exe = Get-AppExe
             $info = [ordered]@{
@@ -186,7 +222,7 @@ function Invoke-Action($req) {
 }
 
 Write-Host "Agent de développement PCBoost actif. Dossier : $loop"
-Write-Host "Actions autorisées : build, test, publish, installer, msi, verify-msi, launch, selfcapture, logs, crashinfo, stop, capture, install-msi, uninstall-msi, status."
+Write-Host "Actions autorisées : build, test, publish, installer, msi, verify-msi, launch, selfcapture, logs, crashinfo, probe, stop, capture, install-msi, uninstall-msi, status."
 while ($true) {
     "$(Get-Date -Format s) v$agentVersion" | Set-Content $heartbeat
     $currentHash = (Get-FileHash -Path $PSCommandPath -Algorithm SHA256 -ErrorAction SilentlyContinue).Hash

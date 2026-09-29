@@ -52,6 +52,10 @@ public sealed class NativeLayoutTests
         Assert.Equal(272, (int)Marshal.OffsetOf<Dxgi.DXGI_ADAPTER_DESC1>(nameof(Dxgi.DXGI_ADAPTER_DESC1.DedicatedVideoMemory)));
         Assert.Equal(24, Unsafe.SizeOf<Shell32.SHQUERYRBINFO>());
         Assert.Equal(20, Unsafe.SizeOf<Shell32.SHQUERYRBINFO32>());
+        // SHFILEOPSTRUCTW en 64 bits : hwnd 0, wFunc 8, pFrom 16, pTo 24, fFlags 32, fAnyOperationsAborted 36, hNameMappings 40, titre 48.
+        Assert.Equal(56, Unsafe.SizeOf<Shell32.SHFILEOPSTRUCTW>());
+        Assert.Equal(32, (int)Marshal.OffsetOf<Shell32.SHFILEOPSTRUCTW>(nameof(Shell32.SHFILEOPSTRUCTW.fFlags)));
+        Assert.Equal(36, (int)Marshal.OffsetOf<Shell32.SHFILEOPSTRUCTW>(nameof(Shell32.SHFILEOPSTRUCTW.fAnyOperationsAborted)));
         Assert.Equal(40, Unsafe.SizeOf<User32.MONITORINFO>());
         Assert.Equal(8, Unsafe.SizeOf<User32.ANIMATIONINFO>());
     }

@@ -286,6 +286,8 @@
 
                 <StackPanel Spacing="14" Visibility="{x:Bind h:Ui.Show(ViewModel.OldPc.IsPreview), Mode=OneWay}">
                     <TextBlock Text="{h:Str Key=Optimization_Preview_Title}" Style="{StaticResource SectionHeaderTextStyle}" FontSize="22" />
+                    <InfoBar Severity="Informational" IsClosable="False" Title="{h:Str Key=OldPc_RestorePoint_NoticeTitle}" Message="{h:Str Key=OldPc_RestorePoint_Notice}"
+                             h:InfoBarHelper.IsShown="{x:Bind ViewModel.OldPc.ShowRestorePointNotice, Mode=OneWay}" />
                     <controls:PlanPreviewView Preview="{x:Bind ViewModel.OldPc.Preview, Mode=OneWay}" />
                     <StackPanel Orientation="Horizontal" Spacing="10">
                         <Button Style="{StaticResource HeroButtonStyle}" Content="{h:Str Key=OldPc_Action_Apply}" Command="{x:Bind ViewModel.OldPc.ApplyCommand}" />
@@ -300,6 +302,11 @@
 
                 <StackPanel Spacing="14" Visibility="{x:Bind h:Ui.Show(ViewModel.OldPc.IsReport), Mode=OneWay}">
                     <controls:ReportView Report="{x:Bind ViewModel.OldPc.Report, Mode=OneWay}" />
+                    <Grid ColumnSpacing="10" Visibility="{x:Bind h:Ui.Show(ViewModel.OldPc.HasRestorePointText), Mode=OneWay}">
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                        <FontIcon Glyph="&#xE777;" FontSize="16" VerticalAlignment="Top" Margin="0,2,0,0" Foreground="{ThemeResource BrandAccentTextBrush}" />
+                        <TextBlock Grid.Column="1" Text="{x:Bind ViewModel.OldPc.RestorePointText, Mode=OneWay}" TextWrapping="Wrap" />
+                    </Grid>
                     <TextBlock Text="{x:Bind ViewModel.OldPc.RestoreResultText, Mode=OneWay}" Style="{StaticResource SecondaryTextStyle}"
                                Visibility="{x:Bind h:Ui.Show(ViewModel.OldPc.IsRestored), Mode=OneWay}" />
                     <StackPanel Orientation="Horizontal" Spacing="10">

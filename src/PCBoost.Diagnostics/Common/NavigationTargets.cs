@@ -16,6 +16,7 @@ internal static class NavigationTargets
     public const string Diagnosis = "diagnosis";
     public const string Storage = "storage";
     public const string OldPc = "oldpc";
+    public const string Health = "health";
 }
 
 /// <summary>Identifiants des optimisations proposées par les recommandations (module Optimization).</summary>

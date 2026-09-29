@@ -1,3 +1,4 @@
+using PCBoost.Core.Privacy;
 using System.Globalization;
 using System.Text;
 using Microsoft.Extensions.Logging;

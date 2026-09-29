@@ -2,8 +2,10 @@ using System.Globalization;
 using PCBoost.Core.Abstractions.Platform;
 using PCBoost.Core.Cleanup;
 using PCBoost.Core.Common;
+using PCBoost.Core.Models.Health;
 using PCBoost.Platform;
 using PCBoost.Platform.Elevation;
+using PCBoost.Platform.Health;
 
 namespace PCBoost.Elevator;
 
@@ -53,6 +55,44 @@ internal static class ElevatedOperationExecutor
             : registry.SetValue(operation.Location, operation.ValueName, RegistryValueData.Binary(operation.Value));
         log.Write($"Registre {operation.Operation} ({operation.View}) : {(outcome.Success ? "succès" : outcome.Error.ToString())}");
         return new ElevatedResponse(outcome, new Dictionary<string, string>());
+    }
+
+    /// <summary>Diagnostics et point de restauration : opérations sans paramètre, sources fixes.</summary>
+    public static ElevatedResponse Health(ValidatedHealthOperation operation, ElevatorLog log)
+    {
+        var logger = Microsoft.Extensions.Logging.Abstractions.NullLogger.Instance;
+        var now = DateTimeOffset.UtcNow;
+        switch (operation.Name)
+        {
+            case ElevatedHealthOperations.DiskReliability:
+            {
+                var disks = ElevatedHealthReaders.ReadDiskReliability(now, logger);
+                log.Write($"Fiabilité des disques : {disks.Count} disque(s)");
+                return new ElevatedResponse(OperationResult.Ok(), HealthElevatedData.EncodeDisks(disks));
+            }
+            case ElevatedHealthOperations.BootPerformance:
+            {
+                var (boots, degradations, denied) = ElevatedHealthReaders.ReadBootPerformance();
+                log.Write($"Mesures de démarrage : {boots.Count} démarrage(s), {degradations.Count} ralentissement(s)");
+                return denied
+                    ? new ElevatedResponse(OperationResult.Fail(OperationErrorKind.AccessDenied, TextRef.Of("Sys_ElevationFailed")), new Dictionary<string, string>())
+                    : new ElevatedResponse(OperationResult.Ok(), HealthElevatedData.EncodeBoot(boots, degradations));
+            }
+            case ElevatedHealthOperations.RestorePointCreate:
+            {
+                var (status, createdAt) = ElevatedHealthReaders.CreateRestorePoint(now, logger);
+                log.Write($"Point de restauration : {status}");
+                return new ElevatedResponse(OperationResult.Ok(), HealthElevatedData.EncodeRestorePoint(status, createdAt));
+            }
+            case ElevatedHealthOperations.AppsLastRun:
+            {
+                var lastRun = ElevatedHealthReaders.ReadLastRun(logger);
+                log.Write($"Dernière exécution des programmes : {lastRun.Count} entrée(s)");
+                return new ElevatedResponse(OperationResult.Ok(), HealthElevatedData.EncodeLastRun(lastRun));
+            }
+            default:
+                return new ElevatedResponse(OperationResult.Fail(OperationErrorKind.Blocked, TextRef.Of("Sys_ElevatedOperationRefused")), new Dictionary<string, string>());
+        }
     }
 
     /// <summary>Activation ou désactivation d'une tâche planifiée non Microsoft.</summary>

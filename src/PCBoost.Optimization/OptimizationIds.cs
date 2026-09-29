@@ -4,7 +4,7 @@ namespace PCBoost.Optimization;
 public static class OptimizationIds
 {
     public const string TemporaryFiles = "temp-files";
-    public const string StartupApps = "startup-apps";
+    public const string StartupApps = Core.Optimization.StartupChangeSources.StartupApps;
     public const string PowerPlan = "power-plan";
     public const string VisualEffects = "visual-effects";
     public const string BackgroundApps = "background-apps";
@@ -20,6 +20,6 @@ public static class OptimizationIds
 
     /// <summary>Consignations faites hors des modules (actions manuelles de l'utilisateur).</summary>
     internal const string CleanupManual = "cleanup";
-    internal const string StartupManual = "startup-manager";
+    internal const string StartupManual = Core.Optimization.StartupChangeSources.StartupManager;
     internal const string AutomaticCleanup = "automatic-cleanup";
 }

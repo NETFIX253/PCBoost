@@ -170,6 +170,15 @@ public sealed partial class StartupItemViewModel : ObservableObject
 
     internal void SetToggling(bool value) => IsToggling = value;
 
+    /// <summary>« A ralenti le démarrage (+4 s) » d'après les mesures de Windows ; null si non concerné.</summary>
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(HasBootDelay))]
+    public partial string? BootDelayText { get; private set; }
+
+    public bool HasBootDelay => !string.IsNullOrEmpty(BootDelayText);
+
+    internal void SetBootDelay(string? text) => BootDelayText = text;
+
     partial void OnIsEnabledChanged(bool value)
     {
         if (_suppressToggle || _toggle is null) return;
@@ -199,10 +208,11 @@ public sealed partial class StartupViewModel : ViewModelBase
     private readonly IStartupService _startup;
     private readonly List<StartupItemViewModel> _all = [];
 
-    public StartupViewModel(ViewModelContext context, IStartupService startup)
+    public StartupViewModel(ViewModelContext context, IStartupService startup, IBootTimeService? bootTime = null)
         : base(context)
     {
         _startup = startup;
+        _bootTime = bootTime;
         Filters =
         [
             new OptionItem(nameof(StartupFilter.All), T("Startup_Filter_All")),
@@ -240,7 +250,11 @@ public sealed partial class StartupViewModel : ViewModelBase
     [ObservableProperty]
     public partial int RecommendedCount { get; private set; }
 
-    protected override Task OnActivatedAsync(object? parameter, CancellationToken cancellationToken) => RefreshAsync(cancellationToken);
+    protected override async Task OnActivatedAsync(object? parameter, CancellationToken cancellationToken)
+    {
+        await RefreshAsync(cancellationToken).ConfigureAwait(true);
+        await RunSafeAsync(LoadBootAsync, cancellationToken, trackBusy: false).ConfigureAwait(true);
+    }
 
     partial void OnSelectedFilterIndexChanged(int value) => ApplyFilter();
 
@@ -262,6 +276,7 @@ public sealed partial class StartupViewModel : ViewModelBase
             }
 
             IsLoaded = true;
+            MarkSlowedItems();
             UpdateSummary();
             ApplyFilter();
         }, cancellationToken).ConfigureAwait(true);

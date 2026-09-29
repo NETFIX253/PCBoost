@@ -293,6 +293,12 @@ public sealed partial class CleanupViewModel : ViewModelBase
     [RelayCommand]
     private void OpenStorage() => Navigation.Navigate(PageKeys.Storage);
 
+    [RelayCommand]
+    private void OpenPrograms() => Navigation.Navigate(PageKeys.Programs);
+
+    [RelayCommand]
+    private void OpenFiles() => Navigation.Navigate(PageKeys.Files);
+
     private void ApplySummary(CleanupSummary summary, IReadOnlyList<CleanupCategoryItemViewModel> selected)
     {
         ResultTitle = T("Cleanup_Page_Result_Freed", Formatter.Bytes(summary.TotalBytesFreed));

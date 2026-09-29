@@ -2,6 +2,7 @@ using Microsoft.UI.Xaml;
 using PCBoost.App.Controls;
 using PCBoost.Core.Common;
 using PCBoost.Core.Models.Analysis;
+using PCBoost.Presentation.ViewModels;
 
 namespace PCBoost.App.Helpers;
 
@@ -25,6 +26,8 @@ public static class Ui
     public static Visibility ShowNotNull(object? value) => value is null ? Visibility.Collapsed : Visibility.Visible;
 
     public static bool Not(bool value) => !value;
+
+    public static bool HasText(string? value) => !string.IsNullOrWhiteSpace(value);
 
     public static bool And(bool a, bool b) => a && b;
 
@@ -82,5 +85,22 @@ public static class Ui
         SafetyCategory.Safe => BadgeKind.Success,
         SafetyCategory.Caution => BadgeKind.Caution,
         _ => BadgeKind.Critical,
+    };
+
+    public static BadgeKind HealthKind(HealthLevel level) => level switch
+    {
+        HealthLevel.Good => BadgeKind.Success,
+        HealthLevel.Warning => BadgeKind.Caution,
+        HealthLevel.Critical => BadgeKind.Critical,
+        _ => BadgeKind.Neutral,
+    };
+
+    /// <summary>Glyphe d'état (toujours accompagné du libellé) : coche, avertissement, erreur ou inconnu.</summary>
+    public static string HealthGlyph(HealthLevel level) => level switch
+    {
+        HealthLevel.Good => "\uE73E",
+        HealthLevel.Warning => "\uE7BA",
+        HealthLevel.Critical => "\uEA39",
+        _ => "\uE9CE",
     };
 }

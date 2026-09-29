@@ -10,6 +10,7 @@ public static class PageRegistry
         [PageKeys.Welcome] = (typeof(WelcomeViewModel), "Welcome_Title"),
         [PageKeys.Home] = (typeof(HomeViewModel), "Home_Title"),
         [PageKeys.Analysis] = (typeof(AnalysisViewModel), "Analysis_Title"),
+        [PageKeys.Health] = (typeof(HealthViewModel), "Health_Title"),
         [PageKeys.Diagnosis] = (typeof(DiagnosisViewModel), "Diagnosis_Title"),
         [PageKeys.Optimization] = (typeof(OptimizationViewModel), "Optimization_Title"),
         [PageKeys.OldPc] = (typeof(OldPcViewModel), "OldPc_Title"),
@@ -26,6 +27,10 @@ public static class PageRegistry
         [PageKeys.About] = (typeof(AboutViewModel), "About_Title"),
         [PageKeys.Storage] = (typeof(StorageViewModel), "Storage_Title"),
         [PageKeys.Expert] = (typeof(ExpertViewModel), "Expert_Title"),
+        [PageKeys.Report] = (typeof(DiagnosticReportViewModel), "Report_Title"),
+        [PageKeys.Programs] = (typeof(ProgramsViewModel), "Programs_Title"),
+        [PageKeys.Files] = (typeof(FilesViewModel), "Files_Title"),
+        [PageKeys.GameProfile] = (typeof(GameProfileViewModel), "GameProfile_Title"),
         [Profiles] = (typeof(ProfilesViewModel), "Profiles_Title"),
     };
 

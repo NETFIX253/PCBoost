@@ -182,7 +182,26 @@ de sécurité ne peuvent pas être désactivés par PCBoost. Rien n'est jamais d
 
 ---
 
-## 6. Optimisations volontairement NON implémentées
+## 6. Point de restauration, désinstallation assistée, gros fichiers et doublons
+
+- **Point de restauration Windows** (réglage activé par défaut) : avant le niveau Avancé de l'assistant PC ancien,
+  `RestorePointService` demande `restorepoint.create` à l'assistant administrateur. Un point de moins de 24 heures est
+  réutilisé (comme Windows) ; protection du système désactivée ou refus d'autorisation → l'utilisateur choisit de continuer
+  sans point (la restauration propre à PCBoost reste active) ou d'annuler. Le résultat figure au journal et au rapport.
+- **Désinstallation assistée** : inventaire des clés de désinstallation sans mises à jour, composants système, entrées
+  non désinstallables, composants d'exécution (Visual C++, .NET, Windows App Runtime, WebView2…), pilotes, logiciels de
+  sécurité ni PCBoost. « Peu utilisé » = dernière utilisation connue il y a plus de 90 jours (Prefetch lu avec
+  autorisation, sinon dernier accès aux fichiers, qui ne peut que surestimer l'usage récent). Le programme officiel est
+  lancé après confirmation (action définitive), puis PCBoost attend la disparition de la clé (10 minutes au plus,
+  l'utilisateur peut arrêter d'attendre ; le programme de désinstallation n'est jamais interrompu).
+- **Gros fichiers et doublons** : Documents, Téléchargements, Bureau, Images, Vidéos, Musique ; fichiers ≥ 256 Mo (100 au
+  plus) et doublons ≥ 1 Mo confirmés par taille, échantillons de début et de fin puis SHA-256 complet (20 Go comparés au
+  plus). Rien n'est présélectionné ; une copie de chaque groupe est toujours conservée ; chaque fichier est revérifié
+  (présence, taille, date) avant l'envoi à la Corbeille.
+
+---
+
+## 7. Optimisations volontairement NON implémentées
 
 | « Optimisation » | Pourquoi PCBoost refuse |
 |---|---|

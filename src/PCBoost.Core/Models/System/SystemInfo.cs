@@ -99,7 +99,9 @@ public sealed record SystemMetricsSample(
     long? GpuDedicatedMemoryUsedBytes,
     double? NetworkReceiveBytesPerSec,
     double? NetworkSendBytesPerSec,
-    int ProcessCount);
+    int ProcessCount,
+    // Performance du processeur en % de sa fréquence de base (> 100 en mode turbo) ; null si non mesurée.
+    double? ProcessorPerformancePercent = null);
 
 /// <summary>Températures : chaque valeur peut être indisponible (§27).</summary>
 public sealed record TemperatureReadings(SensorReading Cpu, SensorReading Gpu, SensorReading Storage)

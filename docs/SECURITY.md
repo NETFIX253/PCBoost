@@ -6,7 +6,7 @@
 
 1. Aucune optimisation n'est appliquée sans vérification de sa pertinence sur ce PC.
 2. L'utilisateur voit ce qui va être modifié **avant** l'application (aperçu), et peut refuser.
-3. Chaque modification du système est **réversible** et enregistrée avant d'être faite ; les rares actions irréversibles (suppression de fichiers temporaires, vidage de la corbeille) sont signalées comme telles et confirmées.
+3. Chaque modification du système est **réversible** et enregistrée avant d'être faite ; les rares actions irréversibles (suppression de fichiers temporaires, vidage de la corbeille, désinstallation d'un programme par son programme officiel) sont signalées comme telles et confirmées. Les fichiers personnels choisis sur la page « Gros fichiers et doublons » vont uniquement à la Corbeille ; si Windows ne peut pas les y placer, il demande avant toute suppression définitive.
 4. Aucun gain n'est promis : seuls les écarts mesurés (avant / après) sont affichés.
 5. Aucune modification permanente non documentée : tout est visible dans l'Historique et le Mode Expert.
 
@@ -33,7 +33,12 @@
   - `registry.set` / `registry.delete` — uniquement sous `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\{Run, Run32, StartupFolder}` (activation d'un élément de démarrage « tous les utilisateurs », comme le Gestionnaire des tâches).
   - `task.setenabled` — activer/désactiver une tâche planifiée de démarrage **non Microsoft**.
   - `frames.capture` — session ETW de présentation d'images pour un PID donné, diffusée par canal nommé à usage unique.
+  - `disk.reliability` — lecture seule des compteurs de fiabilité des disques (`MSFT_StorageReliabilityCounter` : usure, température, heures de fonctionnement, erreurs de lecture) ; aucun paramètre.
+  - `boot.performance` — lecture seule du journal *Diagnostics-Performance* (durées de démarrage, éléments ayant ralenti le démarrage) ; aucun paramètre.
+  - `apps.lastrun` — lecture seule des **noms** des fichiers du dossier Prefetch et de leur date (dernière exécution d'un programme) ; le contenu des fichiers n'est pas lu ; aucun paramètre.
+  - `restorepoint.create` — création d'un point de restauration Windows (« PCBoost - avant optimisation avancée ») avant le niveau Avancé de l'assistant PC ancien ; un point de moins de 24 heures est réutilisé, la création est vérifiée ; la protection du système n'est jamais activée ni modifiée ; aucun paramètre.
 - Toute autre demande est refusée ; l'annulation de l'invite UAC est traitée comme un refus (aucune action).
+- La désinstallation assistée ne passe pas par l'assistant administrateur : PCBoost lance le programme officiel de l'éditeur (Windows gère l'invite d'autorisation). Seules deux formes de commande sont acceptées — Windows Installer avec un code produit, toujours en mode interactif (`msiexec /x {code}`), ou un exécutable désigné par un chemin absolu — ; les interpréteurs de commandes et hôtes de scripts (`cmd`, PowerShell, `rundll32`, `mshta`…) sont refusés, la commande est relue dans le registre juste avant le lancement et aucune option silencieuse n'est ajoutée. Mises à jour, pilotes, composants d'exécution, logiciels de sécurité et PCBoost ne sont jamais proposés.
 
 ## 4. Restauration et récupération
 
@@ -56,6 +61,8 @@
 - Les journaux masquent le chemin du profil (`%USERPROFILE%`), le nom d'utilisateur (`<user>`) et le nom du PC (`<machine>`) ; si le filtrage échoue, le message est remplacé plutôt qu'écrit en clair.
 - PCBoost ne lit pas le contenu des documents, ne collecte ni historique de navigation ni identifiants ; le nettoyage des caches de navigateurs ne touche ni favoris, ni mots de passe, ni historique.
 - La page *Confidentialité* de l'application liste ces données et ouvre les dossiers correspondants.
+- Le **rapport de diagnostic** est produit localement et n'est jamais envoyé : l'utilisateur en voit l'aperçu, choisit son contenu (nom du PC exclu par défaut, journaux anonymisés et historique inclus) et l'enregistre lui-même. Le nom d'utilisateur, le dossier personnel et le nom du PC sont masqués ; les chemins des processus ne figurent pas dans le rapport. L'aperçu utilise un moteur WebView2 isolé (dossier de données propre à PCBoost, scripts, menus contextuels, outils de développement et navigation externe désactivés).
+- La recherche de doublons lit le contenu des fichiers des dossiers personnels uniquement pour en calculer l'empreinte (SHA-256), localement ; les fichiers cachés, système, en ligne (OneDrive non téléchargés) et les liens ne sont pas lus.
 
 ## 7. Signaler un problème de sécurité
 

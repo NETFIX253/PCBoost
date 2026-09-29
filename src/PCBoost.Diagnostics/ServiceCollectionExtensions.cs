@@ -5,6 +5,7 @@ using PCBoost.Core.Localization;
 using PCBoost.Core.Services;
 using PCBoost.Diagnostics.Analysis;
 using PCBoost.Diagnostics.Hardware;
+using PCBoost.Diagnostics.Health;
 using PCBoost.Diagnostics.Monitoring;
 using PCBoost.Diagnostics.Recommendations;
 using PCBoost.Diagnostics.Rules;
@@ -23,7 +24,7 @@ public static class ServiceCollectionExtensions
     /// IScanHistoryRepository, IPerformanceSnapshotRepository et la journalisation.
     /// Les options (<see cref="SystemAnalyzerOptions"/>…) peuvent être enregistrées avant cet appel pour être remplacées.
     /// L'application démarre elle-même la surveillance (<see cref="IPerformanceMonitor.Start"/>) et l'historique
-    /// (<see cref="PerformanceHistoryRecorder.Start"/>).
+    /// (<see cref="PerformanceHistoryRecorder.Start"/>), la détection de limitation thermique et la vérification de la santé matérielle.
     /// </summary>
     public static IServiceCollection AddPCBoostDiagnostics(this IServiceCollection services)
     {
@@ -51,6 +52,10 @@ public static class ServiceCollectionExtensions
         services.TryAddEnumerable(ServiceDescriptor.Singleton<IHealthRule, BackgroundProcessesRule>());
         services.TryAddEnumerable(ServiceDescriptor.Singleton<IHealthRule, PowerSaverOnAcRule>());
         services.TryAddEnumerable(ServiceDescriptor.Singleton<IHealthRule, UnsupportedBuildRule>());
+        services.TryAddEnumerable(ServiceDescriptor.Singleton<IHealthRule, DiskHealthRule>());
+        services.TryAddEnumerable(ServiceDescriptor.Singleton<IHealthRule, BatteryWearRule>());
+        services.TryAddEnumerable(ServiceDescriptor.Singleton<IHealthRule, DeviceProblemRule>());
+        services.TryAddEnumerable(ServiceDescriptor.Singleton<IHealthRule, ThermalLimitRule>());
 
         services.TryAddSingleton<IHealthRulesEngine, HealthRulesEngine>();
         services.TryAddSingleton<IPerformanceScoreCalculator, PerformanceScoreCalculator>();
@@ -63,6 +68,11 @@ public static class ServiceCollectionExtensions
         services.TryAddSingleton<IPerformanceMonitor>(sp => sp.GetRequiredService<PerformanceMonitor>());
         services.TryAddSingleton<PerformanceHistoryRecorder>();
         services.TryAddSingleton<IPerformanceHistoryService>(sp => sp.GetRequiredService<PerformanceHistoryRecorder>());
+
+        // Santé du matériel (IHardwareHealthProvider et IElevationService fournis par la plateforme).
+        services.TryAddSingleton<IThermalThrottlingDetector, ThermalThrottlingDetector>();
+        services.TryAddSingleton<IHardwareHealthService, HardwareHealthService>();
+        services.TryAddSingleton<IBootTimeService, BootTimeService>();
 
         services.TryAddSingleton<ISystemAnalyzer, SystemAnalyzer>();
         services.TryAddSingleton<ISlowPcDiagnosticService, SlowPcDiagnosticService>();

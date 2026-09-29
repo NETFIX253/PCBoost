@@ -2,6 +2,7 @@ using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using PCBoost.Core.Common;
+using PCBoost.Core.Models.Health;
 using PCBoost.Core.Localization;
 using PCBoost.Core.Models.Analysis;
 using PCBoost.Core.Models.Optimization;
@@ -76,6 +77,7 @@ public sealed partial class OldPcViewModel : ViewModelBase
     private readonly IOptimizationManager _manager;
     private readonly IRollbackManager _rollback;
     private readonly ISettingsService _settings;
+    private readonly IRestorePointService? _restorePoints;
     private SystemAnalysisReport? _analysis;
 
     public OldPcViewModel(
@@ -84,9 +86,11 @@ public sealed partial class OldPcViewModel : ViewModelBase
         ISystemAnalyzer analyzer,
         IOptimizationManager manager,
         IRollbackManager rollback,
-        ISettingsService settings)
+        ISettingsService settings,
+        IRestorePointService? restorePoints = null)
         : base(context)
     {
+        _restorePoints = restorePoints;
         _assistant = assistant;
         _analyzer = analyzer;
         _manager = manager;
@@ -127,6 +131,7 @@ public sealed partial class OldPcViewModel : ViewModelBase
     public ObservableCollection<OldPcLevelViewModel> Levels { get; } = [];
 
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(ShowRestorePointNotice))]
     public partial OldPcLevelViewModel? SelectedLevel { get; private set; }
 
     [ObservableProperty]
@@ -262,6 +267,9 @@ public sealed partial class OldPcViewModel : ViewModelBase
         }
 
         var plan = preview.BuildPlan(confirmed && preview.HasIrreversibleSelected, confirmed && preview.HasHighRiskSelected);
+        RestorePointText = string.Empty;
+        if (level.IsAdvanced && WillCreateRestorePoint && !await CreateRestorePointAsync().ConfigureAwait(true)) return;
+
         ProgressSteps.Reset(Steps);
         ApplyProgressPercent = 0;
         Phase = OldPcPhase.Applying;
@@ -287,6 +295,62 @@ public sealed partial class OldPcViewModel : ViewModelBase
     }
 
     private bool CanApply() => Phase == OldPcPhase.Preview && Preview?.HasSelection == true;
+
+    /// <summary>Le niveau Avancé sera précédé d'un point de restauration Windows (réglage activé par défaut).</summary>
+    public bool WillCreateRestorePoint => _restorePoints is not null && _settings.Current.CreateRestorePointBeforeAdvanced;
+
+    /// <summary>Avis affiché dans l'aperçu du niveau Avancé.</summary>
+    public bool ShowRestorePointNotice => WillCreateRestorePoint && SelectedLevel?.IsAdvanced == true;
+
+    /// <summary>« Point de restauration Windows créé le … » (rapport du niveau Avancé).</summary>
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(HasRestorePointText))]
+    public partial string RestorePointText { get; private set; } = string.Empty;
+
+    public bool HasRestorePointText => !string.IsNullOrEmpty(RestorePointText);
+
+    /// <summary>
+    /// Crée le point de restauration avant le niveau Avancé. S'il n'a pas pu être créé (protection du système désactivée,
+    /// autorisation refusée…), l'utilisateur choisit de continuer ou non : la restauration propre à PCBoost reste active.
+    /// Renvoie false si l'application doit être abandonnée.
+    /// </summary>
+    private async Task<bool> CreateRestorePointAsync()
+    {
+        Phase = OldPcPhase.Applying;
+        ProgressSteps.Reset(Steps);
+        ApplyProgressPercent = 0;
+        CurrentActionText = T("OldPc_RestorePoint_Creating");
+        RestorePointResult? result = null;
+        var ok = await RunSafeAsync(async ct => result = await _restorePoints!.CreateAsync(ct).ConfigureAwait(true), linkToPage: false).ConfigureAwait(true);
+        if (!ok || result is null)
+        {
+            Phase = OldPcPhase.Preview;
+            return false;
+        }
+
+        if (result.IsAvailable)
+        {
+            RestorePointText = result.Status == RestorePointStatus.Created
+                ? T("OldPc_RestorePoint_Created", Formatter.DateTimeFull(result.PointCreatedAt ?? Context.Clock.UtcNow))
+                : T("OldPc_RestorePoint_Recent", Formatter.DateTimeFull(result.PointCreatedAt));
+            return true;
+        }
+
+        var answer = await Dialogs.ConfirmAsync(new ConfirmationRequest(
+            TextRef.Of("OldPc_RestorePoint_ContinueTitle"),
+            TextRef.Of("OldPc_RestorePoint_ContinueMessage"),
+            TextRef.Of("OldPc_RestorePoint_Continue"),
+            CloseButton: TextRef.Of("Common_Action_Cancel"),
+            Details: result.Message is { } message ? [message] : null)).ConfigureAwait(true);
+        if (answer != DialogResultKind.Primary)
+        {
+            Phase = OldPcPhase.Preview;
+            return false;
+        }
+
+        RestorePointText = T("OldPc_RestorePoint_None", result.Message is { } m ? T(m) : string.Empty).TrimEnd();
+        return true;
+    }
 
     [RelayCommand(CanExecute = nameof(CanRestore))]
     private async Task RestoreAsync()

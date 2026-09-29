@@ -26,6 +26,7 @@ public static class Glyphs
     public const string Diagnosis = "";
     public const string Benchmark = "";
     public const string OldPc = "";
+    public const string Health = "\uE95E";
     public const string Profiles = "";
 
     // États et sévérités (toujours accompagnés d'un libellé textuel)

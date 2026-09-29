@@ -31,6 +31,7 @@ public static class ServiceCollectionExtensions
         services.AddTransient<HomeViewModel>();
         services.AddTransient<AnalysisViewModel>();
         services.AddTransient<DiagnosisViewModel>();
+        services.AddTransient<HealthViewModel>();
         services.AddTransient<OptimizationViewModel>();
         services.AddTransient<ProfilesViewModel>();
         services.AddTransient<OldPcViewModel>();
@@ -47,6 +48,10 @@ public static class ServiceCollectionExtensions
         services.AddTransient<AboutViewModel>();
         services.AddTransient<StorageViewModel>();
         services.AddTransient<ExpertViewModel>();
+        services.AddTransient<DiagnosticReportViewModel>();
+        services.AddTransient<ProgramsViewModel>();
+        services.AddTransient<FilesViewModel>();
+        services.AddTransient<GameProfileViewModel>();
 
         services.AddSingleton<IStringResourceSource>(
             ResourceManagerStringSource.ForAssembly(typeof(ServiceCollectionExtensions).Assembly, "PCBoost.Presentation.Resources.Strings"));

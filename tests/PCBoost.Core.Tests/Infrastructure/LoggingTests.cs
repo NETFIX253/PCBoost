@@ -1,3 +1,4 @@
+using PCBoost.Core.Privacy;
 using Microsoft.Extensions.Logging;
 using PCBoost.Infrastructure.Logging;
 
@@ -20,6 +21,17 @@ public sealed class LoggingTests
     [InlineData("", "")]
     public void Personal_data_is_masked(string input, string expected)
         => Assert.Equal(expected, Redactor.Redact(input));
+
+    [Fact]
+    public void Machine_name_containing_the_user_name_is_masked_whole()
+        => Assert.Equal("Démarrage sur <machine> par <user>", new SensitiveDataRedactor(@"C:\Users\amin", "amin", "BUREAU-AMIN").Redact("Démarrage sur BUREAU-AMIN par amin"));
+
+    [Fact]
+    public void Very_short_user_name_is_matched_case_sensitively()
+    {
+        var redactor = new SensitiveDataRedactor(@"C:\Users\hp", "hp", "LAPTOP-7Q");
+        Assert.Equal("Batterie HP Primary, session <user>, %USERPROFILE%\\Documents", redactor.Redact(@"Batterie HP Primary, session hp, C:\Users\hp\Documents"));
+    }
 
     [Fact]
     public void Short_or_missing_identities_are_ignored()

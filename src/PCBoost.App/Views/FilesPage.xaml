@@ -1,0 +1,134 @@
+<local:ViewPage
+    x:Class="PCBoost.App.Views.FilesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PCBoost.App.Views"
+    xmlns:h="using:PCBoost.App.Helpers"
+    xmlns:controls="using:PCBoost.App.Controls"
+    xmlns:vm="using:PCBoost.Presentation.ViewModels">
+
+    <Page.Resources>
+        <DataTemplate x:Key="FileRowTemplate" x:DataType="vm:FileItemViewModel">
+            <Border Padding="0,10,0,10" BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}" BorderThickness="0,0,0,1"
+                    AutomationProperties.Name="{x:Bind AccessibleName}">
+                <Grid ColumnSpacing="12">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                    <CheckBox MinWidth="0" VerticalAlignment="Center" IsChecked="{x:Bind IsSelected, Mode=TwoWay}" AutomationProperties.Name="{x:Bind Name}" />
+                    <StackPanel Grid.Column="1" Spacing="2" VerticalAlignment="Center">
+                        <TextBlock Text="{x:Bind Name}" TextTrimming="CharacterEllipsis" />
+                        <TextBlock Style="{StaticResource CaptionSecondaryTextStyle}" TextTrimming="CharacterEllipsis" ToolTipService.ToolTip="{x:Bind FolderText}">
+                            <Run Text="{x:Bind FolderText}" /><Run Text="  ·  " /><Run Text="{x:Bind DateText}" />
+                        </TextBlock>
+                    </StackPanel>
+                    <TextBlock Grid.Column="2" Text="{x:Bind SizeText}" Style="{StaticResource BodyStrongTextBlockStyle}" VerticalAlignment="Center" />
+                    <Button Grid.Column="3" Style="{StaticResource QuietButtonStyle}" Padding="8" Command="{x:Bind RevealCommand}" VerticalAlignment="Center"
+                            AutomationProperties.Name="{h:Str Key=Files_Action_Reveal}" ToolTipService.ToolTip="{h:Str Key=Files_Action_Reveal}">
+                        <FontIcon Glyph="&#xE838;" FontSize="14" />
+                    </Button>
+                </Grid>
+            </Border>
+        </DataTemplate>
+    </Page.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel MaxWidth="{StaticResource ContentMaxWidth}" Padding="{StaticResource PagePadding}" Spacing="20">
+            <Grid ColumnSpacing="16">
+                <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                <StackPanel Spacing="6">
+                    <TextBlock Text="{h:Str Key=Files_Title}" Style="{StaticResource PageTitleTextStyle}" />
+                    <TextBlock Text="{h:Str Key=Files_Subtitle}" Style="{StaticResource PageSubtitleTextStyle}" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8" VerticalAlignment="Top">
+                    <Button Style="{StaticResource SecondaryButtonStyle}" Command="{x:Bind ViewModel.ScanCommand}">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <FontIcon Glyph="&#xE72C;" FontSize="14" />
+                            <TextBlock Text="{h:Str Key=Files_Action_Scan}" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+            <InfoBar Severity="Error" h:InfoBarHelper.IsShown="{x:Bind ViewModel.HasError, Mode=OneWay}" Message="{x:Bind ViewModel.ErrorText, Mode=OneWay}"
+                     Title="{h:Str Key=Common_Label_ErrorTitle}" CloseButtonCommand="{x:Bind ViewModel.DismissErrorCommand}" />
+            <InfoBar Severity="Success" h:InfoBarHelper.IsShown="{x:Bind ViewModel.HasStatusMessage, Mode=OneWay}" Message="{x:Bind ViewModel.StatusMessage, Mode=OneWay}"
+                     CloseButtonCommand="{x:Bind ViewModel.DismissStatusCommand}" />
+
+            <Border Style="{StaticResource CardStyle}" Padding="24,18,24,18" Visibility="{x:Bind h:Ui.Show(ViewModel.IsScanning), Mode=OneWay}">
+                <Grid ColumnSpacing="16">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="{x:Bind ViewModel.ProgressText, Mode=OneWay}" />
+                        <ProgressBar IsIndeterminate="True" />
+                    </StackPanel>
+                    <Button Grid.Column="1" Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Common_Action_Cancel}" Command="{x:Bind ViewModel.ScanCancelCommand}" VerticalAlignment="Center" />
+                </Grid>
+            </Border>
+
+            <!-- Barre d'action : sélection et Corbeille -->
+            <Border Style="{StaticResource CardStyle}" Padding="24,16,24,16" Visibility="{x:Bind h:Ui.Show(ViewModel.HasResult), Mode=OneWay}">
+                <Grid ColumnSpacing="16" RowSpacing="6">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                    <StackPanel Spacing="4">
+                        <TextBlock Text="{x:Bind ViewModel.SelectionText, Mode=OneWay}" Style="{StaticResource GroupHeaderTextStyle}" />
+                        <TextBlock Text="{x:Bind ViewModel.SummaryText, Mode=OneWay}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap" />
+                        <TextBlock Text="{h:Str Key=Files_RecycleNote}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                        <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Files_Action_ClearSelection}" Command="{x:Bind ViewModel.ClearSelectionCommand}"
+                                IsEnabled="{x:Bind ViewModel.HasSelection, Mode=OneWay}" />
+                        <Button Style="{StaticResource PrimaryButtonStyle}" Command="{x:Bind ViewModel.RecycleCommand}">
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <FontIcon Glyph="&#xE74D;" FontSize="14" />
+                                <TextBlock Text="{h:Str Key=Files_Action_Recycle}" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <InfoBar Severity="Informational" IsClosable="False" Message="{x:Bind ViewModel.LimitedText, Mode=OneWay}"
+                     h:InfoBarHelper.IsShown="{x:Bind h:Ui.HasText(ViewModel.LimitedText), Mode=OneWay}" />
+
+            <!-- Gros fichiers -->
+            <StackPanel Spacing="10" Visibility="{x:Bind h:Ui.Show(ViewModel.HasResult), Mode=OneWay}">
+                <TextBlock Text="{h:Str Key=Files_Large_Header}" Style="{StaticResource SectionHeaderTextStyle}" />
+                <Border Style="{StaticResource SubtleSurfaceStyle}" Visibility="{x:Bind h:Ui.Hide(ViewModel.HasLargeFiles), Mode=OneWay}">
+                    <TextBlock Text="{h:Str Key=Files_Large_None}" TextWrapping="Wrap" />
+                </Border>
+                <Border Style="{StaticResource CardStyle}" Padding="20,2,20,2" Visibility="{x:Bind h:Ui.Show(ViewModel.HasLargeFiles), Mode=OneWay}">
+                    <ItemsControl h:ListDividers.HideLast="True" ItemsSource="{x:Bind ViewModel.LargeFiles}" ItemTemplate="{StaticResource FileRowTemplate}" IsTabStop="False" />
+                </Border>
+            </StackPanel>
+
+            <!-- Doublons -->
+            <StackPanel Spacing="10" Visibility="{x:Bind h:Ui.Show(ViewModel.HasResult), Mode=OneWay}">
+                <TextBlock Text="{h:Str Key=Files_Duplicates_Header}" Style="{StaticResource SectionHeaderTextStyle}" />
+                <TextBlock Text="{x:Bind ViewModel.DuplicatesSummary, Mode=OneWay}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap" />
+                <ItemsControl ItemsSource="{x:Bind ViewModel.DuplicateGroups}" IsTabStop="False">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate><StackPanel Spacing="12" /></ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="vm:DuplicateGroupViewModel">
+                            <Border Style="{StaticResource CardStyle}" Padding="20,14,20,6">
+                                <StackPanel Spacing="4">
+                                    <Grid ColumnSpacing="12">
+                                        <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                        <StackPanel Spacing="2">
+                                            <TextBlock Text="{x:Bind Title}" Style="{StaticResource GroupHeaderTextStyle}" TextTrimming="CharacterEllipsis" />
+                                            <TextBlock Text="{x:Bind DetailText}" Style="{StaticResource CaptionSecondaryTextStyle}" />
+                                        </StackPanel>
+                                        <HyperlinkButton Grid.Column="1" Content="{h:Str Key=Files_Action_SelectCopies}" Command="{x:Bind SelectCopiesCommand}" VerticalAlignment="Top" />
+                                    </Grid>
+                                    <TextBlock Text="{x:Bind KeepHint}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="Wrap"
+                                               Foreground="{ThemeResource SystemFillColorCautionBrush}" Visibility="{x:Bind h:Ui.Show(ShowKeepHint), Mode=OneWay}" />
+                                    <ItemsControl h:ListDividers.HideLast="True" ItemsSource="{x:Bind Files}" ItemTemplate="{StaticResource FileRowTemplate}" IsTabStop="False" />
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</local:ViewPage>

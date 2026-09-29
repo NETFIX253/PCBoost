@@ -66,6 +66,17 @@ public sealed class SqliteGamingSessionRepository : IGamingSessionRepository
             command => Sql.Add(command, "$limit", limit), cancellationToken);
     }
 
+    public Task<IReadOnlyList<GamingSession>> GetByGameAsync(string gameId, int limit, CancellationToken cancellationToken = default)
+    {
+        if (limit <= 0 || string.IsNullOrWhiteSpace(gameId)) return Task.FromResult<IReadOnlyList<GamingSession>>([]);
+        return QueryAsync($"SELECT {Columns} FROM gaming_sessions WHERE game_id = $game ORDER BY started_at DESC, rowid DESC LIMIT $limit;",
+            command =>
+            {
+                Sql.Add(command, "$game", gameId);
+                Sql.Add(command, "$limit", limit);
+            }, cancellationToken);
+    }
+
     private Task<IReadOnlyList<GamingSession>> QueryAsync(string sql, Action<Microsoft.Data.Sqlite.SqliteCommand> bind, CancellationToken cancellationToken)
         => _database.RunAsync<IReadOnlyList<GamingSession>>(async (connection, token) =>
         {

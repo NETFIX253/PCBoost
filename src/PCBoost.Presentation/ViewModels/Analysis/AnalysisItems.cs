@@ -19,10 +19,11 @@ public static class FindingCategories
     public const string Power = "power";
     public const string System = "system";
     public const string Security = "security";
+    public const string Hardware = "hardware";
     public const string Other = "other";
 
     /// <summary>Ordre d'affichage des cartes (toujours affichées, même vides).</summary>
-    public static IReadOnlyList<string> Canonical { get; } = [Cpu, Memory, Storage, Startup, Processes, Temperature, Power, System, Security];
+    public static IReadOnlyList<string> Canonical { get; } = [Cpu, Memory, Storage, Startup, Processes, Temperature, Power, System, Security, Hardware];
 
     /// <summary>Normalise une catégorie de constat (synonymes acceptés : ram, disk, thermal, windows…).</summary>
     public static string Normalize(string? category)
@@ -39,6 +40,7 @@ public static class FindingCategories
             "power" or "battery" => Power,
             "system" or "windows" or "os" or "uptime" => System,
             "security" => Security,
+            "hardware" or "health" => Hardware,
             _ => Other,
         };
     }
@@ -54,6 +56,7 @@ public static class FindingCategories
         Power => "Power",
         System => "System",
         Security => "Security",
+        Hardware => "Hardware",
         _ => "Other",
     };
 }

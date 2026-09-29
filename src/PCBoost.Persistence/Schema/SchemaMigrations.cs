@@ -106,6 +106,9 @@ public static class SchemaMigrations
             );
             CREATE INDEX IF NOT EXISTS ix_activity_timestamp ON activity (timestamp);
             """),
+        new(2, "Historique par jeu", """
+            CREATE INDEX IF NOT EXISTS ix_gaming_sessions_game ON gaming_sessions (game_id, started_at);
+            """),
     ];
 
     /// <summary>Version de schéma la plus récente connue de cette version de l'application.</summary>

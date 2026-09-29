@@ -30,6 +30,11 @@
   <data name="Cleanup_user-temp_Name" xml:space="preserve"><value>Fichiers temporaires de l'utilisateur</value></data>
   <data name="Cleanup_windows-temp_Description" xml:space="preserve"><value>Fichiers temporaires créés par Windows et les installations. Sûr : fichiers de plus d'un jour uniquement, fichiers verrouillés conservés. Nécessite l'autorisation administrateur.</value></data>
   <data name="Cleanup_windows-temp_Name" xml:space="preserve"><value>Fichiers temporaires de Windows</value></data>
+  <data name="Files_Changed" xml:space="preserve"><value>Non envoyé : le fichier a été modifié ou déplacé depuis l'analyse.</value></data>
+  <data name="Files_Journal_Recycled" xml:space="preserve"><value>{0} {0:plural:fichier envoyé|fichiers envoyés} à la Corbeille ({1} Mo) depuis « Gros fichiers et doublons ».</value></data>
+  <data name="Files_KeptCopy" xml:space="preserve"><value>Copie conservée : une copie de chaque fichier en double est toujours gardée.</value></data>
+  <data name="Files_NoCopyLeft" xml:space="preserve"><value>Non envoyé : l'autre copie a changé ou n'existe plus.</value></data>
+  <data name="Files_NotInScan" xml:space="preserve"><value>Non envoyé : ce fichier ne fait pas partie de l'analyse.</value></data>
   <data name="Opt_BackgroundApps_NothingToDo" xml:space="preserve"><value>Aucune application d'arrière-plan à ralentir pour le moment.</value></data>
   <data name="Opt_BackgroundApps_ThrottleKnown" xml:space="preserve"><value>Ralentir {0}, application connue pour solliciter le PC en arrière-plan</value></data>
   <data name="Opt_BackgroundApps_ThrottleMeasured" xml:space="preserve"><value>Ralentir {0}, qui utilise {1:N1} % du processeur sans fenêtre</value></data>
@@ -109,6 +114,11 @@
   <data name="Opt_Profile_Productivity_Description" xml:space="preserve"><value>Travail de bureau : mode « Utilisation normale », applications d'arrière-plan ralenties et, sur un PC modeste, effets visuels réduits.</value></data>
   <data name="Opt_Profile_Productivity_Name" xml:space="preserve"><value>Productivité</value></data>
   <data name="Opt_Profile_Unknown" xml:space="preserve"><value>Ce profil est inconnu : rien n'a été modifié.</value></data>
+  <data name="Opt_RestorePoint_Cancelled" xml:space="preserve"><value>Autorisation refusée : aucun point de restauration Windows n'a été créé.</value></data>
+  <data name="Opt_RestorePoint_Created" xml:space="preserve"><value>Point de restauration Windows créé avant l'optimisation avancée.</value></data>
+  <data name="Opt_RestorePoint_Disabled" xml:space="preserve"><value>La protection du système Windows est désactivée : aucun point de restauration n'a pu être créé.</value></data>
+  <data name="Opt_RestorePoint_Failed" xml:space="preserve"><value>Le point de restauration Windows n'a pas pu être créé.</value></data>
+  <data name="Opt_RestorePoint_Recent" xml:space="preserve"><value>Un point de restauration Windows de moins de 24 heures existe déjà et couvre l'optimisation avancée.</value></data>
   <data name="Opt_Result_Failed" xml:space="preserve"><value>Cette optimisation n'a pas pu être appliquée.</value></data>
   <data name="Opt_Result_NothingSelected" xml:space="preserve"><value>Aucune modification sélectionnée.</value></data>
   <data name="Opt_Result_Partial" xml:space="preserve"><value>{0} {0:plural:modification appliquée|modifications appliquées}, {1} {1:plural:impossible|impossibles}.</value></data>
@@ -184,6 +194,11 @@
   <data name="Opt_Warning_UnknownOptimization" xml:space="preserve"><value>Une optimisation demandée est inconnue ({0}) : elle a été ignorée.</value></data>
   <data name="Opt_Warning_VerifyPowerPlan" xml:space="preserve"><value>Le mode d'alimentation vérifié ne correspond pas à celui demandé (un autre programme l'a peut-être modifié).</value></data>
   <data name="Opt_Warning_VerifyRegistry" xml:space="preserve"><value>Un réglage de démarrage vérifié ne correspond pas à celui demandé.</value></data>
+  <data name="Programs_Journal_Removed" xml:space="preserve"><value>« {0} » a été désinstallé.</value></data>
+  <data name="Programs_Journal_Started" xml:space="preserve"><value>Désinstallation de « {0} » lancée avec son programme officiel.</value></data>
+  <data name="Programs_LastRun_None" xml:space="preserve"><value>Windows n'a fourni aucune exécution enregistrée.</value></data>
+  <data name="Programs_Uninstall_Changed" xml:space="preserve"><value>La commande de désinstallation a changé depuis l'affichage de la liste : actualisez la liste, puis réessayez.</value></data>
+  <data name="Programs_Uninstall_UseSettings" xml:space="preserve"><value>Ce programme se désinstalle depuis les Paramètres de Windows (Applications installées).</value></data>
   <data name="Protection_Critical" xml:space="preserve"><value>Processus essentiel au fonctionnement de Windows : PCBoost ne le ferme pas et ne le modifie pas.</value></data>
   <data name="Protection_Sensitive" xml:space="preserve"><value>Composant du système : il est déconseillé de le fermer.</value></data>
   <data name="Protection_SystemDirectory" xml:space="preserve"><value>Programme situé dans le dossier système de Windows : il est déconseillé de le fermer.</value></data>

@@ -140,6 +140,9 @@ public sealed partial class SettingsViewModel : ViewModelBase
     public partial bool ConfirmSensitiveOperations { get; set; }
 
     [ObservableProperty]
+    public partial bool CreateRestorePointBeforeAdvanced { get; set; }
+
+    [ObservableProperty]
     public partial bool VerboseLogging { get; set; }
 
     public IReadOnlyList<OptionItem> RetentionOptions { get; }
@@ -228,6 +231,7 @@ public sealed partial class SettingsViewModel : ViewModelBase
             GamingRaisePriority = s.Gaming.RaiseGamePriority;
             GamingThrottleBackgroundApps = s.Gaming.ThrottleBackgroundApps;
             ConfirmSensitiveOperations = s.ConfirmSensitiveOperations;
+            CreateRestorePointBeforeAdvanced = s.CreateRestorePointBeforeAdvanced;
             VerboseLogging = s.VerboseLogging;
             var retention = Array.IndexOf(RetentionDays, s.HistoryRetentionDays);
             SelectedRetentionIndex = retention >= 0 ? retention : 1;
@@ -351,6 +355,8 @@ public sealed partial class SettingsViewModel : ViewModelBase
 
     partial void OnConfirmSensitiveOperationsChanged(bool value) => Save(s => s.ConfirmSensitiveOperations = value);
 
+    partial void OnCreateRestorePointBeforeAdvancedChanged(bool value) => Save(s => s.CreateRestorePointBeforeAdvanced = value);
+
     partial void OnVerboseLoggingChanged(bool value) => Save(s => s.VerboseLogging = value);
 
     partial void OnSelectedRetentionIndexChanged(int value)
@@ -385,6 +391,9 @@ public sealed partial class SettingsViewModel : ViewModelBase
 
     [RelayCommand]
     private void OpenLogFolder() => CheckResult(_shell.OpenFolder(_appInfo.LogDirectory));
+
+    [RelayCommand]
+    private void OpenReport() => Navigation.Navigate(PageKeys.Report);
 
     [RelayCommand]
     private void OpenPrivacy() => Navigation.Navigate(PageKeys.Privacy);

@@ -48,7 +48,18 @@ public sealed class DevCaptureService
                     continue;
                 }
                 if (page != "current") _navigation.Navigate(page);
-                await Task.Delay(TimeSpan.FromSeconds(page switch { "home" or "analysis" => 9, "storage" => 25, "processes" => 7, _ => 4 })).ConfigureAwait(true);
+                await Task.Delay(TimeSpan.FromSeconds(page switch { "home" or "analysis" => 9, "health" => 8, "report" => 16, "files" => 40, "storage" => 25, "processes" => 7, _ => 4 })).ConfigureAwait(true);
+                // L'aperçu WebView2 n'est pas rendu par RenderTargetBitmap : le document du rapport est enregistré à côté.
+                if (FindDescendant<Microsoft.UI.Xaml.Controls.Frame>(root) is { Content: Views.ReportPage reportPage } && reportPage.ViewModel.HasPreview)
+                {
+                    await File.WriteAllTextAsync(Path.Combine(directory, "report.html"), reportPage.ViewModel.PreviewHtml).ConfigureAwait(true);
+                    // Contrôle de l'export PDF réel (même chemin que le bouton « Enregistrer en PDF »).
+                    var files = App.GetService<ReportFileService>();
+                    var pdf = files.CanExportPdf
+                        ? await files.SaveAsync(Path.Combine(directory, "report.pdf"), reportPage.ViewModel.PreviewHtml, Presentation.Abstractions.ReportFileFormat.Pdf).ConfigureAwait(true)
+                        : Core.Common.OperationResult.Fail(Core.Common.OperationErrorKind.NotSupported);
+                    await File.WriteAllTextAsync(Path.Combine(directory, "report-pdf.txt"), $"WebView2 : {files.CanExportPdf} ; PDF : {pdf.Success} {pdf.Error} {pdf.TechnicalDetail}").ConfigureAwait(true);
+                }
                 var theme = root.ActualTheme == ElementTheme.Dark ? "dark" : "light";
                 await SaveAsync(root, Path.Combine(directory, $"{page}-{theme}.png")).ConfigureAwait(true);
                 // Page entière (contenu du défilement principal), pour relire aussi ce qui est hors écran.

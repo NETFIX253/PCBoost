@@ -1,4 +1,5 @@
 using PCBoost.Core.Common;
+using PCBoost.Core.Models.Health;
 using PCBoost.Core.Models.SystemInfo;
 using PCBoost.Platform;
 using PCBoost.Platform.Gaming;
@@ -369,4 +370,110 @@ public sealed class PureLogicTests
     [InlineData(null, false)]
     public void ScheduledTask_MicrosoftAuthor(string? author, bool expected)
         => Assert.Equal(expected, ScheduledTaskProvider.IsMicrosoftAuthor(author));
+}
+
+public sealed class HealthParserTests
+{
+    private const string Ns = "http://schemas.microsoft.com/win/2004/08/events/event";
+
+    private static string Event(int id, string time, params (string Name, string Value)[] data)
+        => $"<Event xmlns='{Ns}'><System><EventID>{id}</EventID><TimeCreated SystemTime='{time}'/></System><EventData>"
+           + string.Concat(data.Select(d => $"<Data Name='{d.Name}'>{d.Value}</Data>")) + "</EventData></Event>";
+
+    [Fact]
+    public void Boot_record_reads_windows_durations()
+    {
+        var record = Platform.Health.HealthEventParsers.BootRecord(Event(100, "2026-09-27T07:30:00.000Z",
+            ("BootTime", "42000"), ("MainPathBootTime", "30000"), ("BootPostBootTime", "12000"), ("BootNumStartupApps", "14")));
+        Assert.NotNull(record);
+        Assert.Equal(TimeSpan.FromSeconds(42), record!.BootTime);
+        Assert.Equal(TimeSpan.FromSeconds(30), record.MainPathBootTime);
+        Assert.Equal(14, record.StartupAppCount);
+        Assert.Equal(new DateTimeOffset(2026, 9, 27, 7, 30, 0, TimeSpan.Zero), record.Timestamp);
+    }
+
+    [Theory]
+    [InlineData(100, "0")]
+    [InlineData(100, "99999999999")]
+    [InlineData(200, "42000")]
+    public void Invalid_boot_records_are_ignored(int id, string bootTime)
+        => Assert.Null(Platform.Health.HealthEventParsers.BootRecord(Event(id, "2026-09-27T07:30:00Z", ("BootTime", bootTime))));
+
+    [Fact]
+    public void Malformed_xml_is_ignored()
+    {
+        Assert.Null(Platform.Health.HealthEventParsers.BootRecord("<Event><oops"));
+        Assert.Null(Platform.Health.HealthEventParsers.Degradation("not xml"));
+    }
+
+    [Theory]
+    [InlineData(101, BootDegradationKind.Application)]
+    [InlineData(102, BootDegradationKind.Driver)]
+    [InlineData(103, BootDegradationKind.Service)]
+    [InlineData(106, BootDegradationKind.Other)]
+    public void Degradation_reads_kind_name_and_delay(int id, BootDegradationKind kind)
+    {
+        var d = Platform.Health.HealthEventParsers.Degradation(Event(id, "2026-09-27T07:30:00Z",
+            ("Name", "OneDrive.exe"), ("FriendlyName", "Microsoft OneDrive"), ("TotalTime", "9000"), ("DegradationTime", "4000")));
+        Assert.NotNull(d);
+        Assert.Equal(kind, d!.Kind);
+        Assert.Equal("Microsoft OneDrive", d.Name);
+        Assert.Equal("OneDrive.exe", d.FileName);
+        Assert.Equal(TimeSpan.FromSeconds(4), d.DegradationTime);
+    }
+
+    [Fact]
+    public void Degradation_without_delay_or_name_is_ignored()
+    {
+        Assert.Null(Platform.Health.HealthEventParsers.Degradation(Event(101, "2026-09-27T07:30:00Z", ("Name", "a.exe"), ("DegradationTime", "0"))));
+        Assert.Null(Platform.Health.HealthEventParsers.Degradation(Event(101, "2026-09-27T07:30:00Z", ("DegradationTime", "500"))));
+    }
+
+    [Fact]
+    public void Clean_removes_control_characters_and_bounds_length()
+    {
+        Assert.Equal("ab", Platform.Health.HealthEventParsers.Clean("a\u0000b\n"));
+        Assert.Null(Platform.Health.HealthEventParsers.Clean(" \t "));
+        Assert.Equal(Platform.Health.HealthEventParsers.MaxNameLength, Platform.Health.HealthEventParsers.Clean(new string('x', 500))!.Length);
+    }
+
+    [Fact]
+    public void Boot_sessions_pair_each_boot_with_the_next_logon()
+    {
+        var boots = new[]
+        {
+            Event(27, "2026-09-27T07:00:00Z", ("BootType", "1")),
+            Event(27, "2026-09-26T07:00:00Z", ("BootType", "0")),
+            Event(27, "2026-09-25T07:00:00Z", ("BootType", "2")),
+        };
+        var logons = new[] { Event(7001, "2026-09-27T07:01:10Z"), Event(7001, "2026-09-26T07:02:00Z"), Event(7001, "2026-09-26T12:00:00Z") };
+
+        var sessions = Platform.Health.HealthEventParsers.BootSessions(boots, logons, 10);
+
+        Assert.Equal(3, sessions.Count);
+        Assert.Equal(BootKind.FastStartup, sessions[0].Kind);
+        Assert.Equal(new DateTimeOffset(2026, 9, 27, 7, 1, 10, TimeSpan.Zero), sessions[0].UserLogonAt);
+        Assert.Equal(new DateTimeOffset(2026, 9, 26, 7, 2, 0, TimeSpan.Zero), sessions[1].UserLogonAt);
+        Assert.Equal(BootKind.Resume, sessions[2].Kind);
+        Assert.Null(sessions[2].UserLogonAt);
+        Assert.Equal(2, Platform.Health.HealthEventParsers.BootSessions(boots, logons, 2).Count);
+    }
+
+    [Theory]
+    [InlineData("VLC.EXE-2B3C4D5E.pf", "vlc.exe")]
+    [InlineData("MY-APP.EXE-00112233.pf", "my-app.exe")]
+    [InlineData("NTOSBOOT-B00DFAAD.pf", null)]
+    [InlineData("Layout.ini", null)]
+    [InlineData("-1234.pf", null)]
+    public void Prefetch_file_name_gives_executable(string fileName, string? expected)
+        => Assert.Equal(expected, Platform.Health.ElevatedHealthReaders.PrefetchExecutable(fileName));
+
+    [Theory]
+    [InlineData(0, DiskHealthStatus.Healthy)]
+    [InlineData(1, DiskHealthStatus.Warning)]
+    [InlineData(2, DiskHealthStatus.Unhealthy)]
+    [InlineData(5, DiskHealthStatus.Unknown)]
+    [InlineData(null, DiskHealthStatus.Unknown)]
+    public void Disk_health_status_mapping(int? value, DiskHealthStatus expected)
+        => Assert.Equal(expected, Platform.Health.HealthClassification.DiskStatus(value));
 }

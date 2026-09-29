@@ -69,6 +69,44 @@ public sealed class GamingServiceTests
     }
 
     [Fact]
+    public async Task Game_profile_overrides_general_settings_for_that_game_only()
+    {
+        await using var h = new GamingHarness(x =>
+        {
+            x.Settings.Current.Gaming.SwitchPowerPlan = true;
+            x.Settings.Current.Gaming.GameProfiles["steam:730"] = new Core.Settings.GameProfile { SwitchPowerPlan = false, ThrottleBackgroundApps = false };
+            x.Settings.Current.Gaming.GameProfiles["steam:999"] = new Core.Settings.GameProfile { RaiseGamePriority = false };
+        });
+
+        var preview = await h.Service.PreviewAsync(h.Game);
+        Assert.False(Assert.Single(preview, o => o.OptimizationId == GamingOptimizationIds.Power).Applied);
+
+        var report = await h.Service.ActivateAsync(h.Game);
+
+        Assert.Equal(PowerScheme.Balanced, h.Power.ActiveId);
+        Assert.False(h.Processes.GetEfficiencyMode(100).Value);
+        Assert.Equal(ProcessPriority.AboveNormal, h.Processes.GetProcess(GamingHarness.GamePid)!.Priority);
+        Assert.False(Assert.Single(report.Optimizations, o => o.OptimizationId == GamingOptimizationIds.Power).Applied);
+    }
+
+    [Fact]
+    public void Settings_for_a_game_fall_back_to_general_values()
+    {
+        var general = new Core.Settings.GamingSettings { SwitchPowerPlan = true, RaiseGamePriority = true, MeasureFrameRate = false };
+        general.GameProfiles["g"] = new Core.Settings.GameProfile { RaiseGamePriority = false, MeasureFrameRate = true };
+
+        var game = general.ForGame("g");
+
+        Assert.True(game.SwitchPowerPlan);
+        Assert.False(game.RaiseGamePriority);
+        Assert.True(game.MeasureFrameRate);
+        Assert.True(general.RaiseGamePriority);
+        Assert.Same(general, general.ForGame("autre"));
+        Assert.Same(general, general.ForGame(null));
+        Assert.True(new Core.Settings.GameProfile().IsEmpty);
+    }
+
+    [Fact]
     public async Task Preview_changes_nothing()
     {
         await using var h = new GamingHarness();

@@ -39,6 +39,7 @@
   <data name="Analysis_Card_NoFinding" xml:space="preserve"><value>No findings</value></data>
   <data name="Analysis_Card_OneFinding" xml:space="preserve"><value>1 finding</value></data>
   <data name="Analysis_Category_Cpu" xml:space="preserve"><value>Processor</value></data>
+  <data name="Analysis_Category_Hardware" xml:space="preserve"><value>Hardware health</value></data>
   <data name="Analysis_Category_Memory" xml:space="preserve"><value>Memory</value></data>
   <data name="Analysis_Category_NoIssue" xml:space="preserve"><value>No performance issue matching this category was identified.</value></data>
   <data name="Analysis_Category_Other" xml:space="preserve"><value>Other</value></data>
@@ -212,6 +213,8 @@
   <data name="Benchmark_Verdict_Same" xml:space="preserve"><value>Same</value></data>
   <data name="Benchmark_Verdict_Worse" xml:space="preserve"><value>Worse</value></data>
   <data name="Cleanup_Page_Action_Clean" xml:space="preserve"><value>Clean up</value></data>
+  <data name="Cleanup_Page_Action_Files" xml:space="preserve"><value>View files</value></data>
+  <data name="Cleanup_Page_Action_Programs" xml:space="preserve"><value>View programs</value></data>
   <data name="Cleanup_Page_Action_Scan" xml:space="preserve"><value>Scan</value></data>
   <data name="Cleanup_Page_Action_ScanAgain" xml:space="preserve"><value>Scan again</value></data>
   <data name="Cleanup_Page_Action_SelectSafe" xml:space="preserve"><value>Recommended selection</value></data>
@@ -223,9 +226,12 @@
   <data name="Cleanup_Page_Confirm_MessageAdvanced" xml:space="preserve"><value>About {0} will be permanently deleted, including categories that call for caution. This cannot be undone.</value></data>
   <data name="Cleanup_Page_Confirm_Title" xml:space="preserve"><value>Delete these files?</value></data>
   <data name="Cleanup_Page_Files" xml:space="preserve"><value>{0} files</value></data>
+  <data name="Cleanup_Page_Files_Description" xml:space="preserve"><value>Find large and duplicate files in your personal folders, then move them to the Recycle Bin.</value></data>
   <data name="Cleanup_Page_IrreversibleNotice" xml:space="preserve"><value>Cleanup permanently deletes files: it cannot be undone.</value></data>
+  <data name="Cleanup_Page_More_Header" xml:space="preserve"><value>Free up more space</value></data>
   <data name="Cleanup_Page_NotScanned" xml:space="preserve"><value>Not scanned</value></data>
   <data name="Cleanup_Page_OneFile" xml:space="preserve"><value>1 file</value></data>
+  <data name="Cleanup_Page_Programs_Description" xml:space="preserve"><value>Uninstall large or rarely used programs with the publisher's official uninstaller.</value></data>
   <data name="Cleanup_Page_Result_Category" xml:space="preserve"><value>{0} recovered ({1} files)</value></data>
   <data name="Cleanup_Page_Result_CategorySkipped" xml:space="preserve"><value>{0} skipped.</value></data>
   <data name="Cleanup_Page_Result_Files" xml:space="preserve"><value>{0} files deleted</value></data>
@@ -371,11 +377,70 @@
   <data name="Expert_Tab_Log" xml:space="preserve"><value>Application log</value></data>
   <data name="Expert_Tab_Sessions" xml:space="preserve"><value>Sessions and changes</value></data>
   <data name="Expert_Title" xml:space="preserve"><value>Expert mode</value></data>
+  <data name="Files_Action_ClearSelection" xml:space="preserve"><value>Clear selection</value></data>
+  <data name="Files_Action_Recycle" xml:space="preserve"><value>Move to Recycle Bin</value></data>
+  <data name="Files_Action_Reveal" xml:space="preserve"><value>Show in File Explorer</value></data>
+  <data name="Files_Action_Scan" xml:space="preserve"><value>Scan again</value></data>
+  <data name="Files_Action_SelectCopies" xml:space="preserve"><value>Select copies (keep the oldest)</value></data>
+  <data name="Files_Cancelled" xml:space="preserve"><value>Operation stopped: the remaining files were not touched.</value></data>
+  <data name="Files_Confirm_Message" xml:space="preserve"><value>{0} {0:plural:file|files} ({1}) will be moved to the Recycle Bin. Each file is checked again just before.</value></data>
+  <data name="Files_Confirm_NukeWarning" xml:space="preserve"><value>If a file is too large for the Recycle Bin, Windows will ask you before deleting it permanently.</value></data>
+  <data name="Files_Confirm_Recycle" xml:space="preserve"><value>Move to Recycle Bin</value></data>
+  <data name="Files_Confirm_Restorable" xml:space="preserve"><value>You can restore them from the Windows Recycle Bin until it is emptied.</value></data>
+  <data name="Files_Confirm_Title" xml:space="preserve"><value>Move {0} {0:plural:file|files} to the Recycle Bin?</value></data>
+  <data name="Files_Duplicate_Detail" xml:space="preserve"><value>{0} identical copies · {1} each · {2} recoverable</value></data>
+  <data name="Files_Duplicate_KeepHint" xml:space="preserve"><value>One copy is always kept: uncheck another copy to choose which one to keep.</value></data>
+  <data name="Files_Duplicates_Header" xml:space="preserve"><value>Duplicate files</value></data>
+  <data name="Files_Duplicates_None" xml:space="preserve"><value>No duplicate file of at least 1 MB.</value></data>
+  <data name="Files_Duplicates_Summary" xml:space="preserve"><value>{0} {0:plural:group|groups} of identical files (content verified); {1} recoverable by keeping one copy of each.</value></data>
+  <data name="Files_Failures" xml:space="preserve"><value>{0} {0:plural:file was|files were} not moved: {1}</value></data>
+  <data name="Files_Large_Header" xml:space="preserve"><value>Files larger than 256 MB</value></data>
+  <data name="Files_Large_None" xml:space="preserve"><value>No file larger than 256 MB in your personal folders.</value></data>
+  <data name="Files_Limited" xml:space="preserve"><value>Many files share the same size: the comparison was limited to stay fast. Some duplicates may not be shown.</value></data>
+  <data name="Files_Modified" xml:space="preserve"><value>modified on {0}</value></data>
+  <data name="Files_Progress_Comparing" xml:space="preserve"><value>Comparing contents: {0} of {1}…</value></data>
+  <data name="Files_Progress_Listing" xml:space="preserve"><value>{0} files listed…</value></data>
+  <data name="Files_RecycleNote" xml:space="preserve"><value>Files moved to the Recycle Bin can be restored from the Windows Recycle Bin.</value></data>
+  <data name="Files_Recycled" xml:space="preserve"><value>{0} {0:plural:file|files} moved to the Recycle Bin ({1}).</value></data>
+  <data name="Files_Scanning" xml:space="preserve"><value>Scanning personal folders…</value></data>
+  <data name="Files_Selection" xml:space="preserve"><value>{0} {0:plural:file|files} selected · {1}</value></data>
+  <data name="Files_Selection_None" xml:space="preserve"><value>No file selected</value></data>
+  <data name="Files_Subtitle" xml:space="preserve"><value>In your personal folders (Documents, Downloads, Desktop, Pictures, Videos, Music). You choose the files; they only go to the Recycle Bin.</value></data>
+  <data name="Files_Summary" xml:space="preserve"><value>{2} {0:plural:file|files} scanned on {1}. Hidden, system and online (OneDrive) files are ignored.</value></data>
+  <data name="Files_Title" xml:space="preserve"><value>Large files and duplicates</value></data>
+  <data name="GameProfile_Action_Reset" xml:space="preserve"><value>Use general settings</value></data>
+  <data name="GameProfile_Background_Description" xml:space="preserve"><value>Background apps slowed down during play (exclusions respected).</value></data>
+  <data name="GameProfile_Col_Date" xml:space="preserve"><value>Date</value></data>
+  <data name="GameProfile_Col_Duration" xml:space="preserve"><value>Duration</value></data>
+  <data name="GameProfile_Fps" xml:space="preserve"><value>{0} FPS</value></data>
+  <data name="GameProfile_Fps_Description" xml:space="preserve"><value>Frames-per-second measurement without injection; administrator permission when measurement starts.</value></data>
+  <data name="GameProfile_Game_Label" xml:space="preserve"><value>Game</value></data>
+  <data name="GameProfile_History_Average" xml:space="preserve"><value>Average of {0} measured {0:plural:session|sessions}: {1} FPS (1% low: {2} FPS).</value></data>
+  <data name="GameProfile_History_AverageFpsOnly" xml:space="preserve"><value>Average of {0} measured {0:plural:session|sessions}: {1} FPS.</value></data>
+  <data name="GameProfile_History_Header" xml:space="preserve"><value>FPS history</value></data>
+  <data name="GameProfile_History_None" xml:space="preserve"><value>No Gaming mode session recorded for this game.</value></data>
+  <data name="GameProfile_History_NotMeasured" xml:space="preserve"><value>{0} {0:plural:session|sessions} recorded, without FPS measurement. Turn on "Measure FPS" for this game.</value></data>
+  <data name="GameProfile_History_Note" xml:space="preserve"><value>FPS also depend on the game's graphics settings, the scene and updates: compare similar sessions.</value></data>
+  <data name="GameProfile_NoGames" xml:space="preserve"><value>No game detected. Add a game from the Gaming page.</value></data>
+  <data name="GameProfile_NotMeasured" xml:space="preserve"><value>Not measured</value></data>
+  <data name="GameProfile_Off" xml:space="preserve"><value>off</value></data>
+  <data name="GameProfile_On" xml:space="preserve"><value>on</value></data>
+  <data name="GameProfile_Option_Always" xml:space="preserve"><value>Always for this game</value></data>
+  <data name="GameProfile_Option_Default" xml:space="preserve"><value>General setting ({0})</value></data>
+  <data name="GameProfile_Option_Never" xml:space="preserve"><value>Never for this game</value></data>
+  <data name="GameProfile_Priority_Description" xml:space="preserve"><value>Higher priority for the game process during play.</value></data>
+  <data name="GameProfile_Session_Unfinished" xml:space="preserve"><value>In progress</value></data>
+  <data name="GameProfile_Settings_Header" xml:space="preserve"><value>Settings</value></data>
+  <data name="GameProfile_Settings_Hint" xml:space="preserve"><value>Applied when Gaming mode is turned on for this game; "General setting" uses the value from Settings.</value></data>
+  <data name="GameProfile_Subtitle" xml:space="preserve"><value>Tailor Gaming mode to each game and review the FPS measured during your sessions.</value></data>
+  <data name="GameProfile_SwitchPower_Description" xml:space="preserve"><value>High-performance power mode during play, restored afterwards.</value></data>
+  <data name="GameProfile_Title" xml:space="preserve"><value>Game settings and history</value></data>
   <data name="Gaming_Action_Activate" xml:space="preserve"><value>Turn on Gaming mode</value></data>
   <data name="Gaming_Action_Benchmark" xml:space="preserve"><value>Measure before / after</value></data>
   <data name="Gaming_Action_Deactivate" xml:space="preserve"><value>Turn off and restore</value></data>
   <data name="Gaming_Action_Detect" xml:space="preserve"><value>Look for a game</value></data>
   <data name="Gaming_Action_FpsSettings" xml:space="preserve"><value>Measurement settings</value></data>
+  <data name="Gaming_Action_GameProfile" xml:space="preserve"><value>Settings and history for this game</value></data>
   <data name="Gaming_Action_RefreshGames" xml:space="preserve"><value>Refresh list</value></data>
   <data name="Gaming_Activated" xml:space="preserve"><value>Gaming mode is on: {0} optimizations applied.</value></data>
   <data name="Gaming_Activated_One" xml:space="preserve"><value>Gaming mode is on: 1 optimization applied.</value></data>
@@ -437,6 +502,129 @@
   <data name="Gaming_Status_Label" xml:space="preserve"><value>Status</value></data>
   <data name="Gaming_Subtitle" xml:space="preserve"><value>Temporary settings while you play, restored automatically afterwards.</value></data>
   <data name="Gaming_Title" xml:space="preserve"><value>Gaming mode</value></data>
+  <data name="Health_Action_ReadCounters" xml:space="preserve"><value>Read detailed counters</value></data>
+  <data name="Health_Action_ReadCounters_ToolTip" xml:space="preserve"><value>Reads disk wear, temperature and errors. Windows asks for administrator permission; nothing is changed.</value></data>
+  <data name="Health_Action_Refresh" xml:space="preserve"><value>Refresh</value></data>
+  <data name="Health_Battery_AdviceAging" xml:space="preserve"><value>Battery life has decreased with age, which is normal. Avoid leaving the laptop at 100% or 0% for long periods.</value></data>
+  <data name="Health_Battery_AdviceWorn" xml:space="preserve"><value>The battery keeps only a small share of its capacity: replacing it will restore the original battery life. Have it done by a professional.</value></data>
+  <data name="Health_Battery_Chemistry" xml:space="preserve"><value>Chemistry</value></data>
+  <data name="Health_Battery_Chemistry_LeadAcid" xml:space="preserve"><value>Lead-acid</value></data>
+  <data name="Health_Battery_Chemistry_LiIon" xml:space="preserve"><value>Lithium-ion</value></data>
+  <data name="Health_Battery_Chemistry_LiPoly" xml:space="preserve"><value>Lithium polymer</value></data>
+  <data name="Health_Battery_Chemistry_NiCd" xml:space="preserve"><value>Nickel-cadmium</value></data>
+  <data name="Health_Battery_Chemistry_NiMH" xml:space="preserve"><value>Nickel-metal hydride</value></data>
+  <data name="Health_Battery_Cycles" xml:space="preserve"><value>Charge cycles</value></data>
+  <data name="Health_Battery_Design" xml:space="preserve"><value>Design capacity</value></data>
+  <data name="Health_Battery_FullCharge" xml:space="preserve"><value>Full-charge capacity</value></data>
+  <data name="Health_Battery_HealthLabel" xml:space="preserve"><value>Remaining capacity compared with new</value></data>
+  <data name="Health_Battery_Level_Critical" xml:space="preserve"><value>Worn battery</value></data>
+  <data name="Health_Battery_Level_Good" xml:space="preserve"><value>Good capacity</value></data>
+  <data name="Health_Battery_Level_Unknown" xml:space="preserve"><value>Capacity not reported</value></data>
+  <data name="Health_Battery_Level_Warning" xml:space="preserve"><value>Aging battery</value></data>
+  <data name="Health_Battery_None" xml:space="preserve"><value>No battery detected: this PC runs on mains power.</value></data>
+  <data name="Health_Battery_Unavailable" xml:space="preserve"><value>Battery status could not be read.</value></data>
+  <data name="Health_Battery_Unnamed" xml:space="preserve"><value>Battery</value></data>
+  <data name="Health_Battery_WattHours" xml:space="preserve"><value>{0} Wh</value></data>
+  <data name="Health_Counters_MeasuredAt" xml:space="preserve"><value>Detailed counters read on {0}.</value></data>
+  <data name="Health_Counters_NotRead" xml:space="preserve"><value>Detailed counters (wear, temperature, errors) have not been read yet: Windows asks for administrator permission to provide them.</value></data>
+  <data name="Health_Counters_Read" xml:space="preserve"><value>Disk counters read.</value></data>
+  <data name="Health_DeviceClass_AudioEndpoint" xml:space="preserve"><value>Audio</value></data>
+  <data name="Health_DeviceClass_Biometric" xml:space="preserve"><value>Biometric</value></data>
+  <data name="Health_DeviceClass_Bluetooth" xml:space="preserve"><value>Bluetooth</value></data>
+  <data name="Health_DeviceClass_Camera" xml:space="preserve"><value>Camera</value></data>
+  <data name="Health_DeviceClass_DiskDrive" xml:space="preserve"><value>Disk drive</value></data>
+  <data name="Health_DeviceClass_Display" xml:space="preserve"><value>Display adapter</value></data>
+  <data name="Health_DeviceClass_Firmware" xml:space="preserve"><value>Firmware</value></data>
+  <data name="Health_DeviceClass_HIDClass" xml:space="preserve"><value>Input device</value></data>
+  <data name="Health_DeviceClass_Image" xml:space="preserve"><value>Camera or scanner</value></data>
+  <data name="Health_DeviceClass_Keyboard" xml:space="preserve"><value>Keyboard</value></data>
+  <data name="Health_DeviceClass_MEDIA" xml:space="preserve"><value>Sound and video</value></data>
+  <data name="Health_DeviceClass_Monitor" xml:space="preserve"><value>Monitor</value></data>
+  <data name="Health_DeviceClass_Mouse" xml:space="preserve"><value>Mouse</value></data>
+  <data name="Health_DeviceClass_Net" xml:space="preserve"><value>Network</value></data>
+  <data name="Health_DeviceClass_Ports" xml:space="preserve"><value>Ports</value></data>
+  <data name="Health_DeviceClass_Printer" xml:space="preserve"><value>Printer</value></data>
+  <data name="Health_DeviceClass_SCSIAdapter" xml:space="preserve"><value>Storage controller</value></data>
+  <data name="Health_DeviceClass_Sensor" xml:space="preserve"><value>Sensor</value></data>
+  <data name="Health_DeviceClass_SoftwareDevice" xml:space="preserve"><value>Software device</value></data>
+  <data name="Health_DeviceClass_System" xml:space="preserve"><value>System device</value></data>
+  <data name="Health_DeviceClass_USB" xml:space="preserve"><value>USB</value></data>
+  <data name="Health_DeviceProblem_1" xml:space="preserve"><value>Device not configured correctly</value></data>
+  <data name="Health_DeviceProblem_10" xml:space="preserve"><value>The device cannot start</value></data>
+  <data name="Health_DeviceProblem_12" xml:space="preserve"><value>Not enough free resources for this device</value></data>
+  <data name="Health_DeviceProblem_14" xml:space="preserve"><value>Restart required</value></data>
+  <data name="Health_DeviceProblem_18" xml:space="preserve"><value>Driver needs to be reinstalled</value></data>
+  <data name="Health_DeviceProblem_19" xml:space="preserve"><value>Configuration information incomplete or damaged</value></data>
+  <data name="Health_DeviceProblem_21" xml:space="preserve"><value>Windows is removing this device</value></data>
+  <data name="Health_DeviceProblem_24" xml:space="preserve"><value>Device not present or not working properly</value></data>
+  <data name="Health_DeviceProblem_28" xml:space="preserve"><value>Driver not installed</value></data>
+  <data name="Health_DeviceProblem_29" xml:space="preserve"><value>Disabled by firmware</value></data>
+  <data name="Health_DeviceProblem_3" xml:space="preserve"><value>Driver damaged or low memory</value></data>
+  <data name="Health_DeviceProblem_31" xml:space="preserve"><value>Windows cannot load the driver</value></data>
+  <data name="Health_DeviceProblem_32" xml:space="preserve"><value>Driver disabled</value></data>
+  <data name="Health_DeviceProblem_37" xml:space="preserve"><value>The driver reported a failure</value></data>
+  <data name="Health_DeviceProblem_38" xml:space="preserve"><value>A previous driver instance is still in memory</value></data>
+  <data name="Health_DeviceProblem_39" xml:space="preserve"><value>Driver missing or damaged</value></data>
+  <data name="Health_DeviceProblem_41" xml:space="preserve"><value>Hardware not found after the driver loaded</value></data>
+  <data name="Health_DeviceProblem_43" xml:space="preserve"><value>The device reported a problem and was stopped</value></data>
+  <data name="Health_DeviceProblem_48" xml:space="preserve"><value>Driver blocked as incompatible</value></data>
+  <data name="Health_DeviceProblem_52" xml:space="preserve"><value>Driver signature cannot be verified</value></data>
+  <data name="Health_DeviceProblem_Other" xml:space="preserve"><value>Problem reported by Windows (code {0})</value></data>
+  <data name="Health_DeviceProblem_WithCode" xml:space="preserve"><value>{0} (code {1})</value></data>
+  <data name="Health_Devices_Count" xml:space="preserve"><value>{0} {0:plural:device|devices} reported in error by Windows.</value></data>
+  <data name="Health_Devices_Hint" xml:space="preserve"><value>Information only: PCBoost does not change any driver. For details, open Device Manager (right-click the Start button).</value></data>
+  <data name="Health_Devices_None" xml:space="preserve"><value>No device in error.</value></data>
+  <data name="Health_Devices_Unavailable" xml:space="preserve"><value>The device list could not be read.</value></data>
+  <data name="Health_Disk_AdviceCritical" xml:space="preserve"><value>Back up your important files now (USB drive, external disk or cloud storage), then have this disk checked or replaced.</value></data>
+  <data name="Health_Disk_AdviceWarning" xml:space="preserve"><value>Back up your files regularly and plan to replace this disk.</value></data>
+  <data name="Health_Disk_Errors" xml:space="preserve"><value>Uncorrected read errors</value></data>
+  <data name="Health_Disk_ErrorsDetail" xml:space="preserve"><value>Some data could not be read back: a common sign of a failing disk.</value></data>
+  <data name="Health_Disk_PowerOn" xml:space="preserve"><value>Power-on time</value></data>
+  <data name="Health_Disk_PowerOnValue" xml:space="preserve"><value>{0} hours</value></data>
+  <data name="Health_Disk_SystemBadge" xml:space="preserve"><value>System disk</value></data>
+  <data name="Health_Disk_Temperature" xml:space="preserve"><value>Temperature</value></data>
+  <data name="Health_Disk_TemperatureMax" xml:space="preserve"><value>Highest recorded: {0}</value></data>
+  <data name="Health_Disk_Unnamed" xml:space="preserve"><value>Disk</value></data>
+  <data name="Health_Disk_Wear" xml:space="preserve"><value>Wear (SSD)</value></data>
+  <data name="Health_Disk_WearDetail" xml:space="preserve"><value>Share of the manufacturer's rated endurance already used.</value></data>
+  <data name="Health_Disk_WearValue" xml:space="preserve"><value>{0}%</value></data>
+  <data name="Health_Disks_NotSupported" xml:space="preserve"><value>Windows does not provide disk status on this PC.</value></data>
+  <data name="Health_Disks_Unavailable" xml:space="preserve"><value>Disk status could not be read.</value></data>
+  <data name="Health_Level_Critical" xml:space="preserve"><value>Failure risk</value></data>
+  <data name="Health_Level_Good" xml:space="preserve"><value>Healthy</value></data>
+  <data name="Health_Level_Unknown" xml:space="preserve"><value>Status not reported</value></data>
+  <data name="Health_Level_Warning" xml:space="preserve"><value>Needs attention</value></data>
+  <data name="Health_Loading" xml:space="preserve"><value>Reading hardware status…</value></data>
+  <data name="Health_NotProvided" xml:space="preserve"><value>Not reported</value></data>
+  <data name="Health_NotRead" xml:space="preserve"><value>Not read</value></data>
+  <data name="Health_Overall_Critical" xml:space="preserve"><value>A significant hardware issue was detected</value></data>
+  <data name="Health_Overall_CriticalDisk" xml:space="preserve"><value>A disk is reported in poor condition. Back up your important files now.</value></data>
+  <data name="Health_Overall_Good" xml:space="preserve"><value>No hardware issue detected</value></data>
+  <data name="Health_Overall_GoodDetail" xml:space="preserve"><value>Disks, battery, temperature and devices report no issue.</value></data>
+  <data name="Health_Overall_GoodDetailNoCounters" xml:space="preserve"><value>No issue reported. Read the detailed counters to see disk wear.</value></data>
+  <data name="Health_Overall_Points" xml:space="preserve"><value>{0} {0:plural:item|items} to review below.</value></data>
+  <data name="Health_Overall_Unknown" xml:space="preserve"><value>Hardware status not determined</value></data>
+  <data name="Health_Overall_Warning" xml:space="preserve"><value>Some items need your attention</value></data>
+  <data name="Health_ReadingCounters" xml:space="preserve"><value>Reading disk counters…</value></data>
+  <data name="Health_Section_Battery" xml:space="preserve"><value>Battery</value></data>
+  <data name="Health_Section_Devices" xml:space="preserve"><value>Devices</value></data>
+  <data name="Health_Section_Disks" xml:space="preserve"><value>Disks</value></data>
+  <data name="Health_Section_Thermal" xml:space="preserve"><value>Temperature and processor limiting</value></data>
+  <data name="Health_Subtitle" xml:space="preserve"><value>Status measured by Windows: disks, battery, thermal limiting and devices. Read-only.</value></data>
+  <data name="Health_Thermal_AdviceTitle" xml:space="preserve"><value>To help the PC cool down</value></data>
+  <data name="Health_Thermal_Advice_Airflow" xml:space="preserve"><value>Leave space around air intakes and outlets; do not block the vents.</value></data>
+  <data name="Health_Thermal_Advice_Dust" xml:space="preserve"><value>Dust the air vents and fan (PC off and unplugged, short bursts of compressed air).</value></data>
+  <data name="Health_Thermal_Advice_Surface" xml:space="preserve"><value>Place the laptop on a hard, flat surface, never on a bed or cushion.</value></data>
+  <data name="Health_Thermal_Advice_Technician" xml:space="preserve"><value>If the problem persists, have the cooling checked by a technician (fan, thermal paste).</value></data>
+  <data name="Health_Thermal_Episode" xml:space="preserve"><value>Processor probably slowed down by heat</value></data>
+  <data name="Health_Thermal_EpisodeDetail" xml:space="preserve"><value>On {0}, for {1}, the processor ran at {2} of its base frequency while under {3} load.</value></data>
+  <data name="Health_Thermal_EpisodeTemperature" xml:space="preserve"><value>Highest temperature recorded: {0}.</value></data>
+  <data name="Health_Thermal_Firmware" xml:space="preserve"><value>Processor speed limited by firmware</value></data>
+  <data name="Health_Thermal_FirmwareDetail" xml:space="preserve"><value>Windows recorded {0} speed {0:plural:limitation|limitations} over the last 30 days (latest on {1}). Heat is a common cause.</value></data>
+  <data name="Health_Thermal_None" xml:space="preserve"><value>No limiting observed</value></data>
+  <data name="Health_Thermal_NoneDetail" xml:space="preserve"><value>The processor has not been seen slowing down under heavy load. PCBoost checks continuously while background monitoring is on.</value></data>
+  <data name="Health_Title" xml:space="preserve"><value>Hardware health</value></data>
+  <data name="Health_Updated" xml:space="preserve"><value>Read: {0}</value></data>
   <data name="History_BytesFreed" xml:space="preserve"><value>{0} freed</value></data>
   <data name="History_ChangeStatus_Applied" xml:space="preserve"><value>Applied</value></data>
   <data name="History_ChangeStatus_Failed" xml:space="preserve"><value>Failed</value></data>
@@ -564,6 +752,8 @@
   <data name="Nav_Expert_ToolTip" xml:space="preserve"><value>Technical details</value></data>
   <data name="Nav_Gaming" xml:space="preserve"><value>Gaming</value></data>
   <data name="Nav_Gaming_ToolTip" xml:space="preserve"><value>Gaming mode and in-game measurements</value></data>
+  <data name="Nav_Health" xml:space="preserve"><value>Hardware health</value></data>
+  <data name="Nav_Health_ToolTip" xml:space="preserve"><value>Disks, battery, temperature and devices</value></data>
   <data name="Nav_History" xml:space="preserve"><value>History</value></data>
   <data name="Nav_History_ToolTip" xml:space="preserve"><value>Changes made and restore</value></data>
   <data name="Nav_Home" xml:space="preserve"><value>Home</value></data>
@@ -602,6 +792,15 @@
   <data name="OldPc_Level_Optimizations" xml:space="preserve"><value>{0} optimizations</value></data>
   <data name="OldPc_Level_Standard_Description" xml:space="preserve"><value>The Essential level, plus other settings suited to modest configurations.</value></data>
   <data name="OldPc_Level_Standard_Name" xml:space="preserve"><value>Standard</value></data>
+  <data name="OldPc_RestorePoint_Continue" xml:space="preserve"><value>Continue without it</value></data>
+  <data name="OldPc_RestorePoint_ContinueMessage" xml:space="preserve"><value>The Windows restore point was not created. PCBoost still records every change and can restore it from History.</value></data>
+  <data name="OldPc_RestorePoint_ContinueTitle" xml:space="preserve"><value>Continue without a Windows restore point?</value></data>
+  <data name="OldPc_RestorePoint_Created" xml:space="preserve"><value>Windows restore point created on {0}, before applying the Advanced level.</value></data>
+  <data name="OldPc_RestorePoint_Creating" xml:space="preserve"><value>Creating a Windows restore point…</value></data>
+  <data name="OldPc_RestorePoint_None" xml:space="preserve"><value>No Windows restore point was created. {0}</value></data>
+  <data name="OldPc_RestorePoint_Notice" xml:space="preserve"><value>A Windows restore point will be created before applying this level; Windows will ask for administrator permission. You can change this in Settings.</value></data>
+  <data name="OldPc_RestorePoint_NoticeTitle" xml:space="preserve"><value>Windows restore point</value></data>
+  <data name="OldPc_RestorePoint_Recent" xml:space="preserve"><value>A Windows restore point from {0} (less than 24 hours old) covers this optimization.</value></data>
   <data name="OldPc_Section_Assessment" xml:space="preserve"><value>Assessment</value></data>
   <data name="OldPc_Section_Findings" xml:space="preserve"><value>Findings</value></data>
   <data name="OldPc_Section_Levels" xml:space="preserve"><value>Optimization levels</value></data>
@@ -829,6 +1028,122 @@
   <data name="Profiles_Previewing" xml:space="preserve"><value>Preparing the preview…</value></data>
   <data name="Profiles_Subtitle" xml:space="preserve"><value>A profile groups settings suited to a use. The previous profile is restored before another is turned on.</value></data>
   <data name="Profiles_Title" xml:space="preserve"><value>Profiles</value></data>
+  <data name="Programs_Action_ReadLastRun" xml:space="preserve"><value>Refine usage dates</value></data>
+  <data name="Programs_Action_ReadLastRun_ToolTip" xml:space="preserve"><value>Reads the latest runs recorded by Windows. Windows asks for administrator permission; nothing is changed.</value></data>
+  <data name="Programs_Action_StopWaiting" xml:space="preserve"><value>Stop waiting</value></data>
+  <data name="Programs_Action_Uninstall" xml:space="preserve"><value>Uninstall…</value></data>
+  <data name="Programs_Action_WindowsSettings" xml:space="preserve"><value>Open Windows "Installed apps"</value></data>
+  <data name="Programs_Badge_RarelyUsed" xml:space="preserve"><value>Rarely used</value></data>
+  <data name="Programs_Confirm_Irreversible" xml:space="preserve"><value>Permanent action: PCBoost cannot restore it.</value></data>
+  <data name="Programs_Confirm_Message" xml:space="preserve"><value>The publisher's official uninstaller will open: follow its instructions. Windows may ask for permission.</value></data>
+  <data name="Programs_Confirm_Official" xml:space="preserve"><value>Your documents are not affected; some programs also remove their settings.</value></data>
+  <data name="Programs_Confirm_Title" xml:space="preserve"><value>Uninstall "{0}"?</value></data>
+  <data name="Programs_Confirm_Uninstall" xml:space="preserve"><value>Uninstall</value></data>
+  <data name="Programs_Empty_Filter" xml:space="preserve"><value>No program matches these criteria.</value></data>
+  <data name="Programs_Empty_None" xml:space="preserve"><value>No program to offer.</value></data>
+  <data name="Programs_Filter_RarelyUsed" xml:space="preserve"><value>Rarely used</value></data>
+  <data name="Programs_Hidden" xml:space="preserve"><value>{0} protected {0:plural:component|components} not shown (drivers, runtimes, security, PCBoost).</value></data>
+  <data name="Programs_Installed" xml:space="preserve"><value>installed on {0}</value></data>
+  <data name="Programs_LastAccess" xml:space="preserve"><value>Last file access: {0}</value></data>
+  <data name="Programs_LastRun_Approximate" xml:space="preserve"><value>Approximate usage dates (last file access). "Refine usage dates" reads the Windows records.</value></data>
+  <data name="Programs_LastRun_Read" xml:space="preserve"><value>Usage dates updated from Windows.</value></data>
+  <data name="Programs_LastRun_ReadAt" xml:space="preserve"><value>Usage dates from Windows, read on {0}.</value></data>
+  <data name="Programs_LastUsed" xml:space="preserve"><value>Last used: {0}</value></data>
+  <data name="Programs_LastUsedUnknown" xml:space="preserve"><value>Last use unknown</value></data>
+  <data name="Programs_Notice" xml:space="preserve"><value>Uninstalling is permanent: PCBoost cannot restore it. Updates, drivers, runtimes and security software are not offered.</value></data>
+  <data name="Programs_Removed" xml:space="preserve"><value>"{0}" was uninstalled.</value></data>
+  <data name="Programs_Search_Placeholder" xml:space="preserve"><value>Search programs</value></data>
+  <data name="Programs_SizeFromRegistry" xml:space="preserve"><value>declared</value></data>
+  <data name="Programs_SizeMeasured" xml:space="preserve"><value>measured</value></data>
+  <data name="Programs_SizeUnknown" xml:space="preserve"><value>Size not specified</value></data>
+  <data name="Programs_Sort_Label" xml:space="preserve"><value>Sort</value></data>
+  <data name="Programs_Sort_LastUsed" xml:space="preserve"><value>Sort by last use</value></data>
+  <data name="Programs_Sort_Name" xml:space="preserve"><value>Sort by name</value></data>
+  <data name="Programs_Sort_Size" xml:space="preserve"><value>Sort by size</value></data>
+  <data name="Programs_Source_FileAccess" xml:space="preserve"><value>(approximate)</value></data>
+  <data name="Programs_Source_Prefetch" xml:space="preserve"><value>(from Windows)</value></data>
+  <data name="Programs_StillInstalled" xml:space="preserve"><value>"{0}" is still installed. If you finished uninstalling, refresh the list.</value></data>
+  <data name="Programs_Subtitle" xml:space="preserve"><value>Find large or rarely used programs and uninstall them with the publisher's official uninstaller.</value></data>
+  <data name="Programs_Summary" xml:space="preserve"><value>{0} {0:plural:program|programs} · {1} in total (known sizes)</value></data>
+  <data name="Programs_Title" xml:space="preserve"><value>Installed programs</value></data>
+  <data name="Programs_Uninstalling" xml:space="preserve"><value>Uninstalling "{0}"…</value></data>
+  <data name="Programs_Uninstalling_Hint" xml:space="preserve"><value>Follow the uninstaller's instructions. PCBoost refreshes the list as soon as it finishes.</value></data>
+  <data name="Programs_UnknownPublisher" xml:space="preserve"><value>Publisher not specified</value></data>
+  <data name="Programs_UseWindowsSettings" xml:space="preserve"><value>Uninstall from Windows Settings only.</value></data>
+  <data name="Programs_UserScope" xml:space="preserve"><value>for this user</value></data>
+  <data name="Programs_Version" xml:space="preserve"><value>version {0}</value></data>
+  <data name="Report_Action_Open" xml:space="preserve"><value>Diagnostic report</value></data>
+  <data name="Report_Action_Open_ToolTip" xml:space="preserve"><value>Preview, then save a PDF or HTML report to attach to a ticket</value></data>
+  <data name="Report_Action_Refresh_ToolTip" xml:space="preserve"><value>Analyze again and refresh the report</value></data>
+  <data name="Report_Action_Reveal" xml:space="preserve"><value>Show in File Explorer</value></data>
+  <data name="Report_Action_SaveHtml" xml:space="preserve"><value>Save as HTML</value></data>
+  <data name="Report_Action_SavePdf" xml:space="preserve"><value>Save as PDF</value></data>
+  <data name="Report_BootDegradations" xml:space="preserve"><value>Items that slowed down startup</value></data>
+  <data name="Report_Col_Category" xml:space="preserve"><value>Category</value></data>
+  <data name="Report_Col_Class" xml:space="preserve"><value>Type</value></data>
+  <data name="Report_Col_Date" xml:space="preserve"><value>Date</value></data>
+  <data name="Report_Col_Delay" xml:space="preserve"><value>Delay</value></data>
+  <data name="Report_Col_Device" xml:space="preserve"><value>Device</value></data>
+  <data name="Report_Col_Disk" xml:space="preserve"><value>Disk</value></data>
+  <data name="Report_Col_Element" xml:space="preserve"><value>Item</value></data>
+  <data name="Report_Col_Event" xml:space="preserve"><value>Event</value></data>
+  <data name="Report_Col_Factor" xml:space="preserve"><value>Score factor</value></data>
+  <data name="Report_Col_Finding" xml:space="preserve"><value>Finding</value></data>
+  <data name="Report_Col_MainPath" xml:space="preserve"><value>Until the desktop</value></data>
+  <data name="Report_Col_Memory" xml:space="preserve"><value>Memory</value></data>
+  <data name="Report_Col_Points" xml:space="preserve"><value>Points</value></data>
+  <data name="Report_Col_PostBoot" xml:space="preserve"><value>Finishing</value></data>
+  <data name="Report_Col_Problem" xml:space="preserve"><value>Reported problem</value></data>
+  <data name="Report_Col_Process" xml:space="preserve"><value>Process</value></data>
+  <data name="Report_Col_Severity" xml:space="preserve"><value>Severity</value></data>
+  <data name="Report_Col_Status" xml:space="preserve"><value>Status</value></data>
+  <data name="Report_Col_Total" xml:space="preserve"><value>Total time</value></data>
+  <data name="Report_Col_Type" xml:space="preserve"><value>Type</value></data>
+  <data name="Report_Document_Title" xml:space="preserve"><value>{0} diagnostic report</value></data>
+  <data name="Report_Drive" xml:space="preserve"><value>Drive {0}</value></data>
+  <data name="Report_DriveValue" xml:space="preserve"><value>{0} free of {1} ({2})</value></data>
+  <data name="Report_Footer" xml:space="preserve"><value>Report produced by {0} {1}.</value></data>
+  <data name="Report_Irreversible" xml:space="preserve"><value>permanent</value></data>
+  <data name="Report_LogsNote" xml:space="preserve"><value>Latest lines of the PCBoost logs; the profile, user name and computer name are hidden.</value></data>
+  <data name="Report_Meta_Computer" xml:space="preserve"><value>Computer</value></data>
+  <data name="Report_Meta_ComputerHidden" xml:space="preserve"><value>(hidden)</value></data>
+  <data name="Report_Meta_Generated" xml:space="preserve"><value>Generated on</value></data>
+  <data name="Report_Meta_Version" xml:space="preserve"><value>Version</value></data>
+  <data name="Report_MoreChanges" xml:space="preserve"><value>… and {0} more {0:plural:change|changes}.</value></data>
+  <data name="Report_NoAnalysis" xml:space="preserve"><value>Analysis not available</value></data>
+  <data name="Report_NoChange" xml:space="preserve"><value>No change in this session.</value></data>
+  <data name="Report_NoFindings" xml:space="preserve"><value>No findings: no performance issue identified.</value></data>
+  <data name="Report_NoHealth" xml:space="preserve"><value>Hardware health not read.</value></data>
+  <data name="Report_NoHistory" xml:space="preserve"><value>No change recorded by PCBoost.</value></data>
+  <data name="Report_NoJournal" xml:space="preserve"><value>Log is empty.</value></data>
+  <data name="Report_NoLogs" xml:space="preserve"><value>No log line available.</value></data>
+  <data name="Report_NoWebView" xml:space="preserve"><value>The Microsoft Edge WebView2 runtime is missing: preview and PDF export are unavailable. HTML export is still possible (a browser can then print it to PDF).</value></data>
+  <data name="Report_Option_ComputerName" xml:space="preserve"><value>Computer name</value></data>
+  <data name="Report_Option_History" xml:space="preserve"><value>Change history</value></data>
+  <data name="Report_Option_Logs" xml:space="preserve"><value>Anonymized technical logs</value></data>
+  <data name="Report_Preparing" xml:space="preserve"><value>Preparing the report…</value></data>
+  <data name="Report_PreviewUnavailable" xml:space="preserve"><value>The preview is not available on this PC. You can still save the report as HTML and open it in your browser.</value></data>
+  <data name="Report_Preview_AccessibleName" xml:space="preserve"><value>Diagnostic report preview</value></data>
+  <data name="Report_PrivacyHint" xml:space="preserve"><value>The user name, personal folder and, unless you check "Computer name", the computer name are hidden. Check the preview before sharing the file.</value></data>
+  <data name="Report_PrivacyNote" xml:space="preserve"><value>Report produced locally: no data was sent. The user name and personal folder are hidden. Only values measured on this PC are shown.</value></data>
+  <data name="Report_Saved" xml:space="preserve"><value>Report saved: {0}</value></data>
+  <data name="Report_Section_Findings" xml:space="preserve"><value>Findings</value></data>
+  <data name="Report_Section_History" xml:space="preserve"><value>Recent changes</value></data>
+  <data name="Report_Section_Journal" xml:space="preserve"><value>Activity log</value></data>
+  <data name="Report_Section_Logs" xml:space="preserve"><value>Technical logs (anonymized)</value></data>
+  <data name="Report_Section_Summary" xml:space="preserve"><value>Summary</value></data>
+  <data name="Report_Section_System" xml:space="preserve"><value>Hardware and system</value></data>
+  <data name="Report_Subtitle" xml:space="preserve"><value>A document to attach to a support request: PC status, findings, hardware health, recent changes. Produced on this PC; nothing is sent.</value></data>
+  <data name="Report_Summary_Boot" xml:space="preserve"><value>Latest measured full startup: {0}.</value></data>
+  <data name="Report_Summary_DiskCritical" xml:space="preserve"><value>{0} {0:plural:disk|disks} reported in poor condition: backup recommended.</value></data>
+  <data name="Report_Summary_DisksOk" xml:space="preserve"><value>No disk reported in poor condition.</value></data>
+  <data name="Report_Summary_Findings" xml:space="preserve"><value>{0} {0:plural:finding|findings} to review.</value></data>
+  <data name="Report_Summary_Important" xml:space="preserve"><value>Including {0} important.</value></data>
+  <data name="Report_Summary_NoFinding" xml:space="preserve"><value>No performance finding.</value></data>
+  <data name="Report_Temperature_Cpu" xml:space="preserve"><value>Processor temperature</value></data>
+  <data name="Report_Times" xml:space="preserve"><value>(× {0})</value></data>
+  <data name="Report_Title" xml:space="preserve"><value>Diagnostic report</value></data>
+  <data name="Report_TopMemory" xml:space="preserve"><value>Processes using the most memory</value></data>
   <data name="Settings_Action_About" xml:space="preserve"><value>About PCBoost</value></data>
   <data name="Settings_Action_CheckUpdates" xml:space="preserve"><value>Check for updates</value></data>
   <data name="Settings_Action_DownloadUpdate" xml:space="preserve"><value>Download</value></data>
@@ -871,6 +1186,9 @@
   <data name="Settings_Recommendations_NoneDismissed" xml:space="preserve"><value>No hidden recommendations</value></data>
   <data name="Settings_Recommendations_OneDismissed" xml:space="preserve"><value>1 hidden recommendation</value></data>
   <data name="Settings_Recommendations_Restored" xml:space="preserve"><value>Hidden recommendations will be shown again.</value></data>
+  <data name="Settings_Report_Description" xml:space="preserve"><value>PDF or HTML document to attach to a support request; preview before saving, nothing is sent.</value></data>
+  <data name="Settings_RestorePoint_Description" xml:space="preserve"><value>Creates a Windows restore point before applying the Advanced level (administrator permission requested).</value></data>
+  <data name="Settings_RestorePoint_Label" xml:space="preserve"><value>Restore point before advanced optimizations</value></data>
   <data name="Settings_Retention_Days" xml:space="preserve"><value>{0} days</value></data>
   <data name="Settings_Retention_Label" xml:space="preserve"><value>Keep history for</value></data>
   <data name="Settings_Section_About" xml:space="preserve"><value>About</value></data>
@@ -930,6 +1248,37 @@
   <data name="Startup_Action_History" xml:space="preserve"><value>Restore from history</value></data>
   <data name="Startup_AdminBadge" xml:space="preserve"><value>Administrator</value></data>
   <data name="Startup_Badge_Locked" xml:space="preserve"><value>Protected</value></data>
+  <data name="Startup_Badge_SlowedBoot" xml:space="preserve"><value>Slowed startup by {0}</value></data>
+  <data name="Startup_Boot_Action_Read" xml:space="preserve"><value>Read Windows measurements</value></data>
+  <data name="Startup_Boot_Action_Read_ToolTip" xml:space="preserve"><value>Reads the startup durations recorded by Windows. Windows asks for administrator permission; nothing is changed.</value></data>
+  <data name="Startup_Boot_Apps" xml:space="preserve"><value>{0} {0:plural:program|programs} started</value></data>
+  <data name="Startup_Boot_Comparison" xml:space="preserve"><value>Before your changes on {0}: {1} on average ({2} {2:plural:startup|startups}). Since then: {3} on average ({4} {4:plural:startup|startups}).</value></data>
+  <data name="Startup_Boot_ComparisonNote" xml:space="preserve"><value>Startup time varies from one startup to the next (updates, network): compare over several startups.</value></data>
+  <data name="Startup_Boot_ComparisonPending" xml:space="preserve"><value>You changed startup programs on {0}. The before/after comparison will appear once a full startup has been measured on each side.</value></data>
+  <data name="Startup_Boot_DegradationDelay" xml:space="preserve"><value>+{0}</value></data>
+  <data name="Startup_Boot_DegradationKind_Application" xml:space="preserve"><value>Program</value></data>
+  <data name="Startup_Boot_DegradationKind_Driver" xml:space="preserve"><value>Driver</value></data>
+  <data name="Startup_Boot_DegradationKind_Other" xml:space="preserve"><value>Other</value></data>
+  <data name="Startup_Boot_DegradationKind_Service" xml:space="preserve"><value>Service</value></data>
+  <data name="Startup_Boot_DegradationsHeader" xml:space="preserve"><value>Slowed down startup (last 30 days)</value></data>
+  <data name="Startup_Boot_FastStartupNote" xml:space="preserve"><value>Most of your startups are "fast startups": Windows restores a saved session and does not measure them in detail. Measurements come from full startups, for example after a restart.</value></data>
+  <data name="Startup_Boot_Faster" xml:space="preserve"><value>{0} faster</value></data>
+  <data name="Startup_Boot_Kind_Cold" xml:space="preserve"><value>full startup</value></data>
+  <data name="Startup_Boot_Kind_FastStartup" xml:space="preserve"><value>fast startup</value></data>
+  <data name="Startup_Boot_Kind_Resume" xml:space="preserve"><value>resume from hibernation</value></data>
+  <data name="Startup_Boot_Kind_Unknown" xml:space="preserve"><value>type not specified</value></data>
+  <data name="Startup_Boot_LatestCaption" xml:space="preserve"><value>Latest full startup measured by Windows, on {0}</value></data>
+  <data name="Startup_Boot_MainPath" xml:space="preserve"><value>Until the desktop: {0}</value></data>
+  <data name="Startup_Boot_MinutesSeconds" xml:space="preserve"><value>{0} min {1} s</value></data>
+  <data name="Startup_Boot_NoChange" xml:space="preserve"><value>No noticeable difference</value></data>
+  <data name="Startup_Boot_NoMeasurement" xml:space="preserve"><value>No startup measurement is available yet. Read the Windows measurements to see how long recent full startups took.</value></data>
+  <data name="Startup_Boot_NoMeasurementLast" xml:space="preserve"><value>Latest startup on {0} ({1}). Read the Windows measurements to see how long it took.</value></data>
+  <data name="Startup_Boot_PostBoot" xml:space="preserve"><value>Finishing: {0}</value></data>
+  <data name="Startup_Boot_Read" xml:space="preserve"><value>Startup measurements read.</value></data>
+  <data name="Startup_Boot_Reading" xml:space="preserve"><value>Reading startup measurements…</value></data>
+  <data name="Startup_Boot_Seconds" xml:space="preserve"><value>{0} s</value></data>
+  <data name="Startup_Boot_Slower" xml:space="preserve"><value>{0} slower</value></data>
+  <data name="Startup_Boot_Title" xml:space="preserve"><value>Startup time</value></data>
   <data name="Startup_Column_Name" xml:space="preserve"><value>Program</value></data>
   <data name="Startup_Column_Publisher" xml:space="preserve"><value>Publisher</value></data>
   <data name="Startup_Column_Status" xml:space="preserve"><value>Status</value></data>

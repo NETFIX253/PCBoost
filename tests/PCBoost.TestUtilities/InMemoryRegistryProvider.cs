@@ -23,6 +23,9 @@ public sealed class InMemoryRegistryProvider : IRegistryProvider
 
     public bool KeyExists(RegistryLocation location) => _keys.ContainsKey(K(location));
 
+    /// <summary>Supprime une clé (simulation d'une désinstallation effectuée par un programme externe).</summary>
+    public void RemoveKey(RegistryLocation location) => _keys.TryRemove(K(location), out _);
+
     public IReadOnlyList<string> GetSubKeyNames(RegistryLocation location)
     {
         var prefix = K(location) + "\\";

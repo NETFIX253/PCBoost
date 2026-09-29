@@ -6,9 +6,9 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/NETFIX253/PCBoost/releases/download/v1.0.0/PCBoost-1.0.0-x64.msi"><img src="https://img.shields.io/badge/T%C3%A9l%C3%A9charger-Installateur%20MSI%20(66%20Mo)-11919A?style=for-the-badge&logo=windows&logoColor=white" alt="Télécharger l'installateur MSI"></a>
+  <a href="https://github.com/NETFIX253/PCBoost/releases/download/v1.1.0/PCBoost-1.1.0-x64.msi"><img src="https://img.shields.io/badge/T%C3%A9l%C3%A9charger-Installateur%20MSI%20(66%20Mo)-11919A?style=for-the-badge&logo=windows&logoColor=white" alt="Télécharger l'installateur MSI"></a>
   &nbsp;
-  <a href="https://github.com/NETFIX253/PCBoost/releases/download/v1.0.0/PCBoost-1.0.0-x64-portable.zip"><img src="https://img.shields.io/badge/T%C3%A9l%C3%A9charger-Version%20portable%20(83%20Mo)-5B55E6?style=for-the-badge&logo=windows&logoColor=white" alt="Télécharger la version portable (ZIP)"></a>
+  <a href="https://github.com/NETFIX253/PCBoost/releases/download/v1.1.0/PCBoost-1.1.0-x64-portable.zip"><img src="https://img.shields.io/badge/T%C3%A9l%C3%A9charger-Version%20portable%20(84%20Mo)-5B55E6?style=for-the-badge&logo=windows&logoColor=white" alt="Télécharger la version portable (ZIP)"></a>
 </p>
 
 <p align="center">
@@ -40,12 +40,12 @@
   <tr>
     <td width="50%" valign="top">
       <h3>💿 Installateur <sup>recommandé</sup></h3>
-      <a href="https://github.com/NETFIX253/PCBoost/releases/download/v1.0.0/PCBoost-1.0.0-x64.msi"><b>PCBoost-1.0.0-x64.msi</b></a> · 66 Mo<br><br>
+      <a href="https://github.com/NETFIX253/PCBoost/releases/download/v1.1.0/PCBoost-1.1.0-x64.msi"><b>PCBoost-1.1.0-x64.msi</b></a> · 66 Mo<br><br>
       Une installation classique : dossier <i>Program Files</i>, raccourci dans le menu Démarrer, raccourci Bureau et lancement avec Windows en option, désinstallation depuis les <i>Paramètres</i>.
     </td>
     <td width="50%" valign="top">
       <h3>🗂️ Version portable</h3>
-      <a href="https://github.com/NETFIX253/PCBoost/releases/download/v1.0.0/PCBoost-1.0.0-x64-portable.zip"><b>PCBoost-1.0.0-x64-portable.zip</b></a> · 83 Mo<br><br>
+      <a href="https://github.com/NETFIX253/PCBoost/releases/download/v1.1.0/PCBoost-1.1.0-x64-portable.zip"><b>PCBoost-1.1.0-x64-portable.zip</b></a> · 84 Mo<br><br>
       Aucune installation : décompressez le dossier puis lancez <code>PCBoost.exe</code>. Pratique sur une clé USB ou un poste partagé.
     </td>
   </tr>
@@ -57,9 +57,9 @@ Toutes les versions et notes de publication : **[page des Releases](https://gith
 
 > [!NOTE]
 > **Premier lancement et SmartScreen.** Les fichiers ne sont pas encore signés numériquement. Windows peut donc afficher « Windows a protégé votre ordinateur » : cliquez sur **Informations complémentaires**, puis **Exécuter quand même**.
-> Pour vérifier que le fichier téléchargé est intact, comparez son empreinte avec [`SHA256SUMS.txt`](https://github.com/NETFIX253/PCBoost/releases/download/v1.0.0/SHA256SUMS.txt) :
+> Pour vérifier que le fichier téléchargé est intact, comparez son empreinte avec [`SHA256SUMS.txt`](https://github.com/NETFIX253/PCBoost/releases/download/v1.1.0/SHA256SUMS.txt) :
 > ```powershell
-> Get-FileHash .\PCBoost-1.0.0-x64.msi -Algorithm SHA256
+> Get-FileHash .\PCBoost-1.1.0-x64.msi -Algorithm SHA256
 > ```
 
 ## ✨ Pourquoi PCBoost ?
@@ -87,13 +87,20 @@ Toutes les versions et notes de publication : **[page des Releases](https://gith
     </td>
     <td width="50%" valign="top">
       <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="docs/images/screen-health-dark.png">
+        <img src="docs/images/screen-health-light.png" alt="Santé du matériel : état des disques, batterie, température et limitation du processeur">
+      </picture>
+      <p align="center"><b>Santé du matériel</b> <sup>nouveau</sup> — disques, batterie, surchauffe et périphériques, d'après les mesures de Windows.</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <picture>
         <source media="(prefers-color-scheme: dark)" srcset="docs/images/screen-analysis-dark.png">
         <img src="docs/images/screen-analysis-light.png" alt="Analyse du système : constats par catégorie et recommandations">
       </picture>
       <p align="center"><b>Analyse</b> — constats et recommandations, en lecture seule : rien n'est modifié.</p>
     </td>
-  </tr>
-  <tr>
     <td width="50%" valign="top">
       <picture>
         <source media="(prefers-color-scheme: dark)" srcset="docs/images/screen-oldpc-dark.png">
@@ -101,22 +108,24 @@ Toutes les versions et notes de publication : **[page des Releases](https://gith
       </picture>
       <p align="center"><b>Ancien PC</b> — chaque niveau est prévisualisé : risque, impact, réversible ou non.</p>
     </td>
+  </tr>
+  <tr>
     <td width="50%" valign="top">
       <picture>
         <source media="(prefers-color-scheme: dark)" srcset="docs/images/screen-cleanup-dark.png">
         <img src="docs/images/screen-cleanup-light.png" alt="Nettoyage par catégories SÛR, PRUDENCE et AVANCÉ">
       </picture>
-      <p align="center"><b>Nettoyage</b> — catégories SÛR / PRUDENCE / AVANCÉ ; vos documents ne sont jamais concernés.</p>
+      <p align="center"><b>Nettoyage</b> — catégories SÛR / PRUDENCE / AVANCÉ, programmes peu utilisés, gros fichiers et doublons.</p>
     </td>
-  </tr>
-  <tr>
     <td width="50%" valign="top">
       <picture>
         <source media="(prefers-color-scheme: dark)" srcset="docs/images/screen-gaming-dark.png">
         <img src="docs/images/screen-gaming-light.png" alt="Mode Gaming : optimisations prévues et paramètres graphiques de Windows">
       </picture>
-      <p align="center"><b>Mode Gaming</b> — des réglages temporaires, restaurés automatiquement à la fermeture du jeu.</p>
+      <p align="center"><b>Mode Gaming</b> — des réglages temporaires, par jeu, restaurés automatiquement à la fermeture du jeu.</p>
     </td>
+  </tr>
+  <tr>
     <td width="50%" valign="top">
       <picture>
         <source media="(prefers-color-scheme: dark)" srcset="docs/images/screen-performance-dark.png">
@@ -124,8 +133,6 @@ Toutes les versions et notes de publication : **[page des Releases](https://gith
       </picture>
       <p align="center"><b>Performances</b> — processeur, mémoire, disque, GPU et réseau, de 30 s à 7 jours.</p>
     </td>
-  </tr>
-  <tr>
     <td width="50%" valign="top">
       <picture>
         <source media="(prefers-color-scheme: dark)" srcset="docs/images/screen-history-dark.png">
@@ -133,15 +140,10 @@ Toutes les versions et notes de publication : **[page des Releases](https://gith
       </picture>
       <p align="center"><b>Historique</b> — chaque session et chaque modification peut être restaurée.</p>
     </td>
-    <td width="50%" valign="top">
-      <picture>
-        <source media="(prefers-color-scheme: dark)" srcset="docs/images/screen-about-dark.png">
-        <img src="docs/images/screen-about-light.png" alt="À propos : éditeur Mohamed ABDOURAHMAN (DSI)">
-      </picture>
-      <p align="center"><b>Thèmes clair et sombre</b>, français et anglais. Les captures suivent le thème de votre GitHub.</p>
-    </td>
   </tr>
 </table>
+
+<p align="center"><sub>Thèmes clair et sombre, français et anglais : les captures suivent le thème de votre GitHub.</sub></p>
 
 ## 🧭 Comment ça marche
 
@@ -162,27 +164,32 @@ Toutes les versions et notes de publication : **[page des Releases](https://gith
 | Domaine | Ce que fait PCBoost |
 |---|---|
 | Tableau de bord | Score de santé sur 100 **explicable** (chaque point vient d'un facteur mesuré), charge en temps réel, recommandations principales, actions rapides. |
-| Analyse du système | Bilan en lecture seule : matériel, logiciels, constats par catégorie, profil matériel, conseils matériels factuels. |
+| Analyse du système | Bilan en lecture seule : matériel, logiciels, constats par catégorie (dont la santé du matériel), profil matériel, conseils matériels factuels. |
+| Santé du matériel 🆕 | État des disques signalé par Windows ; usure des SSD, température, heures de fonctionnement et erreurs de lecture (autorisation administrateur ponctuelle) ; batterie des portables (capacité, cycles) ; surchauffe et limitation du processeur ; périphériques en erreur. Notification si un disque est signalé en mauvais état. |
 | « Pourquoi mon PC est lent ? » | Facteurs observés, impact et niveau de confiance, en langage simple. |
 | Optimisation en un clic | Aperçu → Préparation → Sauvegarde → Optimisation → Vérification → Rapport final. |
 | Profils | Équilibré, Productivité, Gaming, Économie d'énergie, Personnalisé. |
-| Assistant « Ancien PC » | Niveaux Essentiel / Standard / Avancé, chaque étape expliquée. |
+| Assistant « Ancien PC » | Niveaux Essentiel / Standard / Avancé, chaque étape expliquée ; point de restauration Windows créé automatiquement avant le niveau Avancé 🆕. |
 | Nettoyage | Catégories SÛR / PRUDENCE / AVANCÉ (SÛR sélectionné par défaut), fichiers en cours d'utilisation conservés. |
-| Démarrage | Activation / désactivation réversible, identique au Gestionnaire des tâches. |
+| Programmes installés 🆕 | Taille, date d'installation, dernière utilisation connue, repérage des programmes peu utilisés ; désinstallation par le programme officiel de l'éditeur, après confirmation. Mises à jour, pilotes, composants d'exécution et logiciels de sécurité ne sont jamais proposés. |
+| Gros fichiers et doublons 🆕 | Fichiers de plus de 256 Mo et doublons vérifiés par SHA-256 dans vos dossiers personnels ; envoi à la Corbeille uniquement, une copie de chaque doublon toujours conservée. |
+| Démarrage | Activation / désactivation réversible, identique au Gestionnaire des tâches ; durée du démarrage mesurée par Windows, avant / après vos changements, et programmes qui le ralentissent 🆕. |
 | Processus | Liste en direct, niveau de confiance (signature), fermeture douce, **processus critiques protégés**. |
-| Mode Gaming | Détection des jeux (Steam, Epic, Xbox, Battle.net, Riot, Ubisoft, EA, GOG, Windows, ajouts manuels), activation manuelle, sur demande ou automatique, restauration automatique à la fermeture du jeu. |
+| Mode Gaming | Détection des jeux (Steam, Epic, Xbox, Battle.net, Riot, Ubisoft, EA, GOG, Windows, ajouts manuels), activation manuelle, sur demande ou automatique, restauration automatique à la fermeture du jeu ; réglages par jeu et historique des FPS par jeu 🆕. |
 | FPS | FPS moyen, 1 % low, 0,1 % low et temps d'image via les événements de présentation Windows (ETW), **sans aucune injection** dans le jeu. |
 | Mesure avant / après | Comparaison de deux mesures de même durée ; seuls les écarts réellement mesurés sont affichés. |
 | Performances | Graphiques processeur, mémoire, disque, GPU, réseau, températures (30 s à 7 jours), surveillance légère et adaptative. |
 | Stockage | Répartition de l'espace du disque système, dossiers les plus volumineux (lecture seule). |
 | Historique | Sessions d'optimisation, restauration d'une session ou d'une seule modification, journal d'activité. |
+| Rapport de diagnostic 🆕 | Aperçu puis enregistrement en PDF ou HTML, à joindre à une demande d'assistance ; nom d'utilisateur, dossier personnel et (par défaut) nom du PC masqués ; produit sur le PC, rien n'est envoyé. |
 | Mode Expert | États avant / après bruts, journal technique, erreurs techniques. |
 | Confort | Zone de notification, notifications Windows, lancement avec Windows, thèmes Clair / Sombre / Système, français et anglais, accessibilité (clavier, lecteurs d'écran, contraste élevé). |
 
 ## 🚫 Ce que PCBoost ne fait jamais
 
 - Désactiver Microsoft Defender, le Pare-feu, Windows Update, SmartScreen ou BitLocker.
-- Supprimer un fichier système ou l'un de vos documents, images, vidéos ou téléchargements.
+- Supprimer un fichier système, ou l'un de vos documents sans votre accord : les gros fichiers et doublons que vous choisissez vont à la Corbeille.
+- Proposer la désinstallation des mises à jour, pilotes, composants d'exécution ou logiciels de sécurité.
 - Fermer les processus essentiels de Windows.
 - Modifier le BIOS, overclocker le matériel ou injecter du code dans les jeux (aucun anti-triche touché).
 - Annoncer un gain qu'il n'a pas mesuré.
@@ -191,7 +198,7 @@ Détails : [docs/SECURITY.md](docs/SECURITY.md) et [docs/OPTIMIZATIONS.md](docs/
 
 ## 🔐 Droits administrateur et données
 
-PCBoost s'exécute en **utilisateur standard**. Windows demande une autorisation administrateur (UAC) uniquement pour une action précise : nettoyer un dossier système, modifier un programme lancé au démarrage pour tous les utilisateurs, ou mesurer les images par seconde d'un jeu.
+PCBoost s'exécute en **utilisateur standard**. Windows demande une autorisation administrateur (UAC) uniquement pour une action précise : nettoyer un dossier système, modifier un programme lancé au démarrage pour tous les utilisateurs, mesurer les images par seconde d'un jeu, lire les compteurs détaillés des disques ou les mesures de démarrage de Windows, ou créer un point de restauration.
 
 Tout reste sur votre PC, dans `%LOCALAPPDATA%\PCBoost` (historique et journaux ; les journaux masquent le nom d'utilisateur et le nom du PC). Ce dossier est conservé à la désinstallation pour permettre une réinstallation sans perte ; supprimez-le pour tout effacer.
 
@@ -211,7 +218,7 @@ powershell -ExecutionPolicy Bypass -File build\build.ps1                     # c
 powershell -ExecutionPolicy Bypass -File build\build.ps1 -Publish -Installer # + version portable + MSI dans dist\
 ```
 
-La version 1.0.0 compile sans erreur ni avertissement et passe plus de 1 300 tests automatisés (xUnit).
+Chaque version publiée compile sans erreur ni avertissement et passe l'ensemble des tests automatisés (plus de 1 600 tests xUnit).
 
 </details>
 

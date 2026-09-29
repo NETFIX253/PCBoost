@@ -172,5 +172,9 @@ public sealed class StorageAnalyzerTests
         public OperationResult CreateDirectory(string path) => throw new InvalidOperationException("Aucune écriture attendue.");
         public IReadOnlyList<string> GetFixedDriveRoots() => inner.GetFixedDriveRoots();
         public string GetFullPath(string path) => inner.GetFullPath(path);
+        public DateTimeOffset? GetLastAccessTimeUtc(string path) => inner.GetLastAccessTimeUtc(path);
+        public FileEntry? GetFileInfo(string path) => inner.GetFileInfo(path);
+        public Stream? OpenRead(string path) => inner.OpenRead(path);
+        public OperationResult MoveToRecycleBin(string path) => throw new InvalidOperationException("Aucune suppression attendue.");
     }
 }

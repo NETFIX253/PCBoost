@@ -78,6 +78,7 @@ public sealed partial class MainWindow : Window
         _navigation.Attach(ContentFrame);
         _navigation.Navigated += OnNavigated;
         App.GetService<DialogService>().Attach(() => Content?.XamlRoot);
+        App.GetService<ReportFileService>().AttachWindow(() => WinRT.Interop.WindowNative.GetWindowHandle(this));
         _lifecycle.Attach(ShowAndActivate, () => _ = ExitAsync());
 
         BuildNavigationItems();
@@ -289,10 +290,11 @@ public sealed partial class MainWindow : Window
         if (key is null) return;
         var menuKey = key switch
         {
-            PageKeys.Diagnosis or PageKeys.Storage => PageKeys.Analysis,
+            PageKeys.Diagnosis or PageKeys.Storage or PageKeys.Report or PageKeys.Files => PageKeys.Analysis,
             PageKeys.OldPc or PageRegistry.Profiles => PageKeys.Optimization,
-            PageKeys.Benchmark => PageKeys.Gaming,
+            PageKeys.Benchmark or PageKeys.GameProfile => PageKeys.Gaming,
             PageKeys.Journal => PageKeys.History,
+            PageKeys.Programs => PageKeys.Cleanup,
             PageKeys.Privacy or PageKeys.About => PageKeys.Settings,
             _ => key,
         };
