@@ -74,7 +74,7 @@ Toutes les versions et notes de publication : **[page des Releases](https://gith
   </tr>
 </table>
 
-## 🖼️ Aperçu
+## 📸 Aperçu
 
 <table>
   <tr>
