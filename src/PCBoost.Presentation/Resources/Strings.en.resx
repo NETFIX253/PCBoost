@@ -356,6 +356,160 @@
   <data name="Diagnosis_Title" xml:space="preserve"><value>Why is my PC slow?</value></data>
   <data name="Diagnosis_WhatToDo" xml:space="preserve"><value>What can be done?</value></data>
   <data name="Diagnosis_Why" xml:space="preserve"><value>Why?</value></data>
+  <data name="Drivers_Action_CancelScan" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Drivers_Action_ClearSelection" xml:space="preserve"><value>Uncheck all</value></data>
+  <data name="Drivers_Action_History" xml:space="preserve"><value>Open History</value></data>
+  <data name="Drivers_Action_Install" xml:space="preserve"><value>Review changes…</value></data>
+  <data name="Drivers_Action_Install_ToolTip" xml:space="preserve"><value>Shows the drivers concerned and the safeguards before anything is installed.</value></data>
+  <data name="Drivers_Action_OpenSource" xml:space="preserve"><value>Open official site</value></data>
+  <data name="Drivers_Action_OpenSource_ToolTip" xml:space="preserve"><value>Opens the official page in your browser. PCBoost downloads nothing.</value></data>
+  <data name="Drivers_Action_RestorePointNow" xml:space="preserve"><value>Create a restore point now</value></data>
+  <data name="Drivers_Action_RestorePointNow_ToolTip" xml:space="preserve"><value>Windows asks for administrator permission. Useful before using a manufacturer's tool.</value></data>
+  <data name="Drivers_Action_Rollback" xml:space="preserve"><value>Go back to previous driver</value></data>
+  <data name="Drivers_Action_Scan" xml:space="preserve"><value>Check for updates</value></data>
+  <data name="Drivers_Action_Scan_ToolTip" xml:space="preserve"><value>Queries Windows Update. Nothing is downloaded or installed.</value></data>
+  <data name="Drivers_Action_SelectRecommended" xml:space="preserve"><value>Check recommended</value></data>
+  <data name="Drivers_Action_SystemRestore" xml:space="preserve"><value>Open System Restore</value></data>
+  <data name="Drivers_Action_WindowsUpdate" xml:space="preserve"><value>Open in Windows Update</value></data>
+  <data name="Drivers_Blocked_Devices" xml:space="preserve"><value>Search again: the device list could not be read.</value></data>
+  <data name="Drivers_Blocked_Protection" xml:space="preserve"><value>Check the option to turn on system protection to be able to install.</value></data>
+  <data name="Drivers_Blocked_ProtectionPolicy" xml:space="preserve"><value>Installation not possible: System Restore is turned off by your organization.</value></data>
+  <data name="Drivers_Blocked_Reboot" xml:space="preserve"><value>Restart the PC before installing drivers.</value></data>
+  <data name="Drivers_Blocked_SameDevice" xml:space="preserve"><value>Two selected updates are for the same device: install them one after the other.</value></data>
+  <data name="Drivers_Class_Battery" xml:space="preserve"><value>Battery</value></data>
+  <data name="Drivers_Class_Biometric" xml:space="preserve"><value>Biometrics</value></data>
+  <data name="Drivers_Class_Bluetooth" xml:space="preserve"><value>Bluetooth</value></data>
+  <data name="Drivers_Class_Camera" xml:space="preserve"><value>Camera</value></data>
+  <data name="Drivers_Class_Disk" xml:space="preserve"><value>Disk drive</value></data>
+  <data name="Drivers_Class_Display" xml:space="preserve"><value>Graphics</value></data>
+  <data name="Drivers_Class_Extension" xml:space="preserve"><value>Driver extension</value></data>
+  <data name="Drivers_Class_Firmware" xml:space="preserve"><value>Firmware</value></data>
+  <data name="Drivers_Class_Input" xml:space="preserve"><value>Input device</value></data>
+  <data name="Drivers_Class_Media" xml:space="preserve"><value>Sound and media</value></data>
+  <data name="Drivers_Class_Monitor" xml:space="preserve"><value>Monitor</value></data>
+  <data name="Drivers_Class_Net" xml:space="preserve"><value>Network</value></data>
+  <data name="Drivers_Class_Ports" xml:space="preserve"><value>Ports (COM &amp; LPT)</value></data>
+  <data name="Drivers_Class_Printer" xml:space="preserve"><value>Printer</value></data>
+  <data name="Drivers_Class_Processor" xml:space="preserve"><value>Processor</value></data>
+  <data name="Drivers_Class_Security" xml:space="preserve"><value>Security (TPM)</value></data>
+  <data name="Drivers_Class_Sensor" xml:space="preserve"><value>Sensor</value></data>
+  <data name="Drivers_Class_SmartCard" xml:space="preserve"><value>Smart card reader</value></data>
+  <data name="Drivers_Class_Software" xml:space="preserve"><value>Software component</value></data>
+  <data name="Drivers_Class_Storage" xml:space="preserve"><value>Storage controller</value></data>
+  <data name="Drivers_Class_System" xml:space="preserve"><value>System device</value></data>
+  <data name="Drivers_Class_Unknown" xml:space="preserve"><value>Device</value></data>
+  <data name="Drivers_Class_Usb" xml:space="preserve"><value>USB</value></data>
+  <data name="Drivers_Confirm_Admin" xml:space="preserve"><value>Windows asks for administrator permission, only once.</value></data>
+  <data name="Drivers_Confirm_EnableProtection" xml:space="preserve"><value>System protection is turned on for the Windows drive to allow this restore point.</value></data>
+  <data name="Drivers_Confirm_Install" xml:space="preserve"><value>Create restore point and install</value></data>
+  <data name="Drivers_Confirm_Item" xml:space="preserve"><value>{0}: {1} → {2}</value></data>
+  <data name="Drivers_Confirm_ItemRestorePoint" xml:space="preserve"><value>{0}: {1} → {2} (revert: restore point only)</value></data>
+  <data name="Drivers_Confirm_Message" xml:space="preserve"><value>Here is what will change:</value></data>
+  <data name="Drivers_Confirm_Metered" xml:space="preserve"><value>The connection is metered: the download will count against your data plan.</value></data>
+  <data name="Drivers_Confirm_Restart" xml:space="preserve"><value>A restart may be needed to finish.</value></data>
+  <data name="Drivers_Confirm_RestorePoint" xml:space="preserve"><value>Updates are checked again, then a Windows restore point is created. If it cannot be created, nothing is installed.</value></data>
+  <data name="Drivers_Confirm_Rollback" xml:space="preserve"><value>Going back: "Roll back driver" from this page or History, and in every case the restore point.</value></data>
+  <data name="Drivers_Confirm_Title" xml:space="preserve"><value>Install {0} {0:plural:driver|drivers}?</value></data>
+  <data name="Drivers_Current" xml:space="preserve"><value>Installed: {0} from {1} ({2})</value></data>
+  <data name="Drivers_Current_NoDevice" xml:space="preserve"><value>Device not found on this PC</value></data>
+  <data name="Drivers_Current_None" xml:space="preserve"><value>No driver installed</value></data>
+  <data name="Drivers_DateUnknown" xml:space="preserve"><value>unknown date</value></data>
+  <data name="Drivers_DeviceCount" xml:space="preserve"><value>{0} devices</value></data>
+  <data name="Drivers_Installing_Notice" xml:space="preserve"><value>Do not turn off the PC. This can take several minutes.</value></data>
+  <data name="Drivers_Installing_Title" xml:space="preserve"><value>Installing</value></data>
+  <data name="Drivers_LastScan" xml:space="preserve"><value>Last check: {0}</value></data>
+  <data name="Drivers_Notice_Busy" xml:space="preserve"><value>Windows Update is installing updates right now. Wait until it has finished before installing drivers.</value></data>
+  <data name="Drivers_Notice_Busy_Title" xml:space="preserve"><value>Windows Update is busy</value></data>
+  <data name="Drivers_Notice_Devices" xml:space="preserve"><value>The device list could not be fully read: PCBoost cannot check the updates. Search again.</value></data>
+  <data name="Drivers_Notice_Devices_Title" xml:space="preserve"><value>Devices not read</value></data>
+  <data name="Drivers_Notice_Managed" xml:space="preserve"><value>This PC gets updates from your organization's server: only the drivers it approves are offered.</value></data>
+  <data name="Drivers_Notice_Managed_Title" xml:space="preserve"><value>Updates managed by your organization</value></data>
+  <data name="Drivers_Notice_Metered" xml:space="preserve"><value>The download ({0}) will count against your data plan.</value></data>
+  <data name="Drivers_Notice_Metered_Title" xml:space="preserve"><value>Metered connection</value></data>
+  <data name="Drivers_Notice_Policy" xml:space="preserve"><value>A policy excludes drivers from Windows Update on this PC. PCBoost respects this setting: no search is performed.</value></data>
+  <data name="Drivers_Notice_Policy_Title" xml:space="preserve"><value>Drivers managed by your organization</value></data>
+  <data name="Drivers_Notice_ProtectionPolicy_Title" xml:space="preserve"><value>System Restore turned off by your organization</value></data>
+  <data name="Drivers_Notice_Reboot" xml:space="preserve"><value>Windows is waiting for a restart to finish updates. Restart the PC, then search again before installing drivers.</value></data>
+  <data name="Drivers_Notice_Reboot_Title" xml:space="preserve"><value>Restart pending</value></data>
+  <data name="Drivers_Notice_SearchFailed_Title" xml:space="preserve"><value>Search failed</value></data>
+  <data name="Drivers_Notice_Service" xml:space="preserve"><value>PCBoost does not re-enable this service. Re-enable it in Windows services or ask your IT department, then search again.</value></data>
+  <data name="Drivers_Notice_Service_Title" xml:space="preserve"><value>Windows Update service disabled</value></data>
+  <data name="Drivers_Outcome_Installed" xml:space="preserve"><value>Installed</value></data>
+  <data name="Drivers_Outcome_InstalledProblem" xml:space="preserve"><value>Installed, but the device reports a problem (code {0}): go back to the previous driver or use the restore point.</value></data>
+  <data name="Drivers_Outcome_InstalledRestart" xml:space="preserve"><value>Installed · active after restart</value></data>
+  <data name="Drivers_Outcome_InstalledRestorePoint" xml:space="preserve"><value>Installed · revert with the restore point</value></data>
+  <data name="Drivers_Proposed" xml:space="preserve"><value>Offered: {0} from {1} ({2})</value></data>
+  <data name="Drivers_Protection_Choice" xml:space="preserve"><value>Allow PCBoost to turn on system protection for the Windows drive (standard Windows setting: part of the disk is reserved for restore points)</value></data>
+  <data name="Drivers_Protection_Message" xml:space="preserve"><value>Without it, Windows cannot create a restore point, and PCBoost does not install drivers without a restore point.</value></data>
+  <data name="Drivers_Protection_Title" xml:space="preserve"><value>System protection is turned off</value></data>
+  <data name="Drivers_ProviderUnknown" xml:space="preserve"><value>unknown publisher</value></data>
+  <data name="Drivers_Published" xml:space="preserve"><value>published {0}</value></data>
+  <data name="Drivers_Reason_DeviceHasProblem" xml:space="preserve"><value>This device currently reports a problem (code {0}).</value></data>
+  <data name="Drivers_Reason_DeviceNotFound" xml:space="preserve"><value>No present device exactly matches this update.</value></data>
+  <data name="Drivers_Reason_Firmware" xml:space="preserve"><value>Firmware (BIOS, UEFI): PCBoost never changes it.</value></data>
+  <data name="Drivers_Reason_LicenseNotAccepted" xml:space="preserve"><value>License terms must be accepted in Windows Update: PCBoost does not accept them for you.</value></data>
+  <data name="Drivers_Reason_NotNewer" xml:space="preserve"><value>The installed version is the same or newer: PCBoost never goes back to an earlier version.</value></data>
+  <data name="Drivers_Reason_Optional" xml:space="preserve"><value>Optional Windows update: mainly useful to fix a specific problem.</value></data>
+  <data name="Drivers_Reason_RecentlyPublished" xml:space="preserve"><value>Published less than 14 days ago: PCBoost waits until it has proven itself.</value></data>
+  <data name="Drivers_Reason_RequiresUserInput" xml:space="preserve"><value>Installation requires your input: do it from Windows Update.</value></data>
+  <data name="Drivers_Reason_SystemCritical" xml:space="preserve"><value>Driver essential to Windows startup or security: install only if needed.</value></data>
+  <data name="Drivers_Reason_VersionNotComparable" xml:space="preserve"><value>The installed version cannot be compared reliably (different publisher or driver extension).</value></data>
+  <data name="Drivers_RestartRequired" xml:space="preserve"><value>restart required</value></data>
+  <data name="Drivers_Result_Help" xml:space="preserve"><value>If something goes wrong: go back to the previous driver below, or use the restore point (System Restore).</value></data>
+  <data name="Drivers_Result_NoneTitle" xml:space="preserve"><value>No driver installed</value></data>
+  <data name="Drivers_Result_Restart" xml:space="preserve"><value>Restart the PC to finish the installation.</value></data>
+  <data name="Drivers_Result_RestorePoint" xml:space="preserve"><value>Restore point created on {0}.</value></data>
+  <data name="Drivers_Result_RestorePointProtection" xml:space="preserve"><value>System protection turned on and restore point created on {0}.</value></data>
+  <data name="Drivers_Result_Success" xml:space="preserve"><value>Installation completed successfully.</value></data>
+  <data name="Drivers_Result_Title" xml:space="preserve"><value>{0} of {1} {1:plural:driver|drivers} installed</value></data>
+  <data name="Drivers_Result_Versions" xml:space="preserve"><value>{0} → {1}</value></data>
+  <data name="Drivers_Rollback_Message" xml:space="preserve"><value>Windows reinstalls the driver used before the update. Administrator permission is requested.</value></data>
+  <data name="Drivers_Rollback_Title" xml:space="preserve"><value>Go back to the previous driver of "{0}"?</value></data>
+  <data name="Drivers_Safety_Never" xml:space="preserve"><value>Never BIOS or UEFI, never a version older than the installed one.</value></data>
+  <data name="Drivers_Safety_RestorePoint" xml:space="preserve"><value>A Windows restore point is created right before installation. If it cannot be created, nothing is installed.</value></data>
+  <data name="Drivers_Safety_Rollback" xml:space="preserve"><value>Going back: "Roll back driver" here or from History, and in every case the restore point.</value></data>
+  <data name="Drivers_Safety_Source" xml:space="preserve"><value>Single source: Windows Update, with drivers signed and tested by Microsoft (WHQL). Never a third-party site.</value></data>
+  <data name="Drivers_Safety_Stable" xml:space="preserve"><value>Proven versions first: only updates recommended by Windows and published at least 14 days ago are checked.</value></data>
+  <data name="Drivers_Safety_Title" xml:space="preserve"><value>How PCBoost protects your PC</value></data>
+  <data name="Drivers_Scanning" xml:space="preserve"><value>Searching Windows Update… This can take a minute.</value></data>
+  <data name="Drivers_Section_Excluded" xml:space="preserve"><value>Not offered ({0})</value></data>
+  <data name="Drivers_Section_Excluded_Hint" xml:space="preserve"><value>PCBoost does not install them, for the reasons shown.</value></data>
+  <data name="Drivers_Section_Recommended" xml:space="preserve"><value>Recommended ({0})</value></data>
+  <data name="Drivers_Section_Recommended_Hint" xml:space="preserve"><value>Offered automatically by Windows, published at least 14 days ago and newer than the installed driver.</value></data>
+  <data name="Drivers_Section_Review" xml:space="preserve"><value>To review ({0})</value></data>
+  <data name="Drivers_Section_Review_Hint" xml:space="preserve"><value>Installable, but not checked: choose them only if they meet a specific need.</value></data>
+  <data name="Drivers_Selection" xml:space="preserve"><value>{0} {0:plural:update|updates} selected · {1} to download</value></data>
+  <data name="Drivers_Selection_AtLeast" xml:space="preserve"><value>{0} {0:plural:update|updates} selected · at least {1} to download</value></data>
+  <data name="Drivers_Selection_None" xml:space="preserve"><value>No update selected</value></data>
+  <data name="Drivers_SizeUnknown" xml:space="preserve"><value>unknown size</value></data>
+  <data name="Drivers_Source_Automatic" xml:space="preserve"><value>Windows Update (recommended)</value></data>
+  <data name="Drivers_Source_ForGraphics" xml:space="preserve"><value>Drivers for the {0} graphics card, often newer than those from Windows Update.</value></data>
+  <data name="Drivers_Source_ForGraphicsUnknown" xml:space="preserve"><value>Drivers for your graphics card, often newer than those from Windows Update.</value></data>
+  <data name="Drivers_Source_ForPc" xml:space="preserve"><value>Drivers and software validated by the manufacturer for your model ({0}).</value></data>
+  <data name="Drivers_Source_ForPcUnknown" xml:space="preserve"><value>Drivers and software validated by the manufacturer for your model.</value></data>
+  <data name="Drivers_Source_Kind_Graphics" xml:space="preserve"><value>Graphics card</value></data>
+  <data name="Drivers_Source_Kind_Pc" xml:space="preserve"><value>PC manufacturer</value></data>
+  <data name="Drivers_Source_Optional" xml:space="preserve"><value>Windows Update (optional)</value></data>
+  <data name="Drivers_Source_Title" xml:space="preserve"><value>{0} — {1}</value></data>
+  <data name="Drivers_Sources_Bios" xml:space="preserve"><value>If a tool offers a BIOS or firmware update, do it only on mains power and on your IT department's advice: PCBoost never does it.</value></data>
+  <data name="Drivers_Sources_Computer" xml:space="preserve"><value>Your PC: {0}</value></data>
+  <data name="Drivers_Sources_Hint" xml:space="preserve"><value>For a newer driver or one specific to your model, use only the official tools and sites below. PCBoost does not download or install anything from these sources, so it cannot undo them driver by driver: create a restore point first.</value></data>
+  <data name="Drivers_Sources_None" xml:space="preserve"><value>No known manufacturer for this PC: Windows Update remains the recommended source.</value></data>
+  <data name="Drivers_Sources_Title" xml:space="preserve"><value>Other reliable sources: the manufacturers</value></data>
+  <data name="Drivers_Step_Downloading" xml:space="preserve"><value>Downloading {0} of {1}: {2}</value></data>
+  <data name="Drivers_Step_Installing" xml:space="preserve"><value>Installing {0} of {1}: {2}</value></data>
+  <data name="Drivers_Step_RestorePoint" xml:space="preserve"><value>Creating the Windows restore point…</value></data>
+  <data name="Drivers_Step_Searching" xml:space="preserve"><value>Checking updates in Windows Update…</value></data>
+  <data name="Drivers_Step_Verifying" xml:space="preserve"><value>Checking {0} of {1}: {2}</value></data>
+  <data name="Drivers_Step_Waiting" xml:space="preserve"><value>Waiting for administrator permission…</value></data>
+  <data name="Drivers_Subtitle" xml:space="preserve"><value>Update your device drivers with versions validated by Microsoft, always keeping a way back.</value></data>
+  <data name="Drivers_Tier_Excluded" xml:space="preserve"><value>Not offered</value></data>
+  <data name="Drivers_Tier_Recommended" xml:space="preserve"><value>Recommended</value></data>
+  <data name="Drivers_Tier_Review" xml:space="preserve"><value>To review</value></data>
+  <data name="Drivers_Title" xml:space="preserve"><value>Drivers</value></data>
+  <data name="Drivers_UpToDate" xml:space="preserve"><value>Windows Update offers no installable driver update for this PC.</value></data>
+  <data name="Drivers_UpToDate_Title" xml:space="preserve"><value>Your drivers are up to date</value></data>
+  <data name="Drivers_VersionUnknown" xml:space="preserve"><value>unknown version</value></data>
   <data name="Expert_Action_OpenLogs" xml:space="preserve"><value>Open log folder</value></data>
   <data name="Expert_Change_After" xml:space="preserve"><value>After state</value></data>
   <data name="Expert_Change_Before" xml:space="preserve"><value>Before state</value></data>
@@ -502,6 +656,7 @@
   <data name="Gaming_Status_Label" xml:space="preserve"><value>Status</value></data>
   <data name="Gaming_Subtitle" xml:space="preserve"><value>Temporary settings while you play, restored automatically afterwards.</value></data>
   <data name="Gaming_Title" xml:space="preserve"><value>Gaming mode</value></data>
+  <data name="Health_Action_Drivers" xml:space="preserve"><value>Check for driver updates</value></data>
   <data name="Health_Action_ReadCounters" xml:space="preserve"><value>Read detailed counters</value></data>
   <data name="Health_Action_ReadCounters_ToolTip" xml:space="preserve"><value>Reads disk wear, temperature and errors. Windows asks for administrator permission; nothing is changed.</value></data>
   <data name="Health_Action_Refresh" xml:space="preserve"><value>Refresh</value></data>
@@ -572,7 +727,7 @@
   <data name="Health_DeviceProblem_Other" xml:space="preserve"><value>Problem reported by Windows (code {0})</value></data>
   <data name="Health_DeviceProblem_WithCode" xml:space="preserve"><value>{0} (code {1})</value></data>
   <data name="Health_Devices_Count" xml:space="preserve"><value>{0} {0:plural:device|devices} reported in error by Windows.</value></data>
-  <data name="Health_Devices_Hint" xml:space="preserve"><value>Information only: PCBoost does not change any driver. For details, open Device Manager (right-click the Start button).</value></data>
+  <data name="Health_Devices_Hint" xml:space="preserve"><value>Information only: this section does not change any driver. To update a driver safely, use the Drivers page; for details, open Device Manager (right-click the Start button).</value></data>
   <data name="Health_Devices_None" xml:space="preserve"><value>No device in error.</value></data>
   <data name="Health_Devices_Unavailable" xml:space="preserve"><value>The device list could not be read.</value></data>
   <data name="Health_Disk_AdviceCritical" xml:space="preserve"><value>Back up your important files now (USB drive, external disk or cloud storage), then have this disk checked or replaced.</value></data>
@@ -661,6 +816,7 @@
   <data name="History_Title" xml:space="preserve"><value>History</value></data>
   <data name="History_Type_Automatic" xml:space="preserve"><value>Automatic optimization</value></data>
   <data name="History_Type_Cleanup" xml:space="preserve"><value>Cleanup</value></data>
+  <data name="History_Type_DriverUpdate" xml:space="preserve"><value>Driver update</value></data>
   <data name="History_Type_Gaming" xml:space="preserve"><value>Gaming mode</value></data>
   <data name="History_Type_Manual" xml:space="preserve"><value>Manual optimization</value></data>
   <data name="History_Type_OldPcAssistant" xml:space="preserve"><value>Older PC assistant</value></data>
@@ -748,6 +904,8 @@
   <data name="Nav_Analysis_ToolTip" xml:space="preserve"><value>Full hardware and software report</value></data>
   <data name="Nav_Cleanup" xml:space="preserve"><value>Cleanup</value></data>
   <data name="Nav_Cleanup_ToolTip" xml:space="preserve"><value>Remove temporary files</value></data>
+  <data name="Nav_Drivers" xml:space="preserve"><value>Drivers</value></data>
+  <data name="Nav_Drivers_ToolTip" xml:space="preserve"><value>Update drivers safely (Windows Update)</value></data>
   <data name="Nav_Expert" xml:space="preserve"><value>Expert mode</value></data>
   <data name="Nav_Expert_ToolTip" xml:space="preserve"><value>Technical details</value></data>
   <data name="Nav_Gaming" xml:space="preserve"><value>Gaming</value></data>

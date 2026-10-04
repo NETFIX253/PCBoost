@@ -37,6 +37,7 @@ Principes appliqués partout :
 | `visual.effects` | `VisualEffectsChangeHandler` | L'état complet `VisualEffectsState` (9 réglages). | — |
 | `scheduledtask.enabled` | `ScheduledTaskChangeHandler` | L'état activé/désactivé d'origine. | Accès refusé → Elevator `task.setenabled` (`path`, `enabled`). Tâches `\Microsoft\…` jamais modifiées. Tâche supprimée → « rien à restaurer ». |
 | `file.delete`, `recyclebin.empty` | `IrreversibleChangeHandler` | — | `CanUndo = false` : consignées pour l'historique uniquement. |
+| `driver.update` | `DriverUpdateChangeHandler` | Le pilote précédent de chaque périphérique noté et la version installée (`DriverUpdateState`). | Seuls les périphériques encore sur la version installée sont ramenés (« Restaurer le pilote ») ; pilote précédent déjà en place → « déjà restauré », sans autorisation ; pilote modifié depuis → jamais remplacé ; périphérique absent → échec explicite (jamais « réussi »). Elevator `driver.rollback` (`devices`, `previous`, `installed`). Réversible seulement pour un pilote principal avec version précédente et version installée connues ; sinon (extension, composant logiciel, aucun pilote avant) le point de restauration Windows. |
 
 ### Validation de sûreté (§57)
 
@@ -199,9 +200,23 @@ de sécurité ne peuvent pas être désactivés par PCBoost. Rien n'est jamais d
   plus). Rien n'est présélectionné ; une copie de chaque groupe est toujours conservée ; chaque fichier est revérifié
   (présence, taille, date) avant l'envoi à la Corbeille.
 
+## 7. Mises à jour de pilotes
+
+| Étape | Règle |
+|---|---|
+| Source | Agent Windows Update uniquement (pilotes signés WHQL ciblés sur le matériel du PC) ; serveur de l'organisation respecté ; aucune recherche si une stratégie exclut les pilotes. |
+| Présélection | Mise à jour automatique de Windows, publiée depuis au moins 14 jours, plus récente que le pilote installé. |
+| À examiner | Facultative (« mises à jour facultatives » de Windows), publiée depuis moins de 14 jours, pilote de démarrage ou de sécurité (`HDC`, `SCSIAdapter`, `DiskDrive`, `Volume`, `VolumeSnapshot`, `Processor`, `Computer`, `SecurityDevices`), version non comparable (extension, éditeur différent sans date). |
+| Exclue | Microprogramme (BIOS/UEFI), version identique ou plus ancienne, aucun périphérique présent identifié, interaction ou licence requise. |
+| Comparaison | Même éditeur (premier mot) : numéro de version a.b.c.d ; sinon date du pilote. Aucun pilote installé (code 28) : plus récente. |
+| Avant installation | Aperçu pilote par pilote (retour limité au point de restauration signalé), avertissement de connexion limitée, redémarrage en attente bloquant, accord explicite pour activer la protection du système si elle est désactivée, une seule mise à jour par périphérique, liste des périphériques lue en entier. |
+| Installation | Configuration et périphériques relus (application puis Elevator), revérification, point de restauration neuf obligatoire s'il reste une mise à jour à installer, installation une par une, vérification des périphériques (arrêt si nouveau problème hors « redémarrage nécessaire », ou si la vérification est impossible). Résultat inconnu → modification « en attente », annulation proposée. |
+| Annulation | « Restaurer le pilote » de Windows, seulement pour les périphériques encore sur la version installée ; aucune réinstallation forcée d'INF ; point de restauration en dernier recours. |
+| Autres sources | Sites officiels des fabricants du PC et de la carte graphique (liste fermée), ouverts dans le navigateur ; point de restauration à la demande. |
+
 ---
 
-## 7. Optimisations volontairement NON implémentées
+## 8. Optimisations volontairement NON implémentées
 
 | « Optimisation » | Pourquoi PCBoost refuse |
 |---|---|
@@ -213,6 +228,8 @@ de sécurité ne peuvent pas être désactivés par PCBoost. Rien n'est jamais d
 | HPET / `useplatformclock`, `disabledynamictick`, autres modifications du BCD | Peut dégrader la minuterie et la stabilité ; modification du démarrage non réversible simplement ; BCD interdit. |
 | Réglages `Memory Management` (DisablePagingExecutive, LargeSystemCache, ClearPageFileAtShutdown), taille du fichier d'échange | Windows gère mieux ; risque d'instabilité ou de plantage par manque de mémoire ; clé interdite. |
 | Désactivation de la sécurité basée sur la virtualisation / HVCI / Core Isolation | Réduit la protection du système ; `DeviceGuard` interdit. |
+| « Packs de pilotes » et logiciels de mise à jour de pilotes tiers, téléchargement de pilotes hors Windows Update | Sources non validées pour le matériel, risque de pilotes inadaptés ou malveillants et d'instabilité ; PCBoost s'en tient à Windows Update et oriente vers les sites officiels des fabricants. |
+| Mise à jour automatique du BIOS/UEFI ou d'un microprogramme | Une coupure ou une erreur peut rendre le PC inutilisable ; les microprogrammes sont exclus des mises à jour de pilotes. |
 | Modification de `Image File Execution Options`, `Winlogon`, `Lsa` | Vecteurs classiques de détournement ; interdits. |
 | « Nettoyeur de registre » | Aucun gain mesurable, risque réel de casser des applications. |
 | Défragmentation / TRIM forcés | Windows les planifie déjà (et ne défragmente pas les SSD) ; forcer peut user un SSD. |

@@ -444,12 +444,12 @@ public sealed partial class GamingViewModel : ViewModelBase
     private void OpenWindowsSetting(GameSettingCheckItemViewModel check)
     {
         var id = check.Id.ToLowerInvariant();
-        var uri = id.Contains("gamemode", StringComparison.Ordinal) || id.Contains("game-mode", StringComparison.Ordinal) || id.Contains("game_mode", StringComparison.Ordinal)
-            ? "ms-settings:gaming-gamemode"
+        var page = id.Contains("gamemode", StringComparison.Ordinal) || id.Contains("game-mode", StringComparison.Ordinal) || id.Contains("game_mode", StringComparison.Ordinal)
+            ? WindowsSettingsPages.GameMode
             : id.Contains("gpu", StringComparison.Ordinal) || id.Contains("hags", StringComparison.Ordinal) || id.Contains("windowed", StringComparison.Ordinal)
               || id.Contains("graphics", StringComparison.Ordinal) || id.Contains("scheduling", StringComparison.Ordinal)
-                ? "ms-settings:display-advancedgraphics"
-                : "ms-settings:gaming";
-        CheckResult(_shell.OpenUri(new Uri(uri)));
+                ? WindowsSettingsPages.AdvancedGraphics
+                : WindowsSettingsPages.Gaming;
+        CheckResult(_shell.OpenWindowsSettings(page));
     }
 }

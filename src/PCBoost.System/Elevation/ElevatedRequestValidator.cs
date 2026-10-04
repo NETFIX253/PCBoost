@@ -2,6 +2,8 @@ using System.Globalization;
 using PCBoost.Core.Abstractions.Platform;
 using PCBoost.Core.Cleanup;
 using PCBoost.Core.Common;
+using PCBoost.Core.Drivers;
+using PCBoost.Core.Models.Drivers;
 using PCBoost.Core.Security;
 
 namespace PCBoost.Platform.Elevation;
@@ -33,12 +35,30 @@ internal sealed record ValidatedFrameCapture(int ProcessId, string PipeName, int
 internal sealed record ValidatedHealthOperation(string Name) : ValidatedElevatedOperation(Name);
 
 /// <summary>
+/// Installation de mises à jour de pilotes désignées par leur identifiant Windows Update (GUID) : l'Elevator crée d'abord
+/// un point de restauration, refait la recherche et revérifie chaque mise à jour. Aucun chemin ni aucune URL n'est accepté.
+/// </summary>
+internal sealed record ValidatedDriverInstall(IReadOnlyList<string> UpdateIds, bool EnableProtection, string? ProgressPipe)
+    : ValidatedElevatedOperation(ElevatedDriverOperations.Install);
+
+/// <summary>
+/// Retour au pilote précédent pour des périphériques présents (identifiants d'instance). Le repli éventuel n'accepte
+/// qu'un nom de fichier INF, résolu dans le dossier INF de Windows.
+/// </summary>
+/// <summary>Point de restauration neuf à la demande ; activation de la protection du système si l'utilisateur l'a autorisée.</summary>
+internal sealed record ValidatedDriverRestorePoint(bool EnableProtection) : ValidatedElevatedOperation(ElevatedDriverOperations.RestorePoint);
+
+internal sealed record ValidatedDriverRollback(IReadOnlyList<DriverRollbackTarget> Targets, string InstalledVersion)
+    : ValidatedElevatedOperation(ElevatedDriverOperations.Rollback);
+
+/// <summary>
 /// Validation stricte des demandes d'élévation (liste blanche fermée), appliquée par l'application avant l'invite UAC
 /// et à nouveau par PCBoost.Elevator. Toute opération inconnue, tout paramètre inattendu ou hors limites est refusé.
 /// </summary>
 internal static class ElevatedRequestValidator
 {
     public const string FramePipePrefix = "PCBoost.Frames.";
+    public const string ProgressPipePrefix = "PCBoost.Progress.";
     public const int MaxCategories = 16;
     public const int MaxRegistryBinaryLength = 16;
     public const int MaxValueNameLength = 260;
@@ -56,6 +76,12 @@ internal static class ElevatedRequestValidator
             ElevatedOperations.RegistryDeleteValue => ValidateRegistry(request.Parameters, isSet: false),
             ElevatedOperations.ScheduledTaskSetEnabled => ValidateTask(request.Parameters),
             ElevatedOperations.FrameCapture => ValidateFrameCapture(request.Parameters),
+            ElevatedDriverOperations.Install => ValidateDriverInstall(request.Parameters),
+            ElevatedDriverOperations.Rollback => ValidateDriverRollback(request.Parameters),
+            ElevatedDriverOperations.RestorePoint => HasOnlyKeys(request.Parameters, [DriverElevatedData.EnableProtectionKey], [])
+                && TryParseBool(request.Parameters[DriverElevatedData.EnableProtectionKey], out var enableProtection)
+                    ? Ok(new ValidatedDriverRestorePoint(enableProtection))
+                    : Invalid("paramètres"),
             ElevatedHealthOperations.DiskReliability or ElevatedHealthOperations.BootPerformance
                 or ElevatedHealthOperations.RestorePointCreate or ElevatedHealthOperations.AppsLastRun
                 => request.Parameters.Count == 0 ? Ok(new ValidatedHealthOperation(request.Operation)) : Invalid("paramètres"),
@@ -129,6 +155,45 @@ internal static class ElevatedRequestValidator
         if (!IsValidFramePipeName(pipe)) return Invalid("canal");
         return Ok(new ValidatedFrameCapture(pid, pipe, parentPid));
     }
+
+    private static OperationResult<ValidatedElevatedOperation> ValidateDriverInstall(IReadOnlyDictionary<string, string> parameters)
+    {
+        if (!HasOnlyKeys(parameters, [DriverElevatedData.UpdatesKey, DriverElevatedData.EnableProtectionKey], [DriverElevatedData.ProgressPipeKey]))
+            return Invalid("paramètres");
+        if (DriverElevatedData.ParseUpdateIds(parameters[DriverElevatedData.UpdatesKey]) is not { } ids) return Invalid("mises à jour");
+        if (!TryParseBool(parameters[DriverElevatedData.EnableProtectionKey], out var enable)) return Invalid("protection");
+        string? pipe = null;
+        if (parameters.TryGetValue(DriverElevatedData.ProgressPipeKey, out var pipeText))
+        {
+            if (!IsValidProgressPipeName(pipeText)) return Invalid("canal");
+            pipe = pipeText;
+        }
+        return Ok(new ValidatedDriverInstall(ids, enable, pipe));
+    }
+
+    /// <summary>
+    /// Périphériques (identifiants d'instance) et versions précédentes alignés, version installée par la mise à jour :
+    /// tous obligatoires. Aucun fichier, chemin ni identifiant matériel n'est accepté.
+    /// </summary>
+    private static OperationResult<ValidatedElevatedOperation> ValidateDriverRollback(IReadOnlyDictionary<string, string> parameters)
+    {
+        if (!HasOnlyKeys(parameters, [DriverElevatedData.DevicesKey, DriverElevatedData.PreviousVersionsKey, DriverElevatedData.InstalledVersionKey], []))
+            return Invalid("paramètres");
+        if (DriverElevatedData.ParseRollbackTargets(parameters[DriverElevatedData.DevicesKey], parameters[DriverElevatedData.PreviousVersionsKey]) is not { } targets)
+            return Invalid("périphériques");
+        var installed = parameters[DriverElevatedData.InstalledVersionKey];
+        if (!DriverIdentifiers.IsValidVersion(installed)) return Invalid("version");
+        return Ok(new ValidatedDriverRollback(targets, installed));
+    }
+
+    /// <summary>« PCBoost.Progress. » suivi d'un GUID au format N (32 chiffres hexadécimaux).</summary>
+    public static bool IsValidProgressPipeName(string? pipe)
+        => pipe is not null
+           && pipe.Length == ProgressPipePrefix.Length + 32
+           && pipe.StartsWith(ProgressPipePrefix, StringComparison.Ordinal)
+           && Guid.TryParseExact(pipe[ProgressPipePrefix.Length..], "N", out _);
+
+    public static string NewProgressPipeName() => ProgressPipePrefix + Guid.NewGuid().ToString("N");
 
     /// <summary>« PCBoost.Frames. » suivi d'un GUID au format N (32 chiffres hexadécimaux).</summary>
     public static bool IsValidFramePipeName(string? pipe)

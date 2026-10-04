@@ -6,6 +6,7 @@ public static class PageKeys
     public const string Home = "home";
     public const string Analysis = "analysis";
     public const string Health = "health";
+    public const string Drivers = "drivers";
     public const string Optimization = "optimization";
     public const string Cleanup = "cleanup";
     public const string Startup = "startup";

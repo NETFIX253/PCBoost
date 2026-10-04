@@ -1,7 +1,11 @@
+using System.Diagnostics;
+using System.IO.Pipes;
+using System.Text;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using PCBoost.Core.Abstractions.Platform;
 using PCBoost.Core.Common;
+using PCBoost.Core.Models.Drivers;
 using PCBoost.Platform.Elevation;
 using PCBoost.Platform.Interop;
 
@@ -15,6 +19,11 @@ public sealed class ElevationService : IElevationService
 {
     private static readonly TimeSpan MaxDuration = TimeSpan.FromMinutes(30);
 
+    /// <summary>Installation de pilotes : point de restauration, téléchargements et installations (parfois volumineux).</summary>
+    private static readonly TimeSpan DriverInstallMaxDuration = TimeSpan.FromHours(2);
+
+    private const int MaxProgressLineLength = 64;
+
     private readonly ILogger<ElevationService> _logger;
 
     public ElevationService(ILogger<ElevationService>? logger = null)
@@ -24,7 +33,90 @@ public sealed class ElevationService : IElevationService
 
     public bool IsElevated => TokenHelper.IsCurrentProcessElevated;
 
-    public async Task<ElevatedResponse> RunAsync(ElevatedRequest request, CancellationToken cancellationToken = default)
+    public Task<ElevatedResponse> RunAsync(ElevatedRequest request, CancellationToken cancellationToken = default)
+        => RunCoreAsync(request, cancellationToken);
+
+    /// <summary>Processus « PCBoost.Elevator » présent dans la session (nom visible sans élévation).</summary>
+    public bool IsHelperRunning()
+    {
+        Process[] processes = [];
+        try
+        {
+            processes = Process.GetProcessesByName(Path.GetFileNameWithoutExtension(ElevationPaths.ElevatorExecutableName));
+            return processes.Length > 0;
+        }
+        catch (Exception ex) when (ex is InvalidOperationException or System.ComponentModel.Win32Exception or PlatformNotSupportedException)
+        {
+            // État inconnu : considéré comme occupé (aucune opération concurrente sur les pilotes).
+            _logger.LogDebug(ex, "Liste des processus indisponible");
+            return true;
+        }
+        finally
+        {
+            foreach (var process in processes) process.Dispose();
+        }
+    }
+
+    /// <summary>
+    /// Opérations qui transmettent leur progression (installation de pilotes) : un canal nommé à nom aléatoire est créé
+    /// par l'application, l'Elevator s'y connecte en écriture seule ; les lignes reçues sont relayées telles quelles.
+    /// Sans connexion, l'opération se déroule normalement, sans progression.
+    /// </summary>
+    public async Task<ElevatedResponse> RunWithProgressAsync(ElevatedRequest request, IProgress<string>? progress, CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(request);
+        if (progress is null || request.Operation != ElevatedDriverOperations.Install || request.Parameters.ContainsKey(DriverElevatedData.ProgressPipeKey))
+            return await RunCoreAsync(request, cancellationToken).ConfigureAwait(false);
+
+        var pipeName = ElevatedRequestValidator.NewProgressPipeName();
+        NamedPipeServerStream server;
+        try
+        {
+            server = new NamedPipeServerStream(pipeName, PipeDirection.In, 1, PipeTransmissionMode.Byte, PipeOptions.Asynchronous);
+        }
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or PlatformNotSupportedException)
+        {
+            _logger.LogDebug(ex, "Canal de progression indisponible");
+            return await RunCoreAsync(request, cancellationToken).ConfigureAwait(false);
+        }
+
+        using (server)
+        using (var stopReading = new CancellationTokenSource())
+        {
+            var parameters = new Dictionary<string, string>(request.Parameters, StringComparer.Ordinal) { [DriverElevatedData.ProgressPipeKey] = pipeName };
+            var reading = ReadProgressAsync(server, progress, stopReading.Token);
+            try
+            {
+                return await RunCoreAsync(request with { Parameters = parameters }, cancellationToken).ConfigureAwait(false);
+            }
+            finally
+            {
+                await stopReading.CancelAsync().ConfigureAwait(false);
+                await reading.ConfigureAwait(false);
+            }
+        }
+    }
+
+    internal static async Task ReadProgressAsync(Stream server, IProgress<string> progress, CancellationToken cancellationToken)
+    {
+        try
+        {
+            if (server is NamedPipeServerStream pipe) await pipe.WaitForConnectionAsync(cancellationToken).ConfigureAwait(false);
+            using var reader = new StreamReader(server, Encoding.UTF8, detectEncodingFromByteOrderMarks: false, bufferSize: 256, leaveOpen: true);
+            while (!cancellationToken.IsCancellationRequested)
+            {
+                var line = await reader.ReadLineAsync(cancellationToken).ConfigureAwait(false);
+                if (line is null) break;
+                if (line.Length is > 0 and <= MaxProgressLineLength) progress.Report(line);
+            }
+        }
+        catch (Exception ex) when (ex is OperationCanceledException or IOException or ObjectDisposedException or InvalidOperationException)
+        {
+            // Fin de l'opération ou Elevator sans canal : la progression est facultative.
+        }
+    }
+
+    private async Task<ElevatedResponse> RunCoreAsync(ElevatedRequest request, CancellationToken cancellationToken)
     {
         ArgumentNullException.ThrowIfNull(request);
 
@@ -55,7 +147,7 @@ public sealed class ElevationService : IElevationService
         }
 
         using var process = started.Value;
-        using var timeout = new CancellationTokenSource(MaxDuration);
+        using var timeout = new CancellationTokenSource(request.Operation == ElevatedDriverOperations.Install ? DriverInstallMaxDuration : MaxDuration);
         using var linked = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, timeout.Token);
         try
         {

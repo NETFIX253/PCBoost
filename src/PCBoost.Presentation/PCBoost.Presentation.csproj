@@ -15,5 +15,7 @@
   <ItemGroup>
     <InternalsVisibleTo Include="PCBoost.Core.Tests" />
     <InternalsVisibleTo Include="PCBoost.Presentation.Tests" />
+    <!-- Captures de développement de la page Pilotes avec des données d'exemple (DevCaptureService, lecture seule). -->
+    <InternalsVisibleTo Include="PCBoost" />
   </ItemGroup>
 </Project>

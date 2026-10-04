@@ -9,7 +9,7 @@
     <BrandProductName>PCBoost</BrandProductName>
     <BrandPublisher>Mohamed ABDOURAHMAN (DSI)</BrandPublisher>
     <BrandCopyright>© 2026 Mohamed ABDOURAHMAN (DSI)</BrandCopyright>
-    <BrandVersion>1.1.0</BrandVersion>
+    <BrandVersion>1.2.0</BrandVersion>
     <!-- Identifiant stable de mise à niveau MSI : ne jamais changer après une première publication. -->
     <BrandUpgradeCode>6A1B7F3E-5C2D-4E8A-9B7F-2D4C6E8A0B13</BrandUpgradeCode>
   </PropertyGroup>

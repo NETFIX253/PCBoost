@@ -320,4 +320,30 @@ public sealed class WindowsIntegrationTests
         Assert.NotNull(provider.GetRequiredService<IAutoStartRegistration>());
         Assert.NotNull(provider.GetRequiredService<IFrameTimeSource>());
     }
+
+    [WindowsFact]
+    public void Present_devices_and_their_drivers_are_read()
+    {
+        var result = new Platform.Drivers.DeviceDriverProvider().GetInstalledDrivers();
+
+        Assert.True(result.Success);
+        var devices = result.Value!;
+        Assert.NotEmpty(devices);
+        Assert.All(devices, d => Assert.True(Core.Drivers.DriverIdentifiers.IsValidInstanceId(d.InstanceId) || d.InstanceId.Length > 0));
+        // Au moins un pilote signé avec version et date lisibles (contrôleurs système, carte réseau…).
+        Assert.Contains(devices, d => d.Version is not null && d.Date is not null && d.InfName is not null);
+        Assert.Contains(devices, d => d.HardwareIds.Count > 0);
+    }
+
+    [WindowsFact]
+    public async Task Windows_update_driver_search_runs_without_administrator_rights()
+    {
+        // Lecture seule : recherche du catalogue, rien n'est téléchargé ni installé. Hors ligne : échec classé, pas d'exception.
+        var result = await new Platform.Drivers.WindowsUpdateDriverSource().SearchAsync();
+
+        if (result.Outcome.Success)
+            Assert.All(result.Offers, o => Assert.True(Core.Drivers.DriverIdentifiers.IsValidUpdateId(o.UpdateId)));
+        else
+            Assert.StartsWith("Drv_Error_", result.Outcome.Message?.Key, StringComparison.Ordinal);
+    }
 }

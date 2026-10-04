@@ -259,7 +259,7 @@ public sealed class ShellViewModelTests
         var vm = Create();
         await vm.InitializeAsync();
         Assert.Equal(
-            [PageKeys.Home, PageKeys.Analysis, PageKeys.Health, PageKeys.Optimization, PageKeys.Cleanup, PageKeys.Startup, PageKeys.Processes, PageKeys.Gaming, PageKeys.Performance, PageKeys.History],
+            [PageKeys.Home, PageKeys.Analysis, PageKeys.Health, PageKeys.Drivers, PageKeys.Optimization, PageKeys.Cleanup, PageKeys.Startup, PageKeys.Processes, PageKeys.Gaming, PageKeys.Performance, PageKeys.History],
             vm.NavigationItems.Select(i => i.PageKey).ToArray());
         Assert.Equal("Accueil", vm.NavigationItems[0].Label);
         Assert.Equal("Version 1.2.3", vm.VersionText);

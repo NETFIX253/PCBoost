@@ -42,13 +42,18 @@ public sealed class DevCaptureService
                     await CaptureGamingSessionAsync(root, directory).ConfigureAwait(true);
                     continue;
                 }
+                if (page == "drivers-sample")
+                {
+                    await CaptureDriversSampleAsync(root, directory).ConfigureAwait(true);
+                    continue;
+                }
                 if (page.StartsWith(OldPcPreviewPrefix, StringComparison.Ordinal))
                 {
                     await CaptureOldPcPreviewAsync(root, directory, page[OldPcPreviewPrefix.Length..]).ConfigureAwait(true);
                     continue;
                 }
                 if (page != "current") _navigation.Navigate(page);
-                await Task.Delay(TimeSpan.FromSeconds(page switch { "home" or "analysis" => 9, "health" => 8, "report" => 16, "files" => 40, "storage" => 25, "processes" => 7, _ => 4 })).ConfigureAwait(true);
+                await Task.Delay(TimeSpan.FromSeconds(page switch { "home" or "analysis" => 9, "health" => 8, "drivers" => 90, "report" => 16, "files" => 40, "storage" => 25, "processes" => 7, _ => 4 })).ConfigureAwait(true);
                 // L'aperçu WebView2 n'est pas rendu par RenderTargetBitmap : le document du rapport est enregistré à côté.
                 if (FindDescendant<Microsoft.UI.Xaml.Controls.Frame>(root) is { Content: Views.ReportPage reportPage } && reportPage.ViewModel.HasPreview)
                 {
@@ -132,6 +137,49 @@ public sealed class DevCaptureService
         }
         report.Add($"Après désactivation : {vm.StateText} — {vm.ResultText}");
         await File.WriteAllLinesAsync(Path.Combine(directory, "gaming-session.txt"), report).ConfigureAwait(true);
+    }
+
+    /// <summary>
+    /// Page Pilotes avec des données d'exemple (pseudo-page drivers-sample) : la liste classée puis la carte de résultat,
+    /// pour vérifier leur mise en page sur un PC dont les pilotes sont à jour. Rien n'est recherché ni installé en plus de
+    /// la recherche normale de la page ; les données d'exemple ne quittent pas la capture.
+    /// </summary>
+    private async Task CaptureDriversSampleAsync(FrameworkElement root, string directory)
+    {
+        _navigation.Navigate(PageKeys.Drivers);
+        await Task.Delay(TimeSpan.FromSeconds(2)).ConfigureAwait(true);
+        if (FindDescendant<Microsoft.UI.Xaml.Controls.Frame>(root)?.Content is not Views.DriversPage page) return;
+        var vm = page.ViewModel;
+        for (var i = 0; i < 180 && vm.IsScanning; i++) await Task.Delay(500).ConfigureAwait(true);
+        var (scan, result) = DevCaptureSamples.Drivers(DateTimeOffset.UtcNow);
+        vm.Apply(scan);
+        await Task.Delay(TimeSpan.FromSeconds(2)).ConfigureAwait(true);
+        var theme = root.ActualTheme == ElementTheme.Dark ? "dark" : "light";
+        await SaveAsync(root, Path.Combine(directory, $"drivers-sample-{theme}.png")).ConfigureAwait(true);
+        if (FindDescendant<Microsoft.UI.Xaml.Controls.ScrollViewer>(page) is { Content: UIElement content } scroller && scroller.ExtentHeight > scroller.ViewportHeight + 1)
+            await SaveFullAsync(root, scroller, content, Path.Combine(directory, $"drivers-sample-{theme}-full.png")).ConfigureAwait(true);
+
+        // Mises à jour non proposées : section dépliée pour vérifier sa présentation.
+        if (FindDescendant<Microsoft.UI.Xaml.Controls.Expander>(page) is { } excluded)
+        {
+            excluded.IsExpanded = true;
+            await Task.Delay(TimeSpan.FromSeconds(1)).ConfigureAwait(true);
+            if (FindDescendant<Microsoft.UI.Xaml.Controls.ScrollViewer>(page) is { Content: UIElement expandedContent } expandedScroller)
+                await SaveFullAsync(root, expandedScroller, expandedContent, Path.Combine(directory, $"drivers-excluded-{theme}-full.png")).ConfigureAwait(true);
+            excluded.IsExpanded = false;
+        }
+
+        await vm.ShowResultAsync(result, vm.Recommended.Concat(vm.Review).Take(2).ToList()).ConfigureAwait(true);
+        await Task.Delay(TimeSpan.FromSeconds(1.5)).ConfigureAwait(true);
+        await SaveAsync(root, Path.Combine(directory, $"drivers-result-{theme}.png")).ConfigureAwait(true);
+        var report = new List<string>
+        {
+            $"Recommandées : {vm.Recommended.Count} ; à examiner : {vm.Review.Count} ; non proposées : {vm.Excluded.Count}",
+            $"Sélection : {vm.SelectionText} ; installation possible : {vm.InstallCommand.CanExecute(null)} ; blocage : {vm.InstallBlockedText}",
+            $"Résultat : {vm.ResultTitle} — {vm.ResultMessage} — {vm.RestorePointText}",
+        };
+        report.AddRange(vm.Results.Select(r => $"  {r.DeviceName} {r.VersionsText} : {r.OutcomeText} (retour possible : {r.CanRollback})"));
+        await File.WriteAllLinesAsync(Path.Combine(directory, "drivers-sample.txt"), report).ConfigureAwait(true);
     }
 
     private const string OldPcPreviewPrefix = "oldpc-";

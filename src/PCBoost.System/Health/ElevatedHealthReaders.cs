@@ -15,9 +15,12 @@ internal static class ElevatedHealthReaders
 {
     public const string DiagnosticsPerformanceChannel = "Microsoft-Windows-Diagnostics-Performance/Operational";
     public const string RestorePointDescription = "PCBoost - avant optimisation avancée";
+    public const string DriverRestorePointDescription = "PCBoost - avant mise à jour des pilotes";
 
     /// <summary>MODIFY_SETTINGS : modification de paramètres système (type documenté de SystemRestore.CreateRestorePoint).</summary>
     private const int ModifySettings = 12;
+    /// <summary>DEVICE_DRIVER_INSTALL : installation de pilotes de périphérique.</summary>
+    private const int DeviceDriverInstall = 10;
     /// <summary>BEGIN_SYSTEM_CHANGE, valeur utilisée par Checkpoint-Computer.</summary>
     private const int BeginSystemChange = 100;
     private const uint ErrorServiceDisabled = 1058;
@@ -81,17 +84,29 @@ internal static class ElevatedHealthReaders
     /// n'en crée pas d'autre : ce point récent est signalé. Protection du système désactivée : rien n'est modifié.
     /// </summary>
     public static (RestorePointStatus Status, DateTimeOffset? CreatedAt) CreateRestorePoint(DateTimeOffset now, ILogger logger)
+        => CreateRestorePoint(now, logger, RestorePointDescription, ModifySettings, forceNew: false);
+
+    /// <summary>
+    /// Point de restauration neuf juste avant une mise à jour de pilotes (type DEVICE_DRIVER_INSTALL). La limite de Windows
+    /// (un point par 24 heures) est levée le temps de cette seule création — valeur documentée
+    /// SystemRestorePointCreationFrequency — puis rétablie à l'identique.
+    /// </summary>
+    public static (RestorePointStatus Status, DateTimeOffset? CreatedAt) CreateDriverRestorePoint(DateTimeOffset now, ILogger logger)
+        => CreateRestorePoint(now, logger, DriverRestorePointDescription, DeviceDriverInstall, forceNew: true);
+
+    private static (RestorePointStatus Status, DateTimeOffset? CreatedAt) CreateRestorePoint(DateTimeOffset now, ILogger logger, string description, int type, bool forceNew)
     {
         try
         {
             var before = LatestRestorePoint(logger);
-            if (before is { } recent && now - recent.Time < RestorePointFrequency && recent.Time <= now.AddMinutes(5))
+            if (!forceNew && before is { } recent && now - recent.Time < RestorePointFrequency && recent.Time <= now.AddMinutes(5))
                 return (RestorePointStatus.RecentExists, recent.Time);
 
+            using var frequency = forceNew ? RestorePointFrequencyOverride.Begin(logger) : null;
             using var restore = new ManagementClass(new ManagementScope(@"\\.\root\default"), new ManagementPath("SystemRestore"), null);
             using var input = restore.GetMethodParameters("CreateRestorePoint");
-            input["Description"] = RestorePointDescription;
-            input["RestorePointType"] = ModifySettings;
+            input["Description"] = description;
+            input["RestorePointType"] = type;
             input["EventType"] = BeginSystemChange;
             using var output = restore.InvokeMethod("CreateRestorePoint", input, null);
             var code = Convert.ToUInt32(output?["ReturnValue"] ?? uint.MaxValue, CultureInfo.InvariantCulture);
@@ -111,6 +126,47 @@ internal static class ElevatedHealthReaders
         {
             logger.LogDebug(ex, "Point de restauration impossible");
             return (RestorePointStatus.Failed, null);
+        }
+    }
+
+    /// <summary>
+    /// Active la protection du système (points de restauration) sur le lecteur de Windows — réglage standard de Windows,
+    /// demandé explicitement par l'utilisateur. Refusé si une stratégie de l'organisation désactive la restauration.
+    /// </summary>
+    public static bool EnableSystemProtection(ILogger logger)
+    {
+        if (IsSystemRestoreDisabledByPolicy()) return false;
+        var drive = Path.GetPathRoot(Environment.SystemDirectory);
+        if (string.IsNullOrEmpty(drive) || drive.Length != 3 || drive[1] != ':') return false;
+        try
+        {
+            using var restore = new ManagementClass(new ManagementScope(@"\\.\root\default"), new ManagementPath("SystemRestore"), null);
+            using var input = restore.GetMethodParameters("Enable");
+            input["Drive"] = drive;
+            input["WaitTillEnabled"] = true;
+            using var output = restore.InvokeMethod("Enable", input, null);
+            var code = Convert.ToUInt32(output?["ReturnValue"] ?? uint.MaxValue, CultureInfo.InvariantCulture);
+            if (code != 0) logger.LogDebug("SystemRestore.Enable : code {Code}", code);
+            return code == 0;
+        }
+        catch (Exception ex) when (ex is ManagementException or COMException or UnauthorizedAccessException or InvalidCastException or FormatException or OverflowException)
+        {
+            logger.LogDebug(ex, "Activation de la protection du système impossible");
+            return false;
+        }
+    }
+
+    /// <summary>Stratégie « Désactiver la Restauration du système » (DisableSR) de l'organisation.</summary>
+    public static bool IsSystemRestoreDisabledByPolicy()
+    {
+        try
+        {
+            using var key = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows NT\SystemRestore");
+            return key?.GetValue("DisableSR") is int value && value == 1;
+        }
+        catch (Exception ex) when (ex is System.Security.SecurityException or UnauthorizedAccessException or IOException)
+        {
+            return false;
         }
     }
 

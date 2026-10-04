@@ -11,6 +11,7 @@ public static class PageRegistry
         [PageKeys.Home] = (typeof(HomeViewModel), "Home_Title"),
         [PageKeys.Analysis] = (typeof(AnalysisViewModel), "Analysis_Title"),
         [PageKeys.Health] = (typeof(HealthViewModel), "Health_Title"),
+        [PageKeys.Drivers] = (typeof(DriversViewModel), "Drivers_Title"),
         [PageKeys.Diagnosis] = (typeof(DiagnosisViewModel), "Diagnosis_Title"),
         [PageKeys.Optimization] = (typeof(OptimizationViewModel), "Optimization_Title"),
         [PageKeys.OldPc] = (typeof(OldPcViewModel), "OldPc_Title"),

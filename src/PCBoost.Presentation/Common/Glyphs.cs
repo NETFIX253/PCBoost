@@ -27,6 +27,8 @@ public static class Glyphs
     public const string Benchmark = "";
     public const string OldPc = "";
     public const string Health = "\uE95E";
+    /// <summary>Pilotes : « Devices » (Segoe Fluent Icons E772).</summary>
+    public const string Drivers = "\uE772";
     public const string Profiles = "";
 
     // États et sévérités (toujours accompagnés d'un libellé textuel)

@@ -1,7 +1,9 @@
 using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 using PCBoost.App.Controls;
 using PCBoost.Core.Common;
 using PCBoost.Core.Models.Analysis;
+using PCBoost.Core.Models.Drivers;
 using PCBoost.Presentation.ViewModels;
 
 namespace PCBoost.App.Helpers;
@@ -102,5 +104,34 @@ public static class Ui
         HealthLevel.Warning => "\uE7BA",
         HealthLevel.Critical => "\uEA39",
         _ => "\uE9CE",
+    };
+
+    public static InfoBarSeverity Notice(NoticeSeverity severity) => severity switch
+    {
+        NoticeSeverity.Success => InfoBarSeverity.Success,
+        NoticeSeverity.Warning => InfoBarSeverity.Warning,
+        NoticeSeverity.Error => InfoBarSeverity.Error,
+        _ => InfoBarSeverity.Informational,
+    };
+
+    public static BadgeKind OutcomeKind(DriverOutcomeLevel level) => level switch
+    {
+        DriverOutcomeLevel.Good => BadgeKind.Success,
+        DriverOutcomeLevel.Warning => BadgeKind.Caution,
+        _ => BadgeKind.Critical,
+    };
+
+    public static string OutcomeGlyph(DriverOutcomeLevel level) => level switch
+    {
+        DriverOutcomeLevel.Good => "\uE73E",
+        DriverOutcomeLevel.Warning => "\uE7BA",
+        _ => "\uEA39",
+    };
+
+    public static BadgeKind TierKind(DriverUpdateTier tier) => tier switch
+    {
+        DriverUpdateTier.Recommended => BadgeKind.Success,
+        DriverUpdateTier.Review => BadgeKind.Caution,
+        _ => BadgeKind.Neutral,
     };
 }

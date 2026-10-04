@@ -68,6 +68,19 @@ public interface IElevationService
     /// L'opération frames.capture passe exclusivement par <see cref="IFrameTimeSource"/> (refusée ici avec InvalidInput).
     /// </summary>
     Task<ElevatedResponse> RunAsync(ElevatedRequest request, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Comme <see cref="RunAsync"/>, en relayant les lignes de progression que l'opération transmet (canal nommé), pour
+    /// les opérations qui le prennent en charge (installation de pilotes). Sans prise en charge : aucune progression.
+    /// </summary>
+    Task<ElevatedResponse> RunWithProgressAsync(ElevatedRequest request, IProgress<string>? progress, CancellationToken cancellationToken = default)
+        => RunAsync(request, cancellationToken);
+
+    /// <summary>
+    /// Un assistant administrateur de PCBoost est-il en cours d'exécution (y compris une opération dont l'application a
+    /// cessé d'attendre la fin, après un délai dépassé) ? Permet de ne pas lancer une opération concurrente sur les pilotes.
+    /// </summary>
+    bool IsHelperRunning() => false;
 }
 
 public sealed record CommandSpec(string FileName, IReadOnlyList<string> Arguments, TimeSpan Timeout);
@@ -89,10 +102,34 @@ public interface IShellService
 
     OperationResult ShowFileProperties(string filePath);
 
+    /// <summary>Lien web (http/https) uniquement.</summary>
     OperationResult OpenUri(Uri uri);
+
+    /// <summary>Page des Paramètres Windows (« ms-settings:&lt;page&gt; ») de la liste fermée <see cref="WindowsSettingsPages"/>.</summary>
+    OperationResult OpenWindowsSettings(string page);
+
+    /// <summary>Restauration du système de Windows (rstrui.exe, qui demande lui-même l'autorisation administrateur).</summary>
+    OperationResult OpenSystemRestore();
 
     /// <summary>Recherche web explicite sur un nom de processus (aucune donnée envoyée sans clic).</summary>
     OperationResult SearchOnline(string term);
+}
+
+/// <summary>Pages des Paramètres Windows que PCBoost peut ouvrir (liste fermée).</summary>
+public static class WindowsSettingsPages
+{
+    public const string InstalledApps = "appsfeatures";
+    public const string Gaming = "gaming";
+    public const string GameMode = "gaming-gamemode";
+    public const string AdvancedGraphics = "display-advancedgraphics";
+    public const string WindowsUpdate = "windowsupdate";
+    public const string OptionalUpdates = "windowsupdate-optionalupdates";
+    public const string UpdateHistory = "windowsupdate-history";
+
+    public static IReadOnlySet<string> All { get; } = new HashSet<string>(StringComparer.Ordinal)
+    {
+        InstalledApps, Gaming, GameMode, AdvancedGraphics, WindowsUpdate, OptionalUpdates, UpdateHistory,
+    };
 }
 
 /// <summary>Source d'horodatages de présentation d'images, sans injection dans le jeu (ETW DXGI/D3D9).</summary>

@@ -143,7 +143,7 @@ public sealed class ProgramsViewModelTests
         Assert.False(vm.Items[0].UninstallCommand.CanExecute(null));
         Assert.Equal("Désinstallation depuis les Paramètres de Windows uniquement.", vm.Items[0].UninstallUnavailableText);
         vm.OpenWindowsSettingsCommand.Execute(null);
-        Assert.Equal("uri:ms-settings:appsfeatures", Assert.Single(_shell.Calls));
+        Assert.Equal("settings:appsfeatures", Assert.Single(_shell.Calls));
     }
 
     [Fact]

@@ -61,6 +61,7 @@ public sealed partial class ShellViewModel : ViewModelBase, IDisposable
             new(PageKeys.Home, "Nav_Home", "Nav_Home_ToolTip", Glyphs.Home),
             new(PageKeys.Analysis, "Nav_Analysis", "Nav_Analysis_ToolTip", Glyphs.Analysis),
             new(PageKeys.Health, "Nav_Health", "Nav_Health_ToolTip", Glyphs.Health),
+            new(PageKeys.Drivers, "Nav_Drivers", "Nav_Drivers_ToolTip", Glyphs.Drivers),
             new(PageKeys.Optimization, "Nav_Optimization", "Nav_Optimization_ToolTip", Glyphs.Optimization),
             new(PageKeys.Cleanup, "Nav_Cleanup", "Nav_Cleanup_ToolTip", Glyphs.Cleanup),
             new(PageKeys.Startup, "Nav_Startup", "Nav_Startup_ToolTip", Glyphs.Startup),
@@ -74,7 +75,7 @@ public sealed partial class ShellViewModel : ViewModelBase, IDisposable
         RefreshTexts();
     }
 
-    /// <summary>Menu principal : Accueil, Analyse, Optimisation, Nettoyage, Démarrage, Processus, Gaming, Performances, Historique.</summary>
+    /// <summary>Menu principal : Accueil, Analyse, Santé du matériel, Pilotes, Optimisation, Nettoyage, Démarrage, Processus, Gaming, Performances, Historique.</summary>
     public ObservableCollection<NavigationItemViewModel> NavigationItems { get; }
 
     /// <summary>Élément de pied de menu « Paramètres ».</summary>

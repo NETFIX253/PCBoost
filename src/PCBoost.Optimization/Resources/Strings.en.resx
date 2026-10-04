@@ -30,6 +30,46 @@
   <data name="Cleanup_user-temp_Name" xml:space="preserve"><value>Temporary files (user)</value></data>
   <data name="Cleanup_windows-temp_Description" xml:space="preserve"><value>Temporary files created by Windows and installers. Safe: files older than one day only, locked files are kept. Requires administrator permission.</value></data>
   <data name="Cleanup_windows-temp_Name" xml:space="preserve"><value>Temporary files (Windows)</value></data>
+  <data name="Drv_Change_Description" xml:space="preserve"><value>Driver updated: {0} ({1} → {2})</value></data>
+  <data name="Drv_Change_DescriptionRestorePoint" xml:space="preserve"><value>Driver updated: {0} ({1} → {2}) — revert with the Windows restore point</value></data>
+  <data name="Drv_Change_ProtectionEnabled" xml:space="preserve"><value>System protection turned on for the Windows drive (left on: turning it off would delete restore points; can be changed in "System Protection").</value></data>
+  <data name="Drv_Install_Cancelled" xml:space="preserve"><value>Installation cancelled: no driver was changed.</value></data>
+  <data name="Drv_Install_Changed" xml:space="preserve"><value>Things changed since the search (driver already updated, device removed…). Search again: nothing was installed.</value></data>
+  <data name="Drv_Install_Excluded" xml:space="preserve"><value>A selected update cannot be installed under PCBoost's safety rules: nothing was installed.</value></data>
+  <data name="Drv_Install_NothingSelected" xml:space="preserve"><value>No update selected.</value></data>
+  <data name="Drv_Install_Partial" xml:space="preserve"><value>Some updates were not installed.</value></data>
+  <data name="Drv_Install_SameDevice" xml:space="preserve"><value>Two selected updates are for the same device: install them one after the other. Nothing was installed.</value></data>
+  <data name="Drv_Install_TooMany" xml:space="preserve"><value>Select at most {0} updates at a time.</value></data>
+  <data name="Drv_Install_Unknown" xml:space="preserve"><value>The administrator helper returned no result: the driver state is unknown. Check your devices; going back to the previous driver is still offered in History.</value></data>
+  <data name="Drv_Journal_Installed" xml:space="preserve"><value>Driver update: {0} of {1} installed.</value></data>
+  <data name="Drv_Journal_ProtectionEnabled" xml:space="preserve"><value>System protection turned on for the Windows drive (restore points).</value></data>
+  <data name="Drv_Journal_RestorePoint" xml:space="preserve"><value>Windows restore point created before the driver update.</value></data>
+  <data name="Drv_Journal_RestorePointManual" xml:space="preserve"><value>Windows restore point created before using a manufacturer's tool.</value></data>
+  <data name="Drv_Journal_Unknown" xml:space="preserve"><value>Driver update: unknown result (administrator helper did not respond). Changes left "pending" in History.</value></data>
+  <data name="Drv_Outcome_Failed" xml:space="preserve"><value>Installation failed.</value></data>
+  <data name="Drv_Outcome_NoLongerOffered" xml:space="preserve"><value>Windows Update no longer offers this update.</value></data>
+  <data name="Drv_Outcome_NotRun" xml:space="preserve"><value>Not installed.</value></data>
+  <data name="Drv_Outcome_Refused" xml:space="preserve"><value>Refused when checked again (newer version installed or update not allowed).</value></data>
+  <data name="Drv_Outcome_Unknown" xml:space="preserve"><value>Unknown result: check this device.</value></data>
+  <data name="Drv_RestorePoint_Created" xml:space="preserve"><value>Windows restore point created.</value></data>
+  <data name="Drv_Rollback_Done" xml:space="preserve"><value>The previous driver is reinstalled.</value></data>
+  <data name="Drv_Rollback_DoneRestart" xml:space="preserve"><value>The previous driver is reinstalled. Restart the PC to finish.</value></data>
+  <data name="Drv_Rollback_Failed" xml:space="preserve"><value>Going back to the previous driver did not succeed. Use the Windows restore point created before the update.</value></data>
+  <data name="Drv_Session_RestorePoint" xml:space="preserve"><value>Restore point before a manufacturer's tool</value></data>
+  <data name="Drv_Session_Title" xml:space="preserve"><value>Driver update ({0})</value></data>
+  <data name="Drv_Stop_DeviceProblem" xml:space="preserve"><value>A device reports a problem after its update: the remaining installations were not performed.</value></data>
+  <data name="Drv_Stop_DeviceReadFailed" xml:space="preserve"><value>The device list could not be read: for safety, no (further) installation was performed.</value></data>
+  <data name="Drv_Stop_ExcludedByPolicy" xml:space="preserve"><value>A policy set by your organization excludes drivers from Windows Update: PCBoost respects it. No driver was installed.</value></data>
+  <data name="Drv_Stop_InstallerBusy" xml:space="preserve"><value>Windows Update is already installing updates. Try again when it has finished. No driver was installed.</value></data>
+  <data name="Drv_Stop_ProtectionDisabled" xml:space="preserve"><value>System protection is turned off: no driver was installed. Allow PCBoost to turn it on to create the restore point.</value></data>
+  <data name="Drv_Stop_ProtectionPolicy" xml:space="preserve"><value>Your organization has turned off System Restore: PCBoost does not install drivers without a restore point.</value></data>
+  <data name="Drv_Stop_RebootPending" xml:space="preserve"><value>A restart is pending: restart the PC before installing drivers. No driver was installed.</value></data>
+  <data name="Drv_Stop_RestorePointUnavailable" xml:space="preserve"><value>The Windows restore point could not be created: no driver was installed.</value></data>
+  <data name="Drv_Stop_SearchFailed" xml:space="preserve"><value>Windows Update did not respond at installation time: no driver was installed.</value></data>
+  <data name="Drv_Stop_UpdateServiceDisabled" xml:space="preserve"><value>The Windows Update service is turned off: PCBoost does not change it. No driver was installed.</value></data>
+  <data name="Drv_Undo_Changed" xml:space="preserve"><value>This device's driver changed since this update: PCBoost does not replace it. Use the Windows restore point if needed.</value></data>
+  <data name="Drv_Undo_DeviceGone" xml:space="preserve"><value>The device is no longer present: plug it back in and try again, or use the Windows restore point.</value></data>
+  <data name="Drv_Undo_HelperRunning" xml:space="preserve"><value>A PCBoost administrator operation is still running: try again when it has finished (or after a restart).</value></data>
   <data name="Files_Changed" xml:space="preserve"><value>Not moved: the file was changed or moved since the scan.</value></data>
   <data name="Files_Journal_Recycled" xml:space="preserve"><value>{0} {0:plural:file|files} moved to the Recycle Bin ({1} MB) from "Large files and duplicates".</value></data>
   <data name="Files_KeptCopy" xml:space="preserve"><value>Copy kept: one copy of each duplicate file is always kept.</value></data>

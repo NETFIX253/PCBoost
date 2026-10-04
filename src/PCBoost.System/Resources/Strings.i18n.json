@@ -126,5 +126,23 @@
     "en": "The publisher's uninstaller cannot be found. Use Windows Settings."
   },
   "Sys_UninstallerFailed": { "fr": "Le programme de désinstallation n'a pas pu être lancé.", "en": "The uninstaller could not be started." },
-  "Sys_UninstallDeclined": { "fr": "Autorisation refusée : rien n'a été désinstallé.", "en": "Permission declined: nothing was uninstalled." }
+  "Sys_UninstallDeclined": { "fr": "Autorisation refusée : rien n'a été désinstallé.", "en": "Permission declined: nothing was uninstalled." },
+  "Drv_Error_ServiceDisabled": {
+    "fr": "Le service Windows Update est désactivé sur ce PC. PCBoost ne le modifie pas : réactivez-le dans les services Windows ou demandez à votre service informatique.",
+    "en": "The Windows Update service is disabled on this PC. PCBoost does not change it: re-enable it in Windows services or ask your IT department."
+  },
+  "Drv_Error_AccessDenied": { "fr": "Windows Update a refusé l'accès à la recherche de pilotes.", "en": "Windows Update denied access to the driver search." },
+  "Drv_Error_Policy": {
+    "fr": "Votre organisation gère les mises à jour de ce PC et n'autorise pas cette recherche. PCBoost respecte ce réglage.",
+    "en": "Your organization manages updates on this PC and does not allow this search. PCBoost respects this setting."
+  },
+  "Drv_Error_Offline": {
+    "fr": "Windows Update est injoignable. Vérifiez la connexion Internet, puis relancez la recherche.",
+    "en": "Windows Update cannot be reached. Check the Internet connection, then search again."
+  },
+  "Drv_Error_AgentMissing": { "fr": "L'agent Windows Update n'est pas disponible sur ce PC.", "en": "The Windows Update agent is not available on this PC." },
+  "Drv_Error_SearchFailed": {
+    "fr": "La recherche Windows Update n'a pas abouti. Réessayez plus tard.",
+    "en": "The Windows Update search did not complete. Try again later."
+  }
 }

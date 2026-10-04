@@ -37,6 +37,9 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IElevationService, ElevationService>();
         services.AddSingleton<IFrameTimeSource, FrameTimeSource>();
         services.AddSingleton<IHardwareHealthProvider, Health.HardwareHealthProvider>();
+        services.AddSingleton<IDeviceDriverProvider, Drivers.DeviceDriverProvider>();
+        services.AddSingleton<IDriverUpdateSource, Drivers.WindowsUpdateDriverSource>();
+        services.AddSingleton<INetworkCostProvider, Drivers.NetworkCostProvider>();
 
         services.AddSingleton<IStringResourceSource>(
             ResourceManagerStringSource.ForAssembly(typeof(ServiceCollectionExtensions).Assembly, "PCBoost.Platform.Resources.Strings"));

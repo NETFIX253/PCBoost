@@ -29,6 +29,8 @@ public sealed class FakeShellService : IShellService
     public OperationResult RevealInExplorer(string filePath) { Calls.Add("reveal:" + filePath); return OperationResult.Ok(); }
     public OperationResult ShowFileProperties(string filePath) { Calls.Add("props:" + filePath); return OperationResult.Ok(); }
     public OperationResult OpenUri(Uri uri) { Calls.Add("uri:" + uri); return OperationResult.Ok(); }
+    public OperationResult OpenWindowsSettings(string page) { Calls.Add("settings:" + page); return OperationResult.Ok(); }
+    public OperationResult OpenSystemRestore() { Calls.Add("rstrui"); return OperationResult.Ok(); }
     public OperationResult SearchOnline(string term) { Calls.Add("search:" + term); return OperationResult.Ok(); }
 }
 

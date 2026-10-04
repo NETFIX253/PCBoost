@@ -17,6 +17,7 @@ public sealed class NavigationService : INavigationService
         [PageKeys.Analysis] = (typeof(AnalysisPage), null),
         [PageKeys.Diagnosis] = (typeof(DiagnosisPage), null),
         [PageKeys.Health] = (typeof(HealthPage), null),
+        [PageKeys.Drivers] = (typeof(DriversPage), null),
         [PageKeys.Optimization] = (typeof(OptimizationPage), null),
         [PageRegistry.Profiles] = (typeof(OptimizationPage), "profiles"),
         [PageKeys.OldPc] = (typeof(OptimizationPage), "oldpc"),

@@ -349,6 +349,9 @@ public sealed partial class HealthViewModel : ViewModelBase
     [RelayCommand]
     private void ExportReport() => Navigation.Navigate(PCBoost.Presentation.Navigation.PageKeys.Report);
 
+    [RelayCommand]
+    private void OpenDrivers() => Navigation.Navigate(PCBoost.Presentation.Navigation.PageKeys.Drivers);
+
     /// <summary>Lecture des compteurs de fiabilité des disques : une invite UAC, lecture seule.</summary>
     [RelayCommand(CanExecute = nameof(CanRefresh))]
     private async Task ReadCountersAsync(CancellationToken cancellationToken)

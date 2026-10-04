@@ -21,8 +21,13 @@
             </Grid.ColumnDefinitions>
             <Image x:Name="TitleLogo" Source="ms-appx:///Assets/Branding/logo-32.png" Width="16" Height="16" VerticalAlignment="Center"
                    AutomationProperties.AccessibilityView="Raw" />
-            <TextBlock Grid.Column="1" x:Name="TitleText" Text="{x:Bind Shell.ProductName, Mode=OneWay}" VerticalAlignment="Center"
-                       Style="{StaticResource CaptionTextBlockStyle}" />
+            <!-- Nom du produit et version (la version n'occupe plus de ligne dans le pied du menu). -->
+            <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                <TextBlock x:Name="TitleText" Text="{x:Bind Shell.ProductName, Mode=OneWay}" VerticalAlignment="Center"
+                           Style="{StaticResource CaptionTextBlockStyle}" />
+                <TextBlock Text="{x:Bind Shell.VersionText, Mode=OneWay}" VerticalAlignment="Center"
+                           Style="{StaticResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+            </StackPanel>
             <StackPanel Grid.Column="3" Orientation="Horizontal" Spacing="8" VerticalAlignment="Center" Margin="0,0,12,0">
                 <Border CornerRadius="10" Padding="10,3,11,4" Background="{ThemeResource BrandAccentSubtleBrush}"
                         Visibility="{x:Bind h:Ui.Show(Shell.HasActiveProfile), Mode=OneWay}"
@@ -57,7 +62,7 @@
             BackRequested="OnBackRequested">
 
             <NavigationView.PaneFooter>
-                <StackPanel x:Name="PaneFooterPanel" Padding="16,8,16,14" Spacing="10"
+                <StackPanel x:Name="PaneFooterPanel" Padding="16,4,16,8" Spacing="8"
                             Visibility="{x:Bind h:Ui.Show(NavView.IsPaneOpen), Mode=OneWay}">
                     <Grid ColumnSpacing="10" ToolTipService.ToolTip="{h:Str Key=Shell_Protection_ToolTip}">
                         <Grid.ColumnDefinitions>
@@ -78,7 +83,6 @@
                                          Visibility="{x:Bind h:Ui.Show(Shell.HasSupportLink)}" />
                         <HyperlinkButton Content="{h:Str Key=Shell_About}" Command="{x:Bind Shell.OpenAboutCommand}" Padding="8,3,8,4" FontSize="12" />
                     </StackPanel>
-                    <TextBlock Text="{x:Bind Shell.VersionText, Mode=OneWay}" Style="{StaticResource CaptionSecondaryTextStyle}" />
                 </StackPanel>
             </NavigationView.PaneFooter>
 

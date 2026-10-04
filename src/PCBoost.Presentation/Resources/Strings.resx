@@ -356,6 +356,160 @@
   <data name="Diagnosis_Title" xml:space="preserve"><value>Pourquoi mon PC est lent ?</value></data>
   <data name="Diagnosis_WhatToDo" xml:space="preserve"><value>Que peut-on faire ?</value></data>
   <data name="Diagnosis_Why" xml:space="preserve"><value>Pourquoi ?</value></data>
+  <data name="Drivers_Action_CancelScan" xml:space="preserve"><value>Annuler</value></data>
+  <data name="Drivers_Action_ClearSelection" xml:space="preserve"><value>Tout décocher</value></data>
+  <data name="Drivers_Action_History" xml:space="preserve"><value>Ouvrir l'Historique</value></data>
+  <data name="Drivers_Action_Install" xml:space="preserve"><value>Voir ce qui va être modifié…</value></data>
+  <data name="Drivers_Action_Install_ToolTip" xml:space="preserve"><value>Affiche les pilotes concernés et les protections avant toute installation.</value></data>
+  <data name="Drivers_Action_OpenSource" xml:space="preserve"><value>Ouvrir le site officiel</value></data>
+  <data name="Drivers_Action_OpenSource_ToolTip" xml:space="preserve"><value>Ouvre la page officielle dans votre navigateur. PCBoost ne télécharge rien.</value></data>
+  <data name="Drivers_Action_RestorePointNow" xml:space="preserve"><value>Créer un point de restauration maintenant</value></data>
+  <data name="Drivers_Action_RestorePointNow_ToolTip" xml:space="preserve"><value>Windows demande une autorisation administrateur. Utile avant d'utiliser l'outil d'un fabricant.</value></data>
+  <data name="Drivers_Action_Rollback" xml:space="preserve"><value>Revenir au pilote précédent</value></data>
+  <data name="Drivers_Action_Scan" xml:space="preserve"><value>Rechercher les mises à jour</value></data>
+  <data name="Drivers_Action_Scan_ToolTip" xml:space="preserve"><value>Interroge Windows Update. Rien n'est téléchargé ni installé.</value></data>
+  <data name="Drivers_Action_SelectRecommended" xml:space="preserve"><value>Cocher les recommandées</value></data>
+  <data name="Drivers_Action_SystemRestore" xml:space="preserve"><value>Ouvrir la Restauration du système</value></data>
+  <data name="Drivers_Action_WindowsUpdate" xml:space="preserve"><value>Ouvrir dans Windows Update</value></data>
+  <data name="Drivers_Blocked_Devices" xml:space="preserve"><value>Relancez la recherche : la liste des périphériques n'a pas pu être lue.</value></data>
+  <data name="Drivers_Blocked_Protection" xml:space="preserve"><value>Cochez l'activation de la protection du système pour pouvoir installer.</value></data>
+  <data name="Drivers_Blocked_ProtectionPolicy" xml:space="preserve"><value>Installation impossible : la restauration du système est désactivée par votre organisation.</value></data>
+  <data name="Drivers_Blocked_Reboot" xml:space="preserve"><value>Redémarrez le PC avant d'installer des pilotes.</value></data>
+  <data name="Drivers_Blocked_SameDevice" xml:space="preserve"><value>Deux mises à jour sélectionnées concernent le même périphérique : installez-les l'une après l'autre.</value></data>
+  <data name="Drivers_Class_Battery" xml:space="preserve"><value>Batterie</value></data>
+  <data name="Drivers_Class_Biometric" xml:space="preserve"><value>Biométrie</value></data>
+  <data name="Drivers_Class_Bluetooth" xml:space="preserve"><value>Bluetooth</value></data>
+  <data name="Drivers_Class_Camera" xml:space="preserve"><value>Caméra</value></data>
+  <data name="Drivers_Class_Disk" xml:space="preserve"><value>Disque</value></data>
+  <data name="Drivers_Class_Display" xml:space="preserve"><value>Carte graphique</value></data>
+  <data name="Drivers_Class_Extension" xml:space="preserve"><value>Extension de pilote</value></data>
+  <data name="Drivers_Class_Firmware" xml:space="preserve"><value>Microprogramme</value></data>
+  <data name="Drivers_Class_Input" xml:space="preserve"><value>Périphérique d'entrée</value></data>
+  <data name="Drivers_Class_Media" xml:space="preserve"><value>Son et multimédia</value></data>
+  <data name="Drivers_Class_Monitor" xml:space="preserve"><value>Écran</value></data>
+  <data name="Drivers_Class_Net" xml:space="preserve"><value>Réseau</value></data>
+  <data name="Drivers_Class_Ports" xml:space="preserve"><value>Ports (COM et LPT)</value></data>
+  <data name="Drivers_Class_Printer" xml:space="preserve"><value>Imprimante</value></data>
+  <data name="Drivers_Class_Processor" xml:space="preserve"><value>Processeur</value></data>
+  <data name="Drivers_Class_Security" xml:space="preserve"><value>Sécurité (TPM)</value></data>
+  <data name="Drivers_Class_Sensor" xml:space="preserve"><value>Capteur</value></data>
+  <data name="Drivers_Class_SmartCard" xml:space="preserve"><value>Lecteur de carte à puce</value></data>
+  <data name="Drivers_Class_Software" xml:space="preserve"><value>Composant logiciel</value></data>
+  <data name="Drivers_Class_Storage" xml:space="preserve"><value>Contrôleur de stockage</value></data>
+  <data name="Drivers_Class_System" xml:space="preserve"><value>Périphérique système</value></data>
+  <data name="Drivers_Class_Unknown" xml:space="preserve"><value>Périphérique</value></data>
+  <data name="Drivers_Class_Usb" xml:space="preserve"><value>USB</value></data>
+  <data name="Drivers_Confirm_Admin" xml:space="preserve"><value>Windows demande une autorisation administrateur, une seule fois.</value></data>
+  <data name="Drivers_Confirm_EnableProtection" xml:space="preserve"><value>La protection du système est activée sur le lecteur Windows pour permettre ce point de restauration.</value></data>
+  <data name="Drivers_Confirm_Install" xml:space="preserve"><value>Créer le point de restauration et installer</value></data>
+  <data name="Drivers_Confirm_Item" xml:space="preserve"><value>{0} : {1} → {2}</value></data>
+  <data name="Drivers_Confirm_ItemRestorePoint" xml:space="preserve"><value>{0} : {1} → {2} (retour : point de restauration uniquement)</value></data>
+  <data name="Drivers_Confirm_Message" xml:space="preserve"><value>Voici ce qui va être modifié :</value></data>
+  <data name="Drivers_Confirm_Metered" xml:space="preserve"><value>La connexion est limitée : le téléchargement sera décompté de votre forfait.</value></data>
+  <data name="Drivers_Confirm_Restart" xml:space="preserve"><value>Un redémarrage peut être nécessaire pour terminer.</value></data>
+  <data name="Drivers_Confirm_RestorePoint" xml:space="preserve"><value>Les mises à jour sont revérifiées, puis un point de restauration Windows est créé. S'il ne peut pas l'être, rien n'est installé.</value></data>
+  <data name="Drivers_Confirm_Rollback" xml:space="preserve"><value>Retour en arrière : « Restaurer le pilote » depuis cette page ou l'Historique, et dans tous les cas le point de restauration.</value></data>
+  <data name="Drivers_Confirm_Title" xml:space="preserve"><value>Installer {0} {0:plural:pilote|pilotes} ?</value></data>
+  <data name="Drivers_Current" xml:space="preserve"><value>Installé : {0} du {1} ({2})</value></data>
+  <data name="Drivers_Current_NoDevice" xml:space="preserve"><value>Périphérique non trouvé sur ce PC</value></data>
+  <data name="Drivers_Current_None" xml:space="preserve"><value>Aucun pilote installé</value></data>
+  <data name="Drivers_DateUnknown" xml:space="preserve"><value>date inconnue</value></data>
+  <data name="Drivers_DeviceCount" xml:space="preserve"><value>{0} périphériques</value></data>
+  <data name="Drivers_Installing_Notice" xml:space="preserve"><value>N'éteignez pas le PC. Cela peut prendre plusieurs minutes.</value></data>
+  <data name="Drivers_Installing_Title" xml:space="preserve"><value>Installation en cours</value></data>
+  <data name="Drivers_LastScan" xml:space="preserve"><value>Dernière recherche : {0}</value></data>
+  <data name="Drivers_Notice_Busy" xml:space="preserve"><value>Windows Update installe des mises à jour en ce moment. Attendez qu'il ait terminé avant d'installer des pilotes.</value></data>
+  <data name="Drivers_Notice_Busy_Title" xml:space="preserve"><value>Windows Update est occupé</value></data>
+  <data name="Drivers_Notice_Devices" xml:space="preserve"><value>La liste des périphériques n'a pas pu être lue en entier : PCBoost ne peut pas vérifier les mises à jour. Relancez la recherche.</value></data>
+  <data name="Drivers_Notice_Devices_Title" xml:space="preserve"><value>Périphériques non lus</value></data>
+  <data name="Drivers_Notice_Managed" xml:space="preserve"><value>Les mises à jour de ce PC proviennent du serveur de votre organisation : seuls les pilotes qu'il approuve sont proposés.</value></data>
+  <data name="Drivers_Notice_Managed_Title" xml:space="preserve"><value>Mises à jour gérées par votre organisation</value></data>
+  <data name="Drivers_Notice_Metered" xml:space="preserve"><value>Le téléchargement ({0}) sera décompté de votre forfait.</value></data>
+  <data name="Drivers_Notice_Metered_Title" xml:space="preserve"><value>Connexion limitée</value></data>
+  <data name="Drivers_Notice_Policy" xml:space="preserve"><value>Une stratégie exclut les pilotes de Windows Update sur ce PC. PCBoost respecte ce réglage : aucune recherche n'est faite.</value></data>
+  <data name="Drivers_Notice_Policy_Title" xml:space="preserve"><value>Pilotes gérés par votre organisation</value></data>
+  <data name="Drivers_Notice_ProtectionPolicy_Title" xml:space="preserve"><value>Restauration du système désactivée par l'organisation</value></data>
+  <data name="Drivers_Notice_Reboot" xml:space="preserve"><value>Windows attend un redémarrage pour terminer des mises à jour. Redémarrez le PC, puis relancez la recherche avant d'installer des pilotes.</value></data>
+  <data name="Drivers_Notice_Reboot_Title" xml:space="preserve"><value>Redémarrage en attente</value></data>
+  <data name="Drivers_Notice_SearchFailed_Title" xml:space="preserve"><value>Recherche impossible</value></data>
+  <data name="Drivers_Notice_Service" xml:space="preserve"><value>PCBoost ne réactive pas ce service. Réactivez-le dans les services Windows ou demandez à votre service informatique, puis relancez la recherche.</value></data>
+  <data name="Drivers_Notice_Service_Title" xml:space="preserve"><value>Service Windows Update désactivé</value></data>
+  <data name="Drivers_Outcome_Installed" xml:space="preserve"><value>Installé</value></data>
+  <data name="Drivers_Outcome_InstalledProblem" xml:space="preserve"><value>Installé, mais le périphérique signale un problème (code {0}) : revenez au pilote précédent ou utilisez le point de restauration.</value></data>
+  <data name="Drivers_Outcome_InstalledRestart" xml:space="preserve"><value>Installé · actif après redémarrage</value></data>
+  <data name="Drivers_Outcome_InstalledRestorePoint" xml:space="preserve"><value>Installé · retour avec le point de restauration</value></data>
+  <data name="Drivers_Proposed" xml:space="preserve"><value>Proposé : {0} du {1} ({2})</value></data>
+  <data name="Drivers_Protection_Choice" xml:space="preserve"><value>Autoriser PCBoost à activer la protection du système sur le lecteur Windows (réglage Windows standard : une partie du disque est réservée aux points de restauration)</value></data>
+  <data name="Drivers_Protection_Message" xml:space="preserve"><value>Sans elle, Windows ne peut pas créer de point de restauration, et PCBoost n'installe aucun pilote sans point de restauration.</value></data>
+  <data name="Drivers_Protection_Title" xml:space="preserve"><value>La protection du système est désactivée</value></data>
+  <data name="Drivers_ProviderUnknown" xml:space="preserve"><value>éditeur inconnu</value></data>
+  <data name="Drivers_Published" xml:space="preserve"><value>publiée le {0}</value></data>
+  <data name="Drivers_Reason_DeviceHasProblem" xml:space="preserve"><value>Ce périphérique signale actuellement un problème (code {0}).</value></data>
+  <data name="Drivers_Reason_DeviceNotFound" xml:space="preserve"><value>Aucun périphérique présent ne correspond exactement à cette mise à jour.</value></data>
+  <data name="Drivers_Reason_Firmware" xml:space="preserve"><value>Microprogramme (BIOS, UEFI ou firmware) : PCBoost ne le modifie jamais.</value></data>
+  <data name="Drivers_Reason_LicenseNotAccepted" xml:space="preserve"><value>Des conditions de licence sont à accepter dans Windows Update : PCBoost ne les accepte pas à votre place.</value></data>
+  <data name="Drivers_Reason_NotNewer" xml:space="preserve"><value>La version installée est identique ou plus récente : PCBoost ne revient jamais à une version antérieure.</value></data>
+  <data name="Drivers_Reason_Optional" xml:space="preserve"><value>Mise à jour facultative de Windows : utile surtout pour corriger un problème précis.</value></data>
+  <data name="Drivers_Reason_RecentlyPublished" xml:space="preserve"><value>Publiée depuis moins de 14 jours : PCBoost attend qu'elle ait fait ses preuves.</value></data>
+  <data name="Drivers_Reason_RequiresUserInput" xml:space="preserve"><value>L'installation demande votre intervention : faites-la depuis Windows Update.</value></data>
+  <data name="Drivers_Reason_SystemCritical" xml:space="preserve"><value>Pilote essentiel au démarrage ou à la sécurité de Windows : à installer seulement si nécessaire.</value></data>
+  <data name="Drivers_Reason_VersionNotComparable" xml:space="preserve"><value>La version installée ne peut pas être comparée de façon fiable (autre éditeur ou extension de pilote).</value></data>
+  <data name="Drivers_RestartRequired" xml:space="preserve"><value>redémarrage nécessaire</value></data>
+  <data name="Drivers_Result_Help" xml:space="preserve"><value>En cas de problème : revenez au pilote précédent ci-dessous, ou utilisez le point de restauration (Restauration du système).</value></data>
+  <data name="Drivers_Result_NoneTitle" xml:space="preserve"><value>Aucun pilote installé</value></data>
+  <data name="Drivers_Result_Restart" xml:space="preserve"><value>Redémarrez le PC pour terminer l'installation.</value></data>
+  <data name="Drivers_Result_RestorePoint" xml:space="preserve"><value>Point de restauration créé le {0}.</value></data>
+  <data name="Drivers_Result_RestorePointProtection" xml:space="preserve"><value>Protection du système activée et point de restauration créé le {0}.</value></data>
+  <data name="Drivers_Result_Success" xml:space="preserve"><value>L'installation s'est déroulée correctement.</value></data>
+  <data name="Drivers_Result_Title" xml:space="preserve"><value>{0} {0:plural:pilote installé|pilotes installés} sur {1}</value></data>
+  <data name="Drivers_Result_Versions" xml:space="preserve"><value>{0} → {1}</value></data>
+  <data name="Drivers_Rollback_Message" xml:space="preserve"><value>Windows réinstalle le pilote utilisé avant la mise à jour. Une autorisation administrateur est demandée.</value></data>
+  <data name="Drivers_Rollback_Title" xml:space="preserve"><value>Revenir au pilote précédent de « {0} » ?</value></data>
+  <data name="Drivers_Safety_Never" xml:space="preserve"><value>Jamais de BIOS ni d'UEFI, jamais de version plus ancienne que celle installée.</value></data>
+  <data name="Drivers_Safety_RestorePoint" xml:space="preserve"><value>Un point de restauration Windows est créé juste avant l'installation. S'il ne peut pas l'être, rien n'est installé.</value></data>
+  <data name="Drivers_Safety_Rollback" xml:space="preserve"><value>Retour en arrière : « Restaurer le pilote » ici ou depuis l'Historique, et dans tous les cas le point de restauration.</value></data>
+  <data name="Drivers_Safety_Source" xml:space="preserve"><value>Source unique : Windows Update, avec des pilotes signés et testés par Microsoft (WHQL). Jamais de site tiers.</value></data>
+  <data name="Drivers_Safety_Stable" xml:space="preserve"><value>Les versions éprouvées d'abord : seules les mises à jour recommandées par Windows et publiées depuis au moins 14 jours sont cochées.</value></data>
+  <data name="Drivers_Safety_Title" xml:space="preserve"><value>Comment PCBoost protège votre PC</value></data>
+  <data name="Drivers_Scanning" xml:space="preserve"><value>Recherche dans Windows Update… Cela peut prendre une minute.</value></data>
+  <data name="Drivers_Section_Excluded" xml:space="preserve"><value>Non proposées ({0})</value></data>
+  <data name="Drivers_Section_Excluded_Hint" xml:space="preserve"><value>PCBoost ne les installe pas, pour les raisons indiquées.</value></data>
+  <data name="Drivers_Section_Recommended" xml:space="preserve"><value>Recommandées ({0})</value></data>
+  <data name="Drivers_Section_Recommended_Hint" xml:space="preserve"><value>Proposées automatiquement par Windows, publiées depuis au moins 14 jours et plus récentes que le pilote installé.</value></data>
+  <data name="Drivers_Section_Review" xml:space="preserve"><value>À examiner ({0})</value></data>
+  <data name="Drivers_Section_Review_Hint" xml:space="preserve"><value>Installables, mais non cochées : à choisir seulement si elles répondent à un besoin précis.</value></data>
+  <data name="Drivers_Selection" xml:space="preserve"><value>{0} {0:plural:mise à jour sélectionnée|mises à jour sélectionnées} · {1} à télécharger</value></data>
+  <data name="Drivers_Selection_AtLeast" xml:space="preserve"><value>{0} {0:plural:mise à jour sélectionnée|mises à jour sélectionnées} · au moins {1} à télécharger</value></data>
+  <data name="Drivers_Selection_None" xml:space="preserve"><value>Aucune mise à jour sélectionnée</value></data>
+  <data name="Drivers_SizeUnknown" xml:space="preserve"><value>taille inconnue</value></data>
+  <data name="Drivers_Source_Automatic" xml:space="preserve"><value>Windows Update (recommandée)</value></data>
+  <data name="Drivers_Source_ForGraphics" xml:space="preserve"><value>Pilotes de la carte graphique {0}, souvent plus récents que ceux de Windows Update.</value></data>
+  <data name="Drivers_Source_ForGraphicsUnknown" xml:space="preserve"><value>Pilotes de votre carte graphique, souvent plus récents que ceux de Windows Update.</value></data>
+  <data name="Drivers_Source_ForPc" xml:space="preserve"><value>Pilotes et logiciels validés par le fabricant pour votre modèle ({0}).</value></data>
+  <data name="Drivers_Source_ForPcUnknown" xml:space="preserve"><value>Pilotes et logiciels validés par le fabricant pour votre modèle.</value></data>
+  <data name="Drivers_Source_Kind_Graphics" xml:space="preserve"><value>Carte graphique</value></data>
+  <data name="Drivers_Source_Kind_Pc" xml:space="preserve"><value>Fabricant du PC</value></data>
+  <data name="Drivers_Source_Optional" xml:space="preserve"><value>Windows Update (facultative)</value></data>
+  <data name="Drivers_Source_Title" xml:space="preserve"><value>{0} — {1}</value></data>
+  <data name="Drivers_Sources_Bios" xml:space="preserve"><value>Si un outil propose une mise à jour du BIOS ou d'un microprogramme, faites-la seulement sur secteur et sur conseil de votre service informatique : PCBoost ne la fait jamais.</value></data>
+  <data name="Drivers_Sources_Computer" xml:space="preserve"><value>Votre PC : {0}</value></data>
+  <data name="Drivers_Sources_Hint" xml:space="preserve"><value>Pour un pilote plus récent ou propre à votre modèle, n'utilisez que les outils et sites officiels ci-dessous. PCBoost ne télécharge et n'installe rien depuis ces sources et ne peut donc pas les annuler pilote par pilote : créez d'abord un point de restauration.</value></data>
+  <data name="Drivers_Sources_None" xml:space="preserve"><value>Aucun fabricant reconnu pour ce PC : Windows Update reste la source recommandée.</value></data>
+  <data name="Drivers_Sources_Title" xml:space="preserve"><value>Autres sources fiables : les fabricants</value></data>
+  <data name="Drivers_Step_Downloading" xml:space="preserve"><value>Téléchargement {0} sur {1} : {2}</value></data>
+  <data name="Drivers_Step_Installing" xml:space="preserve"><value>Installation {0} sur {1} : {2}</value></data>
+  <data name="Drivers_Step_RestorePoint" xml:space="preserve"><value>Création du point de restauration Windows…</value></data>
+  <data name="Drivers_Step_Searching" xml:space="preserve"><value>Vérification des mises à jour dans Windows Update…</value></data>
+  <data name="Drivers_Step_Verifying" xml:space="preserve"><value>Vérification {0} sur {1} : {2}</value></data>
+  <data name="Drivers_Step_Waiting" xml:space="preserve"><value>En attente de l'autorisation administrateur…</value></data>
+  <data name="Drivers_Subtitle" xml:space="preserve"><value>Mettez à jour les pilotes de vos périphériques avec les versions validées par Microsoft, en gardant toujours un retour arrière.</value></data>
+  <data name="Drivers_Tier_Excluded" xml:space="preserve"><value>Non proposée</value></data>
+  <data name="Drivers_Tier_Recommended" xml:space="preserve"><value>Recommandée</value></data>
+  <data name="Drivers_Tier_Review" xml:space="preserve"><value>À examiner</value></data>
+  <data name="Drivers_Title" xml:space="preserve"><value>Pilotes</value></data>
+  <data name="Drivers_UpToDate" xml:space="preserve"><value>Windows Update ne propose aucune mise à jour de pilote installable pour ce PC.</value></data>
+  <data name="Drivers_UpToDate_Title" xml:space="preserve"><value>Vos pilotes sont à jour</value></data>
+  <data name="Drivers_VersionUnknown" xml:space="preserve"><value>version inconnue</value></data>
   <data name="Expert_Action_OpenLogs" xml:space="preserve"><value>Ouvrir le dossier des journaux</value></data>
   <data name="Expert_Change_After" xml:space="preserve"><value>État après</value></data>
   <data name="Expert_Change_Before" xml:space="preserve"><value>État avant</value></data>
@@ -502,6 +656,7 @@
   <data name="Gaming_Status_Label" xml:space="preserve"><value>Statut</value></data>
   <data name="Gaming_Subtitle" xml:space="preserve"><value>Des réglages temporaires pendant vos parties, restaurés automatiquement ensuite.</value></data>
   <data name="Gaming_Title" xml:space="preserve"><value>Mode Gaming</value></data>
+  <data name="Health_Action_Drivers" xml:space="preserve"><value>Rechercher des mises à jour de pilotes</value></data>
   <data name="Health_Action_ReadCounters" xml:space="preserve"><value>Lire les compteurs détaillés</value></data>
   <data name="Health_Action_ReadCounters_ToolTip" xml:space="preserve"><value>Lit l'usure, la température et les erreurs des disques. Windows demande une autorisation administrateur ; rien n'est modifié.</value></data>
   <data name="Health_Action_Refresh" xml:space="preserve"><value>Actualiser</value></data>
@@ -572,7 +727,7 @@
   <data name="Health_DeviceProblem_Other" xml:space="preserve"><value>Problème signalé par Windows (code {0})</value></data>
   <data name="Health_DeviceProblem_WithCode" xml:space="preserve"><value>{0} (code {1})</value></data>
   <data name="Health_Devices_Count" xml:space="preserve"><value>{0} {0:plural:périphérique signalé|périphériques signalés} en erreur par Windows.</value></data>
-  <data name="Health_Devices_Hint" xml:space="preserve"><value>Information uniquement : PCBoost ne modifie aucun pilote. Pour le détail, ouvrez le Gestionnaire de périphériques (clic droit sur le bouton Démarrer).</value></data>
+  <data name="Health_Devices_Hint" xml:space="preserve"><value>Information uniquement : cette section ne modifie aucun pilote. Pour mettre un pilote à jour en toute sécurité, utilisez la page Pilotes ; pour le détail, ouvrez le Gestionnaire de périphériques (clic droit sur le bouton Démarrer).</value></data>
   <data name="Health_Devices_None" xml:space="preserve"><value>Aucun périphérique en erreur.</value></data>
   <data name="Health_Devices_Unavailable" xml:space="preserve"><value>La liste des périphériques n'a pas pu être lue.</value></data>
   <data name="Health_Disk_AdviceCritical" xml:space="preserve"><value>Sauvegardez vos fichiers importants dès maintenant (clé USB, disque externe ou stockage en ligne), puis faites vérifier ou remplacer ce disque.</value></data>
@@ -661,6 +816,7 @@
   <data name="History_Title" xml:space="preserve"><value>Historique</value></data>
   <data name="History_Type_Automatic" xml:space="preserve"><value>Optimisation automatique</value></data>
   <data name="History_Type_Cleanup" xml:space="preserve"><value>Nettoyage</value></data>
+  <data name="History_Type_DriverUpdate" xml:space="preserve"><value>Mise à jour des pilotes</value></data>
   <data name="History_Type_Gaming" xml:space="preserve"><value>Mode Gaming</value></data>
   <data name="History_Type_Manual" xml:space="preserve"><value>Optimisation manuelle</value></data>
   <data name="History_Type_OldPcAssistant" xml:space="preserve"><value>Assistant ancien PC</value></data>
@@ -748,6 +904,8 @@
   <data name="Nav_Analysis_ToolTip" xml:space="preserve"><value>Bilan complet du matériel et des logiciels</value></data>
   <data name="Nav_Cleanup" xml:space="preserve"><value>Nettoyage</value></data>
   <data name="Nav_Cleanup_ToolTip" xml:space="preserve"><value>Supprimer les fichiers temporaires</value></data>
+  <data name="Nav_Drivers" xml:space="preserve"><value>Pilotes</value></data>
+  <data name="Nav_Drivers_ToolTip" xml:space="preserve"><value>Mettre à jour les pilotes en toute sécurité (Windows Update)</value></data>
   <data name="Nav_Expert" xml:space="preserve"><value>Mode Expert</value></data>
   <data name="Nav_Expert_ToolTip" xml:space="preserve"><value>Détails techniques</value></data>
   <data name="Nav_Gaming" xml:space="preserve"><value>Gaming</value></data>

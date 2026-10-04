@@ -99,6 +99,13 @@ public static class ChangeKinds
     public const string ScheduledTask = "scheduledtask.enabled";
     public const string FileDeletion = "file.delete";
     public const string RecycleBin = "recyclebin.empty";
+    /// <summary>Mise à jour de pilote par Windows Update ; annulation = retour au pilote précédent (DriverUpdateState).</summary>
+    public const string DriverUpdate = "driver.update";
+    /// <summary>
+    /// Protection du système activée avant une mise à jour de pilotes (autorisée par l'utilisateur) : consignée comme
+    /// action non annulée automatiquement (la désactiver supprimerait les points de restauration).
+    /// </summary>
+    public const string SystemProtection = "systemprotection.enable";
 }
 
 /// <summary>Validation de sûreté avant application (§57).</summary>

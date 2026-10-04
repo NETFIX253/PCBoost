@@ -130,6 +130,23 @@ public sealed class FakeElevationService : IElevationService
             return Task.FromResult(new ElevatedResponse(OperationResult.Fail(OperationErrorKind.ElevationCancelled), new Dictionary<string, string>()));
         return Task.FromResult(Handler?.Invoke(request) ?? new ElevatedResponse(OperationResult.Ok(), new Dictionary<string, string>()));
     }
+
+    /// <summary>Lignes de progression transmises (avant le résultat) par <see cref="RunWithProgressAsync"/>.</summary>
+    public List<string> ProgressToReport { get; } = [];
+
+    /// <summary>Simule un assistant administrateur encore en cours (opération précédente non terminée).</summary>
+    public bool HelperRunning { get; set; }
+
+    public bool IsHelperRunning() => HelperRunning;
+
+    public Task<ElevatedResponse> RunWithProgressAsync(ElevatedRequest request, IProgress<string>? progress, CancellationToken cancellationToken = default)
+    {
+        if (progress is not null && !UserCancels)
+        {
+            foreach (var line in ProgressToReport) progress.Report(line);
+        }
+        return RunAsync(request, cancellationToken);
+    }
 }
 
 public sealed class FakeFileMetadataProvider : IFileMetadataProvider

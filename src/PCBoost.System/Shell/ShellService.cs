@@ -74,6 +74,38 @@ public sealed class ShellService : IShellService
         }
     }
 
+    public OperationResult OpenWindowsSettings(string page)
+    {
+        if (page is null || !WindowsSettingsPages.All.Contains(page))
+            return OperationResult.Fail(OperationErrorKind.Blocked, TextRef.Of("Sys_UriNotAllowed"));
+        return Start(new ProcessStartInfo("ms-settings:" + page) { UseShellExecute = true });
+    }
+
+    public OperationResult OpenSystemRestore()
+    {
+        var path = Path.Combine(Environment.SystemDirectory, "rstrui.exe");
+        if (!File.Exists(path)) return OperationResult.Fail(OperationErrorKind.NotFound, TextRef.Of("Sys_PathNotFound"));
+        return Start(new ProcessStartInfo(path) { UseShellExecute = true, WorkingDirectory = Environment.SystemDirectory });
+    }
+
+    private OperationResult Start(ProcessStartInfo info)
+    {
+        try
+        {
+            using var process = Process.Start(info);
+            return OperationResult.Ok();
+        }
+        catch (Win32Exception ex) when (ex.NativeErrorCode == 1223)
+        {
+            return OperationResult.Fail(OperationErrorKind.ElevationCancelled, TextRef.Of("Sys_ElevationCancelled"));
+        }
+        catch (Exception ex) when (ex is Win32Exception or InvalidOperationException or PlatformNotSupportedException)
+        {
+            _logger.LogWarning(ex, "Ouverture impossible");
+            return OperationResult.FromException(ex);
+        }
+    }
+
     public OperationResult SearchOnline(string term)
     {
         var uri = BuildSearchUri(term);

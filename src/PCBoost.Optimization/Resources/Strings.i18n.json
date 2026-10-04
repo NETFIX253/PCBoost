@@ -1,780 +1,247 @@
 {
   "$comment": "Textes du module PCBoost.Optimization (Opt_*, Cleanup_*, Protection_*). Générer les .resx : python3 build/tools/i18n.py src/PCBoost.Optimization/Resources/Strings.i18n.json",
-  "Protection_Critical": {
-    "fr": "Processus essentiel au fonctionnement de Windows : PCBoost ne le ferme pas et ne le modifie pas.",
-    "en": "Process essential to Windows: PCBoost never closes or changes it."
-  },
-  "Protection_Sensitive": {
-    "fr": "Composant du système : il est déconseillé de le fermer.",
-    "en": "System component: closing it is not recommended."
-  },
-  "Protection_SystemDirectory": {
-    "fr": "Programme situé dans le dossier système de Windows : il est déconseillé de le fermer.",
-    "en": "Program located in the Windows system folder: closing it is not recommended."
-  },
-  "Cleanup_user-temp_Name": {
-    "fr": "Fichiers temporaires de l'utilisateur",
-    "en": "Temporary files (user)"
-  },
-  "Cleanup_user-temp_Description": {
-    "fr": "Fichiers laissés par les applications dans votre dossier temporaire. Sûr : seuls les fichiers de plus d'un jour sont supprimés ; les fichiers en cours d'utilisation sont conservés.",
-    "en": "Files left by applications in your temporary folder. Safe: only files older than one day are deleted; files in use are kept."
-  },
-  "Cleanup_windows-temp_Name": {
-    "fr": "Fichiers temporaires de Windows",
-    "en": "Temporary files (Windows)"
-  },
-  "Cleanup_windows-temp_Description": {
-    "fr": "Fichiers temporaires créés par Windows et les installations. Sûr : fichiers de plus d'un jour uniquement, fichiers verrouillés conservés. Nécessite l'autorisation administrateur.",
-    "en": "Temporary files created by Windows and installers. Safe: files older than one day only, locked files are kept. Requires administrator permission."
-  },
-  "Cleanup_internet-cache_Name": {
-    "fr": "Cache Internet de Windows",
-    "en": "Windows Internet cache"
-  },
-  "Cleanup_internet-cache_Description": {
-    "fr": "Copies de pages et d'images téléchargées par les composants web de Windows. Sûr : elles sont retéléchargées si nécessaire. Fichiers de plus d'un jour uniquement.",
-    "en": "Copies of pages and images downloaded by Windows web components. Safe: they are downloaded again when needed. Files older than one day only."
-  },
-  "Cleanup_user-error-reports_Name": {
-    "fr": "Rapports d'erreurs (utilisateur)",
-    "en": "Error reports (user)"
-  },
-  "Cleanup_user-error-reports_Description": {
-    "fr": "Rapports de plantage d'applications déjà traités ou en attente d'envoi. Sûr : rapports de plus d'une semaine uniquement ; aucun effet sur vos applications.",
-    "en": "Application crash reports already processed or waiting to be sent. Safe: reports older than one week only; no effect on your applications."
-  },
-  "Cleanup_user-crash-dumps_Name": {
-    "fr": "Fichiers d'image mémoire des applications",
-    "en": "Application crash dumps"
-  },
-  "Cleanup_user-crash-dumps_Description": {
-    "fr": "Copies de la mémoire enregistrées lors du plantage d'une application (.dmp). Sûr : fichiers de plus d'une semaine ; utiles seulement pour un diagnostic avancé.",
-    "en": "Memory copies saved when an application crashed (.dmp). Safe: files older than one week; only useful for advanced troubleshooting."
-  },
-  "Cleanup_system-error-reports_Name": {
-    "fr": "Rapports d'erreurs (système)",
-    "en": "Error reports (system)"
-  },
-  "Cleanup_system-error-reports_Description": {
-    "fr": "Rapports de problèmes enregistrés par Windows pour tous les utilisateurs. Sûr : rapports de plus d'une semaine uniquement. Nécessite l'autorisation administrateur.",
-    "en": "Problem reports saved by Windows for all users. Safe: reports older than one week only. Requires administrator permission."
-  },
-  "Cleanup_system-crash-dumps_Name": {
-    "fr": "Images mémoire du système",
-    "en": "System memory dumps"
-  },
-  "Cleanup_system-crash-dumps_Description": {
-    "fr": "Fichiers créés lors d'un écran bleu (Minidump, MEMORY.DMP). Prudence : un technicien peut en avoir besoin pour diagnostiquer un problème récurrent. Nécessite l'autorisation administrateur.",
-    "en": "Files created after a blue screen (Minidump, MEMORY.DMP). Caution: a technician may need them to diagnose a recurring problem. Requires administrator permission."
-  },
-  "Cleanup_recycle-bin_Name": {
-    "fr": "Corbeille",
-    "en": "Recycle Bin"
-  },
-  "Cleanup_recycle-bin_Description": {
-    "fr": "Fichiers que vous avez supprimés vous-même. Prudence : une fois la corbeille vidée, ils ne peuvent plus être récupérés.",
-    "en": "Files you deleted yourself. Caution: once the Recycle Bin is emptied, they can no longer be recovered."
-  },
-  "Cleanup_thumbnail-cache_Name": {
-    "fr": "Miniatures de l'Explorateur",
-    "en": "File Explorer thumbnails"
-  },
-  "Cleanup_thumbnail-cache_Description": {
-    "fr": "Aperçus d'images et de vidéos affichés dans l'Explorateur. Prudence : sûr, mais les dossiers de photos s'afficheront plus lentement le temps que Windows les recrée.",
-    "en": "Image and video previews shown in File Explorer. Caution: safe, but photo folders will display more slowly while Windows rebuilds them."
-  },
-  "Cleanup_browser-edge_Name": {
-    "fr": "Cache de Microsoft Edge",
-    "en": "Microsoft Edge cache"
-  },
-  "Cleanup_browser-edge_Description": {
-    "fr": "Fichiers mis en cache par Microsoft Edge (pages, scripts, cache graphique). Prudence : vos favoris, mots de passe et historique ne sont pas touchés, mais les sites se chargeront un peu plus lentement au début. Edge doit être fermé.",
-    "en": "Files cached by Microsoft Edge (pages, scripts, graphics cache). Caution: your favorites, passwords and history are not touched, but websites will load a little more slowly at first. Edge must be closed."
-  },
-  "Cleanup_browser-chrome_Name": {
-    "fr": "Cache de Google Chrome",
-    "en": "Google Chrome cache"
-  },
-  "Cleanup_browser-chrome_Description": {
-    "fr": "Fichiers mis en cache par Google Chrome (pages, scripts, cache graphique). Prudence : vos favoris, mots de passe et historique ne sont pas touchés, mais les sites se chargeront un peu plus lentement au début. Chrome doit être fermé.",
-    "en": "Files cached by Google Chrome (pages, scripts, graphics cache). Caution: your bookmarks, passwords and history are not touched, but websites will load a little more slowly at first. Chrome must be closed."
-  },
-  "Cleanup_browser-firefox_Name": {
-    "fr": "Cache de Mozilla Firefox",
-    "en": "Mozilla Firefox cache"
-  },
-  "Cleanup_browser-firefox_Description": {
-    "fr": "Fichiers mis en cache par Firefox. Prudence : vos favoris, mots de passe et historique ne sont pas touchés, mais les sites se chargeront un peu plus lentement au début. Firefox doit être fermé.",
-    "en": "Files cached by Firefox. Caution: your bookmarks, passwords and history are not touched, but websites will load a little more slowly at first. Firefox must be closed."
-  },
-  "Cleanup_directx-shader-cache_Name": {
-    "fr": "Cache des shaders DirectX",
-    "en": "DirectX shader cache"
-  },
-  "Cleanup_directx-shader-cache_Description": {
-    "fr": "Programmes graphiques précompilés pour les jeux et applications 3D. Avancé : sûr, mais les jeux peuvent saccader le temps que ce cache soit reconstruit. Fichiers de plus d'un jour uniquement.",
-    "en": "Precompiled graphics programs for games and 3D applications. Advanced: safe, but games may stutter while this cache is rebuilt. Files older than one day only."
-  },
-  "Opt_Module_TempFiles_Name": {
-    "fr": "Fichiers temporaires",
-    "en": "Temporary files"
-  },
-  "Opt_Module_TempFiles_Description": {
-    "fr": "Supprime les fichiers temporaires et rapports d'erreurs anciens des catégories sûres. Action définitive : vos documents, images et téléchargements ne sont jamais concernés.",
-    "en": "Deletes old temporary files and error reports from the safe categories. Permanent action: your documents, pictures and downloads are never included."
-  },
-  "Opt_Module_StartupApps_Name": {
-    "fr": "Applications au démarrage",
-    "en": "Startup apps"
-  },
-  "Opt_Module_StartupApps_Description": {
-    "fr": "Désactive le lancement automatique d'applications non essentielles, comme le Gestionnaire des tâches. Les applications restent installées et utilisables ; réactivation possible à tout moment.",
-    "en": "Turns off automatic launch of non-essential apps, just like Task Manager. The apps stay installed and usable; you can turn them back on at any time."
-  },
-  "Opt_Module_PowerPlan_Name": {
-    "fr": "Mode d'alimentation",
-    "en": "Power plan"
-  },
-  "Opt_Module_PowerPlan_Description": {
-    "fr": "Sélectionne le mode d'alimentation Windows adapté à l'usage choisi. Le mode précédent peut être rétabli.",
-    "en": "Selects the Windows power plan that suits the chosen use. The previous plan can be restored."
-  },
-  "Opt_Module_VisualEffects_Name": {
-    "fr": "Effets visuels",
-    "en": "Visual effects"
-  },
-  "Opt_Module_VisualEffects_Description": {
-    "fr": "Réduit les animations, ombres, défilement fluide et transparence pour soulager un PC modeste. Réglages d'origine restaurables.",
-    "en": "Reduces animations, shadows, smooth scrolling and transparency to lighten the load on a modest PC. Original settings can be restored."
-  },
-  "Opt_Module_BackgroundApps_Name": {
-    "fr": "Applications en arrière-plan",
-    "en": "Background apps"
-  },
-  "Opt_Module_BackgroundApps_Description": {
-    "fr": "Ralentit les applications qui travaillent en arrière-plan (mode efficacité ou priorité réduite) sans les fermer. L'effet dure jusqu'à leur fermeture et peut être annulé.",
-    "en": "Slows down apps working in the background (efficiency mode or lower priority) without closing them. The effect lasts until they close and can be undone."
-  },
-  "Opt_TempFiles_NothingToClean": {
-    "fr": "Aucun fichier temporaire à supprimer pour le moment.",
-    "en": "No temporary files to delete right now."
-  },
-  "Opt_TempFiles_ElevationCancelled": {
-    "fr": "L'autorisation administrateur a été refusée : les fichiers système n'ont pas été nettoyés. Les autres catégories l'ont été.",
-    "en": "Administrator permission was declined: system files were not cleaned. The other categories were."
-  },
-  "Opt_StartupApps_Disable": {
-    "fr": "Désactiver le lancement automatique de {0}",
-    "en": "Turn off automatic launch of {0}"
-  },
-  "Opt_StartupApps_NothingToDisable": {
-    "fr": "Aucune application de démarrage ne peut être désactivée sans risque pour le moment.",
-    "en": "No startup app can be safely turned off right now."
-  },
-  "Opt_PowerPlan_Switch": {
-    "fr": "Passer du mode « {0} » au mode « {1} »",
-    "en": "Switch from the \"{0}\" plan to the \"{1}\" plan"
-  },
-  "Opt_PowerPlan_SwitchTo": {
-    "fr": "Activer le mode d'alimentation « {0} »",
-    "en": "Turn on the \"{0}\" power plan"
-  },
-  "Opt_PowerPlan_AlreadyActive": {
-    "fr": "Le mode « {0} » est déjà actif.",
-    "en": "The \"{0}\" plan is already active."
-  },
-  "Opt_PowerPlan_AlreadySuitable": {
-    "fr": "Le mode d'alimentation actuel convient déjà.",
-    "en": "The current power plan is already suitable."
-  },
-  "Opt_PowerPlan_OnBattery": {
-    "fr": "Le PC fonctionne sur batterie : le mode Économie d'énergie est conservé.",
-    "en": "The PC is running on battery: the power saver plan is kept."
-  },
-  "Opt_PowerPlan_PowerSourceUnknown": {
-    "fr": "La source d'alimentation n'a pas pu être déterminée : aucun changement.",
-    "en": "The power source could not be determined: no change."
-  },
-  "Opt_PowerPlan_SchemeMissing": {
-    "fr": "Ce mode d'alimentation n'existe pas sur ce PC.",
-    "en": "This power plan does not exist on this PC."
-  },
-  "Opt_PowerPlan_NoPerformanceScheme": {
-    "fr": "Aucun mode « Performances élevées » n'est disponible sur ce PC (fréquent sur les PC récents à veille moderne). Le mode actuel est conservé.",
-    "en": "No high-performance power plan is available on this PC (common on recent PCs with modern standby). The current plan is kept."
-  },
-  "Opt_PowerPlan_ActiveUnknown": {
-    "fr": "Le mode d'alimentation actuel n'a pas pu être lu : aucun changement, pour pouvoir le rétablir.",
-    "en": "The current power plan could not be read: nothing was changed, so that it can be restored."
-  },
-  "Opt_VisualEffects_Reduce": {
-    "fr": "Désactiver les animations, ombres, défilement fluide et transparence",
-    "en": "Turn off animations, shadows, smooth scrolling and transparency"
-  },
-  "Opt_VisualEffects_NotNeeded": {
-    "fr": "Ce PC a assez de ressources : les effets visuels sont conservés.",
-    "en": "This PC has enough resources: visual effects are kept."
-  },
-  "Opt_VisualEffects_Unavailable": {
-    "fr": "Les réglages d'effets visuels n'ont pas pu être lus.",
-    "en": "Visual effects settings could not be read."
-  },
-  "Opt_VisualEffects_AlreadyReduced": {
-    "fr": "Les effets visuels sont déjà réduits.",
-    "en": "Visual effects are already reduced."
-  },
-  "Opt_BackgroundApps_ThrottleKnown": {
-    "fr": "Ralentir {0}, application connue pour solliciter le PC en arrière-plan",
-    "en": "Slow down {0}, an app known to load the PC in the background"
-  },
-  "Opt_BackgroundApps_ThrottleMeasured": {
-    "fr": "Ralentir {0}, qui utilise {1:N1} % du processeur sans fenêtre",
-    "en": "Slow down {0}, which uses {1:N1}% of the processor without a window"
-  },
-  "Opt_BackgroundApps_NothingToDo": {
-    "fr": "Aucune application d'arrière-plan à ralentir pour le moment.",
-    "en": "No background app to slow down right now."
-  },
-  "Opt_Change_EfficiencyMode": {
-    "fr": "Mode efficacité pour {0}",
-    "en": "Efficiency mode for {0}"
-  },
-  "Opt_Change_LowerPriority": {
-    "fr": "Priorité réduite pour {0}",
-    "en": "Lower priority for {0}"
-  },
-  "Opt_Change_StartupDisable": {
-    "fr": "Lancement automatique de {0} désactivé",
-    "en": "Automatic launch of {0} turned off"
-  },
-  "Opt_Change_StartupEnable": {
-    "fr": "Lancement automatique de {0} réactivé",
-    "en": "Automatic launch of {0} turned back on"
-  },
-  "Opt_Preview_Failed": {
-    "fr": "L'analyse de cette optimisation a échoué : elle ne sera pas appliquée.",
-    "en": "Analysis of this optimization failed: it will not be applied."
-  },
-  "Opt_Result_NothingSelected": {
-    "fr": "Aucune modification sélectionnée.",
-    "en": "No change selected."
-  },
-  "Opt_Result_Partial": {
-    "fr": "{0} {0:plural:modification appliquée|modifications appliquées}, {1} {1:plural:impossible|impossibles}.",
-    "en": "{0} {0:plural:change|changes} applied, {1} could not be applied."
-  },
-  "Opt_Result_Failed": {
-    "fr": "Cette optimisation n'a pas pu être appliquée.",
-    "en": "This optimization could not be applied."
-  },
-  "Opt_Safety_WindowsTooOld": {
-    "fr": "Cette optimisation nécessite une version plus récente de Windows (build {0} minimum, build actuel : {1}).",
-    "en": "This optimization requires a newer version of Windows (build {0} or later, current build: {1})."
-  },
-  "Opt_Safety_PreviewMismatch": {
-    "fr": "L'aperçu ne correspond pas à cette optimisation : rien n'a été appliqué.",
-    "en": "The preview does not match this optimization: nothing was applied."
-  },
-  "Opt_Safety_NotApplicable": {
-    "fr": "Cette optimisation ne s'applique pas à ce PC.",
-    "en": "This optimization does not apply to this PC."
-  },
-  "Opt_Safety_HighRiskNotConfirmed": {
-    "fr": "Cette action comporte un risque élevé : elle nécessite votre confirmation explicite.",
-    "en": "This action carries a high risk: it requires your explicit confirmation."
-  },
-  "Opt_Safety_IrreversibleNotConfirmed": {
-    "fr": "Cette action est définitive (elle ne pourra pas être annulée) : elle nécessite votre confirmation explicite.",
-    "en": "This action is permanent (it cannot be undone): it requires your explicit confirmation."
-  },
-  "Opt_Safety_ForbiddenTarget": {
-    "fr": "Modification refusée : elle concerne une protection ou un composant essentiel de Windows.",
-    "en": "Change refused: it affects a Windows protection or essential component."
-  },
-  "Opt_Safety_UnknownKind": {
-    "fr": "Modification refusée : type de modification inconnu.",
-    "en": "Change refused: unknown type of change."
-  },
-  "Opt_Safety_MissingBeforeState": {
-    "fr": "Modification refusée : l'état d'origine n'a pas pu être enregistré, elle ne pourrait pas être annulée.",
-    "en": "Change refused: the original state could not be saved, so it could not be undone."
-  },
-  "Opt_Safety_MicrosoftTask": {
-    "fr": "Les tâches planifiées de Microsoft ne sont jamais modifiées.",
-    "en": "Microsoft scheduled tasks are never changed."
-  },
-  "Opt_Error_AccessDenied": {
-    "fr": "Accès refusé : Windows n'a pas autorisé cette modification.",
-    "en": "Access denied: Windows did not allow this change."
-  },
-  "Opt_Error_ElevationCancelled": {
-    "fr": "L'autorisation administrateur a été refusée : rien n'a été modifié.",
-    "en": "Administrator permission was declined: nothing was changed."
-  },
-  "Opt_Error_JournalUnavailable": {
-    "fr": "Le journal de restauration est indisponible : par précaution, rien n'a été modifié.",
-    "en": "The restore log is unavailable: as a precaution, nothing was changed."
-  },
-  "Opt_Elevation_NotAllowed": {
-    "fr": "Cette modification administrateur n'est pas autorisée par PCBoost.",
-    "en": "This administrator change is not allowed by PCBoost."
-  },
-  "Opt_Cleanup_CloseApp": {
-    "fr": "Fermez {0} pour nettoyer ce cache.",
-    "en": "Close {0} to clean this cache."
-  },
-  "Opt_Cleanup_ScanFailed": {
-    "fr": "Cette catégorie n'a pas pu être analysée.",
-    "en": "This category could not be analyzed."
-  },
-  "Opt_Cleanup_Failed": {
-    "fr": "Cette catégorie n'a pas pu être nettoyée.",
-    "en": "This category could not be cleaned."
-  },
-  "Opt_Cleanup_Cancelled": {
-    "fr": "Nettoyage interrompu : cette catégorie n'a pas été traitée, ou seulement en partie.",
-    "en": "Cleanup stopped: this category was not processed, or only partly."
-  },
-  "Opt_Cleanup_RecycleBinUnavailable": {
-    "fr": "La corbeille n'a pas pu être lue ou vidée.",
-    "en": "The Recycle Bin could not be read or emptied."
-  },
-  "Opt_Startup_SecurityBlocked": {
-    "fr": "Les logiciels de sécurité ne sont pas désactivés par PCBoost : ils protègent votre PC.",
-    "en": "Security software is never turned off by PCBoost: it protects your PC."
-  },
-  "Opt_Startup_AlreadyInState": {
-    "fr": "Aucune modification nécessaire.",
-    "en": "No change needed."
-  },
-  "Opt_StartupReason_Security": {
-    "fr": "Logiciel de sécurité : à conserver.",
-    "en": "Security software: keep it."
-  },
-  "Opt_StartupReason_Driver": {
-    "fr": "Utilitaire de pilote (son, pavé tactile, carte graphique) : à conserver pour que le matériel fonctionne correctement.",
-    "en": "Driver utility (sound, touchpad, graphics): keep it so the hardware works properly."
-  },
-  "Opt_StartupReason_FileMissing": {
-    "fr": "Le fichier du programme est introuvable : l'entrée est probablement un reste d'une désinstallation. À examiner.",
-    "en": "The program file cannot be found: the entry is probably left over from an uninstall. Worth reviewing."
-  },
-  "Opt_StartupReason_Unsigned": {
-    "fr": "Programme non signé : l'éditeur ne peut pas être vérifié. À examiner.",
-    "en": "Unsigned program: the publisher cannot be verified. Worth reviewing."
-  },
-  "Opt_StartupReason_InvalidSignature": {
-    "fr": "La signature de ce programme n'est pas valide. À examiner.",
-    "en": "This program's signature is not valid. Worth reviewing."
-  },
-  "Opt_StartupReason_UnknownPublisher": {
-    "fr": "Éditeur inconnu. À examiner.",
-    "en": "Unknown publisher. Worth reviewing."
-  },
-  "Opt_StartupReason_CloudSync": {
-    "fr": "Synchronisation de fichiers : utile si vous voulez vos fichiers à jour dès l'ouverture de session, facultatif sinon.",
-    "en": "File sync: useful if you want your files up to date as soon as you sign in, optional otherwise."
-  },
-  "Opt_StartupReason_GameLauncher": {
-    "fr": "Lanceur de jeux : il peut être ouvert manuellement au moment de jouer.",
-    "en": "Game launcher: it can be opened manually when you want to play."
-  },
-  "Opt_StartupReason_Communication": {
-    "fr": "Application de communication : elle peut être ouverte manuellement quand vous en avez besoin.",
-    "en": "Communication app: it can be opened manually when you need it."
-  },
-  "Opt_StartupReason_Media": {
-    "fr": "Application multimédia : elle peut être ouverte manuellement.",
-    "en": "Media app: it can be opened manually."
-  },
-  "Opt_StartupReason_Updater": {
-    "fr": "Outil de mise à jour : l'application vérifie aussi ses mises à jour quand vous l'ouvrez.",
-    "en": "Update tool: the app also checks for updates when you open it."
-  },
-  "Opt_StartupReason_Utility": {
-    "fr": "Utilitaire facultatif au démarrage : il peut être lancé manuellement.",
-    "en": "Optional utility at startup: it can be launched manually."
-  },
-  "Opt_StartupReason_BrowserHelper": {
-    "fr": "Préchargement du navigateur : le navigateur fonctionne normalement sans lui.",
-    "en": "Browser preloading: the browser works normally without it."
-  },
-  "Opt_StartupReason_Microsoft": {
-    "fr": "Composant Microsoft : à conserver sauf si vous savez à quoi il sert.",
-    "en": "Microsoft component: keep it unless you know what it does."
-  },
-  "Opt_StartupReason_SignedOptional": {
-    "fr": "Application signée : à désactiver seulement si vous ne l'utilisez pas dès l'ouverture de session.",
-    "en": "Signed app: turn it off only if you do not use it right after signing in."
-  },
-  "Opt_Process_Protected": {
-    "fr": "Ce processus est protégé : PCBoost ne le ferme pas, car Windows en a besoin pour fonctionner.",
-    "en": "This process is protected: PCBoost does not close it because Windows needs it."
-  },
-  "Opt_Process_NotFound": {
-    "fr": "Ce processus n'est plus en cours d'exécution.",
-    "en": "This process is no longer running."
-  },
-  "Opt_Undo_AlreadyRestored": {
-    "fr": "Déjà dans son état d'origine.",
-    "en": "Already in its original state."
-  },
-  "Opt_Undo_InvalidState": {
-    "fr": "L'état d'origine enregistré est illisible : restauration impossible.",
-    "en": "The saved original state is unreadable: cannot restore."
-  },
-  "Opt_Undo_Irreversible": {
-    "fr": "Cette action était définitive : elle ne peut pas être annulée.",
-    "en": "This action was permanent: it cannot be undone."
-  },
-  "Opt_Undo_NoHandler": {
-    "fr": "Aucune méthode de restauration n'est disponible pour cette modification.",
-    "en": "No restore method is available for this change."
-  },
-  "Opt_Undo_NothingToRestore": {
-    "fr": "Cette modification n'avait pas été appliquée : rien à restaurer.",
-    "en": "This change was not applied: nothing to restore."
-  },
-  "Opt_Undo_PowerSchemeMissing": {
-    "fr": "Le mode d'alimentation « {0} » n'existe plus : il n'a pas pu être rétabli.",
-    "en": "The \"{0}\" power plan no longer exists: it could not be restored."
-  },
-  "Opt_Undo_ProcessGone": {
-    "fr": "L'application a été fermée depuis : son réglage a disparu avec elle, rien à restaurer.",
-    "en": "The app has been closed since: its setting went away with it, nothing to restore."
-  },
-  "Opt_Undo_TaskGone": {
-    "fr": "La tâche planifiée n'existe plus : rien à restaurer.",
-    "en": "The scheduled task no longer exists: nothing to restore."
-  },
-  "Opt_Rollback_SessionNotFound": {
-    "fr": "Cette session de restauration est introuvable (elle a peut-être été supprimée de l'historique).",
-    "en": "This restore session cannot be found (it may have been removed from history)."
-  },
-  "Opt_Rollback_ChangeNotFound": {
-    "fr": "Cette modification est introuvable dans l'historique.",
-    "en": "This change cannot be found in history."
-  },
-  "Opt_Warning_UnknownOptimization": {
-    "fr": "Une optimisation demandée est inconnue ({0}) : elle a été ignorée.",
-    "en": "A requested optimization is unknown ({0}): it was skipped."
-  },
-  "Opt_Warning_ModuleFailed": {
-    "fr": "Une optimisation ({0}) a rencontré une erreur ; les autres ont continué.",
-    "en": "An optimization ({0}) ran into an error; the others continued."
-  },
-  "Opt_Warning_Cancelled": {
-    "fr": "L'optimisation a été interrompue : les modifications déjà faites restent enregistrées et peuvent être annulées.",
-    "en": "The optimization was stopped: changes already made remain recorded and can be undone."
-  },
-  "Opt_Warning_VerifyPowerPlan": {
-    "fr": "Le mode d'alimentation vérifié ne correspond pas à celui demandé (un autre programme l'a peut-être modifié).",
-    "en": "The power plan found does not match the one requested (another program may have changed it)."
-  },
-  "Opt_Warning_VerifyRegistry": {
-    "fr": "Un réglage de démarrage vérifié ne correspond pas à celui demandé.",
-    "en": "A startup setting found does not match the one requested."
-  },
-  "Opt_Session_OneClick": {
-    "fr": "Optimisation en un clic",
-    "en": "One-click optimization"
-  },
-  "Opt_Session_Manual": {
-    "fr": "Optimisation manuelle",
-    "en": "Manual optimization"
-  },
-  "Opt_Session_Cleanup": {
-    "fr": "Nettoyage",
-    "en": "Cleanup"
-  },
-  "Opt_Session_Startup": {
-    "fr": "Démarrage",
-    "en": "Startup"
-  },
-  "Opt_Session_StartupDisable": {
-    "fr": "Démarrage : {0} désactivé",
-    "en": "Startup: {0} turned off"
-  },
-  "Opt_Session_StartupEnable": {
-    "fr": "Démarrage : {0} réactivé",
-    "en": "Startup: {0} turned back on"
-  },
-  "Opt_Session_OldPc": {
-    "fr": "Assistant ancien PC",
-    "en": "Old PC assistant"
-  },
-  "Opt_Session_Gaming": {
-    "fr": "Mode Jeu",
-    "en": "Gaming mode"
-  },
-  "Opt_Session_Automatic": {
-    "fr": "Nettoyage automatique",
-    "en": "Automatic cleanup"
-  },
-  "Opt_Profile_Balanced_Name": {
-    "fr": "Équilibré",
-    "en": "Balanced"
-  },
-  "Opt_Profile_Balanced_Description": {
-    "fr": "Utilisation normale : mode d'alimentation « Utilisation normale » de Windows, le meilleur compromis entre réactivité, consommation et bruit.",
-    "en": "Everyday use: the Windows \"Balanced\" power plan, the best trade-off between responsiveness, power use and noise."
-  },
-  "Opt_Session_Profile_balanced": {
-    "fr": "Profil Équilibré",
-    "en": "Balanced profile"
-  },
-  "Opt_Journal_ProfileActivated_balanced": {
-    "fr": "Profil « Équilibré » activé.",
-    "en": "\"Balanced\" profile turned on."
-  },
-  "Opt_Profile_Productivity_Name": {
-    "fr": "Productivité",
-    "en": "Productivity"
-  },
-  "Opt_Profile_Productivity_Description": {
-    "fr": "Travail de bureau : mode « Utilisation normale », applications d'arrière-plan ralenties et, sur un PC modeste, effets visuels réduits.",
-    "en": "Office work: \"Balanced\" power plan, background apps slowed down and, on a modest PC, reduced visual effects."
-  },
-  "Opt_Session_Profile_productivity": {
-    "fr": "Profil Productivité",
-    "en": "Productivity profile"
-  },
-  "Opt_Journal_ProfileActivated_productivity": {
-    "fr": "Profil « Productivité » activé.",
-    "en": "\"Productivity\" profile turned on."
-  },
-  "Opt_Profile_Gaming_Name": {
-    "fr": "Jeu",
-    "en": "Gaming"
-  },
-  "Opt_Profile_Gaming_Description": {
-    "fr": "Jeu : mode d'alimentation le plus performant disponible (Performances optimales ou élevées) et applications d'arrière-plan ralenties. Consomme davantage.",
-    "en": "Gaming: the highest-performance power plan available (Ultimate or High performance) and background apps slowed down. Uses more power."
-  },
-  "Opt_Session_Profile_gaming": {
-    "fr": "Profil Jeu",
-    "en": "Gaming profile"
-  },
-  "Opt_Journal_ProfileActivated_gaming": {
-    "fr": "Profil « Jeu » activé.",
-    "en": "\"Gaming\" profile turned on."
-  },
-  "Opt_Profile_PowerSaver_Name": {
-    "fr": "Économie d'énergie",
-    "en": "Power saver"
-  },
-  "Opt_Profile_PowerSaver_Description": {
-    "fr": "Autonomie : mode « Économie d'énergie », applications d'arrière-plan ralenties et effets visuels réduits. Le PC peut être moins réactif.",
-    "en": "Battery life: \"Power saver\" plan, background apps slowed down and visual effects reduced. The PC may feel less responsive."
-  },
-  "Opt_Session_Profile_power-saver": {
-    "fr": "Profil Économie d'énergie",
-    "en": "Power saver profile"
-  },
-  "Opt_Journal_ProfileActivated_power-saver": {
-    "fr": "Profil « Économie d'énergie » activé.",
-    "en": "\"Power saver\" profile turned on."
-  },
-  "Opt_Profile_Custom_Name": {
-    "fr": "Personnalisé",
-    "en": "Custom"
-  },
-  "Opt_Profile_Custom_Description": {
-    "fr": "Vos propres choix parmi les optimisations disponibles.",
-    "en": "Your own selection of the available optimizations."
-  },
-  "Opt_Session_Profile_custom": {
-    "fr": "Profil personnalisé",
-    "en": "Custom profile"
-  },
-  "Opt_Journal_ProfileActivated_custom": {
-    "fr": "Profil personnalisé activé.",
-    "en": "Custom profile turned on."
-  },
-  "Opt_Profile_Unknown": {
-    "fr": "Ce profil est inconnu : rien n'a été modifié.",
-    "en": "This profile is unknown: nothing was changed."
-  },
-  "Opt_Profile_PreviousRestorePartial": {
-    "fr": "Le profil précédent n'a pas pu être entièrement annulé ({0} {0:plural:réglage non restauré|réglages non restaurés}).",
-    "en": "The previous profile could not be fully undone ({0} {0:plural:setting|settings} not restored)."
-  },
-  "Opt_OldPc_Finding_Memory": {
-    "fr": "Mémoire limitée : {0:N1} Go au total, {1:N0} % utilisés.",
-    "en": "Limited memory: {0:N1} GB in total, {1:N0}% in use."
-  },
-  "Opt_OldPc_Finding_Cpu": {
-    "fr": "Processeur modeste : {0} {0:plural:cœur|cœurs}, {1} {1:plural:thread|threads}.",
-    "en": "Modest processor: {0} {0:plural:core|cores}, {1} {1:plural:thread|threads}."
-  },
-  "Opt_OldPc_Finding_Hdd": {
-    "fr": "Windows est installé sur un disque dur mécanique, plus lent qu'un SSD.",
-    "en": "Windows is installed on a mechanical hard drive, which is slower than an SSD."
-  },
-  "Opt_OldPc_Finding_DiskSpace": {
-    "fr": "Peu d'espace libre sur le disque système : {0:N0} % ({1:N1} Go).",
-    "en": "Little free space on the system drive: {0:N0}% ({1:N1} GB)."
-  },
-  "Opt_OldPc_Finding_Startup": {
-    "fr": "{0} applications se lancent au démarrage.",
-    "en": "{0} apps start with Windows."
-  },
-  "Opt_OldPc_Finding_Processes": {
-    "fr": "{0} processus tournent en arrière-plan.",
-    "en": "{0} processes are running in the background."
-  },
-  "Opt_OldPc_Finding_None": {
-    "fr": "Aucune limite matérielle marquée n'a été mesurée.",
-    "en": "No significant hardware limitation was measured."
-  },
-  "Opt_Smart_SlowTitle": {
-    "fr": "Votre PC semble ralentir",
-    "en": "Your PC seems to be slowing down"
-  },
-  "Opt_Smart_SlowBody": {
-    "fr": "La mémoire est restée utilisée à plus de 90 % ces 5 dernières minutes (moyenne : {0} %).",
-    "en": "Memory has stayed above 90% in use over the last 5 minutes (average: {0}%)."
-  },
-  "Opt_Smart_SlowAction": {
-    "fr": "Voir pourquoi",
-    "en": "See why"
-  },
-  "Opt_Smart_CleanableTitle": {
-    "fr": "Espace disque récupérable",
-    "en": "Disk space can be recovered"
-  },
-  "Opt_Smart_CleanableBody": {
-    "fr": "{0:N1} Go peuvent être récupérés en supprimant des fichiers temporaires.",
-    "en": "{0:N1} GB can be recovered by deleting temporary files."
-  },
-  "Opt_Smart_CleanableAction": {
-    "fr": "Nettoyer",
-    "en": "Clean up"
-  },
-  "Opt_Smart_AutoCleanTitle": {
-    "fr": "Nettoyage automatique effectué",
-    "en": "Automatic cleanup done"
-  },
-  "Opt_Smart_AutoCleanBody": {
-    "fr": "{0:N1} Mo de fichiers temporaires de plus de 7 jours ont été supprimés.",
-    "en": "{0:N1} MB of temporary files older than 7 days were deleted."
-  },
-  "Opt_Smart_AutoCleanAction": {
-    "fr": "Voir l'historique",
-    "en": "View history"
-  },
-  "Opt_Journal_SessionCompleted": {
-    "fr": "Optimisation terminée : {0} {0:plural:modification appliquée|modifications appliquées}, {1} {1:plural:échec|échecs}.",
-    "en": "Optimization finished: {0} {0:plural:change|changes} applied, {1} {1:plural:failure|failures}."
-  },
-  "Opt_Journal_SessionRestored": {
-    "fr": "Restauration : {0} {0:plural:modification annulée|modifications annulées}, {1} {1:plural:échec|échecs}, {2} {2:plural:action définitive non annulable|actions définitives non annulables}.",
-    "en": "Restore: {0} {0:plural:change|changes} undone, {1} {1:plural:failure|failures}, {2} permanent {2:plural:action|actions} that cannot be undone."
-  },
-  "Opt_Journal_SessionInterrupted": {
-    "fr": "Une optimisation a été interrompue (arrêt inattendu). Vous pouvez la restaurer.",
-    "en": "An optimization was interrupted (unexpected shutdown). You can restore it."
-  },
-  "Opt_Journal_SessionRecovered": {
-    "fr": "Récupération : {0} {0:plural:modification annulée|modifications annulées}, {1} {1:plural:échec|échecs}.",
-    "en": "Recovery: {0} {0:plural:change|changes} undone, {1} {1:plural:failure|failures}."
-  },
-  "Opt_Journal_SessionDismissed": {
-    "fr": "Session interrompue conservée telle quelle à votre demande.",
-    "en": "Interrupted session kept as it is, at your request."
-  },
-  "Opt_Journal_ChangeUndone": {
-    "fr": "Une modification a été annulée.",
-    "en": "A change was undone."
-  },
-  "Opt_Journal_ChangeUndoFailed": {
-    "fr": "Une modification n'a pas pu être annulée.",
-    "en": "A change could not be undone."
-  },
-  "Opt_Journal_CleanupDone": {
-    "fr": "Nettoyage : {0:N1} Mo libérés, {1} {1:plural:fichier supprimé|fichiers supprimés}.",
-    "en": "Cleanup: {0:N1} MB freed, {1} {1:plural:file|files} deleted."
-  },
-  "Opt_Journal_AutomaticCleanup": {
-    "fr": "Nettoyage automatique : {0:N1} Mo libérés, {1} {1:plural:fichier supprimé|fichiers supprimés}.",
-    "en": "Automatic cleanup: {0:N1} MB freed, {1} {1:plural:file|files} deleted."
-  },
-  "Opt_Journal_RunCompleted": {
-    "fr": "Optimisation : {0} {0:plural:action effectuée|actions effectuées}, {1} {1:plural:échec|échecs}, {2:N1} Mo libérés.",
-    "en": "Optimization: {0} {0:plural:action|actions} performed, {1} {1:plural:failure|failures}, {2:N1} MB freed."
-  },
-  "Opt_Journal_ProfileDeactivated": {
-    "fr": "Profil désactivé : {0} {0:plural:réglage rétabli|réglages rétablis}.",
-    "en": "Profile turned off: {0} {0:plural:setting|settings} restored."
-  },
-  "Opt_Journal_StartupDisabled": {
-    "fr": "{0} ne se lancera plus au démarrage.",
-    "en": "{0} will no longer start with Windows."
-  },
-  "Opt_Journal_StartupEnabled": {
-    "fr": "{0} se lancera de nouveau au démarrage.",
-    "en": "{0} will start with Windows again."
-  },
-  "Opt_Journal_StartupChangeFailed": {
-    "fr": "Le démarrage de {0} n'a pas pu être modifié.",
-    "en": "The startup setting of {0} could not be changed."
-  },
-  "Opt_Journal_ProcessCloseRequested": {
-    "fr": "Fermeture demandée à {0}.",
-    "en": "{0} was asked to close."
-  },
-  "Opt_Journal_ProcessTerminated": {
-    "fr": "{0} a été arrêté à votre demande.",
-    "en": "{0} was stopped at your request."
-  },
-  "Opt_Journal_ProcessActionFailed": {
-    "fr": "L'action sur {0} n'a pas abouti.",
-    "en": "The action on {0} did not succeed."
-  },
-  "Opt_RestorePoint_Created": {
-    "fr": "Point de restauration Windows créé avant l'optimisation avancée.",
-    "en": "Windows restore point created before the advanced optimization."
-  },
-  "Opt_RestorePoint_Recent": {
-    "fr": "Un point de restauration Windows de moins de 24 heures existe déjà et couvre l'optimisation avancée.",
-    "en": "A Windows restore point less than 24 hours old already exists and covers the advanced optimization."
-  },
-  "Opt_RestorePoint_Disabled": {
-    "fr": "La protection du système Windows est désactivée : aucun point de restauration n'a pu être créé.",
-    "en": "Windows System Protection is turned off: no restore point could be created."
-  },
+  "Protection_Critical": { "fr": "Processus essentiel au fonctionnement de Windows : PCBoost ne le ferme pas et ne le modifie pas.", "en": "Process essential to Windows: PCBoost never closes or changes it." },
+  "Protection_Sensitive": { "fr": "Composant du système : il est déconseillé de le fermer.", "en": "System component: closing it is not recommended." },
+  "Protection_SystemDirectory": { "fr": "Programme situé dans le dossier système de Windows : il est déconseillé de le fermer.", "en": "Program located in the Windows system folder: closing it is not recommended." },
+  "Cleanup_user-temp_Name": { "fr": "Fichiers temporaires de l'utilisateur", "en": "Temporary files (user)" },
+  "Cleanup_user-temp_Description": { "fr": "Fichiers laissés par les applications dans votre dossier temporaire. Sûr : seuls les fichiers de plus d'un jour sont supprimés ; les fichiers en cours d'utilisation sont conservés.", "en": "Files left by applications in your temporary folder. Safe: only files older than one day are deleted; files in use are kept." },
+  "Cleanup_windows-temp_Name": { "fr": "Fichiers temporaires de Windows", "en": "Temporary files (Windows)" },
+  "Cleanup_windows-temp_Description": { "fr": "Fichiers temporaires créés par Windows et les installations. Sûr : fichiers de plus d'un jour uniquement, fichiers verrouillés conservés. Nécessite l'autorisation administrateur.", "en": "Temporary files created by Windows and installers. Safe: files older than one day only, locked files are kept. Requires administrator permission." },
+  "Cleanup_internet-cache_Name": { "fr": "Cache Internet de Windows", "en": "Windows Internet cache" },
+  "Cleanup_internet-cache_Description": { "fr": "Copies de pages et d'images téléchargées par les composants web de Windows. Sûr : elles sont retéléchargées si nécessaire. Fichiers de plus d'un jour uniquement.", "en": "Copies of pages and images downloaded by Windows web components. Safe: they are downloaded again when needed. Files older than one day only." },
+  "Cleanup_user-error-reports_Name": { "fr": "Rapports d'erreurs (utilisateur)", "en": "Error reports (user)" },
+  "Cleanup_user-error-reports_Description": { "fr": "Rapports de plantage d'applications déjà traités ou en attente d'envoi. Sûr : rapports de plus d'une semaine uniquement ; aucun effet sur vos applications.", "en": "Application crash reports already processed or waiting to be sent. Safe: reports older than one week only; no effect on your applications." },
+  "Cleanup_user-crash-dumps_Name": { "fr": "Fichiers d'image mémoire des applications", "en": "Application crash dumps" },
+  "Cleanup_user-crash-dumps_Description": { "fr": "Copies de la mémoire enregistrées lors du plantage d'une application (.dmp). Sûr : fichiers de plus d'une semaine ; utiles seulement pour un diagnostic avancé.", "en": "Memory copies saved when an application crashed (.dmp). Safe: files older than one week; only useful for advanced troubleshooting." },
+  "Cleanup_system-error-reports_Name": { "fr": "Rapports d'erreurs (système)", "en": "Error reports (system)" },
+  "Cleanup_system-error-reports_Description": { "fr": "Rapports de problèmes enregistrés par Windows pour tous les utilisateurs. Sûr : rapports de plus d'une semaine uniquement. Nécessite l'autorisation administrateur.", "en": "Problem reports saved by Windows for all users. Safe: reports older than one week only. Requires administrator permission." },
+  "Cleanup_system-crash-dumps_Name": { "fr": "Images mémoire du système", "en": "System memory dumps" },
+  "Cleanup_system-crash-dumps_Description": { "fr": "Fichiers créés lors d'un écran bleu (Minidump, MEMORY.DMP). Prudence : un technicien peut en avoir besoin pour diagnostiquer un problème récurrent. Nécessite l'autorisation administrateur.", "en": "Files created after a blue screen (Minidump, MEMORY.DMP). Caution: a technician may need them to diagnose a recurring problem. Requires administrator permission." },
+  "Cleanup_recycle-bin_Name": { "fr": "Corbeille", "en": "Recycle Bin" },
+  "Cleanup_recycle-bin_Description": { "fr": "Fichiers que vous avez supprimés vous-même. Prudence : une fois la corbeille vidée, ils ne peuvent plus être récupérés.", "en": "Files you deleted yourself. Caution: once the Recycle Bin is emptied, they can no longer be recovered." },
+  "Cleanup_thumbnail-cache_Name": { "fr": "Miniatures de l'Explorateur", "en": "File Explorer thumbnails" },
+  "Cleanup_thumbnail-cache_Description": { "fr": "Aperçus d'images et de vidéos affichés dans l'Explorateur. Prudence : sûr, mais les dossiers de photos s'afficheront plus lentement le temps que Windows les recrée.", "en": "Image and video previews shown in File Explorer. Caution: safe, but photo folders will display more slowly while Windows rebuilds them." },
+  "Cleanup_browser-edge_Name": { "fr": "Cache de Microsoft Edge", "en": "Microsoft Edge cache" },
+  "Cleanup_browser-edge_Description": { "fr": "Fichiers mis en cache par Microsoft Edge (pages, scripts, cache graphique). Prudence : vos favoris, mots de passe et historique ne sont pas touchés, mais les sites se chargeront un peu plus lentement au début. Edge doit être fermé.", "en": "Files cached by Microsoft Edge (pages, scripts, graphics cache). Caution: your favorites, passwords and history are not touched, but websites will load a little more slowly at first. Edge must be closed." },
+  "Cleanup_browser-chrome_Name": { "fr": "Cache de Google Chrome", "en": "Google Chrome cache" },
+  "Cleanup_browser-chrome_Description": { "fr": "Fichiers mis en cache par Google Chrome (pages, scripts, cache graphique). Prudence : vos favoris, mots de passe et historique ne sont pas touchés, mais les sites se chargeront un peu plus lentement au début. Chrome doit être fermé.", "en": "Files cached by Google Chrome (pages, scripts, graphics cache). Caution: your bookmarks, passwords and history are not touched, but websites will load a little more slowly at first. Chrome must be closed." },
+  "Cleanup_browser-firefox_Name": { "fr": "Cache de Mozilla Firefox", "en": "Mozilla Firefox cache" },
+  "Cleanup_browser-firefox_Description": { "fr": "Fichiers mis en cache par Firefox. Prudence : vos favoris, mots de passe et historique ne sont pas touchés, mais les sites se chargeront un peu plus lentement au début. Firefox doit être fermé.", "en": "Files cached by Firefox. Caution: your bookmarks, passwords and history are not touched, but websites will load a little more slowly at first. Firefox must be closed." },
+  "Cleanup_directx-shader-cache_Name": { "fr": "Cache des shaders DirectX", "en": "DirectX shader cache" },
+  "Cleanup_directx-shader-cache_Description": { "fr": "Programmes graphiques précompilés pour les jeux et applications 3D. Avancé : sûr, mais les jeux peuvent saccader le temps que ce cache soit reconstruit. Fichiers de plus d'un jour uniquement.", "en": "Precompiled graphics programs for games and 3D applications. Advanced: safe, but games may stutter while this cache is rebuilt. Files older than one day only." },
+  "Opt_Module_TempFiles_Name": { "fr": "Fichiers temporaires", "en": "Temporary files" },
+  "Opt_Module_TempFiles_Description": { "fr": "Supprime les fichiers temporaires et rapports d'erreurs anciens des catégories sûres. Action définitive : vos documents, images et téléchargements ne sont jamais concernés.", "en": "Deletes old temporary files and error reports from the safe categories. Permanent action: your documents, pictures and downloads are never included." },
+  "Opt_Module_StartupApps_Name": { "fr": "Applications au démarrage", "en": "Startup apps" },
+  "Opt_Module_StartupApps_Description": { "fr": "Désactive le lancement automatique d'applications non essentielles, comme le Gestionnaire des tâches. Les applications restent installées et utilisables ; réactivation possible à tout moment.", "en": "Turns off automatic launch of non-essential apps, just like Task Manager. The apps stay installed and usable; you can turn them back on at any time." },
+  "Opt_Module_PowerPlan_Name": { "fr": "Mode d'alimentation", "en": "Power plan" },
+  "Opt_Module_PowerPlan_Description": { "fr": "Sélectionne le mode d'alimentation Windows adapté à l'usage choisi. Le mode précédent peut être rétabli.", "en": "Selects the Windows power plan that suits the chosen use. The previous plan can be restored." },
+  "Opt_Module_VisualEffects_Name": { "fr": "Effets visuels", "en": "Visual effects" },
+  "Opt_Module_VisualEffects_Description": { "fr": "Réduit les animations, ombres, défilement fluide et transparence pour soulager un PC modeste. Réglages d'origine restaurables.", "en": "Reduces animations, shadows, smooth scrolling and transparency to lighten the load on a modest PC. Original settings can be restored." },
+  "Opt_Module_BackgroundApps_Name": { "fr": "Applications en arrière-plan", "en": "Background apps" },
+  "Opt_Module_BackgroundApps_Description": { "fr": "Ralentit les applications qui travaillent en arrière-plan (mode efficacité ou priorité réduite) sans les fermer. L'effet dure jusqu'à leur fermeture et peut être annulé.", "en": "Slows down apps working in the background (efficiency mode or lower priority) without closing them. The effect lasts until they close and can be undone." },
+  "Opt_TempFiles_NothingToClean": { "fr": "Aucun fichier temporaire à supprimer pour le moment.", "en": "No temporary files to delete right now." },
+  "Opt_TempFiles_ElevationCancelled": { "fr": "L'autorisation administrateur a été refusée : les fichiers système n'ont pas été nettoyés. Les autres catégories l'ont été.", "en": "Administrator permission was declined: system files were not cleaned. The other categories were." },
+  "Opt_StartupApps_Disable": { "fr": "Désactiver le lancement automatique de {0}", "en": "Turn off automatic launch of {0}" },
+  "Opt_StartupApps_NothingToDisable": { "fr": "Aucune application de démarrage ne peut être désactivée sans risque pour le moment.", "en": "No startup app can be safely turned off right now." },
+  "Opt_PowerPlan_Switch": { "fr": "Passer du mode « {0} » au mode « {1} »", "en": "Switch from the \"{0}\" plan to the \"{1}\" plan" },
+  "Opt_PowerPlan_SwitchTo": { "fr": "Activer le mode d'alimentation « {0} »", "en": "Turn on the \"{0}\" power plan" },
+  "Opt_PowerPlan_AlreadyActive": { "fr": "Le mode « {0} » est déjà actif.", "en": "The \"{0}\" plan is already active." },
+  "Opt_PowerPlan_AlreadySuitable": { "fr": "Le mode d'alimentation actuel convient déjà.", "en": "The current power plan is already suitable." },
+  "Opt_PowerPlan_OnBattery": { "fr": "Le PC fonctionne sur batterie : le mode Économie d'énergie est conservé.", "en": "The PC is running on battery: the power saver plan is kept." },
+  "Opt_PowerPlan_PowerSourceUnknown": { "fr": "La source d'alimentation n'a pas pu être déterminée : aucun changement.", "en": "The power source could not be determined: no change." },
+  "Opt_PowerPlan_SchemeMissing": { "fr": "Ce mode d'alimentation n'existe pas sur ce PC.", "en": "This power plan does not exist on this PC." },
+  "Opt_PowerPlan_NoPerformanceScheme": { "fr": "Aucun mode « Performances élevées » n'est disponible sur ce PC (fréquent sur les PC récents à veille moderne). Le mode actuel est conservé.", "en": "No high-performance power plan is available on this PC (common on recent PCs with modern standby). The current plan is kept." },
+  "Opt_PowerPlan_ActiveUnknown": { "fr": "Le mode d'alimentation actuel n'a pas pu être lu : aucun changement, pour pouvoir le rétablir.", "en": "The current power plan could not be read: nothing was changed, so that it can be restored." },
+  "Opt_VisualEffects_Reduce": { "fr": "Désactiver les animations, ombres, défilement fluide et transparence", "en": "Turn off animations, shadows, smooth scrolling and transparency" },
+  "Opt_VisualEffects_NotNeeded": { "fr": "Ce PC a assez de ressources : les effets visuels sont conservés.", "en": "This PC has enough resources: visual effects are kept." },
+  "Opt_VisualEffects_Unavailable": { "fr": "Les réglages d'effets visuels n'ont pas pu être lus.", "en": "Visual effects settings could not be read." },
+  "Opt_VisualEffects_AlreadyReduced": { "fr": "Les effets visuels sont déjà réduits.", "en": "Visual effects are already reduced." },
+  "Opt_BackgroundApps_ThrottleKnown": { "fr": "Ralentir {0}, application connue pour solliciter le PC en arrière-plan", "en": "Slow down {0}, an app known to load the PC in the background" },
+  "Opt_BackgroundApps_ThrottleMeasured": { "fr": "Ralentir {0}, qui utilise {1:N1} % du processeur sans fenêtre", "en": "Slow down {0}, which uses {1:N1}% of the processor without a window" },
+  "Opt_BackgroundApps_NothingToDo": { "fr": "Aucune application d'arrière-plan à ralentir pour le moment.", "en": "No background app to slow down right now." },
+  "Opt_Change_EfficiencyMode": { "fr": "Mode efficacité pour {0}", "en": "Efficiency mode for {0}" },
+  "Opt_Change_LowerPriority": { "fr": "Priorité réduite pour {0}", "en": "Lower priority for {0}" },
+  "Opt_Change_StartupDisable": { "fr": "Lancement automatique de {0} désactivé", "en": "Automatic launch of {0} turned off" },
+  "Opt_Change_StartupEnable": { "fr": "Lancement automatique de {0} réactivé", "en": "Automatic launch of {0} turned back on" },
+  "Opt_Preview_Failed": { "fr": "L'analyse de cette optimisation a échoué : elle ne sera pas appliquée.", "en": "Analysis of this optimization failed: it will not be applied." },
+  "Opt_Result_NothingSelected": { "fr": "Aucune modification sélectionnée.", "en": "No change selected." },
+  "Opt_Result_Partial": { "fr": "{0} {0:plural:modification appliquée|modifications appliquées}, {1} {1:plural:impossible|impossibles}.", "en": "{0} {0:plural:change|changes} applied, {1} could not be applied." },
+  "Opt_Result_Failed": { "fr": "Cette optimisation n'a pas pu être appliquée.", "en": "This optimization could not be applied." },
+  "Opt_Safety_WindowsTooOld": { "fr": "Cette optimisation nécessite une version plus récente de Windows (build {0} minimum, build actuel : {1}).", "en": "This optimization requires a newer version of Windows (build {0} or later, current build: {1})." },
+  "Opt_Safety_PreviewMismatch": { "fr": "L'aperçu ne correspond pas à cette optimisation : rien n'a été appliqué.", "en": "The preview does not match this optimization: nothing was applied." },
+  "Opt_Safety_NotApplicable": { "fr": "Cette optimisation ne s'applique pas à ce PC.", "en": "This optimization does not apply to this PC." },
+  "Opt_Safety_HighRiskNotConfirmed": { "fr": "Cette action comporte un risque élevé : elle nécessite votre confirmation explicite.", "en": "This action carries a high risk: it requires your explicit confirmation." },
+  "Opt_Safety_IrreversibleNotConfirmed": { "fr": "Cette action est définitive (elle ne pourra pas être annulée) : elle nécessite votre confirmation explicite.", "en": "This action is permanent (it cannot be undone): it requires your explicit confirmation." },
+  "Opt_Safety_ForbiddenTarget": { "fr": "Modification refusée : elle concerne une protection ou un composant essentiel de Windows.", "en": "Change refused: it affects a Windows protection or essential component." },
+  "Opt_Safety_UnknownKind": { "fr": "Modification refusée : type de modification inconnu.", "en": "Change refused: unknown type of change." },
+  "Opt_Safety_MissingBeforeState": { "fr": "Modification refusée : l'état d'origine n'a pas pu être enregistré, elle ne pourrait pas être annulée.", "en": "Change refused: the original state could not be saved, so it could not be undone." },
+  "Opt_Safety_MicrosoftTask": { "fr": "Les tâches planifiées de Microsoft ne sont jamais modifiées.", "en": "Microsoft scheduled tasks are never changed." },
+  "Opt_Error_AccessDenied": { "fr": "Accès refusé : Windows n'a pas autorisé cette modification.", "en": "Access denied: Windows did not allow this change." },
+  "Opt_Error_ElevationCancelled": { "fr": "L'autorisation administrateur a été refusée : rien n'a été modifié.", "en": "Administrator permission was declined: nothing was changed." },
+  "Opt_Error_JournalUnavailable": { "fr": "Le journal de restauration est indisponible : par précaution, rien n'a été modifié.", "en": "The restore log is unavailable: as a precaution, nothing was changed." },
+  "Opt_Elevation_NotAllowed": { "fr": "Cette modification administrateur n'est pas autorisée par PCBoost.", "en": "This administrator change is not allowed by PCBoost." },
+  "Opt_Cleanup_CloseApp": { "fr": "Fermez {0} pour nettoyer ce cache.", "en": "Close {0} to clean this cache." },
+  "Opt_Cleanup_ScanFailed": { "fr": "Cette catégorie n'a pas pu être analysée.", "en": "This category could not be analyzed." },
+  "Opt_Cleanup_Failed": { "fr": "Cette catégorie n'a pas pu être nettoyée.", "en": "This category could not be cleaned." },
+  "Opt_Cleanup_Cancelled": { "fr": "Nettoyage interrompu : cette catégorie n'a pas été traitée, ou seulement en partie.", "en": "Cleanup stopped: this category was not processed, or only partly." },
+  "Opt_Cleanup_RecycleBinUnavailable": { "fr": "La corbeille n'a pas pu être lue ou vidée.", "en": "The Recycle Bin could not be read or emptied." },
+  "Opt_Startup_SecurityBlocked": { "fr": "Les logiciels de sécurité ne sont pas désactivés par PCBoost : ils protègent votre PC.", "en": "Security software is never turned off by PCBoost: it protects your PC." },
+  "Opt_Startup_AlreadyInState": { "fr": "Aucune modification nécessaire.", "en": "No change needed." },
+  "Opt_StartupReason_Security": { "fr": "Logiciel de sécurité : à conserver.", "en": "Security software: keep it." },
+  "Opt_StartupReason_Driver": { "fr": "Utilitaire de pilote (son, pavé tactile, carte graphique) : à conserver pour que le matériel fonctionne correctement.", "en": "Driver utility (sound, touchpad, graphics): keep it so the hardware works properly." },
+  "Opt_StartupReason_FileMissing": { "fr": "Le fichier du programme est introuvable : l'entrée est probablement un reste d'une désinstallation. À examiner.", "en": "The program file cannot be found: the entry is probably left over from an uninstall. Worth reviewing." },
+  "Opt_StartupReason_Unsigned": { "fr": "Programme non signé : l'éditeur ne peut pas être vérifié. À examiner.", "en": "Unsigned program: the publisher cannot be verified. Worth reviewing." },
+  "Opt_StartupReason_InvalidSignature": { "fr": "La signature de ce programme n'est pas valide. À examiner.", "en": "This program's signature is not valid. Worth reviewing." },
+  "Opt_StartupReason_UnknownPublisher": { "fr": "Éditeur inconnu. À examiner.", "en": "Unknown publisher. Worth reviewing." },
+  "Opt_StartupReason_CloudSync": { "fr": "Synchronisation de fichiers : utile si vous voulez vos fichiers à jour dès l'ouverture de session, facultatif sinon.", "en": "File sync: useful if you want your files up to date as soon as you sign in, optional otherwise." },
+  "Opt_StartupReason_GameLauncher": { "fr": "Lanceur de jeux : il peut être ouvert manuellement au moment de jouer.", "en": "Game launcher: it can be opened manually when you want to play." },
+  "Opt_StartupReason_Communication": { "fr": "Application de communication : elle peut être ouverte manuellement quand vous en avez besoin.", "en": "Communication app: it can be opened manually when you need it." },
+  "Opt_StartupReason_Media": { "fr": "Application multimédia : elle peut être ouverte manuellement.", "en": "Media app: it can be opened manually." },
+  "Opt_StartupReason_Updater": { "fr": "Outil de mise à jour : l'application vérifie aussi ses mises à jour quand vous l'ouvrez.", "en": "Update tool: the app also checks for updates when you open it." },
+  "Opt_StartupReason_Utility": { "fr": "Utilitaire facultatif au démarrage : il peut être lancé manuellement.", "en": "Optional utility at startup: it can be launched manually." },
+  "Opt_StartupReason_BrowserHelper": { "fr": "Préchargement du navigateur : le navigateur fonctionne normalement sans lui.", "en": "Browser preloading: the browser works normally without it." },
+  "Opt_StartupReason_Microsoft": { "fr": "Composant Microsoft : à conserver sauf si vous savez à quoi il sert.", "en": "Microsoft component: keep it unless you know what it does." },
+  "Opt_StartupReason_SignedOptional": { "fr": "Application signée : à désactiver seulement si vous ne l'utilisez pas dès l'ouverture de session.", "en": "Signed app: turn it off only if you do not use it right after signing in." },
+  "Opt_Process_Protected": { "fr": "Ce processus est protégé : PCBoost ne le ferme pas, car Windows en a besoin pour fonctionner.", "en": "This process is protected: PCBoost does not close it because Windows needs it." },
+  "Opt_Process_NotFound": { "fr": "Ce processus n'est plus en cours d'exécution.", "en": "This process is no longer running." },
+  "Opt_Undo_AlreadyRestored": { "fr": "Déjà dans son état d'origine.", "en": "Already in its original state." },
+  "Opt_Undo_InvalidState": { "fr": "L'état d'origine enregistré est illisible : restauration impossible.", "en": "The saved original state is unreadable: cannot restore." },
+  "Opt_Undo_Irreversible": { "fr": "Cette action était définitive : elle ne peut pas être annulée.", "en": "This action was permanent: it cannot be undone." },
+  "Opt_Undo_NoHandler": { "fr": "Aucune méthode de restauration n'est disponible pour cette modification.", "en": "No restore method is available for this change." },
+  "Opt_Undo_NothingToRestore": { "fr": "Cette modification n'avait pas été appliquée : rien à restaurer.", "en": "This change was not applied: nothing to restore." },
+  "Opt_Undo_PowerSchemeMissing": { "fr": "Le mode d'alimentation « {0} » n'existe plus : il n'a pas pu être rétabli.", "en": "The \"{0}\" power plan no longer exists: it could not be restored." },
+  "Opt_Undo_ProcessGone": { "fr": "L'application a été fermée depuis : son réglage a disparu avec elle, rien à restaurer.", "en": "The app has been closed since: its setting went away with it, nothing to restore." },
+  "Opt_Undo_TaskGone": { "fr": "La tâche planifiée n'existe plus : rien à restaurer.", "en": "The scheduled task no longer exists: nothing to restore." },
+  "Opt_Rollback_SessionNotFound": { "fr": "Cette session de restauration est introuvable (elle a peut-être été supprimée de l'historique).", "en": "This restore session cannot be found (it may have been removed from history)." },
+  "Opt_Rollback_ChangeNotFound": { "fr": "Cette modification est introuvable dans l'historique.", "en": "This change cannot be found in history." },
+  "Opt_Warning_UnknownOptimization": { "fr": "Une optimisation demandée est inconnue ({0}) : elle a été ignorée.", "en": "A requested optimization is unknown ({0}): it was skipped." },
+  "Opt_Warning_ModuleFailed": { "fr": "Une optimisation ({0}) a rencontré une erreur ; les autres ont continué.", "en": "An optimization ({0}) ran into an error; the others continued." },
+  "Opt_Warning_Cancelled": { "fr": "L'optimisation a été interrompue : les modifications déjà faites restent enregistrées et peuvent être annulées.", "en": "The optimization was stopped: changes already made remain recorded and can be undone." },
+  "Opt_Warning_VerifyPowerPlan": { "fr": "Le mode d'alimentation vérifié ne correspond pas à celui demandé (un autre programme l'a peut-être modifié).", "en": "The power plan found does not match the one requested (another program may have changed it)." },
+  "Opt_Warning_VerifyRegistry": { "fr": "Un réglage de démarrage vérifié ne correspond pas à celui demandé.", "en": "A startup setting found does not match the one requested." },
+  "Opt_Session_OneClick": { "fr": "Optimisation en un clic", "en": "One-click optimization" },
+  "Opt_Session_Manual": { "fr": "Optimisation manuelle", "en": "Manual optimization" },
+  "Opt_Session_Cleanup": { "fr": "Nettoyage", "en": "Cleanup" },
+  "Opt_Session_Startup": { "fr": "Démarrage", "en": "Startup" },
+  "Opt_Session_StartupDisable": { "fr": "Démarrage : {0} désactivé", "en": "Startup: {0} turned off" },
+  "Opt_Session_StartupEnable": { "fr": "Démarrage : {0} réactivé", "en": "Startup: {0} turned back on" },
+  "Opt_Session_OldPc": { "fr": "Assistant ancien PC", "en": "Old PC assistant" },
+  "Opt_Session_Gaming": { "fr": "Mode Jeu", "en": "Gaming mode" },
+  "Opt_Session_Automatic": { "fr": "Nettoyage automatique", "en": "Automatic cleanup" },
+  "Opt_Profile_Balanced_Name": { "fr": "Équilibré", "en": "Balanced" },
+  "Opt_Profile_Balanced_Description": { "fr": "Utilisation normale : mode d'alimentation « Utilisation normale » de Windows, le meilleur compromis entre réactivité, consommation et bruit.", "en": "Everyday use: the Windows \"Balanced\" power plan, the best trade-off between responsiveness, power use and noise." },
+  "Opt_Session_Profile_balanced": { "fr": "Profil Équilibré", "en": "Balanced profile" },
+  "Opt_Journal_ProfileActivated_balanced": { "fr": "Profil « Équilibré » activé.", "en": "\"Balanced\" profile turned on." },
+  "Opt_Profile_Productivity_Name": { "fr": "Productivité", "en": "Productivity" },
+  "Opt_Profile_Productivity_Description": { "fr": "Travail de bureau : mode « Utilisation normale », applications d'arrière-plan ralenties et, sur un PC modeste, effets visuels réduits.", "en": "Office work: \"Balanced\" power plan, background apps slowed down and, on a modest PC, reduced visual effects." },
+  "Opt_Session_Profile_productivity": { "fr": "Profil Productivité", "en": "Productivity profile" },
+  "Opt_Journal_ProfileActivated_productivity": { "fr": "Profil « Productivité » activé.", "en": "\"Productivity\" profile turned on." },
+  "Opt_Profile_Gaming_Name": { "fr": "Jeu", "en": "Gaming" },
+  "Opt_Profile_Gaming_Description": { "fr": "Jeu : mode d'alimentation le plus performant disponible (Performances optimales ou élevées) et applications d'arrière-plan ralenties. Consomme davantage.", "en": "Gaming: the highest-performance power plan available (Ultimate or High performance) and background apps slowed down. Uses more power." },
+  "Opt_Session_Profile_gaming": { "fr": "Profil Jeu", "en": "Gaming profile" },
+  "Opt_Journal_ProfileActivated_gaming": { "fr": "Profil « Jeu » activé.", "en": "\"Gaming\" profile turned on." },
+  "Opt_Profile_PowerSaver_Name": { "fr": "Économie d'énergie", "en": "Power saver" },
+  "Opt_Profile_PowerSaver_Description": { "fr": "Autonomie : mode « Économie d'énergie », applications d'arrière-plan ralenties et effets visuels réduits. Le PC peut être moins réactif.", "en": "Battery life: \"Power saver\" plan, background apps slowed down and visual effects reduced. The PC may feel less responsive." },
+  "Opt_Session_Profile_power-saver": { "fr": "Profil Économie d'énergie", "en": "Power saver profile" },
+  "Opt_Journal_ProfileActivated_power-saver": { "fr": "Profil « Économie d'énergie » activé.", "en": "\"Power saver\" profile turned on." },
+  "Opt_Profile_Custom_Name": { "fr": "Personnalisé", "en": "Custom" },
+  "Opt_Profile_Custom_Description": { "fr": "Vos propres choix parmi les optimisations disponibles.", "en": "Your own selection of the available optimizations." },
+  "Opt_Session_Profile_custom": { "fr": "Profil personnalisé", "en": "Custom profile" },
+  "Opt_Journal_ProfileActivated_custom": { "fr": "Profil personnalisé activé.", "en": "Custom profile turned on." },
+  "Opt_Profile_Unknown": { "fr": "Ce profil est inconnu : rien n'a été modifié.", "en": "This profile is unknown: nothing was changed." },
+  "Opt_Profile_PreviousRestorePartial": { "fr": "Le profil précédent n'a pas pu être entièrement annulé ({0} {0:plural:réglage non restauré|réglages non restaurés}).", "en": "The previous profile could not be fully undone ({0} {0:plural:setting|settings} not restored)." },
+  "Opt_OldPc_Finding_Memory": { "fr": "Mémoire limitée : {0:N1} Go au total, {1:N0} % utilisés.", "en": "Limited memory: {0:N1} GB in total, {1:N0}% in use." },
+  "Opt_OldPc_Finding_Cpu": { "fr": "Processeur modeste : {0} {0:plural:cœur|cœurs}, {1} {1:plural:thread|threads}.", "en": "Modest processor: {0} {0:plural:core|cores}, {1} {1:plural:thread|threads}." },
+  "Opt_OldPc_Finding_Hdd": { "fr": "Windows est installé sur un disque dur mécanique, plus lent qu'un SSD.", "en": "Windows is installed on a mechanical hard drive, which is slower than an SSD." },
+  "Opt_OldPc_Finding_DiskSpace": { "fr": "Peu d'espace libre sur le disque système : {0:N0} % ({1:N1} Go).", "en": "Little free space on the system drive: {0:N0}% ({1:N1} GB)." },
+  "Opt_OldPc_Finding_Startup": { "fr": "{0} applications se lancent au démarrage.", "en": "{0} apps start with Windows." },
+  "Opt_OldPc_Finding_Processes": { "fr": "{0} processus tournent en arrière-plan.", "en": "{0} processes are running in the background." },
+  "Opt_OldPc_Finding_None": { "fr": "Aucune limite matérielle marquée n'a été mesurée.", "en": "No significant hardware limitation was measured." },
+  "Opt_Smart_SlowTitle": { "fr": "Votre PC semble ralentir", "en": "Your PC seems to be slowing down" },
+  "Opt_Smart_SlowBody": { "fr": "La mémoire est restée utilisée à plus de 90 % ces 5 dernières minutes (moyenne : {0} %).", "en": "Memory has stayed above 90% in use over the last 5 minutes (average: {0}%)." },
+  "Opt_Smart_SlowAction": { "fr": "Voir pourquoi", "en": "See why" },
+  "Opt_Smart_CleanableTitle": { "fr": "Espace disque récupérable", "en": "Disk space can be recovered" },
+  "Opt_Smart_CleanableBody": { "fr": "{0:N1} Go peuvent être récupérés en supprimant des fichiers temporaires.", "en": "{0:N1} GB can be recovered by deleting temporary files." },
+  "Opt_Smart_CleanableAction": { "fr": "Nettoyer", "en": "Clean up" },
+  "Opt_Smart_AutoCleanTitle": { "fr": "Nettoyage automatique effectué", "en": "Automatic cleanup done" },
+  "Opt_Smart_AutoCleanBody": { "fr": "{0:N1} Mo de fichiers temporaires de plus de 7 jours ont été supprimés.", "en": "{0:N1} MB of temporary files older than 7 days were deleted." },
+  "Opt_Smart_AutoCleanAction": { "fr": "Voir l'historique", "en": "View history" },
+  "Opt_Journal_SessionCompleted": { "fr": "Optimisation terminée : {0} {0:plural:modification appliquée|modifications appliquées}, {1} {1:plural:échec|échecs}.", "en": "Optimization finished: {0} {0:plural:change|changes} applied, {1} {1:plural:failure|failures}." },
+  "Opt_Journal_SessionRestored": { "fr": "Restauration : {0} {0:plural:modification annulée|modifications annulées}, {1} {1:plural:échec|échecs}, {2} {2:plural:action définitive non annulable|actions définitives non annulables}.", "en": "Restore: {0} {0:plural:change|changes} undone, {1} {1:plural:failure|failures}, {2} permanent {2:plural:action|actions} that cannot be undone." },
+  "Opt_Journal_SessionInterrupted": { "fr": "Une optimisation a été interrompue (arrêt inattendu). Vous pouvez la restaurer.", "en": "An optimization was interrupted (unexpected shutdown). You can restore it." },
+  "Opt_Journal_SessionRecovered": { "fr": "Récupération : {0} {0:plural:modification annulée|modifications annulées}, {1} {1:plural:échec|échecs}.", "en": "Recovery: {0} {0:plural:change|changes} undone, {1} {1:plural:failure|failures}." },
+  "Opt_Journal_SessionDismissed": { "fr": "Session interrompue conservée telle quelle à votre demande.", "en": "Interrupted session kept as it is, at your request." },
+  "Opt_Journal_ChangeUndone": { "fr": "Une modification a été annulée.", "en": "A change was undone." },
+  "Opt_Journal_ChangeUndoFailed": { "fr": "Une modification n'a pas pu être annulée.", "en": "A change could not be undone." },
+  "Opt_Journal_CleanupDone": { "fr": "Nettoyage : {0:N1} Mo libérés, {1} {1:plural:fichier supprimé|fichiers supprimés}.", "en": "Cleanup: {0:N1} MB freed, {1} {1:plural:file|files} deleted." },
+  "Opt_Journal_AutomaticCleanup": { "fr": "Nettoyage automatique : {0:N1} Mo libérés, {1} {1:plural:fichier supprimé|fichiers supprimés}.", "en": "Automatic cleanup: {0:N1} MB freed, {1} {1:plural:file|files} deleted." },
+  "Opt_Journal_RunCompleted": { "fr": "Optimisation : {0} {0:plural:action effectuée|actions effectuées}, {1} {1:plural:échec|échecs}, {2:N1} Mo libérés.", "en": "Optimization: {0} {0:plural:action|actions} performed, {1} {1:plural:failure|failures}, {2:N1} MB freed." },
+  "Opt_Journal_ProfileDeactivated": { "fr": "Profil désactivé : {0} {0:plural:réglage rétabli|réglages rétablis}.", "en": "Profile turned off: {0} {0:plural:setting|settings} restored." },
+  "Opt_Journal_StartupDisabled": { "fr": "{0} ne se lancera plus au démarrage.", "en": "{0} will no longer start with Windows." },
+  "Opt_Journal_StartupEnabled": { "fr": "{0} se lancera de nouveau au démarrage.", "en": "{0} will start with Windows again." },
+  "Opt_Journal_StartupChangeFailed": { "fr": "Le démarrage de {0} n'a pas pu être modifié.", "en": "The startup setting of {0} could not be changed." },
+  "Opt_Journal_ProcessCloseRequested": { "fr": "Fermeture demandée à {0}.", "en": "{0} was asked to close." },
+  "Opt_Journal_ProcessTerminated": { "fr": "{0} a été arrêté à votre demande.", "en": "{0} was stopped at your request." },
+  "Opt_Journal_ProcessActionFailed": { "fr": "L'action sur {0} n'a pas abouti.", "en": "The action on {0} did not succeed." },
+  "Opt_RestorePoint_Created": { "fr": "Point de restauration Windows créé avant l'optimisation avancée.", "en": "Windows restore point created before the advanced optimization." },
+  "Opt_RestorePoint_Recent": { "fr": "Un point de restauration Windows de moins de 24 heures existe déjà et couvre l'optimisation avancée.", "en": "A Windows restore point less than 24 hours old already exists and covers the advanced optimization." },
+  "Opt_RestorePoint_Disabled": { "fr": "La protection du système Windows est désactivée : aucun point de restauration n'a pu être créé.", "en": "Windows System Protection is turned off: no restore point could be created." },
   "Opt_RestorePoint_Failed": { "fr": "Le point de restauration Windows n'a pas pu être créé.", "en": "The Windows restore point could not be created." },
-  "Opt_RestorePoint_Cancelled": {
-    "fr": "Autorisation refusée : aucun point de restauration Windows n'a été créé.",
-    "en": "Permission declined: no Windows restore point was created."
-  },
+  "Opt_RestorePoint_Cancelled": { "fr": "Autorisation refusée : aucun point de restauration Windows n'a été créé.", "en": "Permission declined: no Windows restore point was created." },
   "Programs_LastRun_None": { "fr": "Windows n'a fourni aucune exécution enregistrée.", "en": "Windows did not provide any recorded run." },
-  "Programs_Uninstall_UseSettings": {
-    "fr": "Ce programme se désinstalle depuis les Paramètres de Windows (Applications installées).",
-    "en": "This program is uninstalled from Windows Settings (Installed apps)."
-  },
-  "Programs_Uninstall_Changed": {
-    "fr": "La commande de désinstallation a changé depuis l'affichage de la liste : actualisez la liste, puis réessayez.",
-    "en": "The uninstall command changed since the list was displayed: refresh the list, then try again."
-  },
-  "Programs_Journal_Started": {
-    "fr": "Désinstallation de « {0} » lancée avec son programme officiel.",
-    "en": "Uninstall of \"{0}\" started with its official uninstaller."
-  },
+  "Programs_Uninstall_UseSettings": { "fr": "Ce programme se désinstalle depuis les Paramètres de Windows (Applications installées).", "en": "This program is uninstalled from Windows Settings (Installed apps)." },
+  "Programs_Uninstall_Changed": { "fr": "La commande de désinstallation a changé depuis l'affichage de la liste : actualisez la liste, puis réessayez.", "en": "The uninstall command changed since the list was displayed: refresh the list, then try again." },
+  "Programs_Journal_Started": { "fr": "Désinstallation de « {0} » lancée avec son programme officiel.", "en": "Uninstall of \"{0}\" started with its official uninstaller." },
   "Programs_Journal_Removed": { "fr": "« {0} » a été désinstallé.", "en": "\"{0}\" was uninstalled." },
-  "Files_Journal_Recycled": {
-    "fr": "{0} {0:plural:fichier envoyé|fichiers envoyés} à la Corbeille ({1} Mo) depuis « Gros fichiers et doublons ».",
-    "en": "{0} {0:plural:file|files} moved to the Recycle Bin ({1} MB) from \"Large files and duplicates\"."
-  },
-  "Files_KeptCopy": {
-    "fr": "Copie conservée : une copie de chaque fichier en double est toujours gardée.",
-    "en": "Copy kept: one copy of each duplicate file is always kept."
-  },
+  "Files_Journal_Recycled": { "fr": "{0} {0:plural:fichier envoyé|fichiers envoyés} à la Corbeille ({1} Mo) depuis « Gros fichiers et doublons ».", "en": "{0} {0:plural:file|files} moved to the Recycle Bin ({1} MB) from \"Large files and duplicates\"." },
+  "Files_KeptCopy": { "fr": "Copie conservée : une copie de chaque fichier en double est toujours gardée.", "en": "Copy kept: one copy of each duplicate file is always kept." },
   "Files_NoCopyLeft": { "fr": "Non envoyé : l'autre copie a changé ou n'existe plus.", "en": "Not moved: the other copy changed or no longer exists." },
   "Files_NotInScan": { "fr": "Non envoyé : ce fichier ne fait pas partie de l'analyse.", "en": "Not moved: this file is not part of the scan." },
-  "Files_Changed": {
-    "fr": "Non envoyé : le fichier a été modifié ou déplacé depuis l'analyse.",
-    "en": "Not moved: the file was changed or moved since the scan."
-  }
+  "Files_Changed": { "fr": "Non envoyé : le fichier a été modifié ou déplacé depuis l'analyse.", "en": "Not moved: the file was changed or moved since the scan." },
+  "Drv_Install_NothingSelected": { "fr": "Aucune mise à jour sélectionnée.", "en": "No update selected." },
+  "Drv_Install_TooMany": { "fr": "Sélectionnez au plus {0} mises à jour à la fois.", "en": "Select at most {0} updates at a time." },
+  "Drv_Install_Excluded": { "fr": "Une mise à jour sélectionnée n'est pas installable selon les règles de sécurité de PCBoost : rien n'a été installé.", "en": "A selected update cannot be installed under PCBoost's safety rules: nothing was installed." },
+  "Drv_Install_Cancelled": { "fr": "Installation annulée : aucun pilote n'a été modifié.", "en": "Installation cancelled: no driver was changed." },
+  "Drv_Install_Partial": { "fr": "Certaines mises à jour n'ont pas été installées.", "en": "Some updates were not installed." },
+  "Drv_Stop_RestorePointUnavailable": { "fr": "Le point de restauration Windows n'a pas pu être créé : aucun pilote n'a été installé.", "en": "The Windows restore point could not be created: no driver was installed." },
+  "Drv_Stop_ProtectionDisabled": { "fr": "La protection du système est désactivée : aucun pilote n'a été installé. Autorisez PCBoost à l'activer pour créer le point de restauration.", "en": "System protection is turned off: no driver was installed. Allow PCBoost to turn it on to create the restore point." },
+  "Drv_Stop_ProtectionPolicy": { "fr": "Votre organisation a désactivé la restauration du système : PCBoost n'installe aucun pilote sans point de restauration.", "en": "Your organization has turned off System Restore: PCBoost does not install drivers without a restore point." },
+  "Drv_Stop_RebootPending": { "fr": "Un redémarrage est en attente : redémarrez le PC avant d'installer des pilotes. Aucun pilote n'a été installé.", "en": "A restart is pending: restart the PC before installing drivers. No driver was installed." },
+  "Drv_Stop_InstallerBusy": { "fr": "Windows Update installe déjà des mises à jour. Réessayez quand il aura terminé. Aucun pilote n'a été installé.", "en": "Windows Update is already installing updates. Try again when it has finished. No driver was installed." },
+  "Drv_Stop_SearchFailed": { "fr": "Windows Update n'a pas répondu au moment de l'installation : aucun pilote n'a été installé.", "en": "Windows Update did not respond at installation time: no driver was installed." },
+  "Drv_Stop_DeviceProblem": { "fr": "Un périphérique signale un problème après sa mise à jour : les installations suivantes n'ont pas été faites.", "en": "A device reports a problem after its update: the remaining installations were not performed." },
+  "Drv_Outcome_Failed": { "fr": "Installation en échec.", "en": "Installation failed." },
+  "Drv_Outcome_NoLongerOffered": { "fr": "Windows Update ne propose plus cette mise à jour.", "en": "Windows Update no longer offers this update." },
+  "Drv_Outcome_Refused": { "fr": "Refusée lors de la revérification (version installée plus récente ou mise à jour non autorisée).", "en": "Refused when checked again (newer version installed or update not allowed)." },
+  "Drv_Outcome_NotRun": { "fr": "Non installée.", "en": "Not installed." },
+  "Drv_Session_Title": { "fr": "Mise à jour des pilotes ({0})", "en": "Driver update ({0})" },
+  "Drv_Change_Description": { "fr": "Pilote mis à jour : {0} ({1} → {2})", "en": "Driver updated: {0} ({1} → {2})" },
+  "Drv_Journal_ProtectionEnabled": { "fr": "Protection du système activée sur le lecteur Windows (points de restauration).", "en": "System protection turned on for the Windows drive (restore points)." },
+  "Drv_Journal_RestorePoint": { "fr": "Point de restauration Windows créé avant la mise à jour des pilotes.", "en": "Windows restore point created before the driver update." },
+  "Drv_Journal_Installed": { "fr": "Mise à jour des pilotes : {0} sur {1} {1:plural:installée|installées}.", "en": "Driver update: {0} of {1} installed." },
+  "Drv_Undo_DeviceGone": { "fr": "Le périphérique n'est plus présent : rebranchez-le puis réessayez, ou utilisez le point de restauration Windows.", "en": "The device is no longer present: plug it back in and try again, or use the Windows restore point." },
+  "Drv_Rollback_Done": { "fr": "Le pilote précédent est réinstallé.", "en": "The previous driver is reinstalled." },
+  "Drv_Rollback_DoneRestart": { "fr": "Le pilote précédent est réinstallé. Redémarrez le PC pour terminer.", "en": "The previous driver is reinstalled. Restart the PC to finish." },
+  "Drv_Rollback_Failed": { "fr": "Le retour au pilote précédent n'a pas abouti. Utilisez le point de restauration Windows créé avant la mise à jour.", "en": "Going back to the previous driver did not succeed. Use the Windows restore point created before the update." },
+  "Drv_RestorePoint_Created": { "fr": "Point de restauration Windows créé.", "en": "Windows restore point created." },
+  "Drv_Journal_RestorePointManual": { "fr": "Point de restauration Windows créé avant l'utilisation de l'outil d'un fabricant.", "en": "Windows restore point created before using a manufacturer's tool." },
+  "Drv_Stop_ExcludedByPolicy": { "fr": "Une stratégie de votre organisation exclut les pilotes de Windows Update : PCBoost la respecte. Aucun pilote n'a été installé.", "en": "A policy set by your organization excludes drivers from Windows Update: PCBoost respects it. No driver was installed." },
+  "Drv_Stop_UpdateServiceDisabled": { "fr": "Le service Windows Update est désactivé : PCBoost ne le modifie pas. Aucun pilote n'a été installé.", "en": "The Windows Update service is turned off: PCBoost does not change it. No driver was installed." },
+  "Drv_Stop_DeviceReadFailed": { "fr": "La liste des périphériques n'a pas pu être lue : par sécurité, aucune installation (supplémentaire) n'a été faite.", "en": "The device list could not be read: for safety, no (further) installation was performed." },
+  "Drv_Install_Changed": { "fr": "La situation a changé depuis la recherche (pilote déjà mis à jour, périphérique retiré…). Relancez la recherche : rien n'a été installé.", "en": "Things changed since the search (driver already updated, device removed…). Search again: nothing was installed." },
+  "Drv_Install_Unknown": { "fr": "L'assistant administrateur n'a rendu aucun résultat : l'état des pilotes est inconnu. Vérifiez vos périphériques ; le retour au pilote précédent reste proposé dans l'Historique.", "en": "The administrator helper returned no result: the driver state is unknown. Check your devices; going back to the previous driver is still offered in History." },
+  "Drv_Outcome_Unknown": { "fr": "Résultat inconnu : vérifiez ce périphérique.", "en": "Unknown result: check this device." },
+  "Drv_Journal_Unknown": { "fr": "Mise à jour des pilotes : résultat inconnu (assistant administrateur sans réponse). Modifications laissées « en attente » dans l'Historique.", "en": "Driver update: unknown result (administrator helper did not respond). Changes left \"pending\" in History." },
+  "Drv_Change_DescriptionRestorePoint": { "fr": "Pilote mis à jour : {0} ({1} → {2}) — retour avec le point de restauration Windows", "en": "Driver updated: {0} ({1} → {2}) — revert with the Windows restore point" },
+  "Drv_Change_ProtectionEnabled": { "fr": "Protection du système activée sur le lecteur Windows (laissée active : la désactiver supprimerait les points de restauration ; réglable dans « Protection du système »).", "en": "System protection turned on for the Windows drive (left on: turning it off would delete restore points; can be changed in \"System Protection\")." },
+  "Drv_Undo_Changed": { "fr": "Le pilote de ce périphérique a changé depuis cette mise à jour : PCBoost ne le remplace pas. Utilisez le point de restauration Windows si nécessaire.", "en": "This device's driver changed since this update: PCBoost does not replace it. Use the Windows restore point if needed." },
+  "Drv_Install_SameDevice": {
+    "fr": "Deux mises à jour sélectionnées concernent le même périphérique : installez-les l'une après l'autre. Rien n'a été installé.",
+    "en": "Two selected updates are for the same device: install them one after the other. Nothing was installed."
+  },
+  "Drv_Undo_HelperRunning": {
+    "fr": "Une opération administrateur de PCBoost est encore en cours : réessayez quand elle sera terminée (ou après un redémarrage).",
+    "en": "A PCBoost administrator operation is still running: try again when it has finished (or after a restart)."
+  },
+  "Drv_Session_RestorePoint": { "fr": "Point de restauration avant l'outil d'un fabricant", "en": "Restore point before a manufacturer's tool" }
 }

@@ -54,6 +54,9 @@ public sealed class ServiceGraphTests : IDisposable
         services.AddSingleton<IFrameTimeSource, FakeFrameTimeSource>();
         services.AddSingleton<IHardwareHealthProvider, FakeHardwareHealthProvider>();
         services.AddSingleton<IUninstallerLauncher, FakeUninstallerLauncher>();
+        services.AddSingleton<IDriverUpdateSource, FakeDriverUpdateSource>();
+        services.AddSingleton<IDeviceDriverProvider, FakeDeviceDriverProvider>();
+        services.AddSingleton<INetworkCostProvider, FakeNetworkCostProvider>();
         services.AddSingleton<IAutoStartRegistration, FakeAutoStartRegistration>();
 
         // Services de l'hôte UI (fournis par PCBoost.App)
@@ -91,7 +94,7 @@ public sealed class ServiceGraphTests : IDisposable
             typeof(IHardwareHealthService), typeof(IBootTimeService), typeof(IThermalThrottlingDetector),
             typeof(IProcessService), typeof(ICriticalProcessProtection), typeof(ISecurityService), typeof(IStartupService), typeof(ICleanupService),
             typeof(IOptimizationManager), typeof(IRollbackManager), typeof(IRecoveryManager), typeof(IProfileService), typeof(IOldPcAssistant),
-            typeof(ISmartOptimizationService),
+            typeof(ISmartOptimizationService), typeof(IDriverUpdateService),
             typeof(IGameDetectionService), typeof(IGamingService), typeof(IAutoGamingMode), typeof(IBenchmarkService),
             typeof(ISettingsService), typeof(IActivityJournal), typeof(IAppInfo), typeof(IUpdateService),
             typeof(Core.Localization.ILocalizer), typeof(IValueFormatter),

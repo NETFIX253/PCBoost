@@ -30,6 +30,46 @@
   <data name="Cleanup_user-temp_Name" xml:space="preserve"><value>Fichiers temporaires de l'utilisateur</value></data>
   <data name="Cleanup_windows-temp_Description" xml:space="preserve"><value>Fichiers temporaires créés par Windows et les installations. Sûr : fichiers de plus d'un jour uniquement, fichiers verrouillés conservés. Nécessite l'autorisation administrateur.</value></data>
   <data name="Cleanup_windows-temp_Name" xml:space="preserve"><value>Fichiers temporaires de Windows</value></data>
+  <data name="Drv_Change_Description" xml:space="preserve"><value>Pilote mis à jour : {0} ({1} → {2})</value></data>
+  <data name="Drv_Change_DescriptionRestorePoint" xml:space="preserve"><value>Pilote mis à jour : {0} ({1} → {2}) — retour avec le point de restauration Windows</value></data>
+  <data name="Drv_Change_ProtectionEnabled" xml:space="preserve"><value>Protection du système activée sur le lecteur Windows (laissée active : la désactiver supprimerait les points de restauration ; réglable dans « Protection du système »).</value></data>
+  <data name="Drv_Install_Cancelled" xml:space="preserve"><value>Installation annulée : aucun pilote n'a été modifié.</value></data>
+  <data name="Drv_Install_Changed" xml:space="preserve"><value>La situation a changé depuis la recherche (pilote déjà mis à jour, périphérique retiré…). Relancez la recherche : rien n'a été installé.</value></data>
+  <data name="Drv_Install_Excluded" xml:space="preserve"><value>Une mise à jour sélectionnée n'est pas installable selon les règles de sécurité de PCBoost : rien n'a été installé.</value></data>
+  <data name="Drv_Install_NothingSelected" xml:space="preserve"><value>Aucune mise à jour sélectionnée.</value></data>
+  <data name="Drv_Install_Partial" xml:space="preserve"><value>Certaines mises à jour n'ont pas été installées.</value></data>
+  <data name="Drv_Install_SameDevice" xml:space="preserve"><value>Deux mises à jour sélectionnées concernent le même périphérique : installez-les l'une après l'autre. Rien n'a été installé.</value></data>
+  <data name="Drv_Install_TooMany" xml:space="preserve"><value>Sélectionnez au plus {0} mises à jour à la fois.</value></data>
+  <data name="Drv_Install_Unknown" xml:space="preserve"><value>L'assistant administrateur n'a rendu aucun résultat : l'état des pilotes est inconnu. Vérifiez vos périphériques ; le retour au pilote précédent reste proposé dans l'Historique.</value></data>
+  <data name="Drv_Journal_Installed" xml:space="preserve"><value>Mise à jour des pilotes : {0} sur {1} {1:plural:installée|installées}.</value></data>
+  <data name="Drv_Journal_ProtectionEnabled" xml:space="preserve"><value>Protection du système activée sur le lecteur Windows (points de restauration).</value></data>
+  <data name="Drv_Journal_RestorePoint" xml:space="preserve"><value>Point de restauration Windows créé avant la mise à jour des pilotes.</value></data>
+  <data name="Drv_Journal_RestorePointManual" xml:space="preserve"><value>Point de restauration Windows créé avant l'utilisation de l'outil d'un fabricant.</value></data>
+  <data name="Drv_Journal_Unknown" xml:space="preserve"><value>Mise à jour des pilotes : résultat inconnu (assistant administrateur sans réponse). Modifications laissées « en attente » dans l'Historique.</value></data>
+  <data name="Drv_Outcome_Failed" xml:space="preserve"><value>Installation en échec.</value></data>
+  <data name="Drv_Outcome_NoLongerOffered" xml:space="preserve"><value>Windows Update ne propose plus cette mise à jour.</value></data>
+  <data name="Drv_Outcome_NotRun" xml:space="preserve"><value>Non installée.</value></data>
+  <data name="Drv_Outcome_Refused" xml:space="preserve"><value>Refusée lors de la revérification (version installée plus récente ou mise à jour non autorisée).</value></data>
+  <data name="Drv_Outcome_Unknown" xml:space="preserve"><value>Résultat inconnu : vérifiez ce périphérique.</value></data>
+  <data name="Drv_RestorePoint_Created" xml:space="preserve"><value>Point de restauration Windows créé.</value></data>
+  <data name="Drv_Rollback_Done" xml:space="preserve"><value>Le pilote précédent est réinstallé.</value></data>
+  <data name="Drv_Rollback_DoneRestart" xml:space="preserve"><value>Le pilote précédent est réinstallé. Redémarrez le PC pour terminer.</value></data>
+  <data name="Drv_Rollback_Failed" xml:space="preserve"><value>Le retour au pilote précédent n'a pas abouti. Utilisez le point de restauration Windows créé avant la mise à jour.</value></data>
+  <data name="Drv_Session_RestorePoint" xml:space="preserve"><value>Point de restauration avant l'outil d'un fabricant</value></data>
+  <data name="Drv_Session_Title" xml:space="preserve"><value>Mise à jour des pilotes ({0})</value></data>
+  <data name="Drv_Stop_DeviceProblem" xml:space="preserve"><value>Un périphérique signale un problème après sa mise à jour : les installations suivantes n'ont pas été faites.</value></data>
+  <data name="Drv_Stop_DeviceReadFailed" xml:space="preserve"><value>La liste des périphériques n'a pas pu être lue : par sécurité, aucune installation (supplémentaire) n'a été faite.</value></data>
+  <data name="Drv_Stop_ExcludedByPolicy" xml:space="preserve"><value>Une stratégie de votre organisation exclut les pilotes de Windows Update : PCBoost la respecte. Aucun pilote n'a été installé.</value></data>
+  <data name="Drv_Stop_InstallerBusy" xml:space="preserve"><value>Windows Update installe déjà des mises à jour. Réessayez quand il aura terminé. Aucun pilote n'a été installé.</value></data>
+  <data name="Drv_Stop_ProtectionDisabled" xml:space="preserve"><value>La protection du système est désactivée : aucun pilote n'a été installé. Autorisez PCBoost à l'activer pour créer le point de restauration.</value></data>
+  <data name="Drv_Stop_ProtectionPolicy" xml:space="preserve"><value>Votre organisation a désactivé la restauration du système : PCBoost n'installe aucun pilote sans point de restauration.</value></data>
+  <data name="Drv_Stop_RebootPending" xml:space="preserve"><value>Un redémarrage est en attente : redémarrez le PC avant d'installer des pilotes. Aucun pilote n'a été installé.</value></data>
+  <data name="Drv_Stop_RestorePointUnavailable" xml:space="preserve"><value>Le point de restauration Windows n'a pas pu être créé : aucun pilote n'a été installé.</value></data>
+  <data name="Drv_Stop_SearchFailed" xml:space="preserve"><value>Windows Update n'a pas répondu au moment de l'installation : aucun pilote n'a été installé.</value></data>
+  <data name="Drv_Stop_UpdateServiceDisabled" xml:space="preserve"><value>Le service Windows Update est désactivé : PCBoost ne le modifie pas. Aucun pilote n'a été installé.</value></data>
+  <data name="Drv_Undo_Changed" xml:space="preserve"><value>Le pilote de ce périphérique a changé depuis cette mise à jour : PCBoost ne le remplace pas. Utilisez le point de restauration Windows si nécessaire.</value></data>
+  <data name="Drv_Undo_DeviceGone" xml:space="preserve"><value>Le périphérique n'est plus présent : rebranchez-le puis réessayez, ou utilisez le point de restauration Windows.</value></data>
+  <data name="Drv_Undo_HelperRunning" xml:space="preserve"><value>Une opération administrateur de PCBoost est encore en cours : réessayez quand elle sera terminée (ou après un redémarrage).</value></data>
   <data name="Files_Changed" xml:space="preserve"><value>Non envoyé : le fichier a été modifié ou déplacé depuis l'analyse.</value></data>
   <data name="Files_Journal_Recycled" xml:space="preserve"><value>{0} {0:plural:fichier envoyé|fichiers envoyés} à la Corbeille ({1} Mo) depuis « Gros fichiers et doublons ».</value></data>
   <data name="Files_KeptCopy" xml:space="preserve"><value>Copie conservée : une copie de chaque fichier en double est toujours gardée.</value></data>

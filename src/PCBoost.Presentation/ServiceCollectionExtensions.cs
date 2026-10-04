@@ -50,6 +50,7 @@ public static class ServiceCollectionExtensions
         services.AddTransient<ExpertViewModel>();
         services.AddTransient<DiagnosticReportViewModel>();
         services.AddTransient<ProgramsViewModel>();
+        services.AddTransient<DriversViewModel>();
         services.AddTransient<FilesViewModel>();
         services.AddTransient<GameProfileViewModel>();
 

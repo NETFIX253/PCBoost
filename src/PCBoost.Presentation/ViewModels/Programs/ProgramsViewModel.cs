@@ -204,7 +204,7 @@ public sealed partial class ProgramsViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    private void OpenWindowsSettings() => CheckResult(_shell.OpenUri(new Uri("ms-settings:appsfeatures")));
+    private void OpenWindowsSettings() => CheckResult(_shell.OpenWindowsSettings(WindowsSettingsPages.InstalledApps));
 
     [RelayCommand(CanExecute = nameof(IsUninstalling))]
     private void StopWaiting() => _waitCts?.Cancel();

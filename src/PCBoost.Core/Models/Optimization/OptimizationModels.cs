@@ -4,7 +4,7 @@ namespace PCBoost.Core.Models.Optimization;
 
 public enum OptimizationCategory { Cleanup = 0, Startup, Power, Background, Visual, Cpu, Memory, Gpu, Windows, Network, Storage }
 
-public enum SessionType { OneClick = 0, Manual, Cleanup, Startup, Profile, Gaming, OldPcAssistant, Automatic }
+public enum SessionType { OneClick = 0, Manual, Cleanup, Startup, Profile, Gaming, OldPcAssistant, Automatic, DriverUpdate }
 
 public enum SessionStatus
 {

@@ -237,7 +237,7 @@ A neutral Fluent canvas with one teal voice and one indigo exception.
 
 ## Layout
 
-- **Shell:** custom 48 DIP title bar (logo 16, product name in Caption, active-profile pill, gaming indicator). Left NavigationView: open pane 264, compact below 720, expanded from 1100, built-in settings item hidden. The pane footer holds protection state, links (Journal, Confidentialité, Support, À propos) and the version. The content grid has an 8 DIP top-left corner and a 1,1,0,0 stroke. Shell InfoBars sit above the frame with a 24,12,24,0 margin.
+- **Shell:** custom 48 DIP title bar (logo 16, product name in Caption followed by the version in secondary Caption, active-profile pill, gaming indicator). Left NavigationView: open pane 264, compact below 720, expanded from 1100, built-in settings item hidden. The pane footer holds protection state and links (Journal, Confidentialité, Support, À propos); it stays compact (padding 16,4,16,8) so that the eleven top-level items fit on a 768 px high screen. The content grid has an 8 DIP top-left corner and a 1,1,0,0 stroke. Shell InfoBars sit above the frame with a 24,12,24,0 margin.
 - **Content column:** `ContentMaxWidth` 1120 for dashboard pages. Reading and settings pages (Settings, About, Privacy, Diagnosis) use 880. Processes uses 1320 for its table plus detail pane. All pages use `PagePadding` (20,36,40,36 as top, sides, bottom).
 - **Rhythm:** section gap 28 on Home (24–26 on the 880-wide pages). Header-to-card gap 12. Tile gap 12. Row padding 12 top and bottom. Card padding 20,16,20,18. The hero and session band use 28,24,28,26.
 - **Home breakpoint:** measured on the content area, not the window, at **900 DIP**. At Wide, the score block (5*) sits beside the ledger (6*) and system facts (3*) sit beside quick actions (2*). At Narrow, both pairs stack into one column.
@@ -311,7 +311,7 @@ Show and hide it with `InfoBarHelper.IsShown`, which toggles IsOpen and collapse
 Shell banners that need a decision are `IsClosable="False"` and hold a Primary + Secondary pair inside.
 
 ### Navigation
-Stock NavigationView (Left) with Segoe Fluent Icons glyphs. The selection indicator follows the teal accent. Top-level items, in order: Accueil, Analyse, Optimisation, Nettoyage, Démarrage, Processus, Gaming, Performances, Historique. Paramètres is a footer item.
+Stock NavigationView (Left) with Segoe Fluent Icons glyphs. The selection indicator follows the teal accent. Top-level items, in order: Accueil, Analyse, Santé du matériel, Pilotes, Optimisation, Nettoyage, Démarrage, Processus, Gaming, Performances, Historique. Paramètres is a footer item.
 
 ## Do's and Don'ts
 

@@ -39,6 +39,10 @@ internal sealed class Harness : IDisposable
 
     public FakeUninstallerLauncher Uninstaller { get; } = new();
 
+    public FakeDriverUpdateSource DriverSource { get; } = new();
+
+    public FakeDeviceDriverProvider Devices { get; } = new();
+
     public TestAppInfo AppInfo { get; } = new();
 
     /// <summary>Appelé pendant le délai entre les deux premiers échantillons de processus (le temps avance de 500 ms).</summary>
@@ -80,6 +84,8 @@ internal sealed class Harness : IDisposable
         services.AddSingleton<IGamingService>(Gaming);
         services.AddSingleton<ISystemAnalyzer>(Analyzer);
         services.AddSingleton<IUninstallerLauncher>(Uninstaller);
+        services.AddSingleton<IDriverUpdateSource>(DriverSource);
+        services.AddSingleton<IDeviceDriverProvider>(Devices);
         services.AddSingleton<Core.Services.IAppInfo>(AppInfo);
         foreach (var optimization in ExtraOptimizations) services.AddSingleton(optimization);
         foreach (var handler in ExtraHandlers) services.AddSingleton(handler);

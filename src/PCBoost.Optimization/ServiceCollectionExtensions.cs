@@ -26,7 +26,7 @@ public static class ServiceCollectionExtensions
 
     /// <summary>
     /// Enregistre le moteur d'optimisation : restauration, validation, gestionnaires d'annulation, nettoyage, démarrage,
-    /// processus, modules (<see cref="IOptimization"/>), profils, assistant ancien PC, surveillance intelligente et ressources
+    /// processus, pilotes, modules (<see cref="IOptimization"/>), profils, assistant ancien PC, surveillance intelligente et ressources
     /// de texte (<c>Opt_*</c>, <c>Cleanup_*</c>, <c>Protection_*</c>).
     /// </summary>
     public static IServiceCollection AddPCBoostOptimization(this IServiceCollection services)
@@ -57,6 +57,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IChangeHandler>(sp => new ScheduledTaskChangeHandler(sp.GetRequiredService<IScheduledTaskProvider>(), sp.GetRequiredService<ScheduledTaskWriter>()));
         services.AddSingleton<IChangeHandler>(_ => new IrreversibleChangeHandler(ChangeKinds.FileDeletion));
         services.AddSingleton<IChangeHandler>(_ => new IrreversibleChangeHandler(ChangeKinds.RecycleBin));
+        services.AddSingleton<IChangeHandler, DriverUpdateChangeHandler>();
 
         // Restauration, validation, récupération.
         services.TryAddSingleton<IOptimizationSafetyValidator, OptimizationSafetyValidator>();
@@ -67,6 +68,9 @@ public static class ServiceCollectionExtensions
 
         // Désinstallation assistée (programme officiel de l'éditeur, après confirmation).
         services.TryAddSingleton<IProgramInventoryService, Programs.ProgramInventoryService>();
+
+        // Mises à jour de pilotes (Windows Update, point de restauration obligatoire, retour au pilote précédent).
+        services.TryAddSingleton<IDriverUpdateService, Drivers.DriverUpdateService>();
 
         // Gros fichiers et doublons des dossiers personnels (Corbeille uniquement).
         services.TryAddSingleton<IFileCleanupService, Files.FileCleanupService>();

@@ -45,7 +45,7 @@ Step 'Restauration' { dotnet restore PCBoost.sln -p:Platform=$Platform *> (Join-
 Step 'Compilation' { dotnet build PCBoost.sln -c $Configuration -p:Platform=$Platform --no-restore -nologo -clp:NoSummary "-flp:logfile=$logs\build.log;verbosity=minimal" *> (Join-Path $logs 'build-console.log') }
 
 if (-not $SkipTests) {
-    Step 'Tests' { dotnet test PCBoost.sln -c $Configuration -p:Platform=$Platform --no-build -nologo --logger "trx;LogFilePrefix=pcboost" --results-directory (Join-Path $root 'artifacts\test-results') *> (Join-Path $logs 'test.log') }
+    Step 'Tests' { dotnet test PCBoost.sln -c $Configuration -p:Platform=$Platform --no-build -nologo --logger "trx;LogFilePrefix=pcboost" --logger "console;verbosity=normal" --results-directory (Join-Path $root 'artifacts\test-results') *> (Join-Path $logs 'test.log') }
 }
 
 if ($Publish -or $Installer) {

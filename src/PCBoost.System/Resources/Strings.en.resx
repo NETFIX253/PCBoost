@@ -4,6 +4,12 @@
   <resheader name="version"><value>2.0</value></resheader>
   <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
   <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Drv_Error_AccessDenied" xml:space="preserve"><value>Windows Update denied access to the driver search.</value></data>
+  <data name="Drv_Error_AgentMissing" xml:space="preserve"><value>The Windows Update agent is not available on this PC.</value></data>
+  <data name="Drv_Error_Offline" xml:space="preserve"><value>Windows Update cannot be reached. Check the Internet connection, then search again.</value></data>
+  <data name="Drv_Error_Policy" xml:space="preserve"><value>Your organization manages updates on this PC and does not allow this search. PCBoost respects this setting.</value></data>
+  <data name="Drv_Error_SearchFailed" xml:space="preserve"><value>The Windows Update search did not complete. Try again later.</value></data>
+  <data name="Drv_Error_ServiceDisabled" xml:space="preserve"><value>The Windows Update service is disabled on this PC. PCBoost does not change it: re-enable it in Windows services or ask your IT department.</value></data>
   <data name="Sys_AutoStartUnavailable" xml:space="preserve"><value>The application's location could not be determined, so it cannot start with Windows.</value></data>
   <data name="Sys_CommandNotAllowed" xml:space="preserve"><value>This system command is not allowed.</value></data>
   <data name="Sys_CommandTimedOut" xml:space="preserve"><value>The system command took too long and was stopped.</value></data>

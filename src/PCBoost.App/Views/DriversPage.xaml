@@ -1,0 +1,329 @@
+<local:ViewPage
+    x:Class="PCBoost.App.Views.DriversPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PCBoost.App.Views"
+    xmlns:h="using:PCBoost.App.Helpers"
+    xmlns:controls="using:PCBoost.App.Controls"
+    xmlns:vm="using:PCBoost.Presentation.ViewModels">
+
+    <Page.Resources>
+        <!-- Raisons du classement : une ligne par raison, avec un glyphe d'information. -->
+        <DataTemplate x:Key="ReasonTemplate" x:DataType="x:String">
+            <Grid ColumnSpacing="8" Padding="0,1,0,1">
+                <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                <FontIcon Glyph="&#xE946;" FontSize="12" Margin="0,3,0,0" VerticalAlignment="Top" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                <TextBlock Grid.Column="1" Text="{x:Bind}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap" />
+            </Grid>
+        </DataTemplate>
+
+        <!-- Mise à jour sélectionnable (recommandée ou à examiner). -->
+        <DataTemplate x:Key="DriverRowTemplate" x:DataType="vm:DriverUpdateItemViewModel">
+            <Border Padding="0,12,0,12" BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}" BorderThickness="0,0,0,1"
+                    AutomationProperties.Name="{x:Bind AccessibleName}">
+                <Grid ColumnSpacing="12">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                    <CheckBox MinWidth="0" VerticalAlignment="Top" IsChecked="{x:Bind IsSelected, Mode=TwoWay}" IsEnabled="{x:Bind IsSelectable}"
+                              AutomationProperties.Name="{x:Bind DeviceName}" />
+                    <StackPanel Grid.Column="1" Spacing="3">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <TextBlock Text="{x:Bind DeviceName}" Style="{StaticResource BodyStrongTextBlockStyle}" TextWrapping="Wrap" />
+                            <controls:StatusBadge Text="{x:Bind ClassText}" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <TextBlock Text="{x:Bind CurrentText}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap" />
+                        <TextBlock Text="{x:Bind ProposedText}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="Wrap" />
+                        <TextBlock Text="{x:Bind DetailsText}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap" />
+                        <ItemsControl ItemsSource="{x:Bind Reasons}" ItemTemplate="{StaticResource ReasonTemplate}" IsTabStop="False"
+                                      Margin="0,4,0,0" Visibility="{x:Bind h:Ui.Show(HasReasons)}" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </DataTemplate>
+
+        <!-- Mise à jour non proposée : jamais sélectionnable. -->
+        <DataTemplate x:Key="ExcludedRowTemplate" x:DataType="vm:DriverUpdateItemViewModel">
+            <Border Padding="0,12,0,12" BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}" BorderThickness="0,0,0,1"
+                    AutomationProperties.Name="{x:Bind AccessibleName}">
+                <Grid ColumnSpacing="12">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                    <StackPanel Spacing="3">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <TextBlock Text="{x:Bind DeviceName}" Style="{StaticResource BodyStrongTextBlockStyle}" TextWrapping="Wrap" />
+                            <controls:StatusBadge Text="{x:Bind ClassText}" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <TextBlock Text="{x:Bind CurrentText}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap" />
+                        <TextBlock Text="{x:Bind ProposedText}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap" />
+                        <ItemsControl ItemsSource="{x:Bind Reasons}" ItemTemplate="{StaticResource ReasonTemplate}" IsTabStop="False" Margin="0,4,0,0" />
+                    </StackPanel>
+                    <HyperlinkButton Grid.Column="1" VerticalAlignment="Top" Content="{h:Str Key=Drivers_Action_WindowsUpdate}"
+                                     Command="{x:Bind OpenWindowsUpdateCommand}"
+                                     Visibility="{x:Bind h:Ui.Show(CanOpenWindowsUpdate)}" />
+                </Grid>
+            </Border>
+        </DataTemplate>
+    </Page.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel MaxWidth="{StaticResource ContentMaxWidth}" Padding="{StaticResource PagePadding}" Spacing="20">
+            <Grid ColumnSpacing="16" RowSpacing="12">
+                <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                <StackPanel Spacing="6">
+                    <TextBlock Text="{h:Str Key=Drivers_Title}" Style="{StaticResource PageTitleTextStyle}" />
+                    <TextBlock Text="{h:Str Key=Drivers_Subtitle}" Style="{StaticResource PageSubtitleTextStyle}" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8" VerticalAlignment="Top">
+                    <Button Style="{StaticResource SecondaryButtonStyle}" Command="{x:Bind ViewModel.ScanCommand}"
+                            ToolTipService.ToolTip="{h:Str Key=Drivers_Action_Scan_ToolTip}">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <FontIcon Glyph="&#xE72C;" FontSize="14" />
+                            <TextBlock Text="{h:Str Key=Drivers_Action_Scan}" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+            <InfoBar Severity="Error" h:InfoBarHelper.IsShown="{x:Bind ViewModel.HasError, Mode=OneWay}" Message="{x:Bind ViewModel.ErrorText, Mode=OneWay}"
+                     Title="{h:Str Key=Common_Label_ErrorTitle}" CloseButtonCommand="{x:Bind ViewModel.DismissErrorCommand}" />
+            <InfoBar Severity="Success" h:InfoBarHelper.IsShown="{x:Bind ViewModel.HasStatusMessage, Mode=OneWay}" Message="{x:Bind ViewModel.StatusMessage, Mode=OneWay}"
+                     CloseButtonCommand="{x:Bind ViewModel.DismissStatusCommand}" />
+
+            <!-- Protections appliquées -->
+            <Border Style="{StaticResource CardStyle}" Padding="24,18,24,18">
+                <Grid ColumnSpacing="16">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                    <FontIcon Glyph="&#xEA18;" FontSize="22" VerticalAlignment="Top" Margin="0,2,0,0" Foreground="{ThemeResource BrandAccentTextBrush}" />
+                    <StackPanel Grid.Column="1" Spacing="6">
+                        <TextBlock Text="{h:Str Key=Drivers_Safety_Title}" Style="{StaticResource GroupHeaderTextStyle}" />
+                        <StackPanel Spacing="4">
+                            <Grid ColumnSpacing="8"><Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                                <FontIcon Glyph="&#xE73E;" FontSize="12" Margin="0,4,0,0" VerticalAlignment="Top" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                                <TextBlock Grid.Column="1" Text="{h:Str Key=Drivers_Safety_Source}" Style="{StaticResource SecondaryTextStyle}" TextWrapping="Wrap" /></Grid>
+                            <Grid ColumnSpacing="8"><Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                                <FontIcon Glyph="&#xE73E;" FontSize="12" Margin="0,4,0,0" VerticalAlignment="Top" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                                <TextBlock Grid.Column="1" Text="{h:Str Key=Drivers_Safety_Stable}" Style="{StaticResource SecondaryTextStyle}" TextWrapping="Wrap" /></Grid>
+                            <Grid ColumnSpacing="8"><Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                                <FontIcon Glyph="&#xE73E;" FontSize="12" Margin="0,4,0,0" VerticalAlignment="Top" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                                <TextBlock Grid.Column="1" Text="{h:Str Key=Drivers_Safety_RestorePoint}" Style="{StaticResource SecondaryTextStyle}" TextWrapping="Wrap" /></Grid>
+                            <Grid ColumnSpacing="8"><Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                                <FontIcon Glyph="&#xE73E;" FontSize="12" Margin="0,4,0,0" VerticalAlignment="Top" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                                <TextBlock Grid.Column="1" Text="{h:Str Key=Drivers_Safety_Rollback}" Style="{StaticResource SecondaryTextStyle}" TextWrapping="Wrap" /></Grid>
+                            <Grid ColumnSpacing="8"><Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                                <FontIcon Glyph="&#xE73E;" FontSize="12" Margin="0,4,0,0" VerticalAlignment="Top" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                                <TextBlock Grid.Column="1" Text="{h:Str Key=Drivers_Safety_Never}" Style="{StaticResource SecondaryTextStyle}" TextWrapping="Wrap" /></Grid>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- États de Windows Update et de l'organisation -->
+            <ItemsControl ItemsSource="{x:Bind ViewModel.Notices}" IsTabStop="False" Visibility="{x:Bind h:Ui.Show(ViewModel.HasNotices), Mode=OneWay}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate><StackPanel Spacing="8" /></ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="vm:DriverNotice">
+                        <InfoBar IsOpen="True" IsClosable="False" Severity="{x:Bind h:Ui.Notice(Severity)}" Title="{x:Bind Title}" Message="{x:Bind Message}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <!-- Recherche en cours -->
+            <Border Style="{StaticResource CardStyle}" Padding="24,18,24,18" Visibility="{x:Bind h:Ui.Show(ViewModel.IsScanning), Mode=OneWay}">
+                <Grid ColumnSpacing="16">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="{h:Str Key=Drivers_Scanning}" TextWrapping="Wrap" />
+                        <ProgressBar IsIndeterminate="True" AutomationProperties.Name="{h:Str Key=Drivers_Scanning}" />
+                    </StackPanel>
+                    <Button Grid.Column="1" Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Drivers_Action_CancelScan}"
+                            Command="{x:Bind ViewModel.ScanCancelCommand}" VerticalAlignment="Center" />
+                </Grid>
+            </Border>
+
+            <!-- Installation en cours -->
+            <controls:ProgressCard Visibility="{x:Bind h:Ui.Show(ViewModel.IsInstalling), Mode=OneWay}"
+                                   Title="{h:Str Key=Drivers_Installing_Title}" Message="{h:Str Key=Drivers_Installing_Notice}"
+                                   Percent="{x:Bind ViewModel.InstallProgress, Mode=OneWay}" IsIndeterminate="{x:Bind h:Ui.Not(ViewModel.InstallProgressKnown), Mode=OneWay}"
+                                   CurrentText="{x:Bind ViewModel.InstallStepText, Mode=OneWay}" />
+
+            <!-- Résultat de l'installation -->
+            <StackPanel Spacing="10" Visibility="{x:Bind h:Ui.Show(ViewModel.HasResult), Mode=OneWay}">
+                <InfoBar IsOpen="True" IsClosable="False" Severity="{x:Bind h:Ui.Notice(ViewModel.ResultSeverity), Mode=OneWay}"
+                         Title="{x:Bind ViewModel.ResultTitle, Mode=OneWay}" Message="{x:Bind ViewModel.ResultMessage, Mode=OneWay}" />
+                <Border Style="{StaticResource CardStyle}" Padding="24,16,24,16">
+                    <StackPanel Spacing="10">
+                        <StackPanel Orientation="Horizontal" Spacing="8" Visibility="{x:Bind h:Ui.ShowText(ViewModel.RestorePointText), Mode=OneWay}">
+                            <FontIcon Glyph="&#xE777;" FontSize="14" Foreground="{ThemeResource BrandAccentTextBrush}" />
+                            <TextBlock Text="{x:Bind ViewModel.RestorePointText, Mode=OneWay}" TextWrapping="Wrap" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="8" Visibility="{x:Bind h:Ui.Show(ViewModel.ShowRestartNotice), Mode=OneWay}">
+                            <FontIcon Glyph="&#xE777;" FontSize="14" Foreground="{ThemeResource SystemFillColorCautionBrush}" />
+                            <TextBlock Text="{h:Str Key=Drivers_Result_Restart}" Style="{StaticResource BodyStrongTextBlockStyle}" TextWrapping="Wrap" />
+                        </StackPanel>
+                        <ItemsControl h:ListDividers.HideLast="True" ItemsSource="{x:Bind ViewModel.Results}" IsTabStop="False">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="vm:DriverResultItemViewModel">
+                                    <Border Padding="0,10,0,10" BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}" BorderThickness="0,0,0,1"
+                                            AutomationProperties.Name="{x:Bind AccessibleName, Mode=OneWay}">
+                                        <Grid ColumnSpacing="12">
+                                            <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                            <StackPanel Spacing="3">
+                                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                                    <TextBlock Text="{x:Bind DeviceName}" Style="{StaticResource BodyStrongTextBlockStyle}" TextWrapping="Wrap" />
+                                                    <TextBlock Text="{x:Bind VersionsText}" Style="{StaticResource CaptionSecondaryTextStyle}" VerticalAlignment="Center" />
+                                                </StackPanel>
+                                                <controls:StatusBadge HorizontalAlignment="Left" Text="{x:Bind OutcomeText, Mode=OneWay}"
+                                                                      Glyph="{x:Bind h:Ui.OutcomeGlyph(Level), Mode=OneWay}" Kind="{x:Bind h:Ui.OutcomeKind(Level), Mode=OneWay}" />
+                                            </StackPanel>
+                                            <Button Grid.Column="1" Style="{StaticResource SecondaryButtonStyle}" VerticalAlignment="Center" Command="{x:Bind RollbackCommand}"
+                                                    Visibility="{x:Bind h:Ui.Show(CanRollback), Mode=OneWay}">
+                                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                                    <FontIcon Glyph="&#xE7A7;" FontSize="14" />
+                                                    <TextBlock Text="{x:Bind RollbackLabel}" />
+                                                </StackPanel>
+                                            </Button>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <TextBlock Text="{h:Str Key=Drivers_Result_Help}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap" />
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Drivers_Action_History}" Command="{x:Bind ViewModel.OpenHistoryCommand}" />
+                            <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Drivers_Action_SystemRestore}" Command="{x:Bind ViewModel.OpenSystemRestoreCommand}" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <!-- Pilotes à jour -->
+            <InfoBar IsClosable="False" Severity="Success" Title="{h:Str Key=Drivers_UpToDate_Title}" Message="{h:Str Key=Drivers_UpToDate}"
+                     h:InfoBarHelper.IsShown="{x:Bind ViewModel.ShowUpToDate, Mode=OneWay}" />
+
+            <!-- Protection du système désactivée : consentement explicite pour l'activer -->
+            <InfoBar IsClosable="False" Severity="Warning" Title="{h:Str Key=Drivers_Protection_Title}" Message="{h:Str Key=Drivers_Protection_Message}"
+                     h:InfoBarHelper.IsShown="{x:Bind ViewModel.ShowProtectionChoice, Mode=OneWay}">
+                <InfoBar.Content>
+                    <CheckBox Margin="0,0,0,12" IsChecked="{x:Bind ViewModel.EnableProtection, Mode=TwoWay}">
+                        <TextBlock Text="{h:Str Key=Drivers_Protection_Choice}" TextWrapping="Wrap" />
+                    </CheckBox>
+                </InfoBar.Content>
+            </InfoBar>
+
+            <InfoBar IsClosable="False" Severity="Warning" Title="{h:Str Key=Drivers_Notice_Metered_Title}" Message="{x:Bind ViewModel.MeteredText, Mode=OneWay}"
+                     h:InfoBarHelper.IsShown="{x:Bind h:Ui.And(ViewModel.IsMetered, ViewModel.ShowList), Mode=OneWay}" />
+
+            <!-- Barre d'action : sélection et aperçu -->
+            <Border Style="{StaticResource CardStyle}" Padding="24,16,24,16" Visibility="{x:Bind h:Ui.Show(ViewModel.ShowList), Mode=OneWay}">
+                <Grid ColumnSpacing="16" RowSpacing="10">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                    <StackPanel Spacing="4">
+                        <TextBlock Text="{x:Bind ViewModel.SelectionText, Mode=OneWay}" Style="{StaticResource GroupHeaderTextStyle}" TextWrapping="Wrap" />
+                        <TextBlock Text="{x:Bind ViewModel.LastScanText, Mode=OneWay}" Style="{StaticResource CaptionSecondaryTextStyle}" />
+                        <TextBlock Text="{x:Bind ViewModel.InstallBlockedText, Mode=OneWay}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="Wrap"
+                                   Foreground="{ThemeResource SystemFillColorCautionBrush}" Visibility="{x:Bind h:Ui.Show(ViewModel.HasInstallBlockedText), Mode=OneWay}" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                        <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Drivers_Action_SelectRecommended}" Command="{x:Bind ViewModel.SelectRecommendedCommand}"
+                                Visibility="{x:Bind h:Ui.Show(ViewModel.HasRecommended), Mode=OneWay}" />
+                        <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Drivers_Action_ClearSelection}" Command="{x:Bind ViewModel.ClearSelectionCommand}" />
+                        <Button Style="{StaticResource PrimaryButtonStyle}" Command="{x:Bind ViewModel.InstallCommand}" ToolTipService.ToolTip="{h:Str Key=Drivers_Action_Install_ToolTip}">
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <FontIcon Glyph="&#xE896;" FontSize="14" />
+                                <TextBlock Text="{h:Str Key=Drivers_Action_Install}" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- Recommandées -->
+            <StackPanel Spacing="8" Visibility="{x:Bind h:Ui.ShowAll(ViewModel.ShowList, ViewModel.HasRecommended), Mode=OneWay}">
+                <TextBlock Text="{x:Bind ViewModel.RecommendedHeader, Mode=OneWay}" Style="{StaticResource SectionHeaderTextStyle}" />
+                <TextBlock Text="{h:Str Key=Drivers_Section_Recommended_Hint}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap" />
+                <Border Style="{StaticResource CardStyle}" Padding="20,2,20,2">
+                    <ItemsControl h:ListDividers.HideLast="True" ItemsSource="{x:Bind ViewModel.Recommended}" ItemTemplate="{StaticResource DriverRowTemplate}" IsTabStop="False" />
+                </Border>
+            </StackPanel>
+
+            <!-- À examiner -->
+            <StackPanel Spacing="8" Visibility="{x:Bind h:Ui.ShowAll(ViewModel.ShowList, ViewModel.HasReview), Mode=OneWay}">
+                <TextBlock Text="{x:Bind ViewModel.ReviewHeader, Mode=OneWay}" Style="{StaticResource SectionHeaderTextStyle}" />
+                <TextBlock Text="{h:Str Key=Drivers_Section_Review_Hint}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap" />
+                <Border Style="{StaticResource CardStyle}" Padding="20,2,20,2">
+                    <ItemsControl h:ListDividers.HideLast="True" ItemsSource="{x:Bind ViewModel.Review}" ItemTemplate="{StaticResource DriverRowTemplate}" IsTabStop="False" />
+                </Border>
+            </StackPanel>
+
+            <!-- Non proposées -->
+            <Expander HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"
+                      Visibility="{x:Bind h:Ui.ShowAll(ViewModel.ShowList, ViewModel.HasExcluded), Mode=OneWay}">
+                <Expander.Header>
+                    <StackPanel Spacing="2" Padding="0,8,0,8">
+                        <TextBlock Text="{x:Bind ViewModel.ExcludedHeader, Mode=OneWay}" Style="{StaticResource GroupHeaderTextStyle}" />
+                        <TextBlock Text="{h:Str Key=Drivers_Section_Excluded_Hint}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap" />
+                    </StackPanel>
+                </Expander.Header>
+                <ItemsControl h:ListDividers.HideLast="True" ItemsSource="{x:Bind ViewModel.Excluded}" ItemTemplate="{StaticResource ExcludedRowTemplate}" IsTabStop="False" />
+            </Expander>
+
+            <!-- Autres sources fiables : fabricants du PC et de la carte graphique (sites officiels uniquement) -->
+            <StackPanel Spacing="8" Visibility="{x:Bind h:Ui.ShowAll(ViewModel.HasScanned, ViewModel.ShowSources), Mode=OneWay}">
+                <TextBlock Text="{h:Str Key=Drivers_Sources_Title}" Style="{StaticResource SectionHeaderTextStyle}" />
+                <TextBlock Text="{h:Str Key=Drivers_Sources_Hint}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap" />
+                <Border Style="{StaticResource CardStyle}" Padding="20,12,20,16">
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="{x:Bind ViewModel.ComputerText, Mode=OneWay}" Style="{StaticResource BodyStrongTextBlockStyle}" TextWrapping="Wrap"
+                                   Visibility="{x:Bind h:Ui.ShowText(ViewModel.ComputerText), Mode=OneWay}" />
+                        <TextBlock Text="{h:Str Key=Drivers_Sources_None}" Style="{StaticResource SecondaryTextStyle}" TextWrapping="Wrap"
+                                   Visibility="{x:Bind h:Ui.Hide(ViewModel.HasSources), Mode=OneWay}" />
+                        <ItemsControl h:ListDividers.HideLast="True" ItemsSource="{x:Bind ViewModel.Sources}" IsTabStop="False">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="vm:OfficialSourceItemViewModel">
+                                    <Border Padding="0,10,0,10" BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}" BorderThickness="0,0,0,1"
+                                            AutomationProperties.Name="{x:Bind AccessibleName}">
+                                        <Grid ColumnSpacing="12">
+                                            <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                            <StackPanel Spacing="3">
+                                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                                    <TextBlock Text="{x:Bind Title}" Style="{StaticResource BodyStrongTextBlockStyle}" TextWrapping="Wrap" />
+                                                    <controls:StatusBadge Text="{x:Bind KindText}" VerticalAlignment="Center" />
+                                                </StackPanel>
+                                                <TextBlock Text="{x:Bind Description}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap" />
+                                            </StackPanel>
+                                            <Button Grid.Column="1" Style="{StaticResource SecondaryButtonStyle}" VerticalAlignment="Center" Command="{x:Bind OpenCommand}"
+                                                    ToolTipService.ToolTip="{x:Bind HostText}">
+                                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                                    <FontIcon Glyph="&#xE8A7;" FontSize="14" />
+                                                    <TextBlock Text="{h:Str Key=Drivers_Action_OpenSource}" />
+                                                </StackPanel>
+                                            </Button>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <Grid ColumnSpacing="8">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                            <FontIcon Glyph="&#xE7BA;" FontSize="13" Margin="0,2,0,0" VerticalAlignment="Top" Foreground="{ThemeResource SystemFillColorCautionBrush}" />
+                            <TextBlock Grid.Column="1" Text="{h:Str Key=Drivers_Sources_Bios}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="Wrap" />
+                        </Grid>
+                        <StackPanel Orientation="Horizontal" Spacing="12">
+                            <Button Style="{StaticResource SecondaryButtonStyle}" Command="{x:Bind ViewModel.CreateRestorePointCommand}"
+                                    ToolTipService.ToolTip="{h:Str Key=Drivers_Action_RestorePointNow_ToolTip}">
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <FontIcon Glyph="&#xE777;" FontSize="14" />
+                                    <TextBlock Text="{h:Str Key=Drivers_Action_RestorePointNow}" />
+                                </StackPanel>
+                            </Button>
+                            <ProgressRing Width="18" Height="18" IsActive="{x:Bind ViewModel.IsCreatingRestorePoint, Mode=OneWay}"
+                                          Visibility="{x:Bind h:Ui.Show(ViewModel.IsCreatingRestorePoint), Mode=OneWay}" />
+                            <TextBlock Text="{x:Bind ViewModel.RestorePointNowText, Mode=OneWay}" VerticalAlignment="Center" TextWrapping="Wrap"
+                                       Visibility="{x:Bind h:Ui.ShowText(ViewModel.RestorePointNowText), Mode=OneWay}" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</local:ViewPage>

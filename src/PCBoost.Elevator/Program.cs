@@ -58,6 +58,8 @@ internal static class Program
 
         var operation = validation.Value;
         log.Write($"Opération acceptée : {operation.Operation}");
+        // Fréquence des points de restauration laissée modifiée par un assistant interrompu : rétablie avant tout.
+        Platform.Health.RestorePointFrequencyOverride.RecoverInterrupted(Microsoft.Extensions.Logging.Abstractions.NullLogger.Instance);
         var response = operation switch
         {
             ValidatedCleanup cleanup => ElevatedOperationExecutor.Cleanup(cleanup, log),
@@ -65,6 +67,9 @@ internal static class Program
             ValidatedTaskToggle task => ElevatedOperationExecutor.ScheduledTask(task, log),
             ValidatedFrameCapture frames => FrameCaptureOperation.Run(frames, log),
             ValidatedHealthOperation health => ElevatedOperationExecutor.Health(health, log),
+            ValidatedDriverInstall drivers => DriverOperations.Install(drivers, log),
+            ValidatedDriverRollback rollback => DriverOperations.Rollback(rollback, log),
+            ValidatedDriverRestorePoint restorePoint => DriverOperations.RestorePoint(restorePoint, log),
             _ => new ElevatedResponse(
                 OperationResult.Fail(OperationErrorKind.Blocked, TextRef.Of("Sys_ElevatedOperationRefused")),
                 new Dictionary<string, string>()),

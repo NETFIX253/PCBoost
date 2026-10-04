@@ -172,39 +172,75 @@ function Invoke-Action($req) {
             "msiexec /x -> $($p.ExitCode)" | Set-Content $log; return $p.ExitCode
         }
         'probe' {
-            # Lecture seule, commandes fixes : disponibilité des sources Windows sans élévation (conception des diagnostics).
-            # Aucun nom de programme ni donnée d'usage n'est écrit (seulement des compteurs et des formats).
+            # Lecture seule, commandes fixes : sources Windows utilisées par la mise à jour des pilotes (conception).
+            # Rien n'est téléchargé ni installé : recherche Windows Update, inventaire des pilotes, stratégies, état système.
             $out = [System.Collections.Generic.List[string]]::new()
             function Section($title, [scriptblock] $body) {
                 $out.Add("== $title")
                 try { & $body | ForEach-Object { $out.Add("$_") } } catch { $out.Add("ERREUR : $($_.Exception.GetType().Name) : $($_.Exception.Message)") }
             }
             $out.Add("Élevé : $(([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator))")
-            Section 'Journal Diagnostics-Performance' {
-                $l = Get-WinEvent -ListLog 'Microsoft-Windows-Diagnostics-Performance/Operational' -ErrorAction Stop
-                "enabled=$($l.IsEnabled) records=$($l.RecordCount) mode=$($l.LogMode) max=$($l.MaximumSizeInBytes)"
-                Get-WinEvent -LogName 'Microsoft-Windows-Diagnostics-Performance/Operational' -MaxEvents 200 -ErrorAction Stop | Group-Object Id | ForEach-Object { "id $($_.Name) x$($_.Count) dernier=$(($_.Group | Select-Object -First 1).TimeCreated.ToString('s'))" }
+            $out.Add("Windows : $([Environment]::OSVersion.Version) ; PowerShell $($PSVersionTable.PSVersion)")
+            Section 'Stratégies et réglages' {
+                foreach ($k in 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate', 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU',
+                               'HKLM:\SOFTWARE\Microsoft\PolicyManager\current\device\Update', 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\DriverSearching',
+                               'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\SystemRestore', 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Restrictions',
+                               'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching') {
+                    if (Test-Path $k) {
+                        $p = Get-ItemProperty $k
+                        $vals = @($p.PSObject.Properties | Where-Object { $_.Name -notlike 'PS*' } | ForEach-Object { "$($_.Name)=$($_.Value)" })
+                        "$k : $($vals -join '; ')"
+                    } else { "$k : absente" }
+                }
+                "wuauserv Start=$((Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Services\wuauserv').Start)"
             }
-            Section 'Démarrage rapide et Kernel-Boot' {
-                $hb = (Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Power' -ErrorAction Stop).HiberbootEnabled
-                "HiberbootEnabled=$hb"
-                Get-WinEvent -FilterHashtable @{ LogName = 'System'; ProviderName = 'Microsoft-Windows-Kernel-Boot'; Id = 27 } -MaxEvents 5 -ErrorAction Stop | ForEach-Object { $x = [xml]$_.ToXml(); "kb27 $($_.TimeCreated.ToString('s')) " + (($x.Event.EventData.Data | ForEach-Object { "$($_.Name)=$($_.'#text')" }) -join '; ') }
+            Section 'Redémarrage en attente' {
+                "WU RebootRequired=$(Test-Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update\RebootRequired')"
+                "CBS RebootPending=$(Test-Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\RebootPending')"
+                $si = New-Object -ComObject Microsoft.Update.SystemInfo
+                "SystemInfo.RebootRequired=$($si.RebootRequired)"
             }
-            Section 'Winlogon 7001 / Shell-Core' {
-                Get-WinEvent -FilterHashtable @{ LogName = 'System'; ProviderName = 'Microsoft-Windows-Winlogon'; Id = 7001 } -MaxEvents 3 -ErrorAction Stop | ForEach-Object { "wl7001 $($_.TimeCreated.ToString('s'))" }
-                Get-WinEvent -LogName 'Microsoft-Windows-Shell-Core/Operational' -MaxEvents 400 -ErrorAction Stop | Where-Object { $_.Id -in 9601,9602,9603,9604,9605,9606,9611,9612,9613,9614,62170,62171,27702 } | Group-Object Id | ForEach-Object { "shell id $($_.Name) x$($_.Count) dernier=$(($_.Group | Select-Object -First 1).TimeCreated.ToString('s'))" }
+            Section 'Protection du système' {
+                $p = Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore'
+                "RPSessionInterval=$($p.RPSessionInterval) DisableSR=$($p.DisableSR) Frequency=$($p.SystemRestorePointCreationFrequency)"
+                try { $rp = Get-CimInstance -Namespace root/default -ClassName SystemRestore -ErrorAction Stop; "points=$(@($rp).Count)" } catch { "points : $($_.Exception.GetType().Name)" }
             }
-            Section 'BAM (compteur uniquement)' {
-                $sid = [Security.Principal.WindowsIdentity]::GetCurrent().User.Value
-                $k = "HKLM:\SYSTEM\CurrentControlSet\Services\bam\State\UserSettings\$sid"
-                $p = (Get-Item $k -ErrorAction Stop).Property
-                "valeurs=$(@($p).Count)"
+            Section 'Connexion' {
+                $null = [Windows.Networking.Connectivity.NetworkInformation, Windows.Networking.Connectivity, ContentType = WindowsRuntime]
+                $p = [Windows.Networking.Connectivity.NetworkInformation]::GetInternetConnectionProfile()
+                if ($p) { "cost=$($p.GetConnectionCost().NetworkCostType)" } else { 'aucun profil Internet' }
             }
-            Section 'Prefetch' { $f = Get-ChildItem 'C:\Windows\Prefetch' -Filter *.pf -ErrorAction Stop; "fichiers=$(@($f).Count)" }
-            Section 'Dernier accès NTFS' { fsutil behavior query disablelastaccess }
-            Section 'Start_TrackProgs' { $v = (Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -ErrorAction Stop).Start_TrackProgs; "Start_TrackProgs=$v" }
-            Section 'Batterie (périphérique)' { Get-CimInstance Win32_PnPEntity -Filter "PNPClass='Battery'" -ErrorAction Stop | ForEach-Object { "batt $($_.Name) status=$($_.Status)" } }
-            $out | Set-Content $log
+            Section 'Pilotes installés' {
+                $sw = [Diagnostics.Stopwatch]::StartNew()
+                $d = @(Get-CimInstance Win32_PnPSignedDriver -ErrorAction Stop)
+                "signeddriver=$($d.Count) ms=$($sw.ElapsedMilliseconds)"
+                $d | Where-Object { $_.DeviceClass -in 'DISPLAY', 'NET', 'MEDIA', 'HDC', 'SCSIADAPTER', 'BLUETOOTH', 'CAMERA', 'BIOMETRIC' } | Select-Object -First 30 |
+                    ForEach-Object { "$($_.DeviceClass) | $($_.DeviceName) | $($_.DriverProviderName) | $($_.DriverVersion) | $($_.DriverDate) | $($_.InfName) | $($_.HardWareID) | $($_.DeviceID)" }
+                $sw.Restart()
+                $e = @(Get-CimInstance Win32_PnPEntity -ErrorAction Stop)
+                "pnpentity=$($e.Count) ms=$($sw.ElapsedMilliseconds) erreurs=$(@($e | Where-Object { $_.ConfigManagerErrorCode -ne 0 }).Count)"
+            }
+            Section 'Recherche Windows Update (pilotes, non élevée)' {
+                $sw = [Diagnostics.Stopwatch]::StartNew()
+                $s = New-Object -ComObject Microsoft.Update.Session
+                $s.ClientApplicationID = 'PCBoost probe'
+                $q = $s.CreateUpdateSearcher()
+                "ServerSelection=$($q.ServerSelection) Online=$($q.Online)"
+                $r = $q.Search("IsInstalled=0 and Type='Driver' and IsHidden=0")
+                "ResultCode=$($r.ResultCode) count=$($r.Updates.Count) ms=$($sw.ElapsedMilliseconds)"
+                foreach ($u in $r.Updates) {
+                    "title=$($u.Title) | class=$($u.DriverClass) | hwid=$($u.DriverHardwareID) | provider=$($u.DriverProvider) | mfr=$($u.DriverManufacturer) | model=$($u.DriverModel) | verdate=$($u.DriverVerDate) | browseOnly=$($u.BrowseOnly) | deploy=$($u.LastDeploymentChangeTime) | size=$($u.MaxDownloadSize) | eula=$($u.EulaAccepted) | input=$($u.InstallationBehavior.CanRequestUserInput) | reboot=$($u.InstallationBehavior.RebootBehavior) | id=$($u.Identity.UpdateID) rev=$($u.Identity.RevisionNumber) | type=$($u.Type) | problem=$($u.DeviceProblemNumber) status=$($u.DeviceStatus) | downloaded=$($u.IsDownloaded)"
+                }
+                $sm = New-Object -ComObject Microsoft.Update.ServiceManager
+                foreach ($sv in $sm.Services) { "service $($sv.Name) default=$($sv.IsDefaultAUService) managed=$($sv.IsManaged)" }
+                $i = $s.CreateUpdateInstaller()
+                "installer IsBusy=$($i.IsBusy)"
+            }
+            Section 'Windows Insider' {
+                $k = 'HKLM:\SOFTWARE\Microsoft\WindowsSelfHost\Applicability'
+                if (Test-Path $k) { $p = Get-ItemProperty $k; "BranchName=$($p.BranchName) EnablePreviewBuilds=$($p.EnablePreviewBuilds)" } else { 'non inscrit' }
+            }
+            $out | Set-Content $log -Encoding UTF8
             return 0
         }
         'status' {

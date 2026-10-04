@@ -16,6 +16,9 @@ public sealed class InMemoryOptimizationHistoryRepository : IOptimizationHistory
 
     public IReadOnlyCollection<ChangeRecord> AllChanges => _changes.Values.ToList();
 
+    /// <summary>Sessions avec leurs modifications, dans l'ordre de début.</summary>
+    public IReadOnlyList<OptimizationSession> Sessions => _sessions.Values.OrderBy(s => s.StartedAt).Select(Hydrate).ToList();
+
     public Task CreateSessionAsync(OptimizationSession session, CancellationToken cancellationToken = default)
     {
         _sessions[session.Id] = session with { Changes = [] };

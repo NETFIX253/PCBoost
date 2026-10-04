@@ -4,6 +4,12 @@
   <resheader name="version"><value>2.0</value></resheader>
   <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
   <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Drv_Error_AccessDenied" xml:space="preserve"><value>Windows Update a refusé l'accès à la recherche de pilotes.</value></data>
+  <data name="Drv_Error_AgentMissing" xml:space="preserve"><value>L'agent Windows Update n'est pas disponible sur ce PC.</value></data>
+  <data name="Drv_Error_Offline" xml:space="preserve"><value>Windows Update est injoignable. Vérifiez la connexion Internet, puis relancez la recherche.</value></data>
+  <data name="Drv_Error_Policy" xml:space="preserve"><value>Votre organisation gère les mises à jour de ce PC et n'autorise pas cette recherche. PCBoost respecte ce réglage.</value></data>
+  <data name="Drv_Error_SearchFailed" xml:space="preserve"><value>La recherche Windows Update n'a pas abouti. Réessayez plus tard.</value></data>
+  <data name="Drv_Error_ServiceDisabled" xml:space="preserve"><value>Le service Windows Update est désactivé sur ce PC. PCBoost ne le modifie pas : réactivez-le dans les services Windows ou demandez à votre service informatique.</value></data>
   <data name="Sys_AutoStartUnavailable" xml:space="preserve"><value>Impossible de déterminer l'emplacement de l'application pour la lancer avec Windows.</value></data>
   <data name="Sys_CommandNotAllowed" xml:space="preserve"><value>Cette commande système n'est pas autorisée.</value></data>
   <data name="Sys_CommandTimedOut" xml:space="preserve"><value>La commande système a dépassé le délai prévu et a été arrêtée.</value></data>

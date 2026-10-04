@@ -16,7 +16,19 @@ internal static class Wmi
     public static List<T> Query<T>(string scope, string wql, Func<ManagementBaseObject, T?> map, ILogger logger)
         where T : class
     {
-        var results = new List<T>();
+        TryQuery(scope, wql, map, logger, out var results);
+        return results;
+    }
+
+    /// <summary>
+    /// Comme <see cref="Query{T}"/>, mais indique si la requête a abouti : false si elle a échoué ou s'est interrompue en
+    /// cours d'énumération (délai dépassé…) — les lignes déjà lues sont alors incomplètes et ne doivent pas servir de
+    /// référence pour une décision (état « avant » d'un pilote, revérification).
+    /// </summary>
+    public static bool TryQuery<T>(string scope, string wql, Func<ManagementBaseObject, T?> map, ILogger logger, out List<T> results)
+        where T : class
+    {
+        results = new List<T>();
         try
         {
             var options = new System.Management.EnumerationOptions { Timeout = QueryTimeout, ReturnImmediately = true, Rewindable = false };
@@ -34,8 +46,9 @@ internal static class Wmi
         catch (Exception ex) when (ex is ManagementException or COMException or UnauthorizedAccessException or InvalidOperationException or TimeoutException)
         {
             logger.LogDebug(ex, "Requête WMI indisponible ({Scope} : {Query})", scope, wql);
+            return false;
         }
-        return results;
+        return true;
     }
 
     public static string? String(ManagementBaseObject item, string property)
@@ -63,6 +76,15 @@ internal static class Wmi
         var value = Int64(item, property);
         return value is >= int.MinValue and <= int.MaxValue ? (int)value.Value : null;
     }
+
+    /// <summary>Propriété tableau de chaînes (ex. Win32_PnPEntity.HardwareID) ; liste vide si absente.</summary>
+    public static IReadOnlyList<string> Strings(ManagementBaseObject item, string property)
+        => Get(item, property) is string[] values
+            ? values.Where(v => !string.IsNullOrWhiteSpace(v)).Select(v => v.Trim()).ToArray()
+            : [];
+
+    public static bool? Bool(ManagementBaseObject item, string property)
+        => Get(item, property) is bool value ? value : null;
 
     /// <summary>Propriété CIM char16 (ex. MSFT_Partition.DriveLetter), renvoyée par System.Management comme char ou UInt16.</summary>
     public static char? Char(ManagementBaseObject item, string property)
