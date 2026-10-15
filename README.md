@@ -6,9 +6,9 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/NETFIX253/PCBoost/releases/download/v1.2.0/PCBoost-1.2.0-x64.msi"><img src="https://img.shields.io/badge/T%C3%A9l%C3%A9charger-Installateur%20MSI%20(67%20Mo)-11919A?style=for-the-badge&logo=windows&logoColor=white" alt="Télécharger l'installateur MSI"></a>
+  <a href="https://github.com/NETFIX253/PCBoost/releases/download/v1.3.0/PCBoost-1.3.0-x64.msi"><img src="https://img.shields.io/badge/T%C3%A9l%C3%A9charger-Installateur%20MSI%20(67%20Mo)-11919A?style=for-the-badge&logo=windows&logoColor=white" alt="Télécharger l'installateur MSI"></a>
   &nbsp;
-  <a href="https://github.com/NETFIX253/PCBoost/releases/download/v1.2.0/PCBoost-1.2.0-x64-portable.zip"><img src="https://img.shields.io/badge/T%C3%A9l%C3%A9charger-Version%20portable%20(84%20Mo)-5B55E6?style=for-the-badge&logo=windows&logoColor=white" alt="Télécharger la version portable (ZIP)"></a>
+  <a href="https://github.com/NETFIX253/PCBoost/releases/download/v1.3.0/PCBoost-1.3.0-x64-portable.zip"><img src="https://img.shields.io/badge/T%C3%A9l%C3%A9charger-Version%20portable%20(84%20Mo)-5B55E6?style=for-the-badge&logo=windows&logoColor=white" alt="Télécharger la version portable (ZIP)"></a>
 </p>
 
 <p align="center">
@@ -40,12 +40,12 @@
   <tr>
     <td width="50%" valign="top">
       <h3>💿 Installateur <sup>recommandé</sup></h3>
-      <a href="https://github.com/NETFIX253/PCBoost/releases/download/v1.2.0/PCBoost-1.2.0-x64.msi"><b>PCBoost-1.2.0-x64.msi</b></a> · 67 Mo<br><br>
+      <a href="https://github.com/NETFIX253/PCBoost/releases/download/v1.3.0/PCBoost-1.3.0-x64.msi"><b>PCBoost-1.3.0-x64.msi</b></a> · 67 Mo<br><br>
       Une installation classique : dossier <i>Program Files</i>, raccourci dans le menu Démarrer, raccourci Bureau et lancement avec Windows en option, désinstallation depuis les <i>Paramètres</i>.
     </td>
     <td width="50%" valign="top">
       <h3>🗂️ Version portable</h3>
-      <a href="https://github.com/NETFIX253/PCBoost/releases/download/v1.2.0/PCBoost-1.2.0-x64-portable.zip"><b>PCBoost-1.2.0-x64-portable.zip</b></a> · 84 Mo<br><br>
+      <a href="https://github.com/NETFIX253/PCBoost/releases/download/v1.3.0/PCBoost-1.3.0-x64-portable.zip"><b>PCBoost-1.3.0-x64-portable.zip</b></a> · 84 Mo<br><br>
       Aucune installation : décompressez le dossier puis lancez <code>PCBoost.exe</code>. Pratique sur une clé USB ou un poste partagé.
     </td>
   </tr>
@@ -55,11 +55,14 @@ Toutes les versions et notes de publication : **[page des Releases](https://gith
 
 **Configuration requise** : Windows 10 (version 1809 ou ultérieure) ou Windows 11, 64 bits. Aucun autre logiciel à installer : tout est inclus.
 
+> [!TIP]
+> **Mises à jour automatiques.** À partir de la 1.3.0, PCBoost installe lui-même les nouvelles versions, signées par l'éditeur, à la fermeture de l'application. Vous avez la 1.2.0 ou une version plus ancienne ? Installez une fois la dernière version avec le MSI ci-dessus : les suivantes arriveront ensuite automatiquement.
+
 > [!NOTE]
 > **Premier lancement et SmartScreen.** Les fichiers ne sont pas encore signés numériquement. Windows peut donc afficher « Windows a protégé votre ordinateur » : cliquez sur **Informations complémentaires**, puis **Exécuter quand même**.
-> Pour vérifier que le fichier téléchargé est intact, comparez son empreinte avec [`SHA256SUMS.txt`](https://github.com/NETFIX253/PCBoost/releases/download/v1.2.0/SHA256SUMS.txt) :
+> Pour vérifier que le fichier téléchargé est intact, comparez son empreinte avec [`SHA256SUMS.txt`](https://github.com/NETFIX253/PCBoost/releases/download/v1.3.0/SHA256SUMS.txt) :
 > ```powershell
-> Get-FileHash .\PCBoost-1.2.0-x64.msi -Algorithm SHA256
+> Get-FileHash .\PCBoost-1.3.0-x64.msi -Algorithm SHA256
 > ```
 
 ## ✨ Pourquoi PCBoost ?
@@ -87,13 +90,20 @@ Toutes les versions et notes de publication : **[page des Releases](https://gith
     </td>
     <td width="50%" valign="top">
       <picture>
-        <source media="(prefers-color-scheme: dark)" srcset="docs/images/screen-drivers-dark.png">
-        <img src="docs/images/screen-drivers-light.png" alt="Pilotes : mises à jour recommandées et à examiner, avec les protections appliquées (liste d'exemple)">
+        <source media="(prefers-color-scheme: dark)" srcset="docs/images/screen-settings-dark.png">
+        <img src="docs/images/screen-settings-light.png" alt="Paramètres : carte Mises à jour avec la dernière vérification et l'interrupteur Mises à jour automatiques">
       </picture>
-      <p align="center"><b>Pilotes</b> <sup>nouveau</sup> — versions validées par Microsoft, point de restauration obligatoire, retour au pilote précédent. <i>Liste d'exemple.</i></p>
+      <p align="center"><b>Mises à jour</b> <sup>nouveau</sup> — signées par l'éditeur, téléchargées en arrière-plan et installées à la fermeture ; désactivables.</p>
     </td>
   </tr>
   <tr>
+    <td width="50%" valign="top">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="docs/images/screen-drivers-dark.png">
+        <img src="docs/images/screen-drivers-light.png" alt="Pilotes : mises à jour recommandées et à examiner, avec les protections appliquées (liste d'exemple)">
+      </picture>
+      <p align="center"><b>Pilotes</b> — versions validées par Microsoft, point de restauration obligatoire, retour au pilote précédent. <i>Liste d'exemple.</i></p>
+    </td>
     <td width="50%" valign="top">
       <picture>
         <source media="(prefers-color-scheme: dark)" srcset="docs/images/screen-health-dark.png">
@@ -101,6 +111,8 @@ Toutes les versions et notes de publication : **[page des Releases](https://gith
       </picture>
       <p align="center"><b>Santé du matériel</b> — disques, batterie, surchauffe et périphériques, d'après les mesures de Windows.</p>
     </td>
+  </tr>
+  <tr>
     <td width="50%" valign="top">
       <picture>
         <source media="(prefers-color-scheme: dark)" srcset="docs/images/screen-analysis-dark.png">
@@ -108,8 +120,6 @@ Toutes les versions et notes de publication : **[page des Releases](https://gith
       </picture>
       <p align="center"><b>Analyse</b> — constats et recommandations, en lecture seule : rien n'est modifié.</p>
     </td>
-  </tr>
-  <tr>
     <td width="50%" valign="top">
       <picture>
         <source media="(prefers-color-scheme: dark)" srcset="docs/images/screen-oldpc-dark.png">
@@ -117,6 +127,8 @@ Toutes les versions et notes de publication : **[page des Releases](https://gith
       </picture>
       <p align="center"><b>Ancien PC</b> — chaque niveau est prévisualisé : risque, impact, réversible ou non.</p>
     </td>
+  </tr>
+  <tr>
     <td width="50%" valign="top">
       <picture>
         <source media="(prefers-color-scheme: dark)" srcset="docs/images/screen-cleanup-dark.png">
@@ -124,8 +136,6 @@ Toutes les versions et notes de publication : **[page des Releases](https://gith
       </picture>
       <p align="center"><b>Nettoyage</b> — catégories SÛR / PRUDENCE / AVANCÉ, programmes peu utilisés, gros fichiers et doublons.</p>
     </td>
-  </tr>
-  <tr>
     <td width="50%" valign="top">
       <picture>
         <source media="(prefers-color-scheme: dark)" srcset="docs/images/screen-gaming-dark.png">
@@ -133,6 +143,8 @@ Toutes les versions et notes de publication : **[page des Releases](https://gith
       </picture>
       <p align="center"><b>Mode Gaming</b> — des réglages temporaires, par jeu, restaurés automatiquement à la fermeture du jeu.</p>
     </td>
+  </tr>
+  <tr>
     <td width="50%" valign="top">
       <picture>
         <source media="(prefers-color-scheme: dark)" srcset="docs/images/screen-performance-dark.png">
@@ -140,21 +152,12 @@ Toutes les versions et notes de publication : **[page des Releases](https://gith
       </picture>
       <p align="center"><b>Performances</b> — processeur, mémoire, disque, GPU et réseau, de 30 s à 7 jours.</p>
     </td>
-  </tr>
-  <tr>
     <td width="50%" valign="top">
       <picture>
         <source media="(prefers-color-scheme: dark)" srcset="docs/images/screen-history-dark.png">
         <img src="docs/images/screen-history-light.png" alt="Historique : sessions d'optimisation et bouton Restaurer">
       </picture>
       <p align="center"><b>Historique</b> — chaque session et chaque modification peut être restaurée.</p>
-    </td>
-    <td width="50%" valign="top">
-      <picture>
-        <source media="(prefers-color-scheme: dark)" srcset="docs/images/screen-about-dark.png">
-        <img src="docs/images/screen-about-light.png" alt="À propos : version, éditeur Mohamed ABDOURAHMAN (DSI) et licence">
-      </picture>
-      <p align="center"><b>À propos</b> — version, éditeur et licence.</p>
     </td>
   </tr>
 </table>
@@ -181,7 +184,7 @@ Toutes les versions et notes de publication : **[page des Releases](https://gith
 |---|---|
 | Tableau de bord | Score de santé sur 100 **explicable** (chaque point vient d'un facteur mesuré), charge en temps réel, recommandations principales, actions rapides. |
 | Analyse du système | Bilan en lecture seule : matériel, logiciels, constats par catégorie (dont la santé du matériel), profil matériel, conseils matériels factuels. |
-| Pilotes 🆕 | Mises à jour de pilotes depuis Windows Update uniquement (pilotes signés et validés par Microsoft, serveur WSUS de l'organisation respecté) ; seules les mises à jour recommandées et publiées depuis au moins 14 jours sont cochées, les autres sont « à examiner » ; BIOS, UEFI et versions plus anciennes jamais installés ; aperçu pilote par pilote, point de restauration obligatoire, vérification de chaque périphérique et retour au pilote précédent en un clic. Liens vers les outils officiels du fabricant du PC et de la carte graphique (rien n'est téléchargé depuis ces sites). |
+| Pilotes | Mises à jour de pilotes depuis Windows Update uniquement (pilotes signés et validés par Microsoft, serveur WSUS de l'organisation respecté) ; seules les mises à jour recommandées et publiées depuis au moins 14 jours sont cochées, les autres sont « à examiner » ; BIOS, UEFI et versions plus anciennes jamais installés ; aperçu pilote par pilote, point de restauration obligatoire, vérification de chaque périphérique et retour au pilote précédent en un clic. Liens vers les outils officiels du fabricant du PC et de la carte graphique (rien n'est téléchargé depuis ces sites). |
 | Santé du matériel | État des disques signalé par Windows ; usure des SSD, température, heures de fonctionnement et erreurs de lecture (autorisation administrateur ponctuelle) ; batterie des portables (capacité, cycles) ; surchauffe et limitation du processeur ; périphériques en erreur. Notification si un disque est signalé en mauvais état. |
 | « Pourquoi mon PC est lent ? » | Facteurs observés, impact et niveau de confiance, en langage simple. |
 | Optimisation en un clic | Aperçu → Préparation → Sauvegarde → Optimisation → Vérification → Rapport final. |
@@ -197,6 +200,7 @@ Toutes les versions et notes de publication : **[page des Releases](https://gith
 | Mesure avant / après | Comparaison de deux mesures de même durée ; seuls les écarts réellement mesurés sont affichés. |
 | Performances | Graphiques processeur, mémoire, disque, GPU, réseau, températures (30 s à 7 jours), surveillance légère et adaptative. |
 | Stockage | Répartition de l'espace du disque système, dossiers les plus volumineux (lecture seule). |
+| Mises à jour automatiques 🆕 | PCBoost vérifie la dernière version publiée sur GitHub (2 minutes après le démarrage, puis toutes les 6 heures), la télécharge en arrière-plan (jamais sur une connexion limitée), vérifie sa signature, sa taille et son empreinte, puis l'installe à la fermeture — ou tout de suite avec « Installer maintenant » — en conservant le dossier et les réglages. Notification avant et après ; en cas d'échec, la version actuelle reste en place. Désactivable dans les Paramètres ou par une stratégie de l'organisation ; la version portable est seulement avertie. |
 | Historique | Sessions d'optimisation, restauration d'une session ou d'une seule modification, journal d'activité. |
 | Rapport de diagnostic | Aperçu puis enregistrement en PDF ou HTML, à joindre à une demande d'assistance ; nom d'utilisateur, dossier personnel et (par défaut) nom du PC masqués ; produit sur le PC, rien n'est envoyé. |
 | Mode Expert | États avant / après bruts, journal technique, erreurs techniques. |
@@ -210,15 +214,16 @@ Toutes les versions et notes de publication : **[page des Releases](https://gith
 - Fermer les processus essentiels de Windows.
 - Installer un pilote venu d'ailleurs que Windows Update, sans point de restauration, ou un microprogramme (BIOS, UEFI).
 - Modifier le BIOS, overclocker le matériel ou injecter du code dans les jeux (aucun anti-triche touché).
+- Installer une mise à jour de PCBoost qui n'est pas signée par l'éditeur.
 - Annoncer un gain qu'il n'a pas mesuré.
 
 Détails : [docs/SECURITY.md](docs/SECURITY.md) et [docs/OPTIMIZATIONS.md](docs/OPTIMIZATIONS.md).
 
 ## 🔐 Droits administrateur et données
 
-PCBoost s'exécute en **utilisateur standard**. Windows demande une autorisation administrateur (UAC) uniquement pour une action précise : nettoyer un dossier système, modifier un programme lancé au démarrage pour tous les utilisateurs, mesurer les images par seconde d'un jeu, lire les compteurs détaillés des disques ou les mesures de démarrage de Windows, créer un point de restauration, installer des mises à jour de pilotes ou revenir au pilote précédent.
+PCBoost s'exécute en **utilisateur standard**. Windows demande une autorisation administrateur (UAC) uniquement pour une action précise : nettoyer un dossier système, modifier un programme lancé au démarrage pour tous les utilisateurs, mesurer les images par seconde d'un jeu, lire les compteurs détaillés des disques ou les mesures de démarrage de Windows, créer un point de restauration, installer des mises à jour de pilotes ou revenir au pilote précédent, installer une mise à jour de PCBoost.
 
-Tout reste sur votre PC, dans `%LOCALAPPDATA%\PCBoost` (historique et journaux ; les journaux masquent le nom d'utilisateur et le nom du PC). Ce dossier est conservé à la désinstallation pour permettre une réinstallation sans perte ; supprimez-le pour tout effacer.
+Pour les mises à jour, PCBoost lit la dernière version publiée sur GitHub (fichiers publics, aucune donnée envoyée) ; cette vérification se désactive dans les Paramètres. Le reste se passe sur votre PC, dans `%LOCALAPPDATA%\PCBoost` (historique et journaux ; les journaux masquent le nom d'utilisateur et le nom du PC). Ce dossier est conservé à la désinstallation pour permettre une réinstallation sans perte ; supprimez-le pour tout effacer.
 
 **Désinstaller** : *Paramètres Windows → Applications → Applications installées → PCBoost → Désinstaller* (version installée), ou supprimez simplement le dossier (version portable). Pensez à annuler auparavant, depuis **Historique**, les modifications que vous ne souhaitez pas conserver.
 
@@ -236,7 +241,7 @@ powershell -ExecutionPolicy Bypass -File build\build.ps1                     # c
 powershell -ExecutionPolicy Bypass -File build\build.ps1 -Publish -Installer # + version portable + MSI dans dist\
 ```
 
-Chaque version publiée compile sans erreur ni avertissement et passe l'ensemble des tests automatisés (plus de 1 800 tests xUnit).
+Chaque version publiée compile sans erreur ni avertissement et passe l'ensemble des tests automatisés (plus de 1 900 tests xUnit).
 
 </details>
 

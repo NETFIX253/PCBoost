@@ -23,7 +23,8 @@ public static class ServiceCollectionExtensions
 
     /// <summary>
     /// Enregistre les services transverses (singletons) : localisation, préférences, journal d'activité, mises à jour
-    /// (source locale + emplacement réservé en ligne), informations d'application, horloge système (si absente).
+    /// (flux local + Releases GitHub, manifeste signé ; mise à jour automatique), informations d'application, horloge
+    /// système (si absente).
     /// La source des textes communs est placée en tête des sources, quel que soit l'ordre d'appel des modules.
     /// Nécessite <c>IKeyValueStore</c> et <c>IActivityLogRepository</c> (AddPCBoostPersistence) et la journalisation
     /// (<see cref="AddPCBoostLogging"/> ou <c>AddLogging</c>).
@@ -57,10 +58,14 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IAppInfo, AppInfo>();
         services.AddSingleton<IDiagnosticLogSource>(sp => new DiagnosticLogSource(sp.GetRequiredService<IAppInfo>()));
 
+        // Sources dans l'ordre de consultation : flux local (partage d'entreprise, facultatif), puis Releases GitHub.
         services.TryAddEnumerable(ServiceDescriptor.Singleton<IUpdateProvider, LocalUpdateProvider>());
-        services.TryAddEnumerable(ServiceDescriptor.Singleton<IUpdateProvider, PlaceholderRemoteUpdateProvider>());
+        services.TryAddEnumerable(ServiceDescriptor.Singleton<IUpdateProvider, GitHubUpdateProvider>());
         services.AddSingleton<UpdateService>();
         services.AddSingleton<IUpdateService>(sp => sp.GetRequiredService<UpdateService>());
+        // Mise à jour automatique : nécessite aussi INotificationService (hôte), INetworkCostProvider et IRegistryProvider (plateforme).
+        services.AddSingleton<AutoUpdateService>();
+        services.AddSingleton<IAutoUpdateService>(sp => sp.GetRequiredService<AutoUpdateService>());
         return services;
     }
 

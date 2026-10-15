@@ -2,6 +2,20 @@
 
 Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; versions selon [SemVer](https://semver.org/lang/fr/).
 
+## [1.3.0] — 2026-10-15
+
+### Ajouté
+- Mises à jour automatiques de PCBoost : plus besoin de retélécharger l'installateur depuis GitHub. PCBoost vérifie la dernière version publiée (2 minutes après le démarrage puis toutes les 6 heures), la télécharge en arrière-plan (jamais sur une connexion limitée ; reprise après une coupure), vérifie sa signature, sa taille et son empreinte, puis l'installe à la fermeture de PCBoost — ou tout de suite avec « Installer maintenant » — en conservant le dossier et les réglages ; une notification informe avant et après, et les nouveautés s'affichent dans les Paramètres. Windows demande l'autorisation administrateur ; en cas d'échec, la version actuelle reste en place. Désactivable dans les Paramètres ou par une stratégie de l'organisation (`HKLM\SOFTWARE\Policies\PCBoost\DisableAutoUpdate`). La version portable est seulement avertie, avec un lien vers la page de la version.
+- Paramètres → Mises à jour : date de la dernière vérification, téléchargement suivi en direct, « Installer maintenant », notes de la nouvelle version (puis « Nouveautés » après la mise à jour) et interrupteur « Mises à jour automatiques ».
+
+### Modifié
+- La page Confidentialité mentionne la vérification des mises à jour sur GitHub (fichier public, aucune donnée envoyée).
+- Le flux de mises à jour d'entreprise (`updateFeedPath`) utilise désormais le même manifeste signé `pcboost-update.json` que GitHub.
+
+### Sécurité
+- Mises à jour de PCBoost signées par l'éditeur (ECDSA P-256) : seul un manifeste signé par l'une des clés intégrées à l'application est accepté, quelle que soit la source (GitHub ou partage d'entreprise) ; adresses HTTPS du dépôt uniquement, version toujours plus récente, paquet borné à la taille signée. La relance après mise à jour se fait sans droits administrateur. Le flux local non signé (`update.json`) n'est plus accepté.
+- Aucune installation n'est lancée depuis un PCBoost exécuté en administrateur ; l'installation automatique à l'ouverture de session est reportée si vous utilisez déjà PCBoost ou si une session Gaming est active.
+
 ## [1.2.0] — 2026-10-04
 
 ### Ajouté

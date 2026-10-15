@@ -1,31 +1,6 @@
-using System.Globalization;
 using System.Security.Cryptography;
-using System.Text.Json.Serialization;
 
 namespace PCBoost.Infrastructure.Updates;
-
-/// <summary>
-/// Contenu de <c>update.json</c> :
-/// <c>{ "version": "1.1.0", "package": "PCBoost-1.1.0-x64.msi", "sha256": "…", "notes": "…", "publishedAt": "2026-10-01T00:00:00Z" }</c>.
-/// </summary>
-internal sealed class UpdateFeedManifest
-{
-    [JsonPropertyName("version")] public string? Version { get; set; }
-    [JsonPropertyName("package")] public string? Package { get; set; }
-    [JsonPropertyName("sha256")] public string? Sha256 { get; set; }
-    [JsonPropertyName("notes")] public string? Notes { get; set; }
-    [JsonPropertyName("publishedAt")] public string? PublishedAt { get; set; }
-
-    /// <summary>Date facultative : absente → null (valide) ; illisible → false.</summary>
-    public static bool TryParseDate(string? text, out DateTimeOffset? value)
-    {
-        value = null;
-        if (string.IsNullOrWhiteSpace(text)) return true;
-        if (!DateTimeOffset.TryParse(text, CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal, out var parsed)) return false;
-        value = parsed;
-        return true;
-    }
-}
 
 internal static class UpdateVersions
 {

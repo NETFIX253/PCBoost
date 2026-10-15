@@ -172,10 +172,6 @@
     "fr": "Aucune source de mise à jour n'est configurée.",
     "en": "No update source is configured."
   },
-  "Infra_Update_RemoteNotConfigured": {
-    "fr": "La recherche de mises à jour en ligne n'est pas disponible dans cette version.",
-    "en": "Online update checks are not available in this version."
-  },
   "Infra_Update_UpToDate": {
     "fr": "Vous utilisez la dernière version disponible ({0}).",
     "en": "You are using the latest available version ({0})."
@@ -219,5 +215,72 @@
   "Infra_Update_InstallerFailed": {
     "fr": "Le programme d'installation n'a pas pu être lancé. La version actuelle reste en place.",
     "en": "The installer could not be started. The current version stays in place."
+  },
+  "Infra_Update_SignatureInvalid": {
+    "fr": "La mise à jour n'est pas signée par l'éditeur de PCBoost : elle a été refusée et rien n'a été téléchargé ni installé.",
+    "en": "The update is not signed by the publisher of PCBoost: it was refused and nothing was downloaded or installed."
+  },
+  "Infra_Update_Offline": {
+    "fr": "Le serveur des mises à jour (GitHub) est injoignable. Vérifiez la connexion Internet ; une nouvelle tentative aura lieu plus tard.",
+    "en": "The update server (GitHub) cannot be reached. Check the Internet connection; another attempt will be made later."
+  },
+  "Infra_Update_NoPackageForArchitecture": {
+    "fr": "Cette mise à jour ne propose pas de paquet pour ce type de processeur.",
+    "en": "This update provides no package for this type of processor."
+  },
+  "Infra_Update_DownloadFailed": {
+    "fr": "Le téléchargement de la mise à jour n'a pas abouti. Rien n'a été installé ; une nouvelle tentative aura lieu plus tard.",
+    "en": "The update download did not complete. Nothing was installed; another attempt will be made later."
+  },
+  "Infra_Update_SizeMismatch": {
+    "fr": "Le paquet de mise à jour n'a pas la taille annoncée : il a été supprimé et rien n'a été installé.",
+    "en": "The update package does not have the announced size: it was deleted and nothing was installed."
+  },
+  "Infra_AutoUpdate_Journal_Ready": {
+    "fr": "Mise à jour de PCBoost {0} téléchargée et vérifiée (signature et empreinte) : installation à la fermeture de PCBoost.",
+    "en": "PCBoost {0} update downloaded and verified (signature and fingerprint): installed when PCBoost closes."
+  },
+  "Infra_AutoUpdate_Journal_Installing": {
+    "fr": "Installation de la mise à jour de PCBoost {0} lancée à la fermeture.",
+    "en": "PCBoost {0} update installation started on close."
+  },
+  "Infra_AutoUpdate_Journal_Updated": { "fr": "PCBoost a été mis à jour : version {0} → {1}.", "en": "PCBoost was updated: version {0} → {1}." },
+  "Infra_AutoUpdate_Notify_Ready_Title": { "fr": "PCBoost {0} est prêt", "en": "PCBoost {0} is ready" },
+  "Infra_AutoUpdate_Notify_Ready_Body": {
+    "fr": "La mise à jour est vérifiée. Elle s'installera à la fermeture de PCBoost (Windows demandera une autorisation).",
+    "en": "The update is verified. It will be installed when PCBoost closes (Windows will ask for permission)."
+  },
+  "Infra_AutoUpdate_Notify_Available_Title": { "fr": "PCBoost {0} est disponible", "en": "PCBoost {0} is available" },
+  "Infra_AutoUpdate_Notify_Available_Body": { "fr": "Ouvrez les Paramètres de PCBoost pour la télécharger.", "en": "Open PCBoost Settings to download it." },
+  "Infra_AutoUpdate_Notify_Available_Metered": {
+    "fr": "Connexion limitée : le téléchargement attendra une autre connexion, ou lancez-le depuis les Paramètres.",
+    "en": "Metered connection: the download will wait for another connection, or start it from Settings."
+  },
+  "Infra_AutoUpdate_Notify_Available_Portable": {
+    "fr": "Version portable : téléchargez la nouvelle version depuis la page de la version (Paramètres).",
+    "en": "Portable version: download the new version from the release page (Settings)."
+  },
+  "Infra_AutoUpdate_Notify_Installing_Title": { "fr": "Installation de PCBoost {0}", "en": "Installing PCBoost {0}" },
+  "Infra_AutoUpdate_Notify_Installing_Body": {
+    "fr": "La mise à jour téléchargée précédemment s'installe maintenant. Autorisez Windows Installer à continuer ; PCBoost se relancera ensuite. Si vous refusez, PCBoost redémarre normalement à la prochaine ouverture de session.",
+    "en": "The previously downloaded update is being installed now. Allow Windows Installer to continue; PCBoost will restart afterwards. If you decline, PCBoost starts normally at your next sign-in."
+  },
+  "Infra_AutoUpdate_Notify_Updated_Title": { "fr": "PCBoost a été mis à jour en version {0}", "en": "PCBoost was updated to version {0}" },
+  "Infra_AutoUpdate_Notify_Updated_Body": { "fr": "Découvrez les nouveautés dans les Paramètres.", "en": "See what's new in Settings." },
+  "Infra_AutoUpdate_Action_InstallNow": { "fr": "Installer maintenant", "en": "Install now" },
+  "Infra_AutoUpdate_Action_Open": { "fr": "Ouvrir", "en": "Open" },
+  "Infra_AutoUpdate_Action_WhatsNew": { "fr": "Nouveautés", "en": "What's new" },
+  "Infra_AutoUpdate_PortableCopy": {
+    "fr": "Cette copie de PCBoost est portable : téléchargez la nouvelle version depuis la page de la version.",
+    "en": "This copy of PCBoost is portable: download the new version from the release page."
+  },
+  "Infra_AutoUpdate_NothingToInstall": { "fr": "Aucune mise à jour prête à installer.", "en": "No update ready to install." },
+  "Infra_AutoUpdate_InstallBlocked": {
+    "fr": "L'installation automatique n'a pas abouti à deux reprises (autorisation refusée ?). Utilisez « Installer maintenant ».",
+    "en": "The automatic installation did not succeed twice (permission declined?). Use \"Install now\"."
+  },
+  "Infra_AutoUpdate_Elevated": {
+    "fr": "PCBoost s'exécute en tant qu'administrateur : pour votre sécurité, la mise à jour ne s'installe pas depuis cette fenêtre. Fermez PCBoost et rouvrez-le normalement.",
+    "en": "PCBoost is running as administrator: for your safety, the update is not installed from this window. Close PCBoost and open it again normally."
   }
 }

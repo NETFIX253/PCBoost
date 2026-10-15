@@ -12,6 +12,7 @@ using PCBoost.App.Interop;
 using PCBoost.App.Services;
 using PCBoost.Core.Common;
 using PCBoost.Core.Models.Monitoring;
+using PCBoost.Core.Models.Updates;
 using PCBoost.Core.Services;
 using PCBoost.Presentation.Abstractions;
 using PCBoost.Presentation.Navigation;
@@ -32,6 +33,9 @@ public sealed partial class MainWindow : Window
     private readonly IPerformanceMonitor _monitor;
     private readonly AppLifecycle _lifecycle;
     private readonly AppNotificationService _notifications;
+    private readonly IAutoUpdateService _autoUpdate;
+    /// <summary>La fenêtre a été affichée depuis le démarrage : l'installation automatique ne ferme plus PCBoost.</summary>
+    private bool _windowUsed;
     private readonly ILogger<MainWindow> _logger;
     private TrayIcon? _tray;
     private bool _exiting;
@@ -52,6 +56,7 @@ public sealed partial class MainWindow : Window
         _monitor = App.GetService<IPerformanceMonitor>();
         _lifecycle = App.GetService<AppLifecycle>();
         _notifications = App.GetService<AppNotificationService>();
+        _autoUpdate = App.GetService<IAutoUpdateService>();
         _logger = App.GetService<ILogger<MainWindow>>();
         InitializeComponent();
 
@@ -94,6 +99,7 @@ public sealed partial class MainWindow : Window
         _notifications.Register();
         _notifications.NotificationActivated += (_, _) => DispatcherQueue.TryEnqueue(ShowAndActivate);
         _notifications.ActionInvoked += OnNotificationAction;
+        _autoUpdate.ExitForInstallRequested += (_, request) => DispatcherQueue.TryEnqueue(() => _ = ExitForUpdateAsync(request));
 
         CreateTrayIcon();
         AppWindow.Closing += OnClosing;
@@ -119,6 +125,7 @@ public sealed partial class MainWindow : Window
 
         if (showWindow)
         {
+            _windowUsed = true;
             Activate();
             _lifecycle.SetVisible(true);
         }
@@ -135,6 +142,7 @@ public sealed partial class MainWindow : Window
 
     public void ShowAndActivate()
     {
+        _windowUsed = true;
         if (!AppWindow.IsVisible) AppWindow.Show();
         if (AppWindow.Presenter is OverlappedPresenter { State: OverlappedPresenterState.Minimized } presenter) presenter.Restore();
         Activate();
@@ -332,7 +340,40 @@ public sealed partial class MainWindow : Window
                 ShowAndActivate();
                 _navigation.Navigate(PageKeys.Gaming);
             }
+            else if (string.Equals(action, Infrastructure.Updates.AutoUpdateService.InstallActionId, StringComparison.Ordinal))
+            {
+                // « Installer maintenant » : PCBoost se ferme, la mise à jour s'installe puis PCBoost se relance.
+                var result = _autoUpdate.RequestInstallNow();
+                if (!result.Success)
+                {
+                    ShowAndActivate();
+                    _navigation.Navigate(PageKeys.Settings);
+                }
+            }
         });
+    }
+
+    /// <summary>
+    /// Fermeture demandée pour installer une mise à jour. « Installer maintenant » : toujours (la fermeture restaure une
+    /// session Gaming active). Installation automatique à l'ouverture de session : reportée si la fenêtre a déjà été
+    /// ouverte ou si une session Gaming est active (la mise à jour s'installera à la fermeture ou à la session suivante).
+    /// </summary>
+    private async Task ExitForUpdateAsync(UpdateExitRequest request)
+    {
+        if (_exiting) return;
+        if (request.Automatic)
+        {
+            var reason = _windowUsed || AppWindow.IsVisible ? "fenêtre de PCBoost utilisée"
+                : App.TryGetService<IGamingService>() is { State: Core.Models.Gaming.GamingState.Active } ? "session Gaming active"
+                : null;
+            if (reason is not null)
+            {
+                _logger.LogInformation("Installation automatique de la mise à jour reportée : {Reason}.", reason);
+                _autoUpdate.CancelInstallRequest();
+                return;
+            }
+        }
+        await ExitAsync().ConfigureAwait(true);
     }
 
     private void OnAppWindowChanged(AppWindow sender, AppWindowChangedEventArgs args)
@@ -366,10 +407,31 @@ public sealed partial class MainWindow : Window
         if (_exiting) return;
         _exiting = true;
         AppWindow.Hide();
+
+        // Mise à jour prête : installation préparée (paquet revérifié et verrouillé) avant l'arrêt des services, lancée
+        // une fois tout enregistré, juste avant la fin du processus (les fichiers de PCBoost sont alors libérés).
+        IPreparedUpdateInstall? update = null;
+        if (Program.CaptureDirectory is null)
+        {
+            try
+            {
+                update = await _autoUpdate.PrepareInstallOnExitAsync().ConfigureAwait(true);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning("Mise à jour non préparée à la fermeture : {Message}", ex.Message);
+            }
+        }
+
         _tray?.Dispose();
         _tray = null;
         _notifications.Dispose();
         if (Application.Current is App app) await app.ShutdownAsync().ConfigureAwait(true);
+
+        if (update is not null)
+        {
+            using (update) update.Start();
+        }
 
         // Tout est enregistré et libéré (base de données, journaux, icône de la zone de notification, notifications) :
         // fin immédiate du processus, sans démontage de XAML. Pendant ce démontage, le finaliseur .NET libérait parfois

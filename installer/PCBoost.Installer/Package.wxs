@@ -26,6 +26,9 @@
     <Property Id="ARPPRODUCTICON" Value="AppIcon" />
     <Property Id="ARPCOMMENTS" Value="Redonnez de la fluidité à votre PC." />
     <Property Id="DISABLEADVTSHORTCUTS" Value="1" />
+    <!-- Dossier d'installation transmis par la mise à jour automatique (INSTALLFOLDER="…") : propriété sécurisée, donc
+         transmise à la partie élevée de l'installation (sinon la mise à jour reviendrait au dossier par défaut). -->
+    <Property Id="INSTALLFOLDER" Secure="yes" />
 
     <!-- Images de l'assistant aux couleurs de PCBoost (générées par build/tools/make_brand_assets.py). -->
     <WixVariable Id="WixUIBannerBmp" Value="$(sys.SOURCEFILEDIR)Assets\banner.bmp" />
@@ -43,6 +46,7 @@
              ConfigurableDirectory="INSTALLFOLDER" AllowAbsent="no" AllowAdvertise="no">
       <ComponentGroupRef Id="AppFiles" />
       <ComponentRef Id="MainExecutable" />
+      <ComponentRef Id="InstallFolderMarker" />
       <ComponentRef Id="StartMenuShortcut" />
 
       <Feature Id="DesktopShortcutFeature" Title="Raccourci sur le Bureau" Description="Ajoute un raccourci vers [ProductName] sur le Bureau." Level="1000" AllowAdvertise="no">
@@ -59,6 +63,17 @@
     <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1" />
     <Property Id="WixShellExecTarget" Value="[#PCBoostExe]" />
     <CustomAction Id="LaunchApplication" BinaryRef="Wix4UtilCA_$(sys.BUILDARCHSHORT)" DllEntry="WixShellExec" Impersonate="yes" />
+
+    <!-- Mise à jour lancée par PCBoost lui-même (msiexec /qr … PCBOOST_RELAUNCH=window|background) : relance de PCBoost
+         une fois l'installation réussie. Actions de la séquence d'interface, exécutées par le processus msiexec de
+         l'utilisateur, qui n'est PAS élevé : PCBoost n'est jamais relancé avec les droits administrateur. Une installation
+         en échec ou annulée n'atteint pas ces actions. Sans PCBOOST_RELAUNCH (installation manuelle), rien n'est fait. -->
+    <CustomAction Id="RelaunchAfterUpdate" Directory="INSTALLFOLDER" ExeCommand="&quot;[INSTALLFOLDER]PCBoost.exe&quot;" Return="asyncNoWait" />
+    <CustomAction Id="RelaunchAfterUpdateBackground" Directory="INSTALLFOLDER" ExeCommand="&quot;[INSTALLFOLDER]PCBoost.exe&quot; --background" Return="asyncNoWait" />
+    <InstallUISequence>
+      <Custom Action="RelaunchAfterUpdate" After="ExecuteAction" Condition="PCBOOST_RELAUNCH = &quot;window&quot; AND NOT Installed AND NOT REMOVE" />
+      <Custom Action="RelaunchAfterUpdateBackground" After="ExecuteAction" Condition="PCBOOST_RELAUNCH = &quot;background&quot; AND NOT Installed AND NOT REMOVE" />
+    </InstallUISequence>
   </Package>
 
   <Fragment>
@@ -71,6 +86,13 @@
 
     <Component Id="MainExecutable" Directory="INSTALLFOLDER">
       <File Id="PCBoostExe" Source="$(AppDir)\PCBoost.exe" KeyPath="yes" />
+    </Component>
+
+    <!-- Dossier d'installation (HKLM, modifiable par les seuls administrateurs) : PCBoost reconnaît ainsi une copie
+         installée par ce MSI, seule à pouvoir s'installer automatiquement une mise à jour (la version portable est
+         seulement avertie). Retiré à la désinstallation. -->
+    <Component Id="InstallFolderMarker" Directory="INSTALLFOLDER" Guid="38A273C6-FD8D-424C-AC99-C742761CFDAB">
+      <RegistryValue Root="HKLM" Key="Software\$(ProductName)" Name="InstallFolder" Type="string" Value="[INSTALLFOLDER]" KeyPath="yes" />
     </Component>
 
     <StandardDirectory Id="ProgramMenuFolder">

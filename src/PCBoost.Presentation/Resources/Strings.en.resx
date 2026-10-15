@@ -1081,7 +1081,7 @@
   <data name="Privacy_Action_OpenLogs" xml:space="preserve"><value>Open log folder</value></data>
   <data name="Privacy_Deletion_Note" xml:space="preserve"><value>To erase everything, uninstall PCBoost and then delete this folder.</value></data>
   <data name="Privacy_Headline" xml:space="preserve"><value>Your data stays on your computer.</value></data>
-  <data name="Privacy_Intro" xml:space="preserve"><value>PCBoost works offline. It sends no data, uses no account and includes no telemetry.</value></data>
+  <data name="Privacy_Intro" xml:space="preserve"><value>PCBoost sends no data, uses no account and includes no telemetry. Its only connections: checking for PCBoost updates on GitHub (reading a public file, can be turned off in Settings) and, when you ask, Windows Update for drivers.</value></data>
   <data name="Privacy_Location_Label" xml:space="preserve"><value>Data location</value></data>
   <data name="Privacy_NotCollected_Account" xml:space="preserve"><value>An account, email address or identifier</value></data>
   <data name="Privacy_NotCollected_Browsing" xml:space="preserve"><value>Your browsing history</value></data>
@@ -1305,8 +1305,10 @@
   <data name="Settings_Action_About" xml:space="preserve"><value>About PCBoost</value></data>
   <data name="Settings_Action_CheckUpdates" xml:space="preserve"><value>Check for updates</value></data>
   <data name="Settings_Action_DownloadUpdate" xml:space="preserve"><value>Download</value></data>
+  <data name="Settings_Action_InstallNow" xml:space="preserve"><value>Install now</value></data>
   <data name="Settings_Action_InstallUpdate" xml:space="preserve"><value>Install</value></data>
   <data name="Settings_Action_OpenLogs" xml:space="preserve"><value>Open log folder</value></data>
+  <data name="Settings_Action_OpenReleasePage" xml:space="preserve"><value>Release page</value></data>
   <data name="Settings_Action_Privacy" xml:space="preserve"><value>Privacy</value></data>
   <data name="Settings_Action_RestoreRecommendations" xml:space="preserve"><value>Show again</value></data>
   <data name="Settings_AutoGaming_Ask" xml:space="preserve"><value>Ask</value></data>
@@ -1316,6 +1318,9 @@
   <data name="Settings_AutoOptimizations_Description" xml:space="preserve"><value>Allow PCBoost to apply low-risk, reversible optimizations on its own. They remain visible in History.</value></data>
   <data name="Settings_AutoOptimizations_Label" xml:space="preserve"><value>Safe automatic optimizations</value></data>
   <data name="Settings_AutoRestore_Label" xml:space="preserve"><value>Restore automatically when the game closes</value></data>
+  <data name="Settings_AutoUpdate_Description" xml:space="preserve"><value>Looks for new PCBoost versions on GitHub, downloads them, verifies their signature and installs them on close. Off: no automatic connection.</value></data>
+  <data name="Settings_AutoUpdate_Label" xml:space="preserve"><value>Automatic updates</value></data>
+  <data name="Settings_AutoUpdate_Policy" xml:space="preserve"><value>Automatic updates are turned off by your organization.</value></data>
   <data name="Settings_BackgroundApps_Label" xml:space="preserve"><value>Reduce background app activity</value></data>
   <data name="Settings_ConfirmSensitive_Description" xml:space="preserve"><value>Irreversible or high-risk actions are always confirmed.</value></data>
   <data name="Settings_ConfirmSensitive_Label" xml:space="preserve"><value>Ask for confirmation before sensitive operations</value></data>
@@ -1361,14 +1366,24 @@
   <data name="Settings_Theme_System" xml:space="preserve"><value>Use Windows setting</value></data>
   <data name="Settings_Title" xml:space="preserve"><value>Settings</value></data>
   <data name="Settings_Update_Available" xml:space="preserve"><value>Version {0} is available.</value></data>
+  <data name="Settings_Update_AvailableMetered" xml:space="preserve"><value>Version {0} is available. Metered connection: the download waits for another connection, or start it now.</value></data>
+  <data name="Settings_Update_AvailablePortable" xml:space="preserve"><value>Version {0} is available. This copy is portable: download it from the release page.</value></data>
   <data name="Settings_Update_Checking" xml:space="preserve"><value>Checking for updates…</value></data>
   <data name="Settings_Update_CurrentVersion" xml:space="preserve"><value>Installed version: {0}</value></data>
   <data name="Settings_Update_DownloadFailed" xml:space="preserve"><value>Downloading or verifying the update failed. Nothing was installed.</value></data>
+  <data name="Settings_Update_Downloading" xml:space="preserve"><value>Downloading and verifying version {0}…</value></data>
   <data name="Settings_Update_Failed" xml:space="preserve"><value>The update check did not succeed.</value></data>
-  <data name="Settings_Update_Integrity" xml:space="preserve"><value>The file's integrity is verified (SHA-256) before installation.</value></data>
+  <data name="Settings_Update_InstallConfirm_Message" xml:space="preserve"><value>PCBoost will close, install the verified update, then restart. Windows asks for administrator permission. If it fails, the current version stays in place.</value></data>
+  <data name="Settings_Update_InstallConfirm_Title" xml:space="preserve"><value>Install PCBoost {0} now?</value></data>
+  <data name="Settings_Update_Integrity" xml:space="preserve"><value>Every update is signed by the publisher: signature, size and SHA-256 fingerprint are verified before installation. If it fails, the current version stays in place.</value></data>
+  <data name="Settings_Update_LastCheck" xml:space="preserve"><value>Last check: {0}</value></data>
   <data name="Settings_Update_NotChecked" xml:space="preserve"><value>No check performed yet.</value></data>
-  <data name="Settings_Update_NotConfigured" xml:space="preserve"><value>Automatic updates are not configured for this version.</value></data>
+  <data name="Settings_Update_NotConfigured" xml:space="preserve"><value>No update source is configured for this copy of PCBoost.</value></data>
+  <data name="Settings_Update_NotesInstalled" xml:space="preserve"><value>What's new in the installed version ({0})</value></data>
+  <data name="Settings_Update_NotesOf" xml:space="preserve"><value>What's new in version {0}</value></data>
   <data name="Settings_Update_Ready" xml:space="preserve"><value>Version {0} is ready to install.</value></data>
+  <data name="Settings_Update_ReadyAtClose" xml:space="preserve"><value>Version {0} is ready: it will be installed when PCBoost closes.</value></data>
+  <data name="Settings_Update_ReadyBlocked" xml:space="preserve"><value>Version {0} is ready, but its automatic installation did not succeed (permission declined?). Use "Install now".</value></data>
   <data name="Settings_Update_ReleaseNotes" xml:space="preserve"><value>What's new</value></data>
   <data name="Settings_Update_UpToDate" xml:space="preserve"><value>You are using the latest version.</value></data>
   <data name="Settings_VerboseLogging_Description" xml:space="preserve"><value>Useful for support; no personal data is recorded.</value></data>

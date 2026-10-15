@@ -19,10 +19,16 @@ public sealed class BrandingOptions
     public string DataFolderName { get; set; } = "PCBoost";
 
     /// <summary>
-    /// Flux de mises à jour local facultatif (dossier ou partage d'entreprise contenant update.json et le MSI).
-    /// Vide par défaut : aucune source configurée, aucune connexion.
+    /// Flux de mises à jour local facultatif (dossier ou partage d'entreprise contenant le manifeste signé
+    /// pcboost-update.json et le MSI), consulté avant GitHub. Vide par défaut.
     /// </summary>
     public string? UpdateFeedPath { get; set; }
+
+    /// <summary>
+    /// Dépôt GitHub « propriétaire/nom » dont les Releases publient les mises à jour (manifeste signé
+    /// pcboost-update.json de la dernière Release). Vide : aucune source en ligne.
+    /// </summary>
+    public string? UpdateRepository { get; set; } = "NETFIX253/PCBoost";
 
     public string GetSlogan(string languageCode)
     {

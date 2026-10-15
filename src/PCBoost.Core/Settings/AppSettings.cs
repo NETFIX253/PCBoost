@@ -24,6 +24,11 @@ public sealed class AppSettings
     public bool AllowAutomaticSafeOptimizations { get; set; }
     public bool ExpertMode { get; set; }
     public bool FirstRunCompleted { get; set; }
+    /// <summary>
+    /// Mises à jour automatiques de PCBoost (activées par défaut) : vérification, téléchargement vérifié et installation à
+    /// la fermeture. Désactivées : aucune connexion automatique, vérification seulement à la demande.
+    /// </summary>
+    public bool AutoUpdate { get; set; } = true;
 
     // Sécurité
     /// <summary>Confirmation avant les opérations sensibles. Ne peut pas être désactivée pour les actions irréversibles.</summary>

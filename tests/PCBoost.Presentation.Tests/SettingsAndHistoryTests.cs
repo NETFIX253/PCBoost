@@ -36,16 +36,51 @@ public sealed class SettingsViewModelTests
         public void Apply(ThemePreference theme) => Current = theme;
     }
 
-    private sealed class FakeUpdates : IUpdateService
+    private sealed class FakeAutoUpdates : IAutoUpdateService
     {
-        public UpdateCheckResult Result { get; set; } = new(UpdateCheckStatus.NotConfigured, null, null);
+        public AutoUpdateState State { get; set; } = AutoUpdateState.Initial(installedCopy: true);
+        public AutoUpdateState AfterCheck { get; set; } = new(AutoUpdatePhase.NotConfigured, null, null, null, null, true, false, false);
+        public bool IsAutomatic { get; set; } = true;
+        public bool IsDisabledByPolicy { get; set; }
+        public string? InstalledReleaseNotes { get; set; }
+        public int InstallRequests { get; private set; }
 
-        public Task<UpdateCheckResult> CheckForUpdatesAsync(CancellationToken cancellationToken = default) => Task.FromResult(Result);
+        public event EventHandler<AutoUpdateState>? StateChanged;
+        public event EventHandler<UpdateExitRequest>? ExitForInstallRequested;
 
-        public Task<UpdateDownloadResult> DownloadAndVerifyAsync(UpdateInfo update, IProgress<double>? progress = null, CancellationToken cancellationToken = default)
-            => Task.FromResult(new UpdateDownloadResult(OperationResult.Ok(), "/tmp/pkg.msi"));
+        public int CancelledRequests { get; private set; }
 
-        public OperationResult LaunchInstaller(string verifiedPackagePath) => OperationResult.Ok();
+        public void CancelInstallRequest() => CancelledRequests++;
+
+        public void Set(AutoUpdateState state)
+        {
+            State = state;
+            StateChanged?.Invoke(this, state);
+        }
+
+        public Task StartAsync(bool sessionStart, CancellationToken cancellationToken = default) => Task.CompletedTask;
+        public void Stop() { }
+
+        public Task CheckNowAsync(CancellationToken cancellationToken = default)
+        {
+            Set(AfterCheck);
+            return Task.CompletedTask;
+        }
+
+        public Task DownloadNowAsync(CancellationToken cancellationToken = default)
+        {
+            Set(State with { Phase = AutoUpdatePhase.ReadyToInstall });
+            return Task.CompletedTask;
+        }
+
+        public OperationResult RequestInstallNow()
+        {
+            InstallRequests++;
+            ExitForInstallRequested?.Invoke(this, new UpdateExitRequest(Automatic: false));
+            return OperationResult.Ok();
+        }
+
+        public Task<IPreparedUpdateInstall?> PrepareInstallOnExitAsync(CancellationToken cancellationToken = default) => Task.FromResult<IPreparedUpdateInstall?>(null);
     }
 
     private sealed class FakeGames : IGameDetectionService
@@ -86,7 +121,8 @@ public sealed class SettingsViewModelTests
     private readonly FakeSettingsService _settings = new();
     private readonly FakeAutoStart _autoStart = new();
     private readonly FakeTheme _theme = new();
-    private readonly FakeUpdates _updates = new();
+    private readonly FakeAutoUpdates _updates = new();
+    private static readonly DateTimeOffset Now = new(2026, 10, 15, 9, 0, 0, TimeSpan.Zero);
     private readonly FakeShellService _shell = new();
 
     private SettingsViewModel Create() => new(_ui.Context, _settings, _autoStart, _theme, _updates, _shell, new FakeAppInfo(), new FakeGames());
@@ -138,6 +174,10 @@ public sealed class SettingsViewModelTests
         Assert.Equal("Accès refusé.", vm.ErrorText);
     }
 
+    private static UpdateInfo Update130(string? releaseUrl = "https://github.com/NETFIX253/PCBoost/releases/tag/v1.3.0")
+        => new(new Version(1, 3, 0), "https://github.com/NETFIX253/PCBoost/releases/download/v1.3.0/PCBoost-1.3.0-x64.msi", new string('A', 64),
+            "Nouvelle page", null, 70_000_000, releaseUrl);
+
     [Fact]
     public async Task Updates_NotConfigured_IsShownHonestly()
     {
@@ -146,20 +186,93 @@ public sealed class SettingsViewModelTests
         await vm.CheckForUpdatesCommand.ExecuteAsync(null);
         Assert.True(vm.IsUpdateNotConfigured);
         Assert.False(vm.IsUpdateAvailable);
-        Assert.Equal("Les mises à jour automatiques ne sont pas configurées pour cette version.", vm.UpdateStatusText);
+        Assert.Equal("Aucune source de mise à jour n'est configurée pour cette copie de PCBoost.", vm.UpdateStatusText);
     }
 
     [Fact]
-    public async Task Updates_Available_DownloadThenInstall()
+    public async Task Updates_Available_DownloadThenInstallNow()
     {
-        _updates.Result = new UpdateCheckResult(UpdateCheckStatus.UpdateAvailable, new UpdateInfo(new Version(1, 3, 0), "https://example.invalid/p.msi", "abc", "Notes", null), null);
+        _updates.IsAutomatic = false;
+        _updates.AfterCheck = new AutoUpdateState(AutoUpdatePhase.Available, Update130(), Now, null, null, true, false, false);
         var vm = Create();
         await vm.OnNavigatedToAsync(null);
+
         await vm.CheckForUpdatesCommand.ExecuteAsync(null);
         Assert.Equal("La version 1.3.0 est disponible.", vm.UpdateStatusText);
+        Assert.Equal("Nouveautés de la version 1.3.0", vm.ReleaseNotesHeader);
+        Assert.Equal("Nouvelle page", vm.ReleaseNotes);
+        Assert.StartsWith("Dernière vérification : ", vm.LastUpdateCheckText);
+        Assert.True(vm.DownloadUpdateCommand.CanExecute(null));
+
         await vm.DownloadUpdateCommand.ExecuteAsync(null);
         Assert.True(vm.IsUpdateReadyToInstall);
+        Assert.Equal("La version 1.3.0 est prête à être installée.", vm.UpdateStatusText);
+
+        await vm.InstallUpdateCommand.ExecuteAsync(null);
+        Assert.Equal(1, _updates.InstallRequests);
+    }
+
+    [Fact]
+    public async Task Automatic_update_ready_says_it_installs_on_close_and_progress_is_live()
+    {
+        var vm = Create();
+        await vm.OnNavigatedToAsync(null);
+
+        _updates.Set(new AutoUpdateState(AutoUpdatePhase.Downloading, Update130(), Now, null, 42, true, false, false));
+        Assert.True(vm.IsDownloadingUpdate);
+        Assert.Equal(42, vm.DownloadProgressPercent);
+
+        _updates.Set(new AutoUpdateState(AutoUpdatePhase.ReadyToInstall, Update130(), Now, null, null, true, false, false));
+        Assert.Equal("La version 1.3.0 est prête : elle s'installera à la fermeture de PCBoost.", vm.UpdateStatusText);
+
+        _updates.Set(new AutoUpdateState(AutoUpdatePhase.ReadyToInstall, Update130(), Now, null, null, true, false, InstallBlocked: true));
+        Assert.Contains("n'a pas abouti", vm.UpdateStatusText, StringComparison.Ordinal);
         Assert.True(vm.InstallUpdateCommand.CanExecute(null));
+    }
+
+    [Fact]
+    public async Task Portable_copy_offers_the_release_page_instead_of_installing()
+    {
+        _updates.State = new AutoUpdateState(AutoUpdatePhase.Available, Update130(), Now, null, null, IsInstalledCopy: false, false, false);
+        var vm = Create();
+        await vm.OnNavigatedToAsync(null);
+
+        Assert.False(vm.IsUpdateAvailable);
+        Assert.False(vm.IsUpdateReadyToInstall);
+        Assert.True(vm.CanOpenReleasePage);
+        Assert.Contains("portable", vm.UpdateStatusText, StringComparison.Ordinal);
+        vm.OpenReleasePageCommand.Execute(null);
+        Assert.Contains("https://github.com/NETFIX253/PCBoost/releases/tag/v1.3.0", string.Join("|", _shell.Calls), StringComparison.Ordinal);
+    }
+
+    [Fact]
+    public async Task Automatic_updates_setting_is_saved_unless_the_organization_decides()
+    {
+        var vm = Create();
+        await vm.OnNavigatedToAsync(null);
+        Assert.True(vm.AutoUpdate);
+        vm.AutoUpdate = false;
+        await Task.Delay(50);
+        Assert.False(_settings.Current.AutoUpdate);
+
+        _updates.IsDisabledByPolicy = true;
+        var managed = Create();
+        await managed.OnNavigatedToAsync(null);
+        Assert.True(managed.IsAutoUpdatePolicy);
+        Assert.False(managed.CanChangeAutoUpdate);
+        Assert.False(managed.AutoUpdate);
+    }
+
+    [Fact]
+    public async Task Notes_of_the_installed_version_are_shown_after_an_update()
+    {
+        _updates.InstalledReleaseNotes = "Pilotes";
+        _updates.State = new AutoUpdateState(AutoUpdatePhase.UpToDate, null, Now, null, null, true, false, false);
+        var vm = Create();
+        await vm.OnNavigatedToAsync(null);
+
+        Assert.Equal("Pilotes", vm.ReleaseNotes);
+        Assert.StartsWith("Nouveautés de la version installée", vm.ReleaseNotesHeader, StringComparison.Ordinal);
     }
 
     [Fact]

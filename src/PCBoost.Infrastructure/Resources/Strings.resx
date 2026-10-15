@@ -41,6 +41,26 @@
   <data name="Error_NotSupported" xml:space="preserve"><value>Cette opération n'est pas prise en charge sur ce PC ou sur cette version de Windows.</value></data>
   <data name="Error_RequiresElevation" xml:space="preserve"><value>Cette opération nécessite une autorisation administrateur.</value></data>
   <data name="Error_Timeout" xml:space="preserve"><value>L'opération a pris trop de temps et a été arrêtée.</value></data>
+  <data name="Infra_AutoUpdate_Action_InstallNow" xml:space="preserve"><value>Installer maintenant</value></data>
+  <data name="Infra_AutoUpdate_Action_Open" xml:space="preserve"><value>Ouvrir</value></data>
+  <data name="Infra_AutoUpdate_Action_WhatsNew" xml:space="preserve"><value>Nouveautés</value></data>
+  <data name="Infra_AutoUpdate_Elevated" xml:space="preserve"><value>PCBoost s'exécute en tant qu'administrateur : pour votre sécurité, la mise à jour ne s'installe pas depuis cette fenêtre. Fermez PCBoost et rouvrez-le normalement.</value></data>
+  <data name="Infra_AutoUpdate_InstallBlocked" xml:space="preserve"><value>L'installation automatique n'a pas abouti à deux reprises (autorisation refusée ?). Utilisez « Installer maintenant ».</value></data>
+  <data name="Infra_AutoUpdate_Journal_Installing" xml:space="preserve"><value>Installation de la mise à jour de PCBoost {0} lancée à la fermeture.</value></data>
+  <data name="Infra_AutoUpdate_Journal_Ready" xml:space="preserve"><value>Mise à jour de PCBoost {0} téléchargée et vérifiée (signature et empreinte) : installation à la fermeture de PCBoost.</value></data>
+  <data name="Infra_AutoUpdate_Journal_Updated" xml:space="preserve"><value>PCBoost a été mis à jour : version {0} → {1}.</value></data>
+  <data name="Infra_AutoUpdate_NothingToInstall" xml:space="preserve"><value>Aucune mise à jour prête à installer.</value></data>
+  <data name="Infra_AutoUpdate_Notify_Available_Body" xml:space="preserve"><value>Ouvrez les Paramètres de PCBoost pour la télécharger.</value></data>
+  <data name="Infra_AutoUpdate_Notify_Available_Metered" xml:space="preserve"><value>Connexion limitée : le téléchargement attendra une autre connexion, ou lancez-le depuis les Paramètres.</value></data>
+  <data name="Infra_AutoUpdate_Notify_Available_Portable" xml:space="preserve"><value>Version portable : téléchargez la nouvelle version depuis la page de la version (Paramètres).</value></data>
+  <data name="Infra_AutoUpdate_Notify_Available_Title" xml:space="preserve"><value>PCBoost {0} est disponible</value></data>
+  <data name="Infra_AutoUpdate_Notify_Installing_Body" xml:space="preserve"><value>La mise à jour téléchargée précédemment s'installe maintenant. Autorisez Windows Installer à continuer ; PCBoost se relancera ensuite. Si vous refusez, PCBoost redémarre normalement à la prochaine ouverture de session.</value></data>
+  <data name="Infra_AutoUpdate_Notify_Installing_Title" xml:space="preserve"><value>Installation de PCBoost {0}</value></data>
+  <data name="Infra_AutoUpdate_Notify_Ready_Body" xml:space="preserve"><value>La mise à jour est vérifiée. Elle s'installera à la fermeture de PCBoost (Windows demandera une autorisation).</value></data>
+  <data name="Infra_AutoUpdate_Notify_Ready_Title" xml:space="preserve"><value>PCBoost {0} est prêt</value></data>
+  <data name="Infra_AutoUpdate_Notify_Updated_Body" xml:space="preserve"><value>Découvrez les nouveautés dans les Paramètres.</value></data>
+  <data name="Infra_AutoUpdate_Notify_Updated_Title" xml:space="preserve"><value>PCBoost a été mis à jour en version {0}</value></data>
+  <data name="Infra_AutoUpdate_PortableCopy" xml:space="preserve"><value>Cette copie de PCBoost est portable : téléchargez la nouvelle version depuis la page de la version.</value></data>
   <data name="Infra_Database_Recovered" xml:space="preserve"><value>Les données locales (historique, restauration) étaient endommagées. Une copie a été mise de côté et de nouvelles données ont été créées.</value></data>
   <data name="Infra_Database_Temporary" xml:space="preserve"><value>Les données locales ne peuvent pas être enregistrées sur ce PC. L'historique de cette session ne sera pas conservé après la fermeture.</value></data>
   <data name="Infra_Language_English" xml:space="preserve"><value>English</value></data>
@@ -48,15 +68,19 @@
   <data name="Infra_Language_System" xml:space="preserve"><value>Langue du système</value></data>
   <data name="Infra_Update_Available" xml:space="preserve"><value>La version {0} est disponible.</value></data>
   <data name="Infra_Update_CopyFailed" xml:space="preserve"><value>Le paquet de mise à jour n'a pas pu être copié.</value></data>
+  <data name="Infra_Update_DownloadFailed" xml:space="preserve"><value>Le téléchargement de la mise à jour n'a pas abouti. Rien n'a été installé ; une nouvelle tentative aura lieu plus tard.</value></data>
   <data name="Infra_Update_FeedInvalid" xml:space="preserve"><value>Les informations de mise à jour sont illisibles ou incomplètes.</value></data>
   <data name="Infra_Update_FeedNotFound" xml:space="preserve"><value>La source de mise à jour est introuvable.</value></data>
   <data name="Infra_Update_HashMismatch" xml:space="preserve"><value>Le paquet de mise à jour est endommagé ou a été modifié : son empreinte ne correspond pas. Il a été supprimé et rien n'a été installé.</value></data>
   <data name="Infra_Update_InstallerFailed" xml:space="preserve"><value>Le programme d'installation n'a pas pu être lancé. La version actuelle reste en place.</value></data>
   <data name="Infra_Update_InstallerStarted" xml:space="preserve"><value>L'installation de la mise à jour a démarré. En cas d'échec, la version actuelle reste en place.</value></data>
   <data name="Infra_Update_InvalidPackage" xml:space="preserve"><value>Seul un paquet d'installation téléchargé et vérifié par l'application peut être lancé.</value></data>
+  <data name="Infra_Update_NoPackageForArchitecture" xml:space="preserve"><value>Cette mise à jour ne propose pas de paquet pour ce type de processeur.</value></data>
   <data name="Infra_Update_NotConfigured" xml:space="preserve"><value>Aucune source de mise à jour n'est configurée.</value></data>
+  <data name="Infra_Update_Offline" xml:space="preserve"><value>Le serveur des mises à jour (GitHub) est injoignable. Vérifiez la connexion Internet ; une nouvelle tentative aura lieu plus tard.</value></data>
   <data name="Infra_Update_PackageNotFound" xml:space="preserve"><value>Le paquet de mise à jour est introuvable.</value></data>
-  <data name="Infra_Update_RemoteNotConfigured" xml:space="preserve"><value>La recherche de mises à jour en ligne n'est pas disponible dans cette version.</value></data>
+  <data name="Infra_Update_SignatureInvalid" xml:space="preserve"><value>La mise à jour n'est pas signée par l'éditeur de PCBoost : elle a été refusée et rien n'a été téléchargé ni installé.</value></data>
+  <data name="Infra_Update_SizeMismatch" xml:space="preserve"><value>Le paquet de mise à jour n'a pas la taille annoncée : il a été supprimé et rien n'a été installé.</value></data>
   <data name="Infra_Update_UpToDate" xml:space="preserve"><value>Vous utilisez la dernière version disponible ({0}).</value></data>
   <data name="Infra_Update_Verified" xml:space="preserve"><value>Le paquet de mise à jour a été vérifié.</value></data>
 </root>

@@ -169,16 +169,30 @@
                                 <Button Style="{StaticResource SecondaryButtonStyle}" Content="{h:Str Key=Settings_Action_CheckUpdates}" Command="{x:Bind ViewModel.CheckForUpdatesCommand}" />
                                 <Button Style="{StaticResource PrimaryButtonStyle}" Content="{h:Str Key=Settings_Action_DownloadUpdate}" Command="{x:Bind ViewModel.DownloadUpdateCommand}"
                                         Visibility="{x:Bind h:Ui.Show(ViewModel.IsUpdateAvailable), Mode=OneWay}" />
-                                <Button Style="{StaticResource PrimaryButtonStyle}" Content="{h:Str Key=Settings_Action_InstallUpdate}" Command="{x:Bind ViewModel.InstallUpdateCommand}"
+                                <Button Style="{StaticResource PrimaryButtonStyle}" Content="{h:Str Key=Settings_Action_InstallNow}" Command="{x:Bind ViewModel.InstallUpdateCommand}"
                                         Visibility="{x:Bind h:Ui.Show(ViewModel.IsUpdateReadyToInstall), Mode=OneWay}" />
+                                <Button Style="{StaticResource PrimaryButtonStyle}" Content="{h:Str Key=Settings_Action_OpenReleasePage}" Command="{x:Bind ViewModel.OpenReleasePageCommand}"
+                                        Visibility="{x:Bind h:Ui.Show(ViewModel.CanOpenReleasePage), Mode=OneWay}" />
                             </StackPanel>
                         </controls:SettingRow>
-                        <Border Style="{StaticResource RowDividerStyle}" Padding="0" Visibility="{x:Bind h:Ui.ShowAny(ViewModel.IsUpdateAvailable, ViewModel.IsDownloadingUpdate), Mode=OneWay}">
+                        <Border Style="{StaticResource RowDividerStyle}" Padding="0">
+                            <controls:SettingRow Header="{h:Str Key=Settings_AutoUpdate_Label}" Description="{h:Str Key=Settings_AutoUpdate_Description}" Glyph="&#xE896;">
+                                <ToggleSwitch IsOn="{x:Bind ViewModel.AutoUpdate, Mode=TwoWay}" IsEnabled="{x:Bind ViewModel.CanChangeAutoUpdate, Mode=OneWay}" MinWidth="0"
+                                              AutomationProperties.Name="{h:Str Key=Settings_AutoUpdate_Label}" />
+                            </controls:SettingRow>
+                        </Border>
+                        <Border Style="{StaticResource RowDividerStyle}" Padding="0">
                             <StackPanel Spacing="8" Padding="34,12,0,14">
                                 <ProgressBar Value="{x:Bind ViewModel.DownloadProgressPercent, Mode=OneWay}" Maximum="100" Visibility="{x:Bind h:Ui.Show(ViewModel.IsDownloadingUpdate), Mode=OneWay}" />
-                                <TextBlock Text="{h:Str Key=Settings_Update_ReleaseNotes}" Style="{StaticResource FieldLabelTextStyle}" Visibility="{x:Bind h:Ui.ShowText(ViewModel.ReleaseNotes), Mode=OneWay}" />
-                                <TextBlock Text="{x:Bind ViewModel.ReleaseNotes, Mode=OneWay}" Style="{StaticResource SecondaryTextStyle}" Visibility="{x:Bind h:Ui.ShowText(ViewModel.ReleaseNotes), Mode=OneWay}" />
-                                <TextBlock Text="{h:Str Key=Settings_Update_Integrity}" Style="{StaticResource CaptionSecondaryTextStyle}" />
+                                <TextBlock Text="{x:Bind ViewModel.ReleaseNotesHeader, Mode=OneWay}" Style="{StaticResource FieldLabelTextStyle}" Visibility="{x:Bind h:Ui.ShowText(ViewModel.ReleaseNotes), Mode=OneWay}" />
+                                <ScrollViewer MaxHeight="240" Visibility="{x:Bind h:Ui.ShowText(ViewModel.ReleaseNotes), Mode=OneWay}">
+                                    <TextBlock Text="{x:Bind ViewModel.ReleaseNotes, Mode=OneWay}" Style="{StaticResource SecondaryTextStyle}" TextWrapping="Wrap" IsTextSelectionEnabled="True" />
+                                </ScrollViewer>
+                                <TextBlock Text="{h:Str Key=Settings_AutoUpdate_Policy}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap"
+                                           Visibility="{x:Bind h:Ui.Show(ViewModel.IsAutoUpdatePolicy), Mode=OneWay}" />
+                                <TextBlock Text="{x:Bind ViewModel.LastUpdateCheckText, Mode=OneWay}" Style="{StaticResource CaptionSecondaryTextStyle}"
+                                           Visibility="{x:Bind h:Ui.ShowText(ViewModel.LastUpdateCheckText), Mode=OneWay}" />
+                                <TextBlock Text="{h:Str Key=Settings_Update_Integrity}" Style="{StaticResource CaptionSecondaryTextStyle}" TextWrapping="Wrap" />
                             </StackPanel>
                         </Border>
                     </StackPanel>

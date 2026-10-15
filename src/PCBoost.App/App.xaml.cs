@@ -100,7 +100,13 @@ public partial class App : Application
         {
             o.Branding = infraOptions.Branding;
             o.WindowsAppSdkVersion = infraOptions.WindowsAppSdkVersion;
-            o.Updates = new UpdateOptions { LocalFeedPath = infraOptions.Branding.UpdateFeedPath };
+            // Flux local : branding.json, ou « --update-feed <dossier> » (essai, partage d'entreprise). Dans tous les cas,
+            // seul un manifeste signé par une clé de PCBoost est accepté.
+            o.Updates = new UpdateOptions
+            {
+                LocalFeedPath = Program.UpdateFeedOverride ?? infraOptions.Branding.UpdateFeedPath,
+                Repository = infraOptions.Branding.UpdateRepository,
+            };
         });
         services.AddPCBoostPersistence(infraOptions.ResolveDatabasePath());
         services.AddPCBoostDiagnostics();
@@ -152,6 +158,17 @@ public partial class App : Application
         // des disques (première après 2 minutes, puis toutes les 6 heures ; lecture seule).
         Services.GetRequiredService<IThermalThrottlingDetector>().Start();
         Services.GetRequiredService<IHardwareHealthService>().Start();
+
+        // Mises à jour de PCBoost : vérification différée, téléchargement vérifié, installation à la fermeture.
+        try
+        {
+            if (Program.CaptureDirectory is null)
+                await Services.GetRequiredService<IAutoUpdateService>().StartAsync(Program.StartInBackground).ConfigureAwait(true);
+        }
+        catch (Exception ex)
+        {
+            _logger?.LogWarning("Mises à jour automatiques : {Message}", ex.Message);
+        }
     }
 
     /// <summary>Arrêt propre : restaure une session Gaming en cours, vide l'historique, libère les ressources.</summary>
@@ -168,6 +185,7 @@ public partial class App : Application
                 _services.GetService<ISmartOptimizationService>()?.Stop();
                 _services.GetService<IHardwareHealthService>()?.Stop();
                 _services.GetService<IThermalThrottlingDetector>()?.Stop();
+                _services.GetService<IAutoUpdateService>()?.Stop();
                 _services.GetService<IPerformanceMonitor>()?.Stop();
 
                 // 2. Restaurer une session Gaming encore active (jamais de réglage temporaire laissé en place).

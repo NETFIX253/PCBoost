@@ -88,7 +88,7 @@ public sealed class CompositionTests
         Assert.Equal(UpdateCheckStatus.NotConfigured, update.Status);
         Assert.Collection(provider.GetServices<IUpdateProvider>(),
             p => Assert.IsType<LocalUpdateProvider>(p),
-            p => Assert.IsType<PlaceholderRemoteUpdateProvider>(p));
+            p => Assert.IsType<GitHubUpdateProvider>(p));
         Assert.Equal(Path.Combine(temp.Path, "updates"), provider.GetRequiredService<UpdateService>().DownloadDirectory);
         Assert.Equal(temp.Path, provider.GetRequiredService<IAppInfo>().DataDirectory);
         Assert.IsType<SystemClock>(provider.GetRequiredService<IClock>());

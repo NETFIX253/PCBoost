@@ -2,6 +2,7 @@ using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using PCBoost.Core.Abstractions.Platform;
+using PCBoost.Core.Common;
 using PCBoost.Core.Models.Updates;
 using PCBoost.Core.Services;
 using PCBoost.Core.Settings;
@@ -22,14 +23,12 @@ public sealed partial class SettingsViewModel : ViewModelBase
     private readonly ISettingsService _settings;
     private readonly IAutoStartRegistration _autoStart;
     private readonly IThemeService _theme;
-    private readonly IUpdateService _updates;
+    private readonly IAutoUpdateService _updates;
     private readonly IShellService _shell;
     private readonly IAppInfo _appInfo;
     private readonly IGameDetectionService _games;
     private readonly List<string?> _preferredGameIds = [null];
     private readonly SemaphoreSlim _saveLock = new(1, 1);
-    private UpdateInfo? _availableUpdate;
-    private string? _downloadedPackage;
     private bool _loading;
 
     public SettingsViewModel(
@@ -37,7 +36,7 @@ public sealed partial class SettingsViewModel : ViewModelBase
         ISettingsService settings,
         IAutoStartRegistration autoStart,
         IThemeService theme,
-        IUpdateService updates,
+        IAutoUpdateService updates,
         IShellService shell,
         IAppInfo appInfo,
         IGameDetectionService games)
@@ -73,6 +72,7 @@ public sealed partial class SettingsViewModel : ViewModelBase
         LogDirectory = appInfo.LogDirectory;
         CurrentVersionText = T("Settings_Update_CurrentVersion", VersionFormat.Short(appInfo.Version));
         UpdateStatusText = T("Settings_Update_NotChecked");
+        ApplyUpdateState(updates.State);
     }
 
     // --- Général ---
@@ -164,8 +164,22 @@ public sealed partial class SettingsViewModel : ViewModelBase
     // --- Mises à jour ---
     public string CurrentVersionText { get; }
 
+    /// <summary>Mises à jour automatiques (vérification, téléchargement vérifié, installation à la fermeture).</summary>
+    [ObservableProperty]
+    public partial bool AutoUpdate { get; set; }
+
+    /// <summary>Réglage imposé par une stratégie de l'organisation (interrupteur désactivé).</summary>
+    [ObservableProperty]
+    public partial bool IsAutoUpdatePolicy { get; private set; }
+
+    public bool CanChangeAutoUpdate => !IsAutoUpdatePolicy;
+
     [ObservableProperty]
     public partial string UpdateStatusText { get; private set; }
+
+    /// <summary>« Dernière vérification : … » (vide si aucune).</summary>
+    [ObservableProperty]
+    public partial string LastUpdateCheckText { get; private set; } = string.Empty;
 
     [ObservableProperty]
     [NotifyCanExecuteChangedFor(nameof(CheckForUpdatesCommand), nameof(DownloadUpdateCommand))]
@@ -175,12 +189,16 @@ public sealed partial class SettingsViewModel : ViewModelBase
     [NotifyCanExecuteChangedFor(nameof(DownloadUpdateCommand))]
     public partial bool IsUpdateAvailable { get; private set; }
 
-    /// <summary>Mises à jour non configurées pour cette version (affiché honnêtement).</summary>
+    /// <summary>Aucune source de mise à jour pour cette copie (affiché honnêtement).</summary>
     [ObservableProperty]
     public partial bool IsUpdateNotConfigured { get; private set; }
 
+    /// <summary>Nouveautés de la version proposée (ou de la version installée juste après une mise à jour).</summary>
     [ObservableProperty]
     public partial string ReleaseNotes { get; private set; } = string.Empty;
+
+    [ObservableProperty]
+    public partial string ReleaseNotesHeader { get; private set; } = string.Empty;
 
     [ObservableProperty]
     [NotifyCanExecuteChangedFor(nameof(CheckForUpdatesCommand), nameof(DownloadUpdateCommand))]
@@ -193,10 +211,75 @@ public sealed partial class SettingsViewModel : ViewModelBase
     [NotifyCanExecuteChangedFor(nameof(InstallUpdateCommand))]
     public partial bool IsUpdateReadyToInstall { get; private set; }
 
+    /// <summary>Copie portable : la nouvelle version se télécharge depuis la page de la version.</summary>
+    [ObservableProperty]
+    [NotifyCanExecuteChangedFor(nameof(OpenReleasePageCommand))]
+    public partial bool CanOpenReleasePage { get; private set; }
+
+    private Uri? _releasePage;
+
+    private void OnUpdateStateChanged(object? sender, AutoUpdateState state) => OnUi(() => ApplyUpdateState(state));
+
+    internal void ApplyUpdateState(AutoUpdateState state)
+    {
+        var version = state.Update is { } u ? VersionFormat.Short(u.Version) : string.Empty;
+        IsCheckingUpdates = state.Phase == AutoUpdatePhase.Checking;
+        IsDownloadingUpdate = state.Phase == AutoUpdatePhase.Downloading;
+        DownloadProgressPercent = state.DownloadPercent ?? 0;
+        IsUpdateAvailable = state.Phase is AutoUpdatePhase.Available or AutoUpdatePhase.Failed && state.Update is not null && state.IsInstalledCopy;
+        IsUpdateReadyToInstall = state.CanInstall;
+        IsUpdateNotConfigured = state.Phase == AutoUpdatePhase.NotConfigured;
+        _releasePage = state.Update?.ReleaseUrl is { } url && Uri.TryCreate(url, UriKind.Absolute, out var uri) && uri.Scheme == Uri.UriSchemeHttps ? uri : null;
+        CanOpenReleasePage = !state.IsInstalledCopy && _releasePage is not null && state.Phase is AutoUpdatePhase.Available;
+        LastUpdateCheckText = state.LastCheckedAt is { } at ? T("Settings_Update_LastCheck", Formatter.DateTimeFull(at)) : string.Empty;
+
+        UpdateStatusText = state.Phase switch
+        {
+            AutoUpdatePhase.Checking => T("Settings_Update_Checking"),
+            AutoUpdatePhase.UpToDate => T("Settings_Update_UpToDate"),
+            AutoUpdatePhase.Available when !state.IsInstalledCopy => T("Settings_Update_AvailablePortable", version),
+            AutoUpdatePhase.Available when state.IsMetered && _updates.IsAutomatic => T("Settings_Update_AvailableMetered", version),
+            AutoUpdatePhase.Available => T("Settings_Update_Available", version),
+            AutoUpdatePhase.Downloading => T("Settings_Update_Downloading", version),
+            AutoUpdatePhase.ReadyToInstall when state.InstallBlocked => T("Settings_Update_ReadyBlocked", version),
+            AutoUpdatePhase.ReadyToInstall when _updates.IsAutomatic => T("Settings_Update_ReadyAtClose", version),
+            AutoUpdatePhase.ReadyToInstall => T("Settings_Update_Ready", version),
+            AutoUpdatePhase.NotConfigured => T("Settings_Update_NotConfigured"),
+            AutoUpdatePhase.Failed => state.Message is { } m ? T(m) : T("Settings_Update_Failed"),
+            _ => T("Settings_Update_NotChecked"),
+        };
+
+        // Nouveautés : version proposée, sinon version installée par la dernière mise à jour.
+        if (state.Update is { ReleaseNotes: { Length: > 0 } notes } update && state.Phase is not (AutoUpdatePhase.UpToDate or AutoUpdatePhase.NotConfigured))
+        {
+            ReleaseNotes = notes;
+            ReleaseNotesHeader = T("Settings_Update_NotesOf", VersionFormat.Short(update.Version));
+        }
+        else if (_updates.InstalledReleaseNotes is { Length: > 0 } installed)
+        {
+            ReleaseNotes = installed;
+            ReleaseNotesHeader = T("Settings_Update_NotesInstalled", VersionFormat.Short(_appInfo.Version));
+        }
+        else
+        {
+            ReleaseNotes = string.Empty;
+            ReleaseNotesHeader = string.Empty;
+        }
+    }
+
     protected override async Task OnActivatedAsync(object? parameter, CancellationToken cancellationToken)
     {
         LoadFromSettings(_settings.Current);
+        _updates.StateChanged -= OnUpdateStateChanged;
+        _updates.StateChanged += OnUpdateStateChanged;
+        ApplyUpdateState(_updates.State);
         await LoadGamesAsync(cancellationToken).ConfigureAwait(true);
+    }
+
+    protected override void OnDeactivated()
+    {
+        _updates.StateChanged -= OnUpdateStateChanged;
+        base.OnDeactivated();
     }
 
     private void LoadFromSettings(AppSettings s)
@@ -233,6 +316,8 @@ public sealed partial class SettingsViewModel : ViewModelBase
             ConfirmSensitiveOperations = s.ConfirmSensitiveOperations;
             CreateRestorePointBeforeAdvanced = s.CreateRestorePointBeforeAdvanced;
             VerboseLogging = s.VerboseLogging;
+            IsAutoUpdatePolicy = _updates.IsDisabledByPolicy;
+            AutoUpdate = s.AutoUpdate && !IsAutoUpdatePolicy;
             var retention = Array.IndexOf(RetentionDays, s.HistoryRetentionDays);
             SelectedRetentionIndex = retention >= 0 ? retention : 1;
             UpdateDismissed(s);
@@ -359,6 +444,14 @@ public sealed partial class SettingsViewModel : ViewModelBase
 
     partial void OnVerboseLoggingChanged(bool value) => Save(s => s.VerboseLogging = value);
 
+    partial void OnAutoUpdateChanged(bool value)
+    {
+        if (IsAutoUpdatePolicy) return;
+        Save(s => s.AutoUpdate = value);
+    }
+
+    partial void OnIsAutoUpdatePolicyChanged(bool value) => OnPropertyChanged(nameof(CanChangeAutoUpdate));
+
     partial void OnSelectedRetentionIndexChanged(int value)
     {
         if (value < 0 || value >= RetentionDays.Length) return;
@@ -404,78 +497,41 @@ public sealed partial class SettingsViewModel : ViewModelBase
     [RelayCommand(CanExecute = nameof(CanCheckForUpdates))]
     private async Task CheckForUpdatesAsync(CancellationToken cancellationToken)
     {
-        IsCheckingUpdates = true;
-        UpdateStatusText = T("Settings_Update_Checking");
-        try
-        {
-            var ok = await RunSafeAsync(async ct =>
-            {
-                var result = await _updates.CheckForUpdatesAsync(ct).ConfigureAwait(true);
-                ApplyUpdateResult(result);
-            }, cancellationToken, trackBusy: false).ConfigureAwait(true);
-            if (!ok) UpdateStatusText = T("Settings_Update_Failed");
-        }
-        finally
-        {
-            IsCheckingUpdates = false;
-        }
+        // Non liée à la page : quitter les paramètres n'interrompt pas la vérification (le service gère son état).
+        var ok = await RunSafeAsync(ct => _updates.CheckNowAsync(ct), cancellationToken, trackBusy: false, linkToPage: false).ConfigureAwait(true);
+        if (!ok) UpdateStatusText = T("Settings_Update_Failed");
     }
 
     private bool CanCheckForUpdates() => !IsCheckingUpdates && !IsDownloadingUpdate;
 
-    internal void ApplyUpdateResult(UpdateCheckResult result)
-    {
-        _availableUpdate = result.Status == UpdateCheckStatus.UpdateAvailable ? result.Update : null;
-        IsUpdateAvailable = _availableUpdate is not null;
-        IsUpdateNotConfigured = result.Status == UpdateCheckStatus.NotConfigured;
-        IsUpdateReadyToInstall = false;
-        _downloadedPackage = null;
-        ReleaseNotes = _availableUpdate?.ReleaseNotes ?? string.Empty;
-        UpdateStatusText = result.Status switch
-        {
-            UpdateCheckStatus.UpToDate => T("Settings_Update_UpToDate"),
-            UpdateCheckStatus.UpdateAvailable when result.Update is { } u => T("Settings_Update_Available", VersionFormat.Short(u.Version)),
-            UpdateCheckStatus.NotConfigured => T("Settings_Update_NotConfigured"),
-            _ => result.Message is { } m ? T(m) : T("Settings_Update_Failed"),
-        };
-    }
-
-    /// <summary>Télécharge la mise à jour et vérifie son empreinte SHA-256.</summary>
+    /// <summary>Télécharge la mise à jour et vérifie sa signature, sa taille et son empreinte SHA-256.</summary>
     [RelayCommand(CanExecute = nameof(CanDownloadUpdate))]
     private async Task DownloadUpdateAsync(CancellationToken cancellationToken)
     {
-        if (_availableUpdate is not { } update) return;
-        IsDownloadingUpdate = true;
-        DownloadProgressPercent = 0;
-        try
-        {
-            await RunSafeAsync(async ct =>
-            {
-                var progress = UiProgress<double>(p => DownloadProgressPercent = Math.Clamp(p <= 1 ? p * 100 : p, 0, 100));
-                var result = await _updates.DownloadAndVerifyAsync(update, progress, ct).ConfigureAwait(true);
-                if (!CheckResult(result.Outcome) || result.LocalPath is null)
-                {
-                    UpdateStatusText = T("Settings_Update_DownloadFailed");
-                    return;
-                }
-
-                _downloadedPackage = result.LocalPath;
-                IsUpdateReadyToInstall = true;
-                UpdateStatusText = T("Settings_Update_Ready", VersionFormat.Short(update.Version));
-            }, cancellationToken, trackBusy: false).ConfigureAwait(true);
-        }
-        finally
-        {
-            IsDownloadingUpdate = false;
-        }
+        await RunSafeAsync(ct => _updates.DownloadNowAsync(ct), cancellationToken, trackBusy: false, linkToPage: false).ConfigureAwait(true);
+        if (_updates.State.Phase == AutoUpdatePhase.Failed) UpdateStatusText = T("Settings_Update_DownloadFailed");
     }
 
     private bool CanDownloadUpdate() => IsUpdateAvailable && !IsDownloadingUpdate && !IsCheckingUpdates;
 
+    /// <summary>« Installer maintenant » : PCBoost se ferme, installe la mise à jour puis se relance.</summary>
     [RelayCommand(CanExecute = nameof(IsUpdateReadyToInstall))]
-    private void InstallUpdate()
+    private async Task InstallUpdateAsync()
     {
-        if (_downloadedPackage is { } path) CheckResult(_updates.LaunchInstaller(path));
+        var version = _updates.State.Update is { } u ? VersionFormat.Short(u.Version) : string.Empty;
+        var answer = await Dialogs.ConfirmAsync(new ConfirmationRequest(
+            TextRef.Of("Settings_Update_InstallConfirm_Title", version),
+            TextRef.Of("Settings_Update_InstallConfirm_Message"),
+            TextRef.Of("Settings_Action_InstallUpdate"),
+            CloseButton: TextRef.Of("Common_Action_Cancel"))).ConfigureAwait(true);
+        if (answer != DialogResultKind.Primary) return;
+        CheckResult(_updates.RequestInstallNow());
+    }
+
+    [RelayCommand(CanExecute = nameof(CanOpenReleasePage))]
+    private void OpenReleasePage()
+    {
+        if (_releasePage is { } page) CheckResult(_shell.OpenUri(page));
     }
 
     private void UpdateDismissed(AppSettings s)

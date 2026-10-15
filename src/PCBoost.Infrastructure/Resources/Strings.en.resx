@@ -41,6 +41,26 @@
   <data name="Error_NotSupported" xml:space="preserve"><value>This operation is not supported on this PC or on this version of Windows.</value></data>
   <data name="Error_RequiresElevation" xml:space="preserve"><value>This operation requires administrator permission.</value></data>
   <data name="Error_Timeout" xml:space="preserve"><value>The operation took too long and was stopped.</value></data>
+  <data name="Infra_AutoUpdate_Action_InstallNow" xml:space="preserve"><value>Install now</value></data>
+  <data name="Infra_AutoUpdate_Action_Open" xml:space="preserve"><value>Open</value></data>
+  <data name="Infra_AutoUpdate_Action_WhatsNew" xml:space="preserve"><value>What's new</value></data>
+  <data name="Infra_AutoUpdate_Elevated" xml:space="preserve"><value>PCBoost is running as administrator: for your safety, the update is not installed from this window. Close PCBoost and open it again normally.</value></data>
+  <data name="Infra_AutoUpdate_InstallBlocked" xml:space="preserve"><value>The automatic installation did not succeed twice (permission declined?). Use "Install now".</value></data>
+  <data name="Infra_AutoUpdate_Journal_Installing" xml:space="preserve"><value>PCBoost {0} update installation started on close.</value></data>
+  <data name="Infra_AutoUpdate_Journal_Ready" xml:space="preserve"><value>PCBoost {0} update downloaded and verified (signature and fingerprint): installed when PCBoost closes.</value></data>
+  <data name="Infra_AutoUpdate_Journal_Updated" xml:space="preserve"><value>PCBoost was updated: version {0} → {1}.</value></data>
+  <data name="Infra_AutoUpdate_NothingToInstall" xml:space="preserve"><value>No update ready to install.</value></data>
+  <data name="Infra_AutoUpdate_Notify_Available_Body" xml:space="preserve"><value>Open PCBoost Settings to download it.</value></data>
+  <data name="Infra_AutoUpdate_Notify_Available_Metered" xml:space="preserve"><value>Metered connection: the download will wait for another connection, or start it from Settings.</value></data>
+  <data name="Infra_AutoUpdate_Notify_Available_Portable" xml:space="preserve"><value>Portable version: download the new version from the release page (Settings).</value></data>
+  <data name="Infra_AutoUpdate_Notify_Available_Title" xml:space="preserve"><value>PCBoost {0} is available</value></data>
+  <data name="Infra_AutoUpdate_Notify_Installing_Body" xml:space="preserve"><value>The previously downloaded update is being installed now. Allow Windows Installer to continue; PCBoost will restart afterwards. If you decline, PCBoost starts normally at your next sign-in.</value></data>
+  <data name="Infra_AutoUpdate_Notify_Installing_Title" xml:space="preserve"><value>Installing PCBoost {0}</value></data>
+  <data name="Infra_AutoUpdate_Notify_Ready_Body" xml:space="preserve"><value>The update is verified. It will be installed when PCBoost closes (Windows will ask for permission).</value></data>
+  <data name="Infra_AutoUpdate_Notify_Ready_Title" xml:space="preserve"><value>PCBoost {0} is ready</value></data>
+  <data name="Infra_AutoUpdate_Notify_Updated_Body" xml:space="preserve"><value>See what's new in Settings.</value></data>
+  <data name="Infra_AutoUpdate_Notify_Updated_Title" xml:space="preserve"><value>PCBoost was updated to version {0}</value></data>
+  <data name="Infra_AutoUpdate_PortableCopy" xml:space="preserve"><value>This copy of PCBoost is portable: download the new version from the release page.</value></data>
   <data name="Infra_Database_Recovered" xml:space="preserve"><value>The local data (history, restore) was damaged. A copy was set aside and new data was created.</value></data>
   <data name="Infra_Database_Temporary" xml:space="preserve"><value>Local data cannot be saved on this PC. This session's history will not be kept after closing.</value></data>
   <data name="Infra_Language_English" xml:space="preserve"><value>English</value></data>
@@ -48,15 +68,19 @@
   <data name="Infra_Language_System" xml:space="preserve"><value>System language</value></data>
   <data name="Infra_Update_Available" xml:space="preserve"><value>Version {0} is available.</value></data>
   <data name="Infra_Update_CopyFailed" xml:space="preserve"><value>The update package could not be copied.</value></data>
+  <data name="Infra_Update_DownloadFailed" xml:space="preserve"><value>The update download did not complete. Nothing was installed; another attempt will be made later.</value></data>
   <data name="Infra_Update_FeedInvalid" xml:space="preserve"><value>The update information is unreadable or incomplete.</value></data>
   <data name="Infra_Update_FeedNotFound" xml:space="preserve"><value>The update source could not be found.</value></data>
   <data name="Infra_Update_HashMismatch" xml:space="preserve"><value>The update package is damaged or has been modified: its fingerprint does not match. It was deleted and nothing was installed.</value></data>
   <data name="Infra_Update_InstallerFailed" xml:space="preserve"><value>The installer could not be started. The current version stays in place.</value></data>
   <data name="Infra_Update_InstallerStarted" xml:space="preserve"><value>The update installation has started. If it fails, the current version stays in place.</value></data>
   <data name="Infra_Update_InvalidPackage" xml:space="preserve"><value>Only an installation package downloaded and verified by the application can be started.</value></data>
+  <data name="Infra_Update_NoPackageForArchitecture" xml:space="preserve"><value>This update provides no package for this type of processor.</value></data>
   <data name="Infra_Update_NotConfigured" xml:space="preserve"><value>No update source is configured.</value></data>
+  <data name="Infra_Update_Offline" xml:space="preserve"><value>The update server (GitHub) cannot be reached. Check the Internet connection; another attempt will be made later.</value></data>
   <data name="Infra_Update_PackageNotFound" xml:space="preserve"><value>The update package could not be found.</value></data>
-  <data name="Infra_Update_RemoteNotConfigured" xml:space="preserve"><value>Online update checks are not available in this version.</value></data>
+  <data name="Infra_Update_SignatureInvalid" xml:space="preserve"><value>The update is not signed by the publisher of PCBoost: it was refused and nothing was downloaded or installed.</value></data>
+  <data name="Infra_Update_SizeMismatch" xml:space="preserve"><value>The update package does not have the announced size: it was deleted and nothing was installed.</value></data>
   <data name="Infra_Update_UpToDate" xml:space="preserve"><value>You are using the latest available version ({0}).</value></data>
   <data name="Infra_Update_Verified" xml:space="preserve"><value>The update package was verified.</value></data>
 </root>

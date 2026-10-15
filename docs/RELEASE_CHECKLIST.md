@@ -32,8 +32,10 @@
 - [ ] MSI : installation, lancement depuis le menu Démarrer, options raccourci Bureau et lancement avec Windows, mise à niveau depuis la version précédente, désinstallation complète (Program Files et raccourcis supprimés ; `%LOCALAPPDATA%\PCBoost` conservé).
 - [ ] Version portable : décompression et lancement sur un PC sans .NET installé.
 - [ ] Analyse des livrables par Microsoft Defender : aucune détection.
+- [ ] Manifeste de mise à jour : `publish.py manifest` (signature avec la clé principale conservée dans `Opti Windows\_keys`, jamais dans le dépôt), puis `upload pcboost-update.json` avec le MSI ; `verify` vérifie le manifeste servi par `releases/latest/download/` (signature, version, empreinte du MSI publié). La Release doit être marquée « Latest ».
+- [ ] Clés de signature des mises à jour sauvegardées hors du poste (clé USB chiffrée, coffre-fort) : sans elles, les copies installées ne peuvent plus recevoir de mise à jour automatique.
 
 ## 5. Sécurité et confidentialité
 - [ ] Aucune nouvelle cible hors des règles de `docs/SECURITY.md` ; nouvelles optimisations documentées dans `docs/OPTIMIZATIONS.md` avec leur annulation.
-- [ ] Télémétrie toujours absente ; aucune connexion réseau au démarrage (vérifier avec le Moniteur de ressources).
+- [ ] Télémétrie toujours absente ; seule connexion automatique : la lecture du manifeste des mises à jour sur GitHub, 2 minutes après le démarrage (aucune si les mises à jour automatiques sont désactivées) — vérifier avec le Moniteur de ressources.
 - [ ] Dépendances à jour, sans vulnérabilité connue (`dotnet list package --vulnerable --include-transitive`).

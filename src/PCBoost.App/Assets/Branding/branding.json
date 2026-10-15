@@ -10,5 +10,6 @@
   "websiteUrl": null,
   "license": "Propriétaire — tous droits réservés",
   "dataFolderName": "PCBoost",
-  "updateFeedPath": null
+  "updateFeedPath": null,
+  "updateRepository": "NETFIX253/PCBoost"
 }

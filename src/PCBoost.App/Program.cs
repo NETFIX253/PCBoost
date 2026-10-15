@@ -29,6 +29,12 @@ public static partial class Program
 
     public static IReadOnlyList<string> CapturePages { get; private set; } = [];
 
+    /// <summary>
+    /// « --update-feed &lt;dossier&gt; » : flux de mise à jour local pour cette session (essai, partage d'entreprise). Seul un
+    /// manifeste signé par une clé de PCBoost y est accepté : ce paramètre ne permet pas d'installer autre chose.
+    /// </summary>
+    public static string? UpdateFeedOverride { get; private set; }
+
     /// <summary>Déclenché dans l'instance principale quand une autre instance est lancée.</summary>
     public static event EventHandler? SecondInstanceActivated;
 
@@ -41,6 +47,7 @@ public static partial class Program
         ThemeOverride = ValueAfter(args, "--theme");
         LanguageOverride = ValueAfter(args, "--lang");
         CaptureDirectory = ValueAfter(args, "--capture-dir");
+        UpdateFeedOverride = ValueAfter(args, "--update-feed");
         CapturePages = (ValueAfter(args, "--capture-pages") ?? string.Empty)
             .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
         if (CaptureDirectory is not null) StartInBackground = false;

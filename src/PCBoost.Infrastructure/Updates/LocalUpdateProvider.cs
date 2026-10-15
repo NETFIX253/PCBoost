@@ -1,5 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
-using System.Text.Json;
 using Microsoft.Extensions.Logging;
 using PCBoost.Core.Common;
 using PCBoost.Core.Models.Updates;
@@ -8,22 +6,17 @@ using PCBoost.Core.Services;
 namespace PCBoost.Infrastructure.Updates;
 
 /// <summary>
-/// Source de mise à jour locale : un dossier (local ou partage d'entreprise) contenant <c>update.json</c> et le paquet MSI.
-/// Le paquet doit se trouver dans ce dossier (nom de fichier simple) ; il est copié dans le dossier de téléchargement.
-/// La vérification SHA-256 est effectuée par <see cref="UpdateService"/>.
+/// Source de mise à jour locale : un dossier (local ou partage d'entreprise) contenant le manifeste signé
+/// <c>pcboost-update.json</c> — le même que celui publié sur GitHub — et le paquet MSI qu'il désigne (nom de fichier
+/// simple, dans ce dossier). La signature est vérifiée avec les mêmes clés que pour GitHub : déposer un fichier dans le
+/// partage ne suffit pas pour faire installer un programme. Le paquet est copié dans le dossier de téléchargement ;
+/// taille et empreinte SHA-256 sont vérifiées par <see cref="UpdateService"/>.
 /// </summary>
 public sealed class LocalUpdateProvider : IUpdateProvider
 {
-    public const string FeedFileName = "update.json";
-    private const long MaxFeedBytes = 64 * 1024;
+    public const string FeedFileName = SignedUpdateManifest.FileName;
+    private const long MaxFeedBytes = SignedUpdateManifest.MaxBytes;
     private const int CopyBufferSize = 81920;
-
-    private static readonly JsonSerializerOptions JsonOptions = new()
-    {
-        PropertyNameCaseInsensitive = true,
-        ReadCommentHandling = JsonCommentHandling.Skip,
-        AllowTrailingCommas = true,
-    };
 
     private readonly UpdateOptions _options;
     private readonly IAppInfo _appInfo;
@@ -52,15 +45,16 @@ public sealed class LocalUpdateProvider : IUpdateProvider
             if (info.Length > MaxFeedBytes)
                 return Failed("Infra_Update_FeedInvalid");
 
-            UpdateFeedManifest? manifest;
-            await using (var stream = new FileStream(feedFile, FileMode.Open, FileAccess.Read, FileShare.Read, 4096, useAsync: true))
-                manifest = await JsonSerializer.DeserializeAsync<UpdateFeedManifest>(stream, JsonOptions, cancellationToken).ConfigureAwait(false);
-
-            if (!TryCreateUpdateInfo(manifest, feedDirectory, out var update))
+            var json = await File.ReadAllTextAsync(feedFile, SignedUpdateManifest.Utf8, cancellationToken).ConfigureAwait(false);
+            var verified = SignedUpdateManifest.Verify(json, _options.TrustedKeys, UpdateSourceRules.Local);
+            if (!verified.Success || verified.Value is not { } manifest)
             {
-                _logger.LogWarning("Le fichier de mise à jour local est incomplet ou invalide.");
-                return Failed("Infra_Update_FeedInvalid");
+                _logger.LogWarning("Manifeste de mise à jour local refusé ({Detail}).", verified.TechnicalDetail);
+                return new UpdateCheckResult(UpdateCheckStatus.Failed, null, verified.Message ?? TextRef.Of("Infra_Update_FeedInvalid"));
             }
+            if (manifest.PackageFor(SignedUpdateManifest.CurrentArchitecture) is not { } package)
+                return Failed("Infra_Update_NoPackageForArchitecture");
+            var update = manifest.ToUpdateInfo(package, Path.Combine(feedDirectory, package.FileName));
 
             if (UpdateVersions.IsNewer(update.Version, currentVersion))
             {
@@ -71,7 +65,7 @@ public sealed class LocalUpdateProvider : IUpdateProvider
             return new UpdateCheckResult(UpdateCheckStatus.UpToDate, null,
                 TextRef.Of("Infra_Update_UpToDate", UpdateVersions.Display(currentVersion)));
         }
-        catch (JsonException ex)
+        catch (System.Text.DecoderFallbackException ex)
         {
             _logger.LogWarning(ex, "Le fichier de mise à jour local est illisible.");
             return Failed("Infra_Update_FeedInvalid");
@@ -113,20 +107,31 @@ public sealed class LocalUpdateProvider : IUpdateProvider
         try
         {
             Directory.CreateDirectory(downloadDirectory);
+            // Jamais plus que la taille signée (ou la taille maximale d'un paquet) : un fichier remplacé sur le partage par
+            // un fichier énorme ne remplit pas le disque.
+            var limit = update.Size is > 0 ? update.Size.Value : SignedUpdateManifest.MaxPackageSize;
+            long copied = 0;
             await using (var input = new FileStream(source, FileMode.Open, FileAccess.Read, FileShare.Read, CopyBufferSize, useAsync: true))
-            await using (var output = new FileStream(partial, FileMode.Create, FileAccess.Write, FileShare.None, CopyBufferSize, useAsync: true))
             {
+                if (input.Length > limit || (update.Size is > 0 && input.Length != update.Size))
+                    return SizeMismatch(input.Length, limit);
+                await using var output = new FileStream(partial, FileMode.Create, FileAccess.Write, FileShare.None, CopyBufferSize, useAsync: true);
                 var total = input.Length;
                 var buffer = new byte[CopyBufferSize];
-                long copied = 0;
                 int read;
                 while ((read = await input.ReadAsync(buffer, cancellationToken).ConfigureAwait(false)) > 0)
                 {
-                    await output.WriteAsync(buffer.AsMemory(0, read), cancellationToken).ConfigureAwait(false);
                     copied += read;
+                    if (copied > limit) break;
+                    await output.WriteAsync(buffer.AsMemory(0, read), cancellationToken).ConfigureAwait(false);
                     progress?.Report(total > 0 ? copied * 100d / total : 100d);
                 }
                 await output.FlushAsync(cancellationToken).ConfigureAwait(false);
+            }
+            if (copied > limit || (update.Size is > 0 && copied != update.Size))
+            {
+                TryDelete(partial);
+                return SizeMismatch(copied, limit);
             }
             File.Move(partial, destination, overwrite: true);
             progress?.Report(100d);
@@ -143,6 +148,12 @@ public sealed class LocalUpdateProvider : IUpdateProvider
             _logger.LogWarning(ex, "La copie du paquet de mise à jour a échoué.");
             return new UpdateDownloadResult(OperationResult.FromException(ex) with { Message = TextRef.Of("Infra_Update_CopyFailed") }, null);
         }
+    }
+
+    private UpdateDownloadResult SizeMismatch(long actual, long limit)
+    {
+        _logger.LogWarning("Taille du paquet de mise à jour du flux local incorrecte ({Actual} octets, attendu au plus {Limit}).", actual, limit);
+        return new UpdateDownloadResult(OperationResult.Fail(OperationErrorKind.Blocked, TextRef.Of("Infra_Update_SizeMismatch")), null);
     }
 
     private bool TryGetFeed(out string feedDirectory, out string feedFile)
@@ -169,21 +180,6 @@ public sealed class LocalUpdateProvider : IUpdateProvider
             _logger.LogWarning(ex, "Le chemin de la source de mise à jour locale est invalide.");
             return false;
         }
-    }
-
-    private static bool TryCreateUpdateInfo(UpdateFeedManifest? manifest, string feedDirectory, [NotNullWhen(true)] out UpdateInfo? update)
-    {
-        update = null;
-        if (manifest is null) return false;
-        if (!Version.TryParse(manifest.Version?.Trim(), out var version)) return false;
-        var package = manifest.Package?.Trim();
-        if (!PathContainment.IsPlainFileName(package) || !package!.EndsWith(".msi", StringComparison.OrdinalIgnoreCase)) return false;
-        var sha = manifest.Sha256?.Trim();
-        if (!Sha256Hash.IsValid(sha)) return false;
-        if (!UpdateFeedManifest.TryParseDate(manifest.PublishedAt, out var publishedAt)) return false;
-
-        update = new UpdateInfo(version, Path.Combine(feedDirectory, package), sha!.ToUpperInvariant(), manifest.Notes, publishedAt);
-        return true;
     }
 
     private static UpdateCheckResult Failed(string messageKey) => new(UpdateCheckStatus.Failed, null, TextRef.Of(messageKey));
